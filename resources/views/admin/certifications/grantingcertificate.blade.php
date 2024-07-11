@@ -34,11 +34,16 @@
                         <!-- Form Start -->
 
 
-                        <div class=" form-group col-md-6">
-                            <label class="form-label" for="name"> {{__('admin.certifications.name')}} <span>*</span></label>
-                            <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" required>
+                        <div class="form-group col-md-6">
+                            <label class="form-label" for="student_id">{{__('admin.certifications.student')}} <span>*</span></label>
+                            <select class="form-control select2" name="student_id" id="student_id">
+                                <option value="">{{ __('select') }}</option>
+                                @foreach( $students as $student )
+                                <option value="{{ $student->id }}" @if(old('student_id')==$student->id) selected @endif>{{ $track->name }}</option>
+                                @endforeach
+                            </select>
 
-                            @error('name')
+                            @error('student_id')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
