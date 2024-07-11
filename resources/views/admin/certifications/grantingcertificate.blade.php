@@ -39,7 +39,7 @@
                             <select class="form-control select2" name="student_id" id="student_id">
                                 <option value="">{{ __('select') }}</option>
                                 @foreach( $students as $student )
-                                <option value="{{ $student->id }}" @if(old('student_id')==$student->id) selected @endif>{{ $track->name }}</option>
+                                <option value="{{ $student->id }}" @if(old('student_id')==$student->id) selected @endif>{{ $student->name }}</option>
                                 @endforeach
                             </select>
 
