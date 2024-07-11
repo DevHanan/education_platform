@@ -96,8 +96,8 @@
 
           @if($setting->linkedin_url != null)
           <li class="nav-item px-2">
-            <a target="_blank" href="{{ $setting->linkedin_url }}" class="nav-link primary-color>
-              <i class="fa-brands fa-linkedin fa-lg "></i>
+            <a target="_blank" href="{{ $setting->linkedin_url }}" class="nav-link primary-color">
+              <i class="fa-brands fa-linkedin fa-lg"></i>
             </a>
           </li>
           @endif
