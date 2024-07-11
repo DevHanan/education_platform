@@ -11,7 +11,7 @@ class Certificate extends Model
     protected $table = "certificates";
     public $timestamps = true;
     protected $guarded = ['id'];
-    protected $fillable = array('name', 'course_id','date' ,'authority','student_id', 'track_id', 'platform_certification','notes','active');
+    protected $fillable = array('name', 'course_id','date' ,'authority','student_id', 'track_id', 'platform_certification','notes','active','serial_number');
 
     protected $appends = ['FileFullPath','imageFullPath','statusLabel'] ;   
     

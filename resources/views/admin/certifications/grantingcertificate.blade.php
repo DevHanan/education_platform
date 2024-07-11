@@ -28,7 +28,7 @@
         <div class="row row-cards">
             <div class="col-md-12">
 
-                <form class="card"  action="{{ route($route.'.store') }}" method="post" enctype="multipart/form-data">
+                <form class="card" action="{{ route($route.'.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="row card-body">
                         <!-- Form Start -->
@@ -82,6 +82,20 @@
                             @enderror
                         </div>
 
+
+                        <div class="form-group col-md-6">
+
+
+                            <label for="serial_number">{{__('admin.certifications.serial_number')}}</label>
+                            <input type="text" class="form-control" name="serial_number" id="serial_number">
+
+                            @error('serial_number')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
                         <div class="form-group col-md-6">
 
 
@@ -95,7 +109,7 @@
                             @enderror
                         </div>
 
-                      
+
 
                         <!-- Form End -->
                     </div>

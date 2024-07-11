@@ -516,6 +516,7 @@ return [
     ],
     'no_data_found'  => 'لا توجد بيانات للعرض',
     'certifications' => [
+        'serial_number' => 'الرقم التسلسلى',
         'certification_file' =>'ملف الشهادة',
         'name' => 'إسم الشهادة',
         'course_name' => 'إسم الدورة',
