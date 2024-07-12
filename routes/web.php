@@ -28,8 +28,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/home', [HomeController::class, 'index'])->name('default');
 
 Route::get('/about-us', [HomeController::class, 'about']);
-Route::get('/courses', [HomeController::class, 'courses']);
-Route::post('search-courses',[HomeController::class, 'courses']);
+Route::get('/courses', [HomeController::class, 'courses'])->name('courses');
+Route::post('search-courses',[HomeController::class, 'courses'])->name('searchcourses');
 Route::get('/blogs', [HomeController::class, 'blogs']);
 Route::get('/policies', [HomeController::class, 'policy']);
 Route::get('/contactus', [HomeController::class, 'contactus']);
