@@ -35,7 +35,7 @@
                             <input type="search" class="form-control rounded-pill py-2 mt-3 text-center" placeholder="ماذا تريد أن تتعلم؟" name="name">
                             <i class="fa-solid fa-search p-2  position-absolute rounded-circle d-flex align-items-center text-white secondary-bg" style="top:4px;"></i>
                         </div>
-                     
+
 
                         <div class="my-5 p-4 pb-1 category rounded">
                             <h3>المسارات</h3>
@@ -45,7 +45,7 @@
                             <ul class="list-unstyled">
                                 @if(!request()->get('track_id'))
                                 <li class="my-2 d-flex align-items-center">
-                                    <input checked class="form-check-input" type="checkbox" value="" id="checkAll" onclick="checkAll('category')">
+                                    <input checked class="form-check-input" type="checkbox" value="" id="checkAll" onclick="getTest()">
                                     <p class="m-0 mx-2">الكل</p>
                                 </li>
                                 @endif
@@ -455,3 +455,33 @@
 
 </section>
 @endsection
+@push('frontscript')
+<script>
+    function getTest() {
+        alert("eee");
+    }
+
+    function checkAll(filterClass) {
+
+        // Get the "Check All" checkbox and all other checkboxes
+        const checkAllCheckbox = document.querySelector(`.${filterClass} #checkAll`);
+        const checkboxes = document.querySelectorAll(`.${filterClass} .form-check-input:not(.check-all)`);
+
+        // Add event listener to the "Check All" checkbox
+        checkAllCheckbox.addEventListener('change', function() {
+            checkboxes.forEach(function(checkbox) {
+                checkbox.checked = checkAllCheckbox.checked;
+            });
+        });
+
+        // Add event listener to other checkboxes to uncheck "Check All" if any checkbox is unchecked
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                if (!this.checked) {
+                    checkAllCheckbox.checked = false;
+                }
+            });
+        });
+    }
+</script>
+@endpush
