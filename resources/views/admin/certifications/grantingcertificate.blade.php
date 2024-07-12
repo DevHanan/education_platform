@@ -68,9 +68,10 @@
                             @enderror
                         </div>
 
+
                         <div class="form-group col-md-6">
                             <label class="form-label" for="courses">{{__('admin.certifications.courses')}} <span>*</span></label>
-                            <select class="form-control select2" name="course_id" id="courses" required>
+                            <select class="form-control select2" name="course_id" id="course_id" required>
                                 <option value="">{{ __('select') }}</option>
 
                             </select>
@@ -82,6 +83,19 @@
                             @enderror
                         </div>
 
+
+                        <div class="form-group col-md-6">
+                            <label class="form-label" for="certificate_id">{{__('admin.certifications.certificate')}} <span>*</span></label>
+                            <select class="form-control select2" name="certificate_id" id="certificate_id" required>
+                               
+                            </select>
+
+                            @error('certificate_id')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
 
                         <div class="form-group col-md-6">
 
@@ -122,4 +136,32 @@
     </div>
 
 </div>
+@endsection
+
+@push('scripts')
+<script>
+    $('document').ready(function(){
+        $('#course_id').on('change', function() {
+			var course_id = $(this).val();
+			if (course_id) {
+				$.ajax({
+					url: "{{ route('admin.getCertifications') }}",
+					type: "GET",
+					data: {
+						'course_id': course_id
+					},
+					dataType: "json",
+					success: function(data) {
+						var html = '<option value="">Select Certification</option>';
+						$.each(data, function(index, value) {
+							html += '<option value="' + value.id + '">' + value.name + '</option>';
+						});
+						$('#certificate_id').html(html);
+					}
+				})
+			}
+		});
+    });
+</script>
+
 @endsection

@@ -42,14 +42,13 @@ use App\Http\Controllers\Admin\CommentController;
 
 
 // Set Lang Version
-Route::get('locale/language/{locale}', function ($locale){
+Route::get('locale/language/{locale}', function ($locale) {
 
     \Session::put('locale', $locale);
 
     \App::setLocale($locale);
 
     return redirect()->back();
-    
 })->name('version');
 
 Route::group(
@@ -73,14 +72,14 @@ Route::group(
         Route::get('admin/get-course', [CourseController::class, 'getcourse'])->name('admin.getcourse');
         Route::get('admin/get-levels-by-coure', [CourseController::class, 'getlevels'])->name('admin.getLevels');
         Route::get('admin/get-lecture-by-level', [CourseController::class, 'getlectures'])->name('admin.getLectures');
-//, 'prevent-inactive-user'
+        //, 'prevent-inactive-user'
         Route::name('admin.')->middleware(['auth:web'])->group(function () {
 
             Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
             Route::resource('courses', CourseController::class);
             Route::resource('comments', CommentController::class);
 
-          
+
             Route::get('start-soon-courses', [CourseController::class, 'startSoonCourses'])->name('startsoonCourses');
             Route::get('recommend-courses', [CourseController::class, 'recommendCourses'])->name('recommendCourses');
 
@@ -99,9 +98,11 @@ Route::group(
             Route::get('externel-students-certifications', [CertificationController::class, 'externelstudentCertificate'])->name('externelstudentscertifications');
             Route::get('grantingcertificate', [CertificationController::class, 'grantingcertificate'])->name('grantingcertificate');
 
+            Route::get('getCertifications', [CertificationController::class, 'getCertifications'])->name('getCertifications');
 
 
-            
+
+
             Route::get('instructors-tickets', [TicketController::class, 'listInstructorMsg'])->name('instructorstickets');
             Route::get('students-tickets', [TicketController::class, 'listStudentMsg'])->name('studentstickets');
             Route::get('visitors-tickets', [TicketController::class, 'listVisitorMsg'])->name('visitorstickets');
@@ -126,7 +127,7 @@ Route::group(
             Route::post('changestatus', [SubscriptionController::class, 'changeStatus']);
             Route::post('changerecommened', [SubscriptionController::class, 'changerecommened']);
 
-            
+
 
             Route::resource('instructors', InstructorController::class);
             Route::get('instructors-status/{id}', [InstructorController::class, 'status'])->name('users.status');

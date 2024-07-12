@@ -151,4 +151,9 @@ class CertificationController extends Controller
             Toastr::success(__('admin.msg_delete_successfully'), __('admin.msg_success'));
             return redirect()->route($this->route.'.index');
     }
+
+    public function getCertifications(Request $request){
+        $courses = Certificate::where('course_id',$request->course_id)->where('platform_certification','1')->get();
+        return response()->json($courses);
+    }
 }
