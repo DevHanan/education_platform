@@ -152,29 +152,89 @@
 
 <script src="{{asset('public/front/js/main.js')}}"></script>
 
+<script src="{{asset('public/front/js/price_filter.js')}}"></script>
+<script src="{{asset('public/frontjs/pagination.js')}}"></script>
+<script src="{{asset('public/front/js/main.js')}}"></script>
 <script>
-            function checkAll(filterClass) {
-                alert("inside");
-            // Get the "Check All" checkbox and all other checkboxes
-            const checkAllCheckbox = document.querySelector(`.${filterClass} #checkAll`);
-            const checkboxes = document.querySelectorAll(`.${filterClass} .form-check-input:not(.check-all)`);
-    
-            // Add event listener to the "Check All" checkbox
-            checkAllCheckbox.addEventListener('change', function() {
-                checkboxes.forEach(function(checkbox) {
-                    checkbox.checked = checkAllCheckbox.checked;
-                });
+    $(document).ready(function() {
+        $('.select2').select2();
+    });
+
+
+    let categoryCards = document.querySelector('.categoryCards');
+    let rowsCards = document.querySelector('.rowsCards');
+    let paginationCards = document.querySelectorAll('#paginationCard .card_pagination');
+    let paginationCardsImg = document.querySelectorAll('#paginationCard .paginationCardImg');
+    let paginationCardsData = document.querySelectorAll('#paginationCard .paginationCardData');
+
+    rowsCards.addEventListener('click', function() {
+        categoryCards.classList.remove('active');
+        rowsCards.classList.add('active');
+
+        paginationCards.forEach(paginationCard => {
+            paginationCard.classList.add('col-sm-12');
+        });
+        paginationCardsImg.forEach(paginationCardImg => {
+            paginationCardImg.classList.remove('col-12');
+            paginationCardImg.classList.add('col-4');
+        });
+        paginationCardsData.forEach(paginationCardData => {
+            paginationCardData.classList.remove('col-12');
+            paginationCardData.classList.add('col-8');
+        });
+
+        let paginationCardsDesc = document.querySelectorAll('#paginationCard article p');
+
+        paginationCardsDesc.forEach(paginationCardDesc => {
+            paginationCardDesc.style.cssText = 'white-space: normal;';
+        });
+    });
+
+    categoryCards.addEventListener('click', function() {
+        rowsCards.classList.remove('active');
+        categoryCards.classList.add('active');
+
+        paginationCards.forEach(paginationCard => {
+            paginationCard.classList.remove('col-sm-12');
+
+            paginationCardsImg.forEach(paginationCardImg => {
+                paginationCardImg.classList.remove('col-4');
+                paginationCardImg.classList.add('col-12');
             });
-    
-            // Add event listener to other checkboxes to uncheck "Check All" if any checkbox is unchecked
+            paginationCardsData.forEach(paginationCardData => {
+                paginationCardData.classList.remove('col-8');
+                paginationCardData.classList.add('col-12');
+            });
+        });
+
+        let paginationCardsDesc = document.querySelectorAll('#paginationCard article p');
+
+        paginationCardsDesc.forEach(paginationCardDesc => {
+            paginationCardDesc.style.cssText = 'white-space: nowrap;';
+        });
+    });
+</script>
+
+<script>
+    function checkAll(filterClass) {
+        // Get the "Check All" checkbox and all other checkboxes
+        const checkAllCheckbox = document.querySelector(`.${filterClass} #checkAll`);
+        const checkboxes = document.querySelectorAll(`.${filterClass} .form-check-input:not(.check-all)`);
+
+        // Add event listener to the "Check All" checkbox
+        checkAllCheckbox.addEventListener('change', function() {
             checkboxes.forEach(function(checkbox) {
-                checkbox.addEventListener('change', function() {
-                    if (!this.checked) {
-                        checkAllCheckbox.checked = false;
-                    }
-                });
+                checkbox.checked = checkAllCheckbox.checked;
             });
-        }
-     
-       
-    </script>
+        });
+
+        // Add event listener to other checkboxes to uncheck "Check All" if any checkbox is unchecked
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                if (!this.checked) {
+                    checkAllCheckbox.checked = false;
+                }
+            });
+        });
+    }
+</script>
