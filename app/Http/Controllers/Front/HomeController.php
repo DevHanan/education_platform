@@ -38,7 +38,6 @@ class HomeController extends Controller
 
     public function courses(Request $request)
     {
-        return $request->all();
         $title = 'الدورات التدريبية';
         $list_courses = Course::where(function ($q) use ($request) {
             if ($request->track_id)
