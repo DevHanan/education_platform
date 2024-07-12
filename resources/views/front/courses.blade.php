@@ -455,10 +455,8 @@
 @endsection
 @push('frontscript')
 <script src="{{asset('public/front/js/price_filter.js')}}"></script>
-<script src="{{asset('public/front/js/pagination.js')}}"></script>
-<!-- <script src="{{asset('public/front/js/main.js')}}"></script> -->
 <script>
-    
+
         $(document).ready(function() {
             $('.select2').select2();
         });
