@@ -72,6 +72,21 @@ class CertificationController extends Controller
         $data['route'] = $this->route;
         return view('admin.certifications.grantingcertificate',$data);
     }
+
+
+    public function postgrantingcertificate(Request $request){
+        $request->merge(['platform_certification'=>'0']);
+        $certificate = Certificate::create($request->except(['file']));
+        if ($request->hasFile('file')) {
+            $thumbnail = $request->file;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/certifications/main/'),$filename);
+            $certificate->file ='uploads/certifications/main/'.$filename;
+            $certificate->save();
+        }    
+        Toastr::success(__('msg_added_successfully'), __('admin.msg_success'));
+        return redirect()->route('admin.studentscertifications');
+    }
     public function store(Request $request)
     {
         $request->merge(['platform_certification'=>'1']);

@@ -97,7 +97,7 @@ Route::group(
             Route::get('students-certifications', [CertificationController::class, 'studentCertificate'])->name('studentscertifications');
             Route::get('externel-students-certifications', [CertificationController::class, 'externelstudentCertificate'])->name('externelstudentscertifications');
             Route::get('grantingcertificate', [CertificationController::class, 'grantingcertificate'])->name('grantingcertificate');
-
+            Route::post('postgrantingcertificate', [CertificationController::class, 'postgrantingcertificate'])->name('postgrantingcertificate');
             Route::get('getCertifications', [CertificationController::class, 'getCertifications'])->name('getCertifications');
 
 
