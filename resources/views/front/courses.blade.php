@@ -43,7 +43,7 @@
                                 <input type="text" class="form-control my-3 rounded-pill" placeholder="بحث">
                             </div>
                             <ul class="list-unstyled">
-                                @if(!request()->get('track_id') || request()->get('tracks') == 0 )
+                                @if(!request()->get('track_id')  || request()->get('tracks') == 0 )
                                 <li class="my-2 d-flex align-items-center">
                                     <input checked class="form-check-input" type="checkbox" value="0" name="tracks[]" id="checkAll" onclick="checkAllInput('category')">
                                     <p class="m-0 mx-2">الكل</p>
@@ -51,8 +51,8 @@
                                 @endif
 
                                 @foreach($tracks as $track)
-                                <li class="my-2 d-flex align-items-center">                                  
-                                    <input class="form-check-input" type="checkbox" name="tracks[]" value="{{ $track->id }}" @if($track->id == request()->get('track_id')) checked="checked" @endif >
+                                <li class="my-2 d-flex align-items-center">
+                                    <input class="form-check-input"  type="checkbox" name="tracks[]"  value="{{ $track->id }}" @if($track->id == request()->get('track_id')) checked="checked" @endif >
                                     <label for="img-videos" class="d-flex">
                                         <p class="m-0 mx-2"> {{ $track->name }}</p>
                                         <span>( {{$track->courseCount }})</span>
@@ -74,9 +74,7 @@
                                 </li>
                                 @foreach($courseTypes as $type)
                                 <li class="my-2 d-flex align-items-center">
-                                    @if( request()->get('types') && request()->get('types') != null )
-                                   
-                                    <input name="types[]" class="form-check-input" type="checkbox" value="{{$type->id}}" id="">
+                                    <input  name="types[]" class="form-check-input"  type="checkbox" value="{{$type->id}}" id="">
                                     <label for="combine-courses">
                                         <p class="m-0 mx-2"> {{ $type->name }} </p>
                                     </label>
@@ -97,9 +95,8 @@
                                 </li>
                                 @foreach($instructors as $instructor)
                                 <li class="my-2 d-flex align-items-center">
-                               
-                                <input class="form-check-input" name="instructors[]" >
-                                <label for="teacher5">
+                                    <input class="form-check-input"  name="instructors[]"  type="checkbox" value="{{ $instructor->id}}"  checked="checked" @endif >
+                                    <label for="teacher5">
                                         <p class="m-0 mx-2">{{ $instructor->name  }}</p>
                                     </label>
                                 </li>
