@@ -69,7 +69,7 @@
                             </div>
                             <ul class="list-unstyled">
                                 <li class="my-2 d-flex align-items-center">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkAll" onclick="checkAll('coursesFilter')">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkAll" onclick="checkAllInput('coursesFilter')">
                                     <p class="m-0 mx-2">الكل</p>
                                 </li>
                                 @foreach($courseTypes as $type)
@@ -90,7 +90,7 @@
                             </div>
                             <ul class="list-unstyled">
                                 <li class="my-2 d-flex align-items-center">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkAll" onclick="checkAll('trainers')">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkAll" onclick="checkAllInput('trainers')">
                                     <p class="m-0 mx-2">الكل</p>
                                 </li>
                                 @foreach($instructors as $instructor)
@@ -109,7 +109,7 @@
                             <div class="mx-2 my-4 w-100 price-filter">
                                 <ul class="list-unstyled">
                                     <li class="my-2 d-flex align-items-center">
-                                        <input class="form-check-input" type="checkbox" value="" id="checkAll" onclick="checkAll('price-filter')">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkAll" onclick="checkAllInput('price-filter')">
                                         <p class="m-0 mx-2">الكل</p>
                                     </li>
 
@@ -159,7 +159,7 @@
                             <h3>تاريخ النشر</h3>
                             <ul class="list-unstyled">
                                 <li class="my-2 d-flex align-items-center">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkAll" onclick="checkAll('dateFilter')">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkAll" onclick="checkAllInput('dateFilter')">
                                     <p class="m-0 mx-2">الكل</p>
                                 </li>
 
@@ -189,7 +189,7 @@
                             <h3>التقيم</h3>
                             <ul class="list-unstyled mt-3">
                                 <li class="my-2 d-flex align-items-center">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkAll" onclick="checkAll('rating')">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkAll" onclick="checkAllInput('rating')">
                                     <p class="m-0 mx-2">الكل</p>
                                 </li>
                                 <li class="my-2 d-flex align-items-center justify-content-between">
