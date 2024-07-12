@@ -95,7 +95,7 @@
                                 </li>
                                 @foreach($instructors as $instructor)
                                 <li class="my-2 d-flex align-items-center">
-                                    <input class="form-check-input"  name="instructors[]"  type="checkbox" value="{{ $instructor->id}}"  checked="checked" @endif >
+                                    <input class="form-check-input"  name="instructors[]"  type="checkbox" value="{{ $instructor->id}}"  >
                                     <label for="teacher5">
                                         <p class="m-0 mx-2">{{ $instructor->name  }}</p>
                                     </label>
