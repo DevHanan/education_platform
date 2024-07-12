@@ -28,7 +28,8 @@
     <div class="content my-5 container">
         <div class="row">
             <div class="col-lg-5">
-                <form method="get" action="{{url('/courses')}}">
+                <form method="post" action="{{url('/search-courses')}}">
+                    @csrf
                     <div class="filter px-5">
                         <button class="btn w-100 rounded-pill fw-bold text-center secondary-bg text-white" type="submit"> تصفية النتائج</button>
                         <div class="search position-relative">
