@@ -44,7 +44,7 @@ class CertificationController extends Controller
         $data['rows'] = Certificate::where(function($q)use($request){
             if ($request->name)
             $q->Where('name', 'like', '%' . $request->name  . '%');
-        })->whereNotNull('student_id')->where('platform_certification','1')->paginate(10);
+        })->where('student_id','!=',null)->where('platform_certification','1')->paginate(10);
         return view($this->view.'.student_certification', $data);
     }
 
@@ -75,7 +75,7 @@ class CertificationController extends Controller
 
 
     public function postgrantingcertificate(Request $request){
-        $request->merge(['platform_certification'=>'0']);
+        $request->merge(['platform_certification'=>'1']);
         $certificate = Certificate::create($request->except(['file']));
         if ($request->hasFile('file')) {
             $thumbnail = $request->file;
