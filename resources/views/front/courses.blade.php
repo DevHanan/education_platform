@@ -68,12 +68,12 @@
                             </div>
                             <ul class="list-unstyled">
                                 <li class="my-2 d-flex align-items-center">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkAll" onclick="checkAll('coursesFilter')">
+                                    <input class="form-check-input" type="checkbox" value="0" name="track_ids[]" id="checkAll" onclick="checkAll('coursesFilter')">
                                     <p class="m-0 mx-2">الكل</p>
                                 </li>
                                 @foreach($courseTypes as $type)
                                 <li class="my-2 d-flex align-items-center">
-                                    <input class="form-check-input" type="checkbox" value="{{$type->id}}" id="">
+                                    <input class="form-check-input" type="checkbox" value="{{$type->id}}" name="track_ids[]">
                                     <label for="combine-courses">
                                         <p class="m-0 mx-2"> {{ $type->name }} </p>
                                     </label>
@@ -457,5 +457,87 @@
 <script src="{{asset('public/front/js/price_filter.js')}}"></script>
 <script src="{{asset('public/front/js/pagination.js')}}"></script>
 <script src="{{asset('public/front/js/main.js')}}"></script>
+<script>
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
 
+
+        let categoryCards = document.querySelector('.categoryCards');
+        let rowsCards = document.querySelector('.rowsCards');
+        let paginationCards = document.querySelectorAll('#paginationCard .card_pagination');
+        let paginationCardsImg = document.querySelectorAll('#paginationCard .paginationCardImg');
+        let paginationCardsData = document.querySelectorAll('#paginationCard .paginationCardData');
+
+        rowsCards.addEventListener('click', function() {
+            categoryCards.classList.remove('active');
+            rowsCards.classList.add('active');
+
+            paginationCards.forEach(paginationCard => {
+                paginationCard.classList.add('col-sm-12');
+            });
+            paginationCardsImg.forEach(paginationCardImg => {
+                paginationCardImg.classList.remove('col-12');
+                paginationCardImg.classList.add('col-4');
+            });
+            paginationCardsData.forEach(paginationCardData => {
+                paginationCardData.classList.remove('col-12');
+                paginationCardData.classList.add('col-8');
+            });
+
+            let paginationCardsDesc = document.querySelectorAll('#paginationCard article p');
+
+            paginationCardsDesc.forEach(paginationCardDesc => {
+                paginationCardDesc.style.cssText = 'white-space: normal;';
+            });
+        });
+
+        categoryCards.addEventListener('click', function() {
+            rowsCards.classList.remove('active');
+            categoryCards.classList.add('active');
+
+            paginationCards.forEach(paginationCard => {
+                paginationCard.classList.remove('col-sm-12');
+
+                paginationCardsImg.forEach(paginationCardImg => {
+                    paginationCardImg.classList.remove('col-4');
+                    paginationCardImg.classList.add('col-12');
+                });
+                paginationCardsData.forEach(paginationCardData => {
+                    paginationCardData.classList.remove('col-8');
+                    paginationCardData.classList.add('col-12');
+                });
+            });
+
+            let paginationCardsDesc = document.querySelectorAll('#paginationCard article p');
+
+            paginationCardsDesc.forEach(paginationCardDesc => {
+                paginationCardDesc.style.cssText = 'white-space: nowrap;';
+            });
+        });
+    </script>
+
+    <script>
+        function checkAll(filterClass) {
+            // Get the "Check All" checkbox and all other checkboxes
+            const checkAllCheckbox = document.querySelector(`.${filterClass} #checkAll`);
+            const checkboxes = document.querySelectorAll(`.${filterClass} .form-check-input:not(.check-all)`);
+    
+            // Add event listener to the "Check All" checkbox
+            checkAllCheckbox.addEventListener('change', function() {
+                checkboxes.forEach(function(checkbox) {
+                    checkbox.checked = checkAllCheckbox.checked;
+                });
+            });
+    
+            // Add event listener to other checkboxes to uncheck "Check All" if any checkbox is unchecked
+            checkboxes.forEach(function(checkbox) {
+                checkbox.addEventListener('change', function() {
+                    if (!this.checked) {
+                        checkAllCheckbox.checked = false;
+                    }
+                });
+            });
+        }
+    </script>
 @endpush
