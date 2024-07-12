@@ -73,7 +73,7 @@
 
                                     <td style="width: 270px;">
                                         @if($row->student)
-                                    <a href="{{ url('admin/students/'.optional($row->student)->id)}}" title="{{__('admin.show')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" style="" class="btn btn-icon btn-primary btn-sm">
+                                    <a href="{{ url('admin/students/'.optional($row->student)->id)}}" title="{{__('admin.show_student')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" style="" class="btn btn-icon btn-primary btn-sm">
                                             <i class="far fa-user"></i>
                                         </a>
                                         @endif
