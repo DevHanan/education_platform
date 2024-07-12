@@ -35,6 +35,82 @@
                             <input type="search" class="form-control rounded-pill py-2 mt-3 text-center" placeholder="ماذا تريد أن تتعلم؟" name="name">
                             <i class="fa-solid fa-search p-2  position-absolute rounded-circle d-flex align-items-center text-white secondary-bg" style="top:4px;"></i>
                         </div>
+                        <div class="my-5 p-4 pb-1 category rounded">
+                            <h3>المسارات</h3>
+                            <div class="search">
+                                <input type="text" class="form-control my-3 rounded-pill" placeholder="بحث">
+                            </div>
+                            <ul class="list-unstyled">
+                                <li class="my-2 d-flex align-items-center">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkAll" onclick="checkAll('category')">
+                                    <p class="m-0 mx-2">الكل</p>
+                                </li>
+
+                                <li class="my-2 d-flex align-items-center">
+                                    <input class="form-check-input" type="checkbox" value="" id="leaning-academy">
+                                    <label for="leaning-academy" class="d-flex">
+                                        <p class="m-0 mx-2">التعليم الأكاديمي</p>
+                                        <span>(25)</span>
+                                    </label>
+                                </li>
+
+                                <li class="my-2 d-flex align-items-center">
+                                    <input class="form-check-input" type="checkbox" value="" id="computer-science">
+                                    <label for="computer-science" class="d-flex">
+                                        <p class="m-0 mx-2">علوم الكمبيوتر </p>
+                                        <span>(25)</span>
+                                    </label>
+                                </li>
+
+                                <li class="my-2 d-flex align-items-center">
+                                    <input class="form-check-input" type="checkbox" value="" id="design">
+                                    <label for="design" class="d-flex">
+                                        <p class="m-0 mx-2"> الفن الرقمي والتصميم </p>
+                                        <span>(25)</span>
+                                    </label>
+                                </li>
+
+                                <li class="my-2 d-flex align-items-center">
+                                    <input class="form-check-input" type="checkbox" value="" id="develope">
+                                    <label for="develope" class="d-flex">
+                                        <p class="m-0 mx-2"> تطوير الذات</p>
+                                        <span>(25)</span>
+                                    </label>
+                                </li>
+
+                                <li class="my-2 d-flex align-items-center">
+                                    <input class="form-check-input" type="checkbox" value="" id="marketing">
+                                    <label for="marketing" class="d-flex">
+                                        <p class="m-0 mx-2"> التسويق والإعلان</p>
+                                        <span>(25)</span>
+                                    </label>
+                                </li>
+
+                                <li class="my-2 d-flex align-items-center">
+                                    <input class="form-check-input" type="checkbox" value="" id="art">
+                                    <label for="art" class="d-flex">
+                                        <p class="m-0 mx-2">فنون جميلة </p>
+                                        <span>(25)</span>
+                                    </label>
+                                </li>
+
+                                <li class="my-2 d-flex align-items-center">
+                                    <input class="form-check-input" type="checkbox" value="" id="money-work">
+                                    <label for="money-work" class="d-flex">
+                                        <p class="m-0 mx-2">مال وأعمال </p>
+                                        <span>(25)</span>
+                                    </label>
+                                </li>
+
+                                <li class="my-2 d-flex align-items-center">
+                                    <input class="form-check-input" type="checkbox" value="img-videos" id="">
+                                    <label for="img-videos" class="d-flex">
+                                        <p class="m-0 mx-2"> صور وفيديو</p>
+                                        <span>(25)</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
 
                         <div class="my-5 p-4 pb-1 category rounded">
                             <h3>المسارات</h3>
@@ -260,15 +336,16 @@
                 <div class="course_content">
                     <h3 class="position-relative fw-bold primary-color mb-4">
                         @if(request()->get('track_id'))
-                            <?php 
-                            $track  = \App\Models\Track::find(request()->get('track_id'));
-                            ?>
-                            {{ $track->name }}
+                        <?php
+                        $track  = \App\Models\Track::find(request()->get('track_id'));
+                        ?>
+                        {{ $track->name }}
                         @else
-                        {{ $setting->title }} 
+                        {{ $setting->title }}
 
                         @endif
-                        <img src="{{asset('front/img/text-line2.svg')}}" class="position-absolute img-fluid" alt=""></h3>
+                        <img src="{{asset('front/img/text-line2.svg')}}" class="position-absolute img-fluid" alt="">
+                    </h3>
                     <div class="d-flex justify-content-between">
                         <h3 class="fw-bold">قائمة الدورات</h3>
                         <div class="d-flex">
@@ -287,7 +364,7 @@
                                     <div class="col-12 paginationCardImg">
                                         <div class="card__image  p-2">
                                             <a href="{{ url('course/'.$course->id)}}">
-                                                <img src="{{asset('public/'.$course->image)}}"  alt="image" class="card__img img-fluid w-100 ">
+                                                <img src="{{asset('public/'.$course->image)}}" alt="image" class="card__img img-fluid w-100 ">
                                             </a>
                                             <div class="card_category position-absolute rounded text-dark px-2 py-1">
                                                 @if($course->tracks)
@@ -320,13 +397,13 @@
                                                 <span class="fw-bold ms-2" style="color:#5a5a5a">{{ $course->avgrating }}</span>
                                                 @if($course->avgrating )
                                                 @for($i=0; $i<(int)$course->avgrating; $i++)
-                                                <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
-                                                @endfor
-                                                @for($i=0; $i<5-(int)$course->avgrating; $i++)
-                                                <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
-                                                @endfor
-                                                @endif
-                                             
+                                                    <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
+                                                    @endfor
+                                                    @for($i=0; $i<5-(int)$course->avgrating; $i++)
+                                                        <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
+                                                        @endfor
+                                                        @endif
+
                                             </div>
                                             <hr>
                                             <div class="d-flex justify-content-between align-items-center">
@@ -347,7 +424,7 @@
                         </div>
                         @endforeach
                         @else
-                                <p> لا توجد بيانات للعرض</p>
+                        <p> لا توجد بيانات للعرض</p>
                         @endif
 
                     </div>
@@ -389,7 +466,7 @@
                         <article class="card__article swiper-slide shadow">
                             <a href="{{ url('course/'.$course->id)}}">
                                 <div class="card__image p-2">
-                                    <img src="{{asset('public/'.$course->image)}}"  alt="image" class="card__img img-fluid w-100">
+                                    <img src="{{asset('public/'.$course->image)}}" alt="image" class="card__img img-fluid w-100">
                                     <div class="card_category position-absolute rounded text-dark px-2 py-1">
                                         @if($course->tracks)
                                         @foreach ($course->tracks as $item)
