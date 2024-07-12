@@ -45,7 +45,7 @@
                             <ul class="list-unstyled">
                                 @if(!request()->get('track_id'))
                                 <li class="my-2 d-flex align-items-center">
-                                    <input checked class="form-check-input" type="checkbox" value="" id="checkAll" onclick="getTest()">
+                                    <input checked class="form-check-input" type="checkbox" value="" id="checkAll" onclick="checkAllInput('category')">
                                     <p class="m-0 mx-2">الكل</p>
                                 </li>
                                 @endif
@@ -461,7 +461,7 @@
         alert("eee");
     }
 
-    function checkAll(filterClass) {
+    function checkAllInput(filterClass) {
 
         // Get the "Check All" checkbox and all other checkboxes
         const checkAllCheckbox = document.querySelector(`.${filterClass} #checkAll`);
