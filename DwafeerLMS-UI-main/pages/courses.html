@@ -145,7 +145,7 @@
                             </div>
                             <ul class="list-unstyled">
                                 <li class="my-2 d-flex align-items-center">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkAll" onclick="checkAll('category')">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkAll" onclick="getTest()">
                                     <p class="m-0 mx-2">الكل</p>
                                 </li>
 
@@ -1342,10 +1342,13 @@
     </script>
 
     <script>
+        function getTest(){
+            alert("eee");
+        }
         function checkAll(filterClass) {
+            
             // Get the "Check All" checkbox and all other checkboxes
-            const checkAllCheckbox = document.querySelector(`.${filterClass}`);
-            console.log(checkAllCheckbox);
+            const checkAllCheckbox = document.querySelector(`.${filterClass} #checkAll`);
             const checkboxes = document.querySelectorAll(`.${filterClass} .form-check-input:not(.check-all)`);
     
             // Add event listener to the "Check All" checkbox
