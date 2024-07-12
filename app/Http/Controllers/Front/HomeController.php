@@ -29,7 +29,7 @@ class HomeController extends Controller
 
     public function about()
     {
-    $aboutsetting = AboutSetting::find(1);
+        $aboutsetting = AboutSetting::find(1);
         $teams = Team::active()->get();
         $parteners = Partener::active()->get();
         $title = 'من نحن';
@@ -38,21 +38,30 @@ class HomeController extends Controller
 
     public function courses(Request $request)
     {
-        return $request->all();
         $title = 'الدورات التدريبية';
         $list_courses = Course::where(function ($q) use ($request) {
             if ($request->track_id)
                 $q->whereHas('tracks', function ($l) use ($request) {
                     $l->where('tracks.id', $request->track_id);
                 });
-                if ($request->instructor_id)
+            if ($request->tracks)
+                $q->whereHas('tracks', function ($l) use ($request) {
+                    $l->whereIn('tracks.id', $request->tracks);
+                });
+            if ($request->instructor_id)
                 $q->whereHas('instructors', function ($l) use ($request) {
                     $l->where('instructors.id', $request->instructor_id);
+                });
+            if ($request->instructors)
+                $q->whereHas('instructors', function ($l) use ($request) {
+                    $l->whereIn('instructors.id', $request->instructors);
                 });
 
 
             if ($request->type)
                 $q->where('course_type_id', $request->type);
+            if ($request->types)
+                $q->whereIn('course_type_id', $request->types);
             if ($request->recommend)
                 $q->where('recommened', $request->recommend);
             if ($request->name)
@@ -64,20 +73,20 @@ class HomeController extends Controller
     public function blogs(Request $request)
     {
         $title = ' المقالات';
-        $blogs = Blog::where(function($q)use($request){
-            if($request->start)
-            $q->whereDate('published_at','>=',$request->start);
-            if($request->end)
-            $q->whereDate('published_at','<=',$request->end);
+        $blogs = Blog::where(function ($q) use ($request) {
+            if ($request->start)
+                $q->whereDate('published_at', '>=', $request->start);
+            if ($request->end)
+                $q->whereDate('published_at', '<=', $request->end);
         })->active()->paginate(10);
-        return view('front.blogs',compact(['blogs','title']));
+        return view('front.blogs', compact(['blogs', 'title']));
     }
 
-    
+
     public function blog($id)
     {
         $blog = Blog::find($id);
-        return view('front.blog',compact('blog'));
+        return view('front.blog', compact('blog'));
     }
 
     public function policy()
@@ -99,13 +108,13 @@ class HomeController extends Controller
     {
         return view('front.book');
     }
-  
+
     public function course($id)
     {
 
-        $course = Course::with(['levels', 'lectures', 'tracks', 'instructors', 'coupon','comments'])->find($id);
+        $course = Course::with(['levels', 'lectures', 'tracks', 'instructors', 'coupon', 'comments'])->find($id);
         $tracks_id = $course->tracks()->pluck('track_id')->ToArray();
-        $related_courses= Course::whereHas('tracks', function ($query) use ($tracks_id) {
+        $related_courses = Course::whereHas('tracks', function ($query) use ($tracks_id) {
             $query->whereIn('track_id', $tracks_id);
         })->where('id', '!=', $course->id)->get();
         $title = $course->name;
@@ -165,10 +174,10 @@ class HomeController extends Controller
         }
 
         /** add teacher prectanage  */
-        foreach($course->instructors as $instructor){
-            $sub = Subscription::where('course_id',$course->id)->where('student_id',$item->student_id)->first();
-            $instructor->current_balance = $instructor->current_balance + (($course->price /100)*$sub->course_prectange) ;
-            $instructor->total_balance = $instructor->total_balance + (($course->price /100)*$sub->course_prectange) ;
+        foreach ($course->instructors as $instructor) {
+            $sub = Subscription::where('course_id', $course->id)->where('student_id', $item->student_id)->first();
+            $instructor->current_balance = $instructor->current_balance + (($course->price / 100) * $sub->course_prectange);
+            $instructor->total_balance = $instructor->total_balance + (($course->price / 100) * $sub->course_prectange);
             $instructor->save();
         }
 
@@ -181,11 +190,11 @@ class HomeController extends Controller
     {
         if (Auth::guard('students-login')->check())
             $request->merge([
-                'student_id' => Auth::guard('students-login')->user()->id,'read' => '0'
+                'student_id' => Auth::guard('students-login')->user()->id, 'read' => '0'
             ]);
         elseif (Auth::guard('instructors-login')->check())
             $request->merge([
-                'instructor_id' => Auth::guard('instructors-login')->user()->id,'read' => '0'
+                'instructor_id' => Auth::guard('instructors-login')->user()->id, 'read' => '0'
             ]);
         else
             $request->merge(['read' => '0']);
@@ -205,21 +214,21 @@ class HomeController extends Controller
     {
         $coupon = Coupon::where('code', $request->code)->where('course_id', $request->course_id)->first();
         $course = Course::find($request->course_id);
-        if ($coupon){
-             if($coupon->active == '0' ||  $coupon->start_date > Carbon::today()  || $coupon->end_date < Carbon::today() ){
+        if ($coupon) {
+            if ($coupon->active == '0' ||  $coupon->start_date > Carbon::today()  || $coupon->end_date < Carbon::today()) {
                 return response()->json([
                     'status' => 'error',
                     'message' => 'Coupon has been deactivated',
                     'total' => $course->TotalDiscount
                 ]);
-             }else{
-            return response()->json([
-                'status' => 'success',
-                'discount' => $coupon->discount,
-                'total' => (optional($coupon->course)->TotalDiscount) -  ((optional($coupon->course)->TotalDiscount / 100) * $coupon->discount),
-                'coupon' => $coupon->id
-            ]);
-        }
+            } else {
+                return response()->json([
+                    'status' => 'success',
+                    'discount' => $coupon->discount,
+                    'total' => (optional($coupon->course)->TotalDiscount) -  ((optional($coupon->course)->TotalDiscount / 100) * $coupon->discount),
+                    'coupon' => $coupon->id
+                ]);
+            }
         } else {
             return response()->json([
                 'status' => 'error',
@@ -231,15 +240,17 @@ class HomeController extends Controller
         }
     }
 
-    public function calcMasarat(){
-        $data['first'] = Subject::where('active','1')->where('classroom','1')->get();
-        $data['second'] = Subject::where('active','1')->where('classroom','2')->get();
-        $data['third'] = Subject::where('active','1')->where('classroom','3')->get();
-        return view('front.calcmasart',$data);
+    public function calcMasarat()
+    {
+        $data['first'] = Subject::where('active', '1')->where('classroom', '1')->get();
+        $data['second'] = Subject::where('active', '1')->where('classroom', '2')->get();
+        $data['third'] = Subject::where('active', '1')->where('classroom', '3')->get();
+        return view('front.calcmasart', $data);
     }
 
 
-    public function mailList(Request $request){
+    public function mailList(Request $request)
+    {
         MailList::updateOrCreate(
             ['email' => $request->email]
         );
@@ -248,7 +259,8 @@ class HomeController extends Controller
     }
 
 
-    public function comment(Request $request){
+    public function comment(Request $request)
+    {
         return $request->all();
     }
 }
