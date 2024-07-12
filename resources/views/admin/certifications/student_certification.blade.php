@@ -45,7 +45,6 @@
                                     <th> {{__('admin.certifications.track')}}</th>
                                     <th> {{__('admin.certifications.create_date')}}</th>
                                     <th> {{__('admin.certifications.file')}}</th>
-                                    <th> {{__('admin.certifications.image')}}</th>
                                     <th>{{ __('admin.certifications.actions') }}</th>
                                 </tr>
                             </thead>
@@ -69,15 +68,7 @@
                                         @endif
                                     </td>
 
-                                    <td>
-                                    @if($row->image)    
-                                    <a href="{{asset($row->ImageFullPath)}}" style="width:40px" target="_blank">
-                                            عرض الصورة
-                                        </a>
-                                        @else
-                                        لا يوجد
-                                        @endif
-                                    </td>
+                                  
 
 
                                     <td style="width: 270px;">
