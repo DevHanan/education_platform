@@ -17,28 +17,4 @@
     <link rel="stylesheet" href="{{asset('public/front/css/custom.css')}}">
     <link rel="stylesheet" href="{{asset('public/front/css/media.css')}}">
 </head>
-<script>
-    function checkAll(filterClass) {
-        // Get the "Check All" checkbox and all other checkboxes
-        const checkAllCheckbox = document.querySelector(`.${filterClass} #checkAll`);
-        const checkboxes = document.querySelectorAll(`.${filterClass} .form-check-input:not(.check-all)`);
-
-        // Add event listener to the "Check All" checkbox
-        checkAllCheckbox.addEventListener('change', function() {
-            checkboxes.forEach(function(checkbox) {
-                checkbox.checked = checkAllCheckbox.checked;
-            });
-        });
-
-        // Add event listener to other checkboxes to uncheck "Check All" if any checkbox is unchecked
-        checkboxes.forEach(function(checkbox) {
-            checkbox.addEventListener('change', function() {
-                if (!this.checked) {
-                    checkAllCheckbox.checked = false;
-                }
-            });
-        });
-        
-    }
-</script>
 
