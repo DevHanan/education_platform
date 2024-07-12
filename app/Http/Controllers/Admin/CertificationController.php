@@ -44,7 +44,7 @@ class CertificationController extends Controller
         $data['rows'] = Certificate::where(function($q)use($request){
             if ($request->name)
             $q->Where('name', 'like', '%' . $request->name  . '%');
-        })->where('student_id','!=',null)->where('platform_certification','1')->paginate(10);
+        })->where('platform_certification','1')->where('student_id','!=',null)->paginate(10);
         return view($this->view.'.student_certification', $data);
     }
 
