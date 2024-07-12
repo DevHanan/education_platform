@@ -164,4 +164,4 @@
     });
 </script>
 
-@endsection
+@endpush
