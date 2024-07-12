@@ -164,7 +164,7 @@ class CertificationController extends Controller
             $certificate->delete();
 
             Toastr::success(__('admin.msg_delete_successfully'), __('admin.msg_success'));
-            return redirect()->route($this->route.'.index');
+            return redirect()->back();
     }
 
     public function getCertifications(Request $request){
