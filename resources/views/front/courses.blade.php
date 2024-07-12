@@ -35,82 +35,7 @@
                             <input type="search" class="form-control rounded-pill py-2 mt-3 text-center" placeholder="ماذا تريد أن تتعلم؟" name="name">
                             <i class="fa-solid fa-search p-2  position-absolute rounded-circle d-flex align-items-center text-white secondary-bg" style="top:4px;"></i>
                         </div>
-                        <div class="my-5 p-4 pb-1 category rounded">
-                            <h3>المسارات</h3>
-                            <div class="search">
-                                <input type="text" class="form-control my-3 rounded-pill" placeholder="بحث">
-                            </div>
-                            <ul class="list-unstyled">
-                                <li class="my-2 d-flex align-items-center">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkAll" onclick="checkAll('category')">
-                                    <p class="m-0 mx-2">الكل</p>
-                                </li>
-
-                                <li class="my-2 d-flex align-items-center">
-                                    <input class="form-check-input" type="checkbox" value="" id="leaning-academy">
-                                    <label for="leaning-academy" class="d-flex">
-                                        <p class="m-0 mx-2">التعليم الأكاديمي</p>
-                                        <span>(25)</span>
-                                    </label>
-                                </li>
-
-                                <li class="my-2 d-flex align-items-center">
-                                    <input class="form-check-input" type="checkbox" value="" id="computer-science">
-                                    <label for="computer-science" class="d-flex">
-                                        <p class="m-0 mx-2">علوم الكمبيوتر </p>
-                                        <span>(25)</span>
-                                    </label>
-                                </li>
-
-                                <li class="my-2 d-flex align-items-center">
-                                    <input class="form-check-input" type="checkbox" value="" id="design">
-                                    <label for="design" class="d-flex">
-                                        <p class="m-0 mx-2"> الفن الرقمي والتصميم </p>
-                                        <span>(25)</span>
-                                    </label>
-                                </li>
-
-                                <li class="my-2 d-flex align-items-center">
-                                    <input class="form-check-input" type="checkbox" value="" id="develope">
-                                    <label for="develope" class="d-flex">
-                                        <p class="m-0 mx-2"> تطوير الذات</p>
-                                        <span>(25)</span>
-                                    </label>
-                                </li>
-
-                                <li class="my-2 d-flex align-items-center">
-                                    <input class="form-check-input" type="checkbox" value="" id="marketing">
-                                    <label for="marketing" class="d-flex">
-                                        <p class="m-0 mx-2"> التسويق والإعلان</p>
-                                        <span>(25)</span>
-                                    </label>
-                                </li>
-
-                                <li class="my-2 d-flex align-items-center">
-                                    <input class="form-check-input" type="checkbox" value="" id="art">
-                                    <label for="art" class="d-flex">
-                                        <p class="m-0 mx-2">فنون جميلة </p>
-                                        <span>(25)</span>
-                                    </label>
-                                </li>
-
-                                <li class="my-2 d-flex align-items-center">
-                                    <input class="form-check-input" type="checkbox" value="" id="money-work">
-                                    <label for="money-work" class="d-flex">
-                                        <p class="m-0 mx-2">مال وأعمال </p>
-                                        <span>(25)</span>
-                                    </label>
-                                </li>
-
-                                <li class="my-2 d-flex align-items-center">
-                                    <input class="form-check-input" type="checkbox" value="img-videos" id="">
-                                    <label for="img-videos" class="d-flex">
-                                        <p class="m-0 mx-2"> صور وفيديو</p>
-                                        <span>(25)</span>
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
+                     
 
                         <div class="my-5 p-4 pb-1 category rounded">
                             <h3>المسارات</h3>
@@ -530,9 +455,3 @@
 
 </section>
 @endsection
-@push('frontscript')
-<script src="{{asset('public/front/js/price_filter.js')}}"></script>
-<script src="{{asset('public/front/js/pagination.js')}}"></script>
-<script src="{{asset('public/front/js/main.js')}}"></script>
-
-@endpush
