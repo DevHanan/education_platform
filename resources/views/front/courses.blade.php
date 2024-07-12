@@ -517,8 +517,8 @@
     </script>
 
     <script>
-        $('document').ready(function(){
             function checkAll(filterClass) {
+                alert("inside");
             // Get the "Check All" checkbox and all other checkboxes
             const checkAllCheckbox = document.querySelector(`.${filterClass} #checkAll`);
             const checkboxes = document.querySelectorAll(`.${filterClass} .form-check-input:not(.check-all)`);
@@ -539,7 +539,7 @@
                 });
             });
         }
-        });
+     
        
     </script>
 @endpush
