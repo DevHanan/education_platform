@@ -51,16 +51,8 @@
                                 @endif
 
                                 @foreach($tracks as $track)
-                                <li class="my-2 d-flex align-items-center">
-                                    @if( request()->get('tracks') && request()->get('tracks') != null )
-                                    <input class="form-check-input" @if(in_array($track->id, request()->get('tracks')))
-                                    checked="checked"
-                                    @endif
-                                    type="checkbox" name="tracks[]" value="{{ $track->id }}" @if($track->id == request()->get('track_id')) checked="checked" @endif >
-
-                                    @else
+                                <li class="my-2 d-flex align-items-center">                                  
                                     <input class="form-check-input" type="checkbox" name="tracks[]" value="{{ $track->id }}" @if($track->id == request()->get('track_id')) checked="checked" @endif >
-                                    @endif
                                     <label for="img-videos" class="d-flex">
                                         <p class="m-0 mx-2"> {{ $track->name }}</p>
                                         <span>( {{$track->courseCount }})</span>
@@ -83,12 +75,8 @@
                                 @foreach($courseTypes as $type)
                                 <li class="my-2 d-flex align-items-center">
                                     @if( request()->get('types') && request()->get('types') != null )
-                                    <input name="types[]" class="form-check-input" 
-                                    @if( in_array(request()->get('types'),$type->id )) checked @endif 
-                                    type="checkbox" value="{{$type->id}}" id="">
-                                    @else
+                                   
                                     <input name="types[]" class="form-check-input" type="checkbox" value="{{$type->id}}" id="">
-                                    @endif
                                     <label for="combine-courses">
                                         <p class="m-0 mx-2"> {{ $type->name }} </p>
                                     </label>
@@ -109,12 +97,8 @@
                                 </li>
                                 @foreach($instructors as $instructor)
                                 <li class="my-2 d-flex align-items-center">
-                                @if( request()->get('instructors') && request()->get('instructors') != null )
-   
-                                <input class="form-check-input" name="instructors[]" @if( in_array(request()->get('instructors'),$instructor->id )) checked @endif type="checkbox" value="{{ $instructor->id}}" @if($instructor->id == request()->get('instructor_id')) checked="checked" @endif >
-                                @else
+                               
                                 <input class="form-check-input" name="instructors[]" >
-                                @endif
                                 <label for="teacher5">
                                         <p class="m-0 mx-2">{{ $instructor->name  }}</p>
                                     </label>
