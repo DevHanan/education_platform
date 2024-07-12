@@ -52,7 +52,16 @@
 
                                 @foreach($tracks as $track)
                                 <li class="my-2 d-flex align-items-center">
-                                    <input class="form-check-input"@if(isset(request()->get('tracks')) @if( in_array($track->id,request()->get('tracks[]') )) checked  @endif @endif type="checkbox" name="tracks[]"  value="{{ $track->id }}" @if($track->id == request()->get('track_id')) checked="checked" @endif >
+                                    @if( request()->get('tracks') && request()->get('tracks') != null )
+                                    <input class="form-check-input"  
+                                    @if(in_array($track->id, request()->get('tracks')))
+                                            checked="checked"
+                                    @endif
+                                    type="checkbox" name="tracks[]"  value="{{ $track->id }}" @if($track->id == request()->get('track_id')) checked="checked" @endif >
+
+                                    @else
+                                    <input class="form-check-input" type="checkbox" name="tracks[]"  value="{{ $track->id }}" @if($track->id == request()->get('track_id')) checked="checked" @endif >
+                                    @endif
                                     <label for="img-videos" class="d-flex">
                                         <p class="m-0 mx-2"> {{ $track->name }}</p>
                                         <span>( {{$track->courseCount }})</span>
