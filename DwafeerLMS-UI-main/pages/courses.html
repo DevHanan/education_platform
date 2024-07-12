@@ -1345,6 +1345,7 @@
         function checkAll(filterClass) {
             // Get the "Check All" checkbox and all other checkboxes
             const checkAllCheckbox = document.querySelector(`.${filterClass} #checkAll`);
+            console.log(checkAllCheckbox);
             const checkboxes = document.querySelectorAll(`.${filterClass} .form-check-input:not(.check-all)`);
     
             // Add event listener to the "Check All" checkbox
