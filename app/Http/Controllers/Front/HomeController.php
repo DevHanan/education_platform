@@ -66,7 +66,8 @@ class HomeController extends Controller
                 $q->where('recommened', $request->recommend);
             if ($request->name)
                 $q->Where('name', 'like', '%' . $request->name  . '%');
-        })->active()->latest()->get();        
+        })->active()->latest()->get();   
+             
         return view('front.courses', compact('title', 'list_courses'));
     }
 
