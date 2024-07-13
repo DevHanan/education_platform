@@ -53,7 +53,7 @@
                                 <tr>
                                     <td class="ui-state-default drag-handler" data-faq="{{$row->id}}">{{$loop->iteration}}</td>
                                     <td>{{$row->name}}</td>
-                                    <td>{{$row->bankGroups()->count()}}</td>
+                                    <td>{{$row->questions()->count()}}</td>
                                     <td> {{ $row->questions()->count()}}</td>
                                     <td>{{ optional($row->course)->name }}</td>
                                     <td>{{ optional($row->track)->name }}</td>
