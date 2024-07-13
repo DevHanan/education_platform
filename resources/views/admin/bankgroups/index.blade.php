@@ -40,10 +40,11 @@
                                 <tr>
                                     <th>#</th>
                                     <th> {{__('admin.bankgroups.bank_name')}}</th>
-                                    <th> {{__('admin.bankgroups.exams')}}</th>
-                                    <th> {{__('admin.bankgroups.bank_questions_number')}} </th>
+                                   
                                     <th> {{__('admin.bankgroups.course_name')}}</th>
                                     <th> {{__('admin.bankgroups.track_name')}}</th>
+                                    <th> {{__('admin.bankgroups.exams')}}</th>
+                                    <th> {{__('admin.bankgroups.bank_questions_number')}} </th>
                                     <th> {{__('admin.tracks.status')}}</th>
                                     <th>{{ __('admin.bankgroups.actions') }}</th>
                                 </tr>
@@ -53,10 +54,11 @@
                                 <tr>
                                     <td class="ui-state-default drag-handler" data-faq="{{$row->id}}">{{$loop->iteration}}</td>
                                     <td>{{$row->name}}</td>
-                                    <td>{{$row->questions()->count()}}</td>
-                                    <td> {{ $row->questions()->count()}}</td>
+                                  
                                     <td>{{ optional($row->course)->name }}</td>
                                     <td>{{ optional($row->track)->name }}</td>
+                                    <td>{{$row->questions()->count()}}</td>
+                                    <td> {{ $row->questions()->count()}}</td>
                                     <td>
 
 
