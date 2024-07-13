@@ -24,7 +24,7 @@ class BankGroupRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|min:1',
+            'name'        => 'required|unique:bank_groups,name',
             'track_id' => 'required|integer',
 
         ];

@@ -16,10 +16,11 @@
                 @if(isset($setting))
                 @if(is_file($setting->logo_path))
 
-                <img src="{{ asset($setting->logo_path) }}" style="width:120px;height:90px;" alt="{{ $setting->title }}" class="navbar-brand-image">
+                <img src="{{ asset($setting->logoFullPath) }}" style="width:120px;height:90px;" alt="{{ $setting->title }}" class="navbar-brand-image">
 
                 @endif
                 @endif
+                <h3> {{ $setting->title }}</h3>
                 <h3 class="mb-4"> {{ __('admin.auth_login')}} </h3>
 
 
