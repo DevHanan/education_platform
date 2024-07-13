@@ -53,7 +53,7 @@
 
                                 @foreach($tracks as $track)
                                 <li class="my-2 d-flex align-items-center">
-                                    @if($request->tracks)
+                                    @if(request()->get('tracks'))
                                     <input class="form-check-input"  type="checkbox" name="tracks[]"  value="{{ $track->id }}" @if($track->id == request()->get('tracks')) checked="checked" @endif >
                                    @else
                                    <input class="form-check-input"  type="checkbox" name="tracks[]"  value="{{ $track->id }}"  >
