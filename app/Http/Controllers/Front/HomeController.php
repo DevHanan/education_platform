@@ -67,7 +67,7 @@ class HomeController extends Controller
             if ($request->name)
                 $q->Where('name', 'like', '%' . $request->name  . '%');
         })->active()->latest()->get();
-        return redirect('/courses')->with(['title' => $title, 'list_courses' => $list_courses]);
+        return redirect()->back()->with(['title' => $title, 'list_courses' => $list_courses]);
 
         
         // return view('front.courses', compact('title', 'list_courses'));
