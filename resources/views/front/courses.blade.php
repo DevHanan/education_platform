@@ -53,7 +53,11 @@
 
                                 @foreach($tracks as $track)
                                 <li class="my-2 d-flex align-items-center">
-                                    <input class="form-check-input"  type="checkbox" name="tracks[]"  value="{{ $track->id }}" @if($track->id == request()->get('track_id')) checked="checked" @endif >
+                                    @if($request->tracks)
+                                    <input class="form-check-input"  type="checkbox" name="tracks[]"  value="{{ $track->id }}" @if($track->id == request()->get('tracks')) checked="checked" @endif >
+                                   @else
+                                   <input class="form-check-input"  type="checkbox" name="tracks[]"  value="{{ $track->id }}"  >
+                                   @endif
                                     <label for="img-videos" class="d-flex">
                                         <p class="m-0 mx-2"> {{ $track->name }}</p>
                                         <span>( {{$track->courseCount }})</span>
