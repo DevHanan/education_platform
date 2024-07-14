@@ -101,10 +101,9 @@ class QuestionBankGroupsController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'name' => [
-                'equired',
-                Rule::unique('bank_groups')->ignore($this->id),
-            ],
+           
+            'name'=>'required|unique:bank_groups,name,'.$id
+
         ]);
         if ($validator->fails()) {
             // Redirect back with errors
