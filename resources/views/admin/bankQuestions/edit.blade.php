@@ -91,36 +91,14 @@
 
 
 
-              <!-- <div class="col-lg-12">
-                <div>
-                  <label class="form-label">{{__('admin.bankquestions.title_notes')}}</label>
-                  <textarea class="form-control" rows="3" name="question_notes"> {{ $row->question_notes }}</textarea>
-                </div>
-              </div> -->
-
-              <!-- <div class="form-group col-md-6 img-class">
-
-
-                <label class="form-label">{{ __('admin.bankquestions.title_photo') }}</label>
-                <input type="file" class="form-control" name="picture" id="logo">
-                @if(isset($row->picture))
-                <img style="padding-top:30px;" src="{{ asset($row->pictureFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
-                <div class="clearfix"></div>
-                @endif
-
-                @error('title_photo')
-                <div class="invalid-feedback">
-                  {{ $message }}
-                </div>
-                @enderror
-              </div> -->
+          
 
               <div class="form-group col-md-6 img-class">
 
 
                 <label class="form-label">{{ __('admin.bankquestions.question_photo') }}</label>
                 <input type="file" class="form-control" name="question_declare_img">
-                @if(isset($row->question_declare_img))
+                @if($row->question_declare_img)
                 <img style="padding-top:30px;" src="{{ asset($row->questionFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
                 <div class="clearfix"></div>
                 @endif
