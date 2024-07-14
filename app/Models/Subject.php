@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Subject extends Model
 {
     use HasFactory;
-    protected $fillable = array('name','active','degree','classroom');
+    protected $fillable = array('name','active','degree','classroom','terms');
 
 }
