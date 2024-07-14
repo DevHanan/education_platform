@@ -54,7 +54,7 @@
         @foreach ($questions as $question )
         <div class="row">
             <div class="col-md-6 p-4">
-                <h5> {{ $question->title }} </h5>
+                <h5> {!! $question->title !!} </h5>
                 <img src="{{ $question->pictureFullPath }}" style="height:200px ;" class="img-fluid mt-4 mb-5 w-100" alt="">
                 <div class="p-2 d-flex gap-2">
                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="ans-1">
