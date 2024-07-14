@@ -99,7 +99,7 @@
                 <label class="form-label">{{ __('admin.bankquestions.question_photo') }}</label>
                 <input type="file" class="form-control" name="question_declare_img">
                 @if($row->question_declare_img)
-                <img style="padding-top:30px;" src="{{ asset($row->questionFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
+                <img style="padding-top:30px;" src="{{ asset($row->pictureFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
                 <div class="clearfix"></div>
                 @endif
                 @error('question_declare_img')
