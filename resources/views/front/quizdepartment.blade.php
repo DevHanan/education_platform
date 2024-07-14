@@ -1,7 +1,6 @@
 @extends('front.layouts.master')
 @section('title', '')
 @section('content')
-@include('front.layouts.common.navbar')
       <nav class="bg-primary text-light w-100">
         <div class="d-flex justify-content-between container-fluid">
             <h2>اختبار قدرات</h2>
