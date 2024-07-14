@@ -284,15 +284,14 @@
                                     {!! $instructor->qualifications !!}
                                 </div>
                                 <div class="rating d-flex justify-content-end align-items-center">
-                                    <!-- <div class="fw-bold">تقييم عام </div> -->
                                     <div class="mx-2 fw-bold">{{ $course->avgrating}} </div>
-                                    <div class="img">
+                                    <!-- <div class="img">
                                         <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
                                         <img src="{{ asset('public/front/img/icons/yellow-star.png')}}" alt="">
                                         <img src="{{ asset('public/front/img/icons/yellow-star.png')}}" alt="">
                                         <img src="{{ asset('public/front/img/icons/yellow-star.png')}}" alt="">
                                         <img src="{{ asset('public/front/img/icons/yellow-star.png')}}" alt="">
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             @endforeach
@@ -365,7 +364,7 @@
                                                 <img src="{{ asset('public/front/img/emptyStar.png')}}" alt="">
                                             </div>
                                         </div>
-                                        <div class="d-flex flex-wrap my-3">
+                                        <!-- <div class="d-flex flex-wrap my-3">
                                             <p class="fw-bold ms-3">ما تقييمك للمدرب؟</p>
                                             <div class="rating-stars" data-question="trainer">
                                                 <img src="{{ asset('public/front/img/emptyStar.png')}}" alt="">
@@ -374,7 +373,7 @@
                                                 <img src="{{ asset('public/front/img/emptyStar.png')}}" alt="">
                                                 <img src="{{ asset('public/front/img/emptyStar.png')}}" alt="">
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <button @if(!auth()->guard('students-login')->user()) disabled="disabled" @endif class="btn secondary-bg text-white mt-3" type="submit"> انشر التعليق <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></button>
                                     </form>
                             </div>
