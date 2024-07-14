@@ -100,15 +100,10 @@ class QuestionBankGroupsController extends Controller
     public function update(Request $request,$id)
     {
 
-        $validator = Validator::make($request->all(), [
-           
-            'name'=>'required|unique:bank_groups,name,'.$id
-
+        $request->validate([
+            'name'=>'required|unique:bank_groups,name,'.$id,
+            'trac_id' => 'required'
         ]);
-        if ($validator->fails()) {
-            // Redirect back with errors
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
         $group = BankGroup::find($request->id);
         $active = $request->active ? '1' : '0';
         $request->merge(['active' => $active]);
