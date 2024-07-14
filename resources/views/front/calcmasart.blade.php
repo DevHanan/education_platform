@@ -41,7 +41,7 @@
       </div>
       <hr>
       <div class="py-4 text-center">
-        <h3> 410 / <span class="text-primary">0.0000</span></h3>
+        <h3> 410 / <span class="text-primary" id="result">0.0000</span></h3>
       </div>
       <hr>
       <div class="text-center pt-2"><div class="btn btn-primary" onclick="goToResults()">تنسيق 2023</div></div>
@@ -120,7 +120,7 @@
                   <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">القدرات</div></div>
                   <div class="col-md-10 col-8">
                     <div class="row">
-                      <div class="col-12"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
+                      <div class="col-12"><input type="text" class="form-control border-primary" name="abilityVal" style="border-radius: 10px;"></div>
                     </div>  
                   </div>
                 </div>
@@ -309,6 +309,12 @@ function secondaryThreeFunction(){
 let popUp = document.querySelector(".pop-up")
 let overlay = document.querySelector(".overlay")
 function showPopUp(){
+    var inputs = document.querySelectorAll('input[type="text"]');
+    var sum = 0;
+    inputs.forEach(function(input) {
+      sum += parseInt(input.value);
+    });
+    document.getElementById('result').innerHTML =  sum;
     popUp.classList.remove("d-none")
     overlay.classList.remove("d-none")
 }
