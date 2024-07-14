@@ -603,7 +603,7 @@ return [
     ],
     'bankquestions' => [
         'explain_question_data' => 'بيانات توضيحية للسؤال',
-        'explain_answer_data' => 'بيانات توضيحية لأجابة',
+        'explain_answer_data' => 'بيانات توضيحية لشرح إجابة السؤال',
         'title'  => 'رأس السؤال نص',
         'title_notes'  => 'شرح السؤال نص',
         'answer_notes' => '  لشرح إجابة السؤال',

@@ -368,7 +368,7 @@ Breadcrumbs::for('add-bankquestions', function (BreadcrumbTrail $trail,$course) 
 });
 Breadcrumbs::for('update-bankquestions', function (BreadcrumbTrail $trail,$bankgroup,$row) {
     $trail->parent('bankquestions',$bankgroup);
-    $trail->push($row->customTitle, route('admin.bank-groups.bank-questions.edit',[$bankgroup,$row]));
+    $trail->push($row->id, route('admin.bank-groups.bank-questions.edit',[$bankgroup,$row]));
 });
 
 Breadcrumbs::for('show-bankquestions', function (BreadcrumbTrail $trail,$bankgroup,$row) {
