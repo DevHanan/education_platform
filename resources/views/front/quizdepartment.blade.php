@@ -13,11 +13,15 @@
             </div>
         </div>
       </nav>
+      @if($quiz->has_levels)
+      @foreach ($quiz->sections as  $section )
       <div class="py-3">
-        <h3>القسم الأول</h3>
-        <h3>عدد الأسئلة : 24 سؤال</h3>
-        <h3>الزمن الكلى للقسم : 25 دقيقة</h3>
+        <h3> {{ $section->title }}</h3>
+        <h3>عدد الأسئلة :  {{ $section->question_number }}</h3>
+        <h3>الزمن الكلى للقسم :  دقيقة</h3>
       </div>
+      @endforeach
      
+     @endif
 
      @endsection
