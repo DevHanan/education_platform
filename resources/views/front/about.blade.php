@@ -3,6 +3,31 @@
 @section('content')
 @include('front.layouts.common.navbar')
 
+<section class="about">
+    <div class="hero_sec pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="img d-flex justify-content-center">
+                        <img src="{{ asset($aboutsetting->backgroundImageFullPath)}}" class="img-fluid m-0" data-aos="fade-left" data-aos-duration="1000" alt="">
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="info position-relative py-5">
+                        <img src="{{asset('/front/img/completed-bg.svg')}}" class="position-absolute w-100 h-100 img-fluid" alt="">
+                        <h4 class="title py-5 pb-1 fw-bold secondary-color"> {{ $aboutsetting-> title}} </h4>
+                        <div class="content fw-bold text-white">
+                            {!! $aboutsetting->description !!}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+
+</section>
 @endsection
 
 @push('frontscript')
