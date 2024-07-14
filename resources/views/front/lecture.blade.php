@@ -151,7 +151,7 @@
                                             <div class="my-2">المحاولات : <span>0/3</span></div>
                                             <div class="my-2">درجات الاجتياز : <span>{{ $quiz->pass_mark }}/{{ $quiz->total_mark}}</span></div>
                                             <div class="time my-2 ms-3"> <img src="{{asset('front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> 30 : 1 ساعة </div>
-                                            <div class="time my-2 ms-3"> <img src="{{asset('front/img/icons/fi-rr-calendar.png')}}" class="mx-1" width="15" alt=""> {{ $quiz->}}</div>
+                                            <div class="time my-2 ms-3"> <img src="{{asset('front/img/icons/fi-rr-calendar.png')}}" class="mx-1" width="15" alt=""> {{ $quiz->end_time }}</div>
                                         </div>                                            
                                         <div class="d-flex flex-wrap justify-content-end mt-2">
                                             <div class="mt-2">
