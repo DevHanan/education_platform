@@ -8,15 +8,15 @@ use Illuminate\Http\Request;
 use Auth;
 use Carbon\Carbon;
 
-class ExamController extends Controller{
+class ExamController extends Controller
+{
 
-    public function getExam($id)  {
+    public function getExam($id)
+    {
         $quiz = Quiz::find($id);
-        if($quiz->sections)
-        return view('quizdepartment',compact('quiz'));
-    else
-      return view('quizuestion',compact('quiz'));
-
-        
+        if ($quiz->has_levels)
+            return view('quizdepartment', compact('quiz'));
+        else
+            return view('quizuestion', compact('quiz'));
     }
 }
