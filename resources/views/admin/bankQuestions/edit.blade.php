@@ -250,117 +250,100 @@
             </div>
           </div>
 
-          <!-- <div class="card-body">
+        
+          <div class="card-body">
+            <div class="card-status-top bg-blue"></div>
+
+            <div class="card-header">
+              <h3 class="card-title"> {{__('admin.bankquestions.explain_question_data')}} </h3>
+
+            </div>
             @csrf
-            <input type="hidden" name="bank_group_id" value="{{$bankgroup->id}}">
             <div class="row">
-              <div class="col-lg-6">
-                <div class="mb-3">
-                  <label class="form-label">{{__('admin.questions.title')}}</label>
-                  <input type="text" class="form-control" name="title" value="{{old('title',$row)}}">
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="mb-3">
-                  <label class="form-label">{{__('admin.questions.link')}}</label>
-                  <input type="text" class="form-control" name="answer_video_link" value="{{old('answer_video_link',$row)}}">
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="mb-3">
-                  <label class="form-label">{{__('admin.questions.mark')}}</label>
-                  <input type="number" class="form-control" name="mark" value="{{old('mark',$row)}}">
-                </div>
-              </div><input type="hidden" value="{{$row->id}}" name="id">
 
-              <div class=" col-md-6">
-                <label class="form-label" for="active" class="form-label">{{ __('admin.tracks.status') }}</label>
-                <div>
-                  <label class="form-check form-check-inline">
-                    <input class="form-check-input" value="1" type="radio" name="active" @if($row->active == 1) checked="checked" @endif>
-                    <span class="form-check-label"> {{ __('admin.active')}}</span>
-                  </label>
-                  <label class="form-check form-check-inline">
-                    <input class="form-check-input" value="0" type="radio" name="active" @if($row->active == 0) checked="checked" @endif>
-                    <span class="form-check-label"> {{ __('admin.inactive' )}}</span>
-                  </label>
 
-                </div>
-              </div>
-              <div class="col-lg-12">
-                <div>
-                  <label class="form-label">{{__('admin.questions.title_notes')}}</label>
-                  <textarea class="form-control" rows="3" name="question_notes"> {{ $row->question_notes}}</textarea>
-                </div>
-              </div>
+
 
 
 
               <div class="col-lg-12">
                 <div>
-                  <label class="form-label">{{__('admin.questions.optiomal_answer')}}</label>
-                  <textarea class="form-control" rows="3" name="model_answer">{{ $row->model_answer}}</textarea>
+                  <label class="form-label">{{__('admin.bankquestions.title_notes')}}</label>
+                  <textarea class="form-control" rows="3" name="question_notes"></textarea>
                 </div>
               </div>
+
+
+              <div class="form-group col-md-6 img-class">
+
+
+                <label class="form-label">{{ __('admin.bankquestions.question_photo') }}</label>
+                <input type="file" class="form-control" name="question_declare_img">
+
+                @error('question_photo')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
+              </div>
+
+
+
+            </div>
+
+
+
+
+          </div>
+
+          <div class="card-body">
+            <div class="card-status-top bg-blue"></div>
+            <div class="card-header">
+              <h3 class="card-title"> {{__('admin.bankquestions.explain_answer_data')}} </h3>
+
+            </div>
+            <div class="card-body">
+
+              <div class="mb-3">
+                <label class="form-label">{{__('admin.bankquestions.link')}}</label>
+                <input type="text" class="form-control" name="answer_video_link">
+                @error('answer_video_link')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
+              </div>
+
+
+
 
               <div class="col-lg-12">
                 <div>
-                  <label class="form-label">{{__('admin.questions.answer_notes')}}</label>
-                  <textarea class="form-control" rows="3" name="answer_notes"> {{ $row->answer_notes}}</textarea>
+                  <label class="form-label">{{__('admin.bankquestions.answer_notes')}}</label>
+                  <textarea class="form-control" rows="3" name="answer_notes"></textarea>
+                  @error('answer_notes')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
                 </div>
               </div>
-            </div>
 
-            <div class="form-group col-md-12">
+              <div class="form-group col-md-12">
 
 
-              <label>{{ __('admin.questions.title_photo') }}</label>
-              <input type="file" class="form-control" name="picture" id="logo">
-              @if(isset($row->picture))
-              <img style="padding-top:30px;" src="{{ asset($row->pictureFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
-              <div class="clearfix"></div>
-              @endif
-              @error('title_photo')
-              <div class="invalid-feedback">
-                {{ $message }}
+                <label class="form-label">{{ __('admin.bankquestions.answer_photo') }}</label>
+                <input type="file" class="form-control" name="answer_declare_img">
+
+                @error('answer_photo')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
               </div>
-              @enderror
             </div>
+          </div>
 
-            <div class="form-group col-md-12">
-
-
-              <label>{{ __('admin.questions.question_photo') }}</label>
-              <input type="file" class="form-control" name="question_declare_img">
-              @if(isset($row->question_declare_img))
-              <img style="padding-top:30px;" src="{{ asset($row->questionFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
-              <div class="clearfix"></div>
-              @endif
-              @error('question_photo')
-              <div class="invalid-feedback">
-                {{ $message }}
-              </div>
-              @enderror
-            </div>
-
-
-            <div class="form-group col-md-12">
-
-
-              <label>{{ __('admin.questions.answer_photo') }}</label>
-              <input type="file" class="form-control" name="answer_declare_img">
-              @if(isset($row->answer_declare_img))
-              <img style="padding-top:30px;" src="{{ asset($row->answerFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
-              <div class="clearfix"></div>
-              @endif
-
-              @error('answer_photo')
-              <div class="invalid-feedback">
-                {{ $message }}
-              </div>
-              @enderror
-            </div>
-          </div> -->
           <div class="card-footer text-end">
             <div class="d-flex">
               <button type="submit" class="btn btn-success">{{ __('admin.btn_save') }}</button>
