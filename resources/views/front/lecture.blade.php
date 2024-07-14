@@ -137,7 +137,8 @@
 
 
                             @if($lecture->quiz)
-                           <div class="accordion mb-4" id="course_end_exam">
+                            @foreach ($lecture->quiz as $quiz )
+                            <div class="accordion mb-4" id="course_end_exam">
                                 <div class="accordion-item">
                                   <h2 class="accordion-header" id="headingOne">
                                     <button class="accordion-button bg-white border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#end_exam" aria-expanded="true" aria-controls="end_exam">
@@ -161,6 +162,8 @@
                                   </div>
                                 </div>
                             </div>
+                            @endforeach
+                           
                             @endif
                 </section>
 
