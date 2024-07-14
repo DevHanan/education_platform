@@ -11,10 +11,10 @@
   {{ $setting->title }}</title>
   <link rel="shortcut icon" href="{{ asset($setting->iconFullPath) }}">
 
-    <link rel="stylesheet" href="{{asset('public/front/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('public/front/exam/css/bootstrap.min.css')}}">
 
   <!--woow AnimateFiles Css-->
-  <link rel="stylesheet" href="css/all.min.css" />
+  <link rel="stylesheet" href="{{asset('public/front/exam/css/all.min.css')}}" />
   <!--woow AnimateFiles Css-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -81,9 +81,9 @@
   </footer>
 
   <!--scirpt Files-->
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/all.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="{{asset('public/front/exam/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{asset('public/front/exam/js/all.min.js')}}"></script>
+  <script src="{{asset('public/front/exam/js/main.js')}}"></script>
   <!--scirpt Files-->
 </body>
 
