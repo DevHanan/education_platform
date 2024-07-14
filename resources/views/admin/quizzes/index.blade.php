@@ -54,14 +54,14 @@
                     </svg>
                   </th>
                   <th> {{__('admin.quizzes.name')}}</th>
-                  <th>{{ __('admin.quizzes.question_number') }}</th>
                   <th>{{ __('admin.quizzes.date') }}</th>
+                  <th>{{ __('admin.quizzes.total_mark') }}</th>
+                  <th>{{ __('admin.quizzes.pass_mark') }}</th>
+                  <th>{{ __('admin.quizzes.question_number') }}</th>
                   <th>{{ __('admin.quizzes.track') }}</th>
                   <th>{{ __('admin.quizzes.course') }}</th>
                   <th>{{ __('admin.quizzes.level') }}</th>
                   <th> {{__('admin.quizzes.lecture')}}</th>
-                  <th>{{ __('admin.quizzes.total_mark') }}</th>
-                  <th>{{ __('admin.quizzes.pass_mark') }}</th>
                   <th>{{ __('admin.quizzes.status') }}</th>
                   <th>{{ __('admin.quizzes.actions') }}</th>
                 </tr>
@@ -73,8 +73,10 @@
                   <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
                   <td><span class="text-secondary">{{$loop->iteration}}</span></td>
                   <td>{{$row->name}}</td>
-                  <td>{{$row->question_number}}</td>
                   <td>{{$row->created_at}}</td>
+                  <td> {{ $row->total_mark }}</td>
+                  <td> {{ $row->pass_mark }}</td>
+                  <td>{{$row->question_number}}</td>
 
                   <td>
                     {{ optional($row->track)->name}}
@@ -93,8 +95,6 @@
                     {{ optional($row->lecture)->title}}
 
                   </td>
-                  <td> {{ $row->total_mark }}</td>
-                  <td> {{ $row->pass_mark }}</td>
                   <td>
 
 
