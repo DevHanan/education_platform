@@ -64,9 +64,9 @@
                     <label class="form-label" for="track_id">{{ __('admin.subjects.terms') }} <span>*</span></label>
                     <select class="select2 form-control" name="terms[]" id="terms" required multiple>
                       <option value="" disabled hidden>{{ __('select') }}</option>
-                      <option value="1"> {{ __('admin.subjects.term1') }}</option>
-                      <option value="2"> {{ __('admin.subjects.term2') }}</option>
-                      <option value="3"> {{ __('admin.subjects.term3') }}</option>
+                      <option value="1" @if(in_array(1,$row->terms))  selected @endif></option>))> {{ __('admin.subjects.term1') }}</option>
+                      <option value="2" @if(in_array(2,$row->terms))  selected @endif> {{ __('admin.subjects.term2') }}</option>
+                      <option value="3" @if(in_array(3,$row->terms))  selected @endif> {{ __('admin.subjects.term3') }}</option>
                     </select>
 
                     @error('terms')
