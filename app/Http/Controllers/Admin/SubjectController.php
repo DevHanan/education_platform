@@ -63,7 +63,7 @@ class SubjectController extends Controller
             'name' => 'required',
             'degree' => 'required',
         ]);
-        $request->merge(['terms'=>json_encode($request->terms)]);
+        $request->merge(['terms'=>$request->terms]);
         $subject = Subject::create($request->all());
 
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
@@ -94,7 +94,7 @@ class SubjectController extends Controller
             'name' => 'required|string|max:255|unique:subjects,name,' . $request->id,
             'degree' => 'required',
         ]);
-        $request->merge(['terms'=>json_encode($request->terms)]);
+        $request->merge(['terms'=>$request->terms]);
         $subject = Subject::find($request->id);
         $subject->update($request->all());
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
