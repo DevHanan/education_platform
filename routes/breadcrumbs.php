@@ -351,8 +351,8 @@ Breadcrumbs::for('show-bankgroups', function (BreadcrumbTrail $trail,$row) {
 });
 
 Breadcrumbs::for('update-bankgroups', function (BreadcrumbTrail $trail,$row) {
-    $trail->parent('show-courses',$row);
-    $trail->push(trans('navbar.courses.edit_course'), route('admin.courses.edit', $row));
+    $trail->parent('show-bankgroups',$row);
+    $trail->push(trans('navbar.bankgroups.edit'), route('admin.courses.edit', $row));
 });
 
 
