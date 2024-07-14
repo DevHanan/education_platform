@@ -213,7 +213,7 @@
 
 
 
-             
+
             </div>
           </div>
 
@@ -294,28 +294,29 @@
                   @enderror
                 </div>
               </div>
+              <div class="form-group col-md-12">
 
-             
+
+                <label class="form-label">{{ __('admin.bankquestions.answer_photo') }}</label>
+                <input type="file" class="form-control" name="answer_declare_img">
+
+                @if(isset($row->answer_declare_img))
+                <img style="padding-top:30px;" src="{{ asset($row->answerFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
+                <div class="clearfix"></div>
+                @endif
+                @error('answer_declare_img')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
+              </div>
+
+
             </div>
           </div>
 
 
-          <div class="form-group col-md-12">
 
-
-<label class="form-label">{{ __('admin.bankquestions.answer_photo') }}</label>
-<input type="file" class="form-control" name="answer_declare_img">
-
-@if(isset($row->answer_declare_img))
-<img style="padding-top:30px;" src="{{ asset($row->answerFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
-<div class="clearfix"></div>
-@endif
-@error('answer_declare_img')
-<div class="invalid-feedback">
-  {{ $message }}
-</div>
-@enderror
-</div>
 
           <div class="card-footer text-end">
             <div class="d-flex">
