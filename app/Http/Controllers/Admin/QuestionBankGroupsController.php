@@ -101,6 +101,7 @@ class QuestionBankGroupsController extends Controller
     {
         return $request->all();
 
+        
         $request->validate([
             'name'=>'required|unique:bank_groups,name,'.$id,
             'trac_id' => 'required'
