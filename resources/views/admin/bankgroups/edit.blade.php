@@ -5,7 +5,7 @@
     <div class="container-xl">
         <div class="row g-2 align-items-center">
             <div class="col">
-                {{ Breadcrumbs::render('add-bankgroups') }}
+                {{ Breadcrumbs::render('update-bankgroups') }}
             </div>
             <!-- Page title actions -->
             <div class="col-auto ms-auto d-print-none">
