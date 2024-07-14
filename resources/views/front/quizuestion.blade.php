@@ -89,7 +89,6 @@
                 
                 <!-- <iframe class="w-100 my-4" height="315" src="https://www.youtube.com/embed/yrfIMgxG14w?si=jtJ1-rQClQ_QXm6g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
                 
-                  @if($question->)
                   <img src="{{$question->questionFullPath}}" style="height:200px ;" class="img-fluid my-2 w-100" alt="">
             </div>
         </div>
