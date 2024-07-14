@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 use Toastr;
+use Illuminate\Validation\Rule;
+use Validator;
 
 class QuestionBankGroupsController extends Controller
 {
@@ -95,8 +97,19 @@ class QuestionBankGroupsController extends Controller
      * @param BankGroup $group
      * @return RedirectResponse
      */
-    public function update(BankGroupRequest $request, BankGroup $group)
+    public function update(Request $request, BankGroup $group)
     {
+
+        $validator = Validator::make($request->all(), [
+            'name' => [
+                'equired',
+                Rule::unique('bank_groups')->ignore($this->group),
+            ],
+        ]);
+        if ($validator->fails()) {
+            // Redirect back with errors
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
         $active = $request->active ? '1' : '0';
         $request->merge(['active' => $active]);
         $group->update($request->all());

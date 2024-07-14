@@ -85,6 +85,7 @@ class PolicyController extends Controller
 
     public function update(Request $request,Policy $policy)
     {
+        
         if($request->active)
         $request->merge (['active'=>'1']) ;
     else
