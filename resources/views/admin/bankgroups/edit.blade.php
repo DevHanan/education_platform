@@ -81,6 +81,7 @@
                                     </div>
                                     @enderror
                                 </div>
+                                <input type="hidden" name="id" value="{{ $row->id}}">
 
                                 <div class="form-group ">
                                     <label class="form-label" for="active" class="form-label">{{ __('admin.select_status') }}</label>
