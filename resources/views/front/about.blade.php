@@ -3,7 +3,7 @@
 @section('content')
 @include('front.layouts.common.navbar')
 
-<section class="about">
+<!-- <section class="about">
     <div class="hero_sec pb-5">
         <div class="container">
             <div class="row">
@@ -292,7 +292,7 @@
     </div>
     @endif
 
-</section>
+</section> -->
 @endsection
 
 @push('frontscript')
