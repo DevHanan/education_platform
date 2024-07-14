@@ -73,9 +73,9 @@
                     <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">{{ $item->name }}</div></div>
                     <div class="col-md-10 col-8">
                       <div class="row">
-                        <div class="col-4"><input type="text" class="form-control border-primary"  name="item{{$item->id}}" style="border-radius: 10px;" @if(!in_array('1',$item->json_decode($item->terms)))  disabled="disabled" @endif></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary" name="item{{$item->id}}"   style="border-radius: 10px;" @if(!in_array('2',$item->json_decode($item->terms)))  disabled="disabled" @endif>></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary"  name="item{{$item->id}}" style="border-radius: 10px;" @if(!in_array('3',$item->json_decode($item->terms)))  disabled="disabled" @endif>></div>
+                        <div class="col-4"><input type="text" class="form-control border-primary"  name="item{{$item->id}}" style="border-radius: 10px;" @if(!in_array('1',json_decode($item->terms)))  disabled="disabled" @endif></div>
+                        <div class="col-4"><input type="text" class="form-control border-primary" name="item{{$item->id}}"   style="border-radius: 10px;" @if(!in_array('2',json_decode($item->terms)))  disabled="disabled" @endif>></div>
+                        <div class="col-4"><input type="text" class="form-control border-primary"  name="item{{$item->id}}" style="border-radius: 10px;" @if(!in_array('3',json_decode($item->terms)))  disabled="disabled" @endif>></div>
                       </div>  
                     </div>
                   </div>
