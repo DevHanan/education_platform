@@ -31,7 +31,7 @@
     <div class="row row-cards">
       <div class="col-md-12">
 
-        <form autocomplete="off" class="card"  action="{{ route($route.'.store') }}" method="post" enctype="multipart/form-data">
+        <form autocomplete="off" class="card" action="{{ route($route.'.store') }}" method="post" enctype="multipart/form-data">
           @csrf
 
 
@@ -61,6 +61,21 @@
                   @enderror
                 </div>
 
+                <div class="mb-3">
+                  <label class="form-label" for="track_id">{{ __('admin.subjects.terms') }} <span>*</span></label>
+                  <select class="select2 form-control" name="terms[]" id="terms" required multiple>
+                    <option value="" disabled hidden>{{ __('select') }}</option>
+                    <option value="1"> {{ __('admin.subjects.term1') }}</option>
+                    <option value="2"> {{ __('admin.subjects.term2') }}</option>
+                    <option value="3"> {{ __('admin.subjects.term3') }}</option>
+                  </select>
+
+                  @error('terms')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
 
                 <div class="form-group ">
                   <label class="form-label" for="active" class="form-label">{{ __('admin.select_status') }}</label>
