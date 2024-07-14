@@ -3,7 +3,7 @@
 @section('content')
 @include('front.layouts.common.navbar')
 <style>
-  input[type="text"]{
+  input[type="text" value="0"]{
   text-align: center;
   color: #0075ff;
 }
@@ -73,9 +73,9 @@
                     <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">{{ $item->name }}</div></div>
                     <div class="col-md-10 col-8">
                       <div class="row">
-                        <div class="col-4"><input type="text" class="form-control border-primary"  name="item{{$item->id}}" style="border-radius: 10px;" @if(!in_array('1',json_decode($item->terms)?? [] ))  disabled="disabled" @endif></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary" name="item{{$item->id}}"   style="border-radius: 10px;" @if(!in_array('2',json_decode($item->terms)?? []))  disabled="disabled" @endif></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary"  name="item{{$item->id}}" style="border-radius: 10px;" @if(!in_array('3',json_decode($item->terms)?? []))  disabled="disabled" @endif></div>
+                        <div class="col-4"><input type="text" value="0" class="form-control border-primary"  name="item{{$item->id}}" style="border-radius: 10px;" @if(!in_array('1',json_decode($item->terms)?? [] ))  disabled="disabled" @endif></div>
+                        <div class="col-4"><input type="text" value="0" class="form-control border-primary" name="item{{$item->id}}"   style="border-radius: 10px;" @if(!in_array('2',json_decode($item->terms)?? []))  disabled="disabled" @endif></div>
+                        <div class="col-4"><input type="text" value="0" class="form-control border-primary"  name="item{{$item->id}}" style="border-radius: 10px;" @if(!in_array('3',json_decode($item->terms)?? []))  disabled="disabled" @endif></div>
                       </div>  
                     </div>
                   </div>
@@ -90,9 +90,9 @@
                     <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">{{ $item2->name }}</div></div>
                     <div class="col-md-10 col-8">
                       <div class="row">
-                        <div class="col-4"><input type="text" class="form-control border-primary" name="item{{$item2->id}}" style="border-radius: 10px;" @if(!in_array('1',json_decode($item2->terms) ?? [] ))  disabled="disabled" @endif></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary" name="item{{$item2->id}}" style="border-radius: 10px;" @if(!in_array('1',json_decode($item2->terms) ?? [] ))  disabled="disabled" @endif></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary" name="item{{$item2->id}}" style="border-radius: 10px;" @if(!in_array('1',json_decode($item2->terms) ?? [] ))  disabled="disabled" @endif></div>
+                        <div class="col-4"><input type="text" value="0" class="form-control border-primary" name="item{{$item2->id}}" style="border-radius: 10px;" @if(!in_array('1',json_decode($item2->terms) ?? [] ))  disabled="disabled" @endif></div>
+                        <div class="col-4"><input type="text" value="0" class="form-control border-primary" name="item{{$item2->id}}" style="border-radius: 10px;" @if(!in_array('1',json_decode($item2->terms) ?? [] ))  disabled="disabled" @endif></div>
+                        <div class="col-4"><input type="text" value="0" class="form-control border-primary" name="item{{$item2->id}}" style="border-radius: 10px;" @if(!in_array('1',json_decode($item2->terms) ?? [] ))  disabled="disabled" @endif></div>
                       </div>  
                     </div>
                   </div>
@@ -106,9 +106,9 @@
                     <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">{{ $item3->name }}</div></div>
                     <div class="col-md-10 col-8">
                       <div class="row">
-                        <div class="col-4"><input type="text" class="form-control border-primary" name="item{{$item3->id}}" style="border-radius: 10px;" @if(!in_array('1',json_decode($item3->terms)?? [] ))  disabled="disabled" @endif></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary" name="item{{$item3->id}}" style="border-radius: 10px;" @if(!in_array('1',json_decode($item3->terms)?? [] ))  disabled="disabled" @endif></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary" name="item{{$item3->id}}" style="border-radius: 10px;" @if(!in_array('1',json_decode($item3->terms)?? [] ))  disabled="disabled" @endif></div>
+                        <div class="col-4"><input type="text" value="0" class="form-control border-primary" name="item{{$item3->id}}" style="border-radius: 10px;" @if(!in_array('1',json_decode($item3->terms)?? [] ))  disabled="disabled" @endif></div>
+                        <div class="col-4"><input type="text" value="0" class="form-control border-primary" name="item{{$item3->id}}" style="border-radius: 10px;" @if(!in_array('1',json_decode($item3->terms)?? [] ))  disabled="disabled" @endif></div>
+                        <div class="col-4"><input type="text" value="0" class="form-control border-primary" name="item{{$item3->id}}" style="border-radius: 10px;" @if(!in_array('1',json_decode($item3->terms)?? [] ))  disabled="disabled" @endif></div>
                       </div>  
                     </div>
                   </div>
@@ -120,7 +120,7 @@
                   <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">القدرات</div></div>
                   <div class="col-md-10 col-8">
                     <div class="row">
-                      <div class="col-12"><input type="text" class="form-control border-primary" name="abilityVal" style="border-radius: 10px;"></div>
+                      <div class="col-12"><input type="text" value="0" class="form-control border-primary" name="abilityVal" style="border-radius: 10px;"></div>
                     </div>  
                   </div>
                 </div>
@@ -309,7 +309,7 @@ function secondaryThreeFunction(){
 let popUp = document.querySelector(".pop-up")
 let overlay = document.querySelector(".overlay")
 function showPopUp(){
-    var inputs = document.querySelectorAll('input[type="text"]');
+    var inputs = document.querySelectorAll('input[type="text" value="0"]');
     var sum = 0;
     inputs.forEach(function(input) {
       sum += parseInt(input.value);
