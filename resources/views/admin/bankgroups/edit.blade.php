@@ -36,7 +36,7 @@
                             <div class="col-md-6">
                                 <div class="col-md-12">
                                     <label class="form-label" for="title"> {{__('admin.bankgroups.bank_name')}} <span>*</span></label>
-                                    <input type="text" class="form-control" name="name" id="title" value="{{ old('name') }}" required>
+                                    <input type="text" class="form-control" name="name" id="title" value="{{ old('name',$row) }}" required>
 
                                     @error('name')
                                     <div class="invalid-feedback">
@@ -49,6 +49,9 @@
                                     <label class="form-label" for="courses">{{ __('admin.bankgroups.course_name') }} <span>*</span></label>
                                     <select class="form-control" name="course_id" id="courses">
                                         <option value="">{{ __('select') }}</option>
+                                        @if($row->course_id)
+                                        <option value="{{$row->course_id}}"  selected >{{ optional($row->course)->name }}</option>
+                                        @endif
 
                                     </select>
 
@@ -67,7 +70,7 @@
                                     <select class="form-control" name="track_id" id="track_id" required>
                                         <option value="">{{ __('select') }}</option>
                                         @foreach($tracks as $track)
-                                        <option value="{{$track->id}}">{{ $track->name }}</option>
+                                        <option value="{{$track->id}}" @if($row->track_id == $track->id) selected @endif>{{ $track->name }}</option>
                                         @endforeach
 
                                     </select>
@@ -83,11 +86,11 @@
                                     <label class="form-label" for="active" class="form-label">{{ __('admin.select_status') }}</label>
                                     <div>
                                         <label class="form-check form-check-inline">
-                                            <input class="form-check-input" value="1" type="radio" name="active" checked>
+                                            <input class="form-check-input" value="1" type="radio" name="active"  @if($row->active == 1)  checked @endif >
                                             <span class="form-check-label"> {{ __('admin.active')}}</span>
                                         </label>
                                         <label class="form-check form-check-inline">
-                                            <input class="form-check-input" value="0" type="radio" name="active">
+                                            <input class="form-check-input" value="0" type="radio" name="active" @if($row->active == 0)  checked @endif>
                                             <span class="form-check-label"> {{ __('admin.inactive' )}}</span>
                                         </label>
 

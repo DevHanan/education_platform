@@ -97,19 +97,20 @@ class QuestionBankGroupsController extends Controller
      * @param BankGroup $group
      * @return RedirectResponse
      */
-    public function update(Request $request, BankGroup $group)
+    public function update(Request $request,$id)
     {
 
         $validator = Validator::make($request->all(), [
             'name' => [
                 'equired',
-                Rule::unique('bank_groups')->ignore($this->group),
+                Rule::unique('bank_groups')->ignore($this->id),
             ],
         ]);
         if ($validator->fails()) {
             // Redirect back with errors
             return redirect()->back()->withErrors($validator)->withInput();
         }
+        $group = BankGroup::find($request->id);
         $active = $request->active ? '1' : '0';
         $request->merge(['active' => $active]);
         $group->update($request->all());
