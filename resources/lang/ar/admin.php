@@ -604,10 +604,10 @@ return [
     'bankquestions' => [
         'explain_question_data' => 'بيانات توضيحية للسؤال',
         'explain_answer_data' => 'بيانات توضيحية لأجابة',
-        'title'  => 'السؤال',
+        'title'  => 'رأس السؤال نص',
         'title_notes'  => 'ملاحظات نصية لشرح السؤال',
         'answer_notes' => 'ملاحظات نصيه لشرح إجابة السؤال',
-        'title_notes_img'  => 'صورة توضحية لشرح السؤال',
+        'title_notes_img'  => 'رأس السؤال صورة',
         'title_photo' => 'صورة السؤال',
         'question_photo' => 'صورة توضيحية لشرح السؤال',
         'ban_group' => 'البنك التابع له',
