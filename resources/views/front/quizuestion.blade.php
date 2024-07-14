@@ -6,17 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Education</title>
     <!--bootstrap-file-->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="{{asset('public/front/css/bootstrap.min.css')}}" />
     <!--bootstrap-file-->
     <!--fontawesome-file-->
-    <link rel="stylesheet" href="css/all.min.css" />
-    <!--icons-site-->
-    <link rel="icon" type="png" href="img/logo.png" />
-    <!--icons-site-->
-    <link rel="stylesheet" href="css/style.css" />
-    <!--google-font-->
-    <!--woow AnimateFiles Css-->
-    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="{{asset('public/front/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('public/front/css/style.css')}}">
+
     <!--woow AnimateFiles Css-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -101,9 +96,9 @@
       </footer>
 
           <!--scirpt Files-->
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/all.min.js"></script>
-    <script src="js/question.js"></script>
+    <script src="{{asset('public/front/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('public/front/js/all.min.js')}}"></script>
+    <script src="{{asset('public/front/js/question.js')}}"></script>
     <!--scirpt Files-->
   </body>
 </html>
