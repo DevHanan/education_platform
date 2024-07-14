@@ -97,11 +97,11 @@ class QuestionBankGroupsController extends Controller
      * @param BankGroup $group
      * @return RedirectResponse
      */
-    public function update(Request $request,$id)
+    public function updateeeeeeeeeeee(Request $request,$id)
     {
         return $request->all();
 
-        
+
         $request->validate([
             'name'=>'required|unique:bank_groups,name,'.$id,
             'trac_id' => 'required'
