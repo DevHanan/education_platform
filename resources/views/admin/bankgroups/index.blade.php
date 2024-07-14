@@ -43,8 +43,8 @@
                                    
                                     <th> {{__('admin.bankgroups.course_name')}}</th>
                                     <th> {{__('admin.bankgroups.track_name')}}</th>
-                                    <th> {{__('admin.bankgroups.exams')}}</th>
                                     <th> {{__('admin.bankgroups.bank_questions_number')}} </th>
+                                    <th> {{__('admin.bankgroups.exams')}}</th>
                                     <th> {{__('admin.tracks.status')}}</th>
                                     <th>{{ __('admin.bankgroups.actions') }}</th>
                                 </tr>
