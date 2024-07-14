@@ -130,6 +130,32 @@
     </div>
     @endif
 
+
+
+    <div class="aim position-relative my-5">
+        <!-- <img src="{{asset('/front/img/aim-bg.svg')}}" class="position-absolute img-fluid" alt=""> -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="h-100 d-flex flex-column justify-content-center">
+                        <h2 class="position-relative"> {{ $aboutsetting->mission_title }}
+                            <img src="{{asset('/front/img/text-line2.svg')}}" class="position-absolute" alt="">
+                        </h2>
+                        <h5 class="my-5 mb-5 ">
+                            {!! $aboutsetting->mission_description !!}
+                        </h5>
+                        <div>
+                            <a href="{{url('signup')}}" class="btn rounded-pill secondary-bg text-white my-4">اشترك الآن مجانا وابدأ رحلتك التعليمية</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="img"><img src="{{ asset( $aboutsetting->missionimageFullPath )}}" class="img-fluid" data-aos="fade-right" data-aos-duration="1000" alt=""></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
     
 
     <div class="messages py-5">
