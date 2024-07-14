@@ -42,6 +42,11 @@ class Lecture extends Model
         return $query->where('active', '1');
     }
 
+
+    public function quizz()
+    {
+        return $this->belongsTo(Quiz::class);
+    }
     public function course()
     {
         return $this->belongsTo(Course::class);

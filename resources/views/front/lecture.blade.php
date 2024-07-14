@@ -134,6 +134,34 @@
                                     </div>
                     </section>
                     @endif
+
+
+                            @if($row->quiz)
+                           <div class="accordion mb-4" id="course_end_exam">
+                                <div class="accordion-item">
+                                  <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button bg-white border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#end_exam" aria-expanded="true" aria-controls="end_exam">
+                                        <img src="../img/icons/fi-rr-document.png" class="ms-2" alt="">  {{ $quiz->name }}
+                                    </button>
+                                  </h2>
+                                  <div id="end_exam" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#course_end_exam">
+                                    <div class="accordion-body">
+                                        <div class="d-flex flex-wrap justify-content-between align-items-center">
+                                            <div class="my-2">المحاولات : <span>0/3</span></div>
+                                            <div class="my-2">درجات الاجتياز : <span>{{ $quiz->pass_mark }}/{{ $quiz->total_mark}}</span></div>
+                                            <div class="time my-2 ms-3"> <img src="../img/icons/fi-rr-alarm-clock.svg" class="mx-1" width="15" alt=""> 30 : 1 ساعة </div>
+                                            <div class="time my-2 ms-3"> <img src="../img/icons/fi-rr-calendar.png" class="mx-1" width="15" alt=""> 12 سبتمبر , 2023 </div>
+                                        </div>                                            
+                                        <div class="d-flex flex-wrap justify-content-end mt-2">
+                                            <div class="mt-2">
+                                                <a href="questions.html" class="btn secondary-bg px-3 text-white">ابدء الأختبار</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                            @endif
                 </section>
 
             </div>

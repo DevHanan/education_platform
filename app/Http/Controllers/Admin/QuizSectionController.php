@@ -27,10 +27,10 @@ class QuizSectionController extends Controller
         $this->view = 'admin.sections';
         $this->path = 'sections';
         $this->access = 'sections';
-        $this->middleware('permission:sections-create', ['only' => ['create','store']]);
-        $this->middleware('permission:sections-view',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:sections-edit',   ['only' => ['edit','update']]);
-        $this->middleware('permission:sections-delete',   ['only' => ['delete']]);
+        // $this->middleware('permission:sections-create', ['only' => ['create','store']]);
+        // $this->middleware('permission:sections-view',   ['only' => ['show', 'index']]);
+        // $this->middleware('permission:sections-edit',   ['only' => ['edit','update']]);
+        // $this->middleware('permission:sections-delete',   ['only' => ['delete']]);
     }
     public function index(Request $request,$quiz_id)
     {
