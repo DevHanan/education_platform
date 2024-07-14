@@ -136,7 +136,7 @@
                     @endif
 
 
-                            @if($row->quiz)
+                            @if($lecture->quiz)
                            <div class="accordion mb-4" id="course_end_exam">
                                 <div class="accordion-item">
                                   <h2 class="accordion-header" id="headingOne">
