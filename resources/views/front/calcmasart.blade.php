@@ -1,6 +1,37 @@
 @extends('front.layouts.master')
 @section('title', 'حساب التنسيق')
 @section('content')
+<style>
+  input[type="text"]{
+  text-align: center;
+  color: #0075ff;
+}
+.div{
+  width: 100%;
+}
+.div::after{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 350px;
+  background: #0075ff;
+  z-index: -1;
+}
+
+.main-div{
+  padding-top: 120px;
+}
+
+.girls{
+  display: none;
+}
+.transition{
+  transition: all 0.2s;
+}
+.transition:hover{
+  transform: translateY(-1px);
+}
+</style>
 <div class="overlay d-none" style="width: 100%;height: 100%;position: absolute;top: 0;left: 0;background-color: rgba(0, 0, 0, 0.418);z-index: 9;"></div>
     <div class="pop-up d-none bg-white shadow-sm position-absolute p-4" style="width:350px ;top: 50%;left: 50%;transform: translate(-50%,-50%);z-index: 10;border-radius: 5px;">
       <div class="d-flex justify-content-between align-items-center">
