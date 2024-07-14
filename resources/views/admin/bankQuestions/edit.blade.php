@@ -31,7 +31,7 @@
   <div class="container-xl">
     <div class="row row-cards">
       <div class="col-md-12">
-        <form class="card"  action="{{ route($route.'.update',[$bankgroup->id,$row]) }}" method="post" enctype="multipart/form-data">
+        <form class="card" action="{{ route($route.'.update',[$bankgroup->id,$row]) }}" method="post" enctype="multipart/form-data">
 
           @csrf
 
@@ -76,11 +76,11 @@
                   <label class="form-label" for="active" class="form-label">{{ __('admin.tracks.status') }}</label>
                   <div>
                     <label class="form-check form-check-inline">
-                      <input class="form-check-input" value="1" type="radio" name="active"  @if($row->active == 1) checked="checked" @endif>
+                      <input class="form-check-input" value="1" type="radio" name="active" @if($row->active == 1) checked="checked" @endif>
                       <span class="form-check-label"> {{ __('admin.active')}}</span>
                     </label>
                     <label class="form-check form-check-inline">
-                      <input class="form-check-input" value="0" type="radio" name="active"  @if($row->active == 0) checked="checked" @endif>
+                      <input class="form-check-input" value="0" type="radio" name="active" @if($row->active == 0) checked="checked" @endif>
                       <span class="form-check-label"> {{ __('admin.inactive' )}}</span>
                     </label>
 
@@ -200,16 +200,7 @@
 
                 </select>
 
-                @error('answer_id')
-                <div class="invalid-feedback">
-                  {{ $message }}
-                </div>
-                @enderror
-              </div>
-              <div class="mb-3">
-                <label class="form-label">{{__('admin.bankquestions.link')}}</label>
-                <input type="text" class="form-control" name="answer_video_link" value="{{old('answer_video_link',$row)}}">
-                @error('answer_video_link')
+                @error('correct_answer')
                 <div class="invalid-feedback">
                   {{ $message }}
                 </div>
@@ -217,19 +208,10 @@
               </div>
 
 
-            
 
-              <div class="col-lg-12">
-                <div>
-                  <label class="form-label">{{__('admin.bankquestions.answer_notes')}}</label>
-                  <textarea class="form-control" rows="3" name="answer_notes"> {{ $row->answer_notes }}</textarea>
-                  @error('answer_notes')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                  @enderror
-                </div>
-              </div>
+
+
+
 
               <div class="form-group col-md-12">
 
@@ -250,7 +232,7 @@
             </div>
           </div>
 
-        
+
           <div class="card-body">
             <div class="card-status-top bg-blue"></div>
 
@@ -306,7 +288,7 @@
 
               <div class="mb-3">
                 <label class="form-label">{{__('admin.bankquestions.link')}}</label>
-                <input type="text" class="form-control" name="answer_video_link">
+                <input type="text" class="form-control" name="answer_video_link" value="{{old('answer_video_link',$row)}}">
                 @error('answer_video_link')
                 <div class="invalid-feedback">
                   {{ $message }}
@@ -316,11 +298,10 @@
 
 
 
-
               <div class="col-lg-12">
                 <div>
                   <label class="form-label">{{__('admin.bankquestions.answer_notes')}}</label>
-                  <textarea class="form-control" rows="3" name="answer_notes"></textarea>
+                  <textarea class="form-control" rows="3" name="answer_notes"> {{ $row->answer_notes }}</textarea>
                   @error('answer_notes')
                   <div class="invalid-feedback">
                     {{ $message }}
