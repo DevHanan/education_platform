@@ -51,32 +51,33 @@
       </div>
       </nav>
       <section class="container-fluid question-main-section">
+        @foreach ($questions as $question )
         <div class="row">
             <div class="col-md-6 p-4">
-                <h5>برد : حر</h5>
-                <img src="./img/book1.jpeg" style="height:200px ;" class="img-fluid mt-4 mb-5 w-100" alt="">
+                <h5> {{ $question->title }} </h5>
+                <img src="{{ $question->pictureFullPath }}" style="height:200px ;" class="img-fluid mt-4 mb-5 w-100" alt="">
                 <div class="p-2 d-flex gap-2">
                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="ans-1">
                     <h5 class="form-check-label" for="ans-1">
-                        قحط : رخاء
+                        {{ $question->answer1 }}
                     </h5>
                 </div>
                 <div class="p-2 d-flex gap-2">
                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="ans-2">
                     <h5 class="form-check-label" for="ans-2">
-                        بذرة : نبتة
+                    {{ $question->answer2 }}
                     </h5>
                 </div>
                 <div class="p-2 d-flex gap-2">
                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="ans-3">
                     <h5 class="form-check-label" for="ans-3">
-                        فائدة : كتاب
+                    {{ $question->answer3 }}
                     </h5>
                 </div>
                 <div class="p-2 d-flex gap-2">
                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="ans-4">
                     <h5 class="form-check-label" for="ans-4">
-                        انفجار : مولد
+                    {{ $question->answer4 }}
                     </h5>
                 </div>
             </div>
@@ -87,11 +88,15 @@
                 <img src="./img/book1.jpeg" style="height:200px ;" class="img-fluid my-2 w-100" alt="">
             </div>
         </div>
+        @endforeach
+       
       </section>
       <footer class="bg-primary position-absolute text-light w-100 bottom-0">
         <div class="d-flex container-fluid justify-content-between align-items-center">
           <h4 class="equations ps-2 p-1 mb-0 fw-bold"><span class="border p-0 px-2" style="font-size: 15px;border-radius: 50%;"><i class="fa-solid fa-question"></i></span> المعادلات</h4>
-          <h4 class="next-btn mb-0 p-1 pe-2 fw-bold">التالى <i class="fa-solid fa-arrow-left"></i></h4>
+        <h4 class="next-btn mb-0 p-1 pe-2 fw-bold">التالى <i class="fa-solid fa-arrow-left"></i></h4>
+        
+        {{ $questions->links() }}
         </div>
       </footer>
 

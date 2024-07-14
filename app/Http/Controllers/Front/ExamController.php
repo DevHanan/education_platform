@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\BankQuestion;
 use App\Models\Quiz;
 use App\Models\QuizSection;
 use App\Models\QuizQuestion;
@@ -25,8 +26,9 @@ class ExamController extends Controller
 
     public function getExamLevelQuestion($id){
         $section = QuizSection::find($id);
-          $QuizQuestion = QuizQuestion::where('quiz_id',$section->quiz_id)->paginate('1');
-          return view('front.quizuestion', compact('QuizQuestion','section'));
+          $QuizQuestion = QuizQuestion::where('quiz_id',$section->quiz_id)->pluck('question_id')->ToArray();
+          $questions = BankQuestion::whereIn('id',$QuizQuestion)->paginate('1');
+          return view('front.quizuestion', compact('questions','section'));
 
     }
 }
