@@ -60,6 +60,7 @@
             {{ $question->answer1 }}
           </h5>
         </div>
+        <input type="hidden" name="id" value="{{$section->id}}">
         <div class="p-2 d-flex gap-2">
           <input class="form-check-input" type="radio" name="flexRadioDefault" id="ans-2">
           <h5 class="form-check-label" for="ans-2">
