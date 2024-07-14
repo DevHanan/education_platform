@@ -25,10 +25,10 @@ class FacultyController extends Controller
         $this->view = 'admin.faculities';
         $this->path = 'faculities';
         $this->access = 'faculities';
-        $this->middleware('permission:.faculities-create', ['only' => ['create','store']]);
-        $this->middleware('permission:.faculities-view',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:.faculities-edit',   ['only' => ['edit','update']]);
-        $this->middleware('permission:.faculities-delete',   ['only' => ['delete']]);
+        // $this->middleware('permission:.faculities-create', ['only' => ['create','store']]);
+        // $this->middleware('permission:.faculities-view',   ['only' => ['show', 'index']]);
+        // $this->middleware('permission:.faculities-edit',   ['only' => ['edit','update']]);
+        // $this->middleware('permission:.faculities-delete',   ['only' => ['delete']]);
     }
     public function index(Request $request)
     {
