@@ -30,6 +30,8 @@
 
                 <form class="card"  action="{{ route($route.'.update',$row) }}" method="post" enctype="multipart/form-data">
                     @csrf
+                    @method("PUT")
+
                     <div class="card-body">
                         <div class="row ">
                             <!-- Form Start -->
