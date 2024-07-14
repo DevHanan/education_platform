@@ -66,10 +66,6 @@ class AppServiceProvider extends ServiceProvider
         $latest  = Course::whereDate('start_date', '>=', now()->addDays($landingSetting->start_soon_period))->latest()->take(6)->get();
         $bankgroup = BankGroup::active()->latest()->get();
         $reviews = Review::active()->latest()->get();
-        
-
-
-
         $policies = Policy::active()->get();
        $toprated = Course::selectRaw('*, AVG(comments.rate) as avg')
        ->leftJoin('comments', 'courses.id', '=', 'comments.course_id')

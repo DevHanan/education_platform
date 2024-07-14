@@ -78,86 +78,7 @@
                       </div>  
                     </div>
                   </div>
-                  <div class="row mt-2">
-                    <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">الانجليزى</div></div>
-                    <div class="col-md-10 col-8">
-                      <div class="row">
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                      </div>  
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">تقنية رقمية</div></div>
-                    <div class="col-md-10 col-8">
-                      <div class="row">
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                      </div>  
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">العربى</div></div>
-                    <div class="col-md-10 col-8">
-                      <div class="row">
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" disabled class="form-control border-primary" style="border-radius: 10px;"></div>
-                      </div>  
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">علم البيئة</div></div>
-                    <div class="col-md-10 col-8">
-                      <div class="row">
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" disabled class="form-control border-primary" style="border-radius: 10px;"></div>
-                      </div>  
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">الاحياء</div></div>
-                    <div class="col-md-10 col-8">
-                      <div class="row">
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" disabled class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" disabled class="form-control border-primary" style="border-radius: 10px;"></div>
-                      </div>  
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">الكيمياء</div></div>
-                    <div class="col-md-10 col-8">
-                      <div class="row">
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" disabled class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" disabled class="form-control border-primary" style="border-radius: 10px;"></div>
-                      </div>  
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">الفيزياء</div></div>
-                    <div class="col-md-10 col-8">
-                      <div class="row">
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" disabled class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" disabled class="form-control border-primary" style="border-radius: 10px;"></div>
-                      </div>  
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">الاجتماعية</div></div>
-                    <div class="col-md-10 col-8">
-                      <div class="row">
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" disabled class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" disabled class="form-control border-primary" style="border-radius: 10px;"></div>
-                      </div>  
-                    </div>
-                  </div>
+                
                 </div>
                 <div class="secondary-two d-none">
                   <div class="row mt-2">
@@ -170,66 +91,7 @@
                       </div>  
                     </div>
                   </div>
-                  <div class="row mt-2">
-                    <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">الانجليزى</div></div>
-                    <div class="col-md-10 col-8">
-                      <div class="row">
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                      </div>  
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">الكيمياء</div></div>
-                    <div class="col-md-10 col-8">
-                      <div class="row">
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                      </div>  
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">الاحياء</div></div>
-                    <div class="col-md-10 col-8">
-                      <div class="row">
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                      </div>  
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">العربى</div></div>
-                    <div class="col-md-10 col-8">
-                      <div class="row">
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" disabled class="form-control border-primary" style="border-radius: 10px;"></div>
-                      </div>  
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">تقنية رقمية</div></div>
-                    <div class="col-md-10 col-8">
-                      <div class="row">
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" disabled class="form-control border-primary" style="border-radius: 10px;"></div>
-                      </div>  
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">الفيزياء</div></div>
-                    <div class="col-md-10 col-8">
-                      <div class="row">
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" disabled class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" disabled class="form-control border-primary" style="border-radius: 10px;"></div>
-                      </div>  
-                    </div>
-                  </div>
+                 
                 </div>
                 <div class="secondary-three d-none">
                   <div class="row mt-2">
@@ -242,56 +104,7 @@
                       </div>  
                     </div>
                   </div>
-                  <div class="row mt-2">
-                    <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">الانجليزى</div></div>
-                    <div class="col-md-10 col-8">
-                      <div class="row">
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                      </div>  
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">الفيزياء</div></div>
-                    <div class="col-md-10 col-8">
-                      <div class="row">
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                      </div>  
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">علم الأرض</div></div>
-                    <div class="col-md-10 col-8">
-                      <div class="row">
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" disabled class="form-control border-primary" style="border-radius: 10px;"></div>
-                      </div>  
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">الكيمياء</div></div>
-                    <div class="col-md-10 col-8">
-                      <div class="row">
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" disabled class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" disabled class="form-control border-primary" style="border-radius: 10px;"></div>
-                      </div>  
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">تقنية رقمية</div></div>
-                    <div class="col-md-10 col-8">
-                      <div class="row">
-                        <div class="col-4"><input type="text" class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" disabled class="form-control border-primary" style="border-radius: 10px;"></div>
-                        <div class="col-4"><input type="text" disabled class="form-control border-primary" style="border-radius: 10px;"></div>
-                      </div>  
-                    </div>
-                  </div>
+                  
                 </div>
                 <div class="row mt-2">
                   <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">القدرات</div></div>
