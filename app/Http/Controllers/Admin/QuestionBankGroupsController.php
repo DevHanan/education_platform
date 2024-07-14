@@ -97,9 +97,8 @@ class QuestionBankGroupsController extends Controller
      * @param BankGroup $group
      * @return RedirectResponse
      */
-    public function updateeeeeeeeeeee(Request $request,$id)
+    public function update(Request $request,$id)
     {
-        return $request->all();
 
 
         $request->validate([
