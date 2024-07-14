@@ -1,6 +1,7 @@
 @extends('front.layouts.master')
 @section('title', 'حساب التنسيق')
 @section('content')
+@include('front.layouts.common.navbar')
 <style>
   input[type="text"]{
   text-align: center;
