@@ -37,13 +37,19 @@ class BankQuestion extends Model
     public function getQuestionFullPathAttribute($value)
     {
 
+        if($this->question_declare_img)
         return asset('public/' . $this->question_declare_img);
+        else
+        return asset('public/uploads/bankquestions/default.png');
     }
 
     public function getAnswerFullPathAttribute($value)
     {
 
+        if($this->answer_declare_img)
         return asset('public/' . $this->answer_declare_img);
+        else
+        return asset('public/uploads/bankquestions/default.png');
     }
 
     public function scopeActive($query)
