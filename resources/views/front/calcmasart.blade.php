@@ -44,7 +44,7 @@
         <h3> 410 / <span class="text-primary" id="result">0.0000</span></h3>
       </div>
       <hr>
-      <div class="text-center pt-2"><div class="btn btn-primary" onclick="goToResults()">تنسيق 2023</div></div>
+      <div class="text-center pt-2"><div class="btn btn-primary" onclick="goToResults()">تنسيق {{ date('y')}}</div></div>
     </div>
     <div class="div"></div>
     <section class="main-div">
