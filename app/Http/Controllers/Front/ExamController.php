@@ -15,7 +15,7 @@ class ExamController extends Controller{
         if($quiz->sections)
         return view('quizdepartment',compact('quiz'));
     else
-    return view('quizuestion',compact('quiz'));
+      return view('quizuestion',compact('quiz'));
 
         
     }

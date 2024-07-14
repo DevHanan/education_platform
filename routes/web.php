@@ -17,6 +17,7 @@ use App\Http\Controllers\Front\RegisterController;
 use App\Http\Controllers\LangController;
 use App\Http\Controllers\Admin\FileController;
 use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\Front\ExamController;
 Route::get('/file/download/{filename?}', [FileController::class, 'download'])->name('file.download');
 Route::group(
     [
@@ -80,7 +81,7 @@ Route::get('/clear-cache', function () {
     Artisan::call('cache:clear');
 });
 
-Route::get('/exam/{id}', [ExamController::class, 'getExam'])
+Route::get('/exam/{id}', [ExamController::class, 'getExam']);
 Route::get('language/{language}', [LangController::class, 'changeLanguage'])->name('language');
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     });
