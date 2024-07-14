@@ -15,8 +15,8 @@ class ExamController extends Controller
     {
         $quiz = Quiz::find($id);
         if ($quiz->has_levels)
-            return view('quizdepartment', compact('quiz'));
+            return view('front.quizdepartment', compact('quiz'));
         else
-            return view('quizuestion', compact('quiz'));
+            return view('front.quizuestion', compact('quiz'));
     }
 }
