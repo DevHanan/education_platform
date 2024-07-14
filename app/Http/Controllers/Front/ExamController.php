@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Quiz;
+use App\Models\QuizSection;
+use App\Models\QuizQuestion;
 use Illuminate\Http\Request;
 use Auth;
 use Carbon\Carbon;
@@ -18,5 +20,13 @@ class ExamController extends Controller
             return view('front.quizdepartment', compact('quiz'));
         else
             return view('front.quizuestion', compact('quiz'));
+    }
+
+
+    public function getExamLevelQuestion($id){
+        $section = QuizSection::find($id);
+          $QuizQuestion = QuizQuestion::where('quiz_id',$section->quiz_id)->get();
+          return view('front.quizuestion', compact('QuizQuestion','section'));
+
     }
 }
