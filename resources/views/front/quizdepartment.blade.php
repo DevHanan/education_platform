@@ -18,10 +18,6 @@
         <h3>عدد الأسئلة : 24 سؤال</h3>
         <h3>الزمن الكلى للقسم : 25 دقيقة</h3>
       </div>
-      <footer class="bg-primary position-absolute text-light w-100 bottom-0">
-        <div class="d-flex container-fluid justify-content-end">
-          <h4 class="next-btn mb-0 p-1 pe-2 fw-bold">التالى <i class="fa-solid fa-arrow-left"></i></h4>
-        </div>
-      </footer>
+     
 
      @endsection
