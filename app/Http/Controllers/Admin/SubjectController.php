@@ -27,10 +27,10 @@ class SubjectController extends Controller
         $this->view = 'admin.subjects';
         $this->path = 'subjects';
         $this->access = 'subjects';
-        $this->middleware('permission:.subjects-create', ['only' => ['create','store']]);
-        $this->middleware('permission:.subjects-view',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:.subjects-edit',   ['only' => ['edit','update']]);
-        $this->middleware('permission:.subjects-delete',   ['only' => ['delete']]);
+        // $this->middleware('permission:.subjects-create', ['only' => ['create','store']]);
+        // $this->middleware('permission:.subjects-view',   ['only' => ['show', 'index']]);
+        // $this->middleware('permission:.subjects-edit',   ['only' => ['edit','update']]);
+        // $this->middleware('permission:.subjects-delete',   ['only' => ['delete']]);
     }
     public function index(Request $request)
     {
