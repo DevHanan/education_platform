@@ -43,7 +43,7 @@ class Lecture extends Model
     }
 
 
-    public function quizz()
+    public function quiz()
     {
         return $this->belongsTo(Quiz::class);
     }
