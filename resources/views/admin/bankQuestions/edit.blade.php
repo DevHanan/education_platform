@@ -91,14 +91,14 @@
 
 
 
-              <div class="col-lg-12">
+              <!-- <div class="col-lg-12">
                 <div>
                   <label class="form-label">{{__('admin.bankquestions.title_notes')}}</label>
                   <textarea class="form-control" rows="3" name="question_notes"> {{ $row->question_notes }}</textarea>
                 </div>
-              </div>
+              </div> -->
 
-              <div class="form-group col-md-6 img-class">
+              <!-- <div class="form-group col-md-6 img-class">
 
 
                 <label class="form-label">{{ __('admin.bankquestions.title_photo') }}</label>
@@ -113,7 +113,7 @@
                   {{ $message }}
                 </div>
                 @enderror
-              </div>
+              </div> -->
 
               <div class="form-group col-md-6 img-class">
 

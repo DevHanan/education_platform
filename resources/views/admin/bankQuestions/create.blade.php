@@ -91,7 +91,7 @@
 
 
 
-              
+
 
               <div class="form-group col-md-6 img-class">
 
@@ -106,7 +106,7 @@
                 @enderror
               </div>
 
-            
+
 
 
 
@@ -128,7 +128,7 @@
               <div class="mb-3">
                 <label class="form-label">{{__('admin.bankquestions.answer1')}}</label>
                 <input type="text" class="form-control" name="answer1" value="{{old('answer1')}}" required>
-             
+
                 @error('answer1')
                 <div class="invalid-feedback">
                   {{ $message }}
@@ -183,10 +183,10 @@
                 </div>
                 @enderror
               </div>
-              
 
 
-             
+
+
             </div>
           </div>
 
@@ -199,9 +199,9 @@
             </div>
             @csrf
             <div class="row">
-              
-             
-             
+
+
+
 
 
 
@@ -254,17 +254,17 @@
               </div>
 
 
-             
+
 
               <div class="col-lg-12">
                 <div>
                   <label class="form-label">{{__('admin.bankquestions.answer_notes')}}</label>
                   <textarea class="form-control" rows="3" name="answer_notes"></textarea>
                   @error('answer_notes')
-                <div class="invalid-feedback">
-                  {{ $message }}
-                </div>
-                @enderror
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
                 </div>
               </div>
 
