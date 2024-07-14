@@ -80,6 +80,7 @@ Route::get('/clear-cache', function () {
     Artisan::call('cache:clear');
 });
 
+Route::get('/exam/{id}', [ExamController::class, 'getExam'])
 Route::get('language/{language}', [LangController::class, 'changeLanguage'])->name('language');
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     });
