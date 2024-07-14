@@ -82,7 +82,7 @@
                 </div>
             </div>
             <div class="col-md-6 p-4">
-                <h5 class="text-danger"> {{ $question->title }}</h5>
+                <h5 class="text-danger"> {!! $question->title !!}</h5>
                 <h5 class="text-danger">
               {!!  $question->question_notes !!}
                   </h5>
