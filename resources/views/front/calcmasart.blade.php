@@ -312,6 +312,7 @@ function showPopUp(){
     var inputs = document.querySelectorAll('input[type="text"]:not([disabled])');
     var sum = 0;
     inputs.forEach(function(input) {
+      if(input.value != '')
       sum += parseInt(input.value);
     });
     document.getElementById('result').innerHTML =  sum;
