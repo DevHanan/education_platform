@@ -309,7 +309,7 @@ function secondaryThreeFunction(){
 let popUp = document.querySelector(".pop-up")
 let overlay = document.querySelector(".overlay")
 function showPopUp(){
-    var inputs = document.querySelectorAll('input[type="text"]');
+    var inputs = document.querySelectorAll('input[type="text"]:not([disabled])');
     var sum = 0;
     inputs.forEach(function(input) {
       sum += parseInt(input.value);
