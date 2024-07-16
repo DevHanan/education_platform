@@ -112,7 +112,7 @@
       @if(isset($QuizQuestion) && count($QuizQuestion) > 0 )
       <button type="submit" class="text-docaration-none text-ligh"> التالى</>
         @elseif(isset($QuizQuestion) && count($QuizQuestion) == 0 )
-        <a type="submit"  class="text-docaration-none text-ligh">  أنهاء </a>
+        <button type="submit" class="text-docaration-none text-ligh"> إنهاء</>
         @endif
       </h4>
     </div>
