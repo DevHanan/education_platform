@@ -53,7 +53,7 @@
   @elseif($isset($last) && $last != '')
   <form method="post" action="{{url('question/review/'.$section->id)}}" method="POST">
   @endif
- 
+ @csrf
   <section class="container-fluid question-main-section">
     
     <div class="row">

@@ -83,7 +83,6 @@ Route::get('/clear-cache', function () {
 
 Route::get('/exam/{id}', [ExamController::class, 'getExam']);
 Route::get('/exam-level-question/{id}', [ExamController::class, 'getExamLevelQuestion']);
-Route::get('/question/{id}', [ExamController::class, 'question']);
 Route::post('/question/{id}', [ExamController::class, 'question']);
 
 Route::get('language/{language}', [LangController::class, 'changeLanguage'])->name('language');
