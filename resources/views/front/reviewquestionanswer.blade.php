@@ -118,8 +118,8 @@
   </div>
   <section class="container-fluid">
     <div class="row">
-      @foreach($questions as $question )
-      @if($question->status == 0)
+      @foreach($questions as $item )
+      @if($item->status == 0)
       <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all unique uncompleted">
         <div class="d-flex justify-content-between">
           <div>
