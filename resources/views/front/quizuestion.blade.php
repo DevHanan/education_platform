@@ -69,7 +69,7 @@
         <input type="hidden" name="quiz_id" value="{{optional($section->quiz)->id}}">
         <input type="hidden" name="section_id" value="{{$section->id}}">
         @foreach ($QuizQuestion as  $qid)
-        <input type="hidden" name="questions_ids[]"  value="{{$qid}}">
+        <input type="hidden" name="QuizQuestion[]"  value="{{$qid}}">
         @endforeach
         <input type="hidden" name="question_id" value="{{$question->id}}">
 
