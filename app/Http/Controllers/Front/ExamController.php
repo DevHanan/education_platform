@@ -40,4 +40,8 @@ class ExamController extends Controller
             $second = '';
         return view('front.quizuestion', compact('question', 'section', 'second'));
     }
+
+    public function question(Request $request){
+        return $request->all();
+    }
 }
