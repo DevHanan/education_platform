@@ -19,7 +19,7 @@ class ExamController extends Controller
     public function listresult(Request $request){
         
         $title = 'عرض نتائج اختبارات الطلاب';
-        $rows = Quiz::whereHas('studentTest')->get();
+        $rows = Quiz::whereHas('studentTest')->paginate(20);
         return view('admin.exams.listresult', compact('rows','title'));
 
     }
