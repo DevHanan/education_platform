@@ -115,7 +115,7 @@
       <h4 class="next-btn mb-0 p-1 pe-2 fw-bold">
       @if(isset($QuizQuestion) && count($QuizQuestion) > 1 )
       <button type="submit" class="text-docaration-none text-ligh"> التالى</>
-        @elseif(isset($QuizQuestion) && count($QuizQuestion) == 1 )
+        @elseif(isset($QuizQuestion) && count($QuizQuestion) == 0 )
         <a type="submit"  class="text-docaration-none text-ligh">  أنهاء </a>
         @endif
       </h4>
