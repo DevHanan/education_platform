@@ -39,7 +39,8 @@ class ExamController extends Controller
     public function question(Request $request){
             StudentQuestion::create($request->all());
             $question = BankQuestion::where('id', $request->QuizQuestion[0])->first();
-            unset($request->QuizQuestion[0]);
+            $QuizQuestion = $request->QuizQuestion;
+            unset($QuizQuestion[0]);
             $section = QuizSection::find($request->section_id);
             return view('front.quizuestion', compact('question', 'section','QuizQuestion'));
 
