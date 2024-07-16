@@ -35,16 +35,25 @@
 </style>
 <div class="overlay d-none" style="width: 100%;height: 100%;position: absolute;top: 0;left: 0;background-color: rgba(0, 0, 0, 0.418);z-index: 9;"></div>
     <div class="pop-up d-none bg-white shadow-sm position-absolute p-4" style="width:350px ;top: 80%;left: 50%;transform: translate(-50%,-50%);z-index: 10;border-radius: 5px;">
-      <div class="d-flex justify-content-between align-items-center">
+    <form method="get"    action="{{url('available-facultities')}}">
+      @csrf
+  
+    <div class="d-flex justify-content-between align-items-center">
           <h5>المجموع الأعتباري</h5>
           <i class="fa-solid fa-close" onclick="hidePopUp()" style="cursor:pointer ;"></i>
       </div>
       <hr>
       <div class="py-4 text-center">
         <h3> 410 / <span class="text-primary" id="result">0.0000</span></h3>
+        <input type="hidden" name="result2" id="result2">
       </div>
       <hr>
-      <div class="text-center pt-2"><div class="btn btn-primary" onclick="goToResults()">تنسيق {{ date('y')}}</div></div>
+      <div class="text-center pt-2">
+        <button type="submit" class="btn btn-primary" >تنسيق {{ date('y')}}</button>
+        <!-- <div class="btn btn-primary" onclick="goToResults()">تنسيق {{ date('y')}}</div> -->
+
+      </div>
+      </form>
     </div>
     <div class="div"></div>
     <section class="main-div">
@@ -316,6 +325,8 @@ function showPopUp(){
       sum += parseInt(input.value);
     });
     document.getElementById('result').innerHTML =  sum;
+    document.getElementById('result2').value =  sum;
+
     popUp.classList.remove("d-none")
     overlay.classList.remove("d-none")
 }

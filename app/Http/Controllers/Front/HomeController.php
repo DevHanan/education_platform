@@ -264,4 +264,9 @@ class HomeController extends Controller
     {
         return $request->all();
     }
+
+    public function availablefacultities(Request $request){
+        //return $request->all();
+        return view('front.avilablefaculty');
+    }
 }
