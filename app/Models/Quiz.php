@@ -51,6 +51,11 @@ class Quiz extends Model
     {
         return $this->hasMany(QuizBankGroup::class, 'quiz_id');
     }
+
+    public function studentTest()
+    {
+        return $this->hasMany(StudentQuestion::class);
+    }
     public function questions()
     {
         return $this->hasManyThrough(QuizQuestion::class, QuizSection::class, 'quiz_id', 'quiz_section_id');
