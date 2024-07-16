@@ -16,7 +16,7 @@
         {{ Breadcrumbs::render('quizzes') }}
 
       </div>
-      
+
     </div>
   </div>
 </div>
@@ -44,8 +44,6 @@
                   <th>{{ __('admin.quizzes.date') }}</th>
                   <th>{{ __('admin.quizzes.total_mark') }}</th>
                   <th>{{ __('admin.quizzes.pass_mark') }}</th>
-                  <th>{{ __('admin.quizzes.question_number') }}</th>
-                  <th>{{ __('admin.quizzes.status') }}</th>
                   <th>{{ __('admin.quizzes.track') }}</th>
                   <th>{{ __('admin.quizzes.course') }}</th>
                   <th>{{ __('admin.quizzes.level') }}</th>
@@ -63,15 +61,6 @@
                   <td>{{$row->created_at}}</td>
                   <td> {{ $row->total_mark }}</td>
                   <td> {{ $row->pass_mark }}</td>
-                  <td>{{$row->question_number}}</td>
-                  <td>
-
-
-                    <div class="form-check form-switch md-3" style="margin:10px">
-
-                      <input data-id="{{$row->id}}" data-type='App\Models\Quiz' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
-                    </div>
-                  </td>
                   <td>
                     {{ optional($row->track)->name}}
 
