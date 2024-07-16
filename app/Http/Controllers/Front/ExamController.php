@@ -7,6 +7,7 @@ use App\Models\BankQuestion;
 use App\Models\Quiz;
 use App\Models\QuizSection;
 use App\Models\QuizQuestion;
+use App\Models\StudentQuestion;
 use Illuminate\Http\Request;
 use Auth;
 use Carbon\Carbon;
@@ -30,18 +31,20 @@ class ExamController extends Controller
         //get all questions id for this quiz 
         $QuizQuestion = QuizQuestion::where('quiz_id', $section->quiz_id)->pluck('question_id')->ToArray();
         //get all questions 
-        $i = 0;
-        $question = BankQuestion::where('id', $QuizQuestion[$i])->first();
-        if (++$i < count($QuizQuestion))
-            $second = BankQuestion::where('id', $QuizQuestion[$i])->first();
-        elseif ($i ==  count($QuizQuestion))
-            $last = BankQuestion::where('id', $QuizQuestion[$i])->first();
-        else
-            $second = '';
-        return view('front.quizuestion', compact('question', 'section', 'second'));
+        $question = BankQuestion::where('id', $QuizQuestion[0])->first();
+        unset($QuizQuestion[0]);
+        return view('front.quizuestion', compact('question', 'section','QuizQuestion'));
     }
 
     public function question(Request $request){
-        return $request->all();
+            StudentQuestion::create($request->all());
+            $question = BankQuestion::where('id', $request->QuizQuestion[0])->first();
+            unset($QuizQuestion[0]);
+            $section = QuizSection::find($request->section_id);
+            return view('front.quizuestion', compact('question', 'section','QuizQuestion'));
+
+
+
+
     }
 }
