@@ -42,6 +42,11 @@ class ExamController extends Controller
             $QuizQuestion = $request->QuizQuestion;
             unset($QuizQuestion[0]);
             $section = QuizSection::find($request->section_id);
+            if(count($QuizQuestion) == 0){
+            $studentanswers = StudentQuestion::where('section_id',$request->section_id)->where('quiz_id',$request->quiz_id)->get();
+            return view('front.reviewquestionanswer', compact( 'section','studentanswers'));
+            }
+            else
             return view('front.quizuestion', compact('question', 'section','QuizQuestion'));
 
 
