@@ -63,7 +63,7 @@
         <div class="p-2 d-flex gap-2">
           <input class="form-check-input" type="radio" name="answer" value="{{$question->answer1}}" id="ans-1">
           <h5 class="form-check-label" for="ans-1">
-            {{ $question->answer1 }}
+            {!! $question->answer1 !!}
           </h5>
         </div>
         <input type="hidden" name="quiz_id" value="{{optional($section->quiz)->id}}">
@@ -74,19 +74,19 @@
         <div class="p-2 d-flex gap-2">
           <input class="form-check-input" type="radio" name="answer"  value="{{$question->answer2}}" id="ans-2">
           <h5 class="form-check-label" for="ans-2">
-            {{ $question->answer2 }}
+            {!! $question->answer2 !!}
           </h5>
         </div>
         <div class="p-2 d-flex gap-2">
           <input class="form-check-input" type="radio" name="answer"  value="{{$question->answer3}}" id="ans-3">
           <h5 class="form-check-label" for="ans-3">
-            {{ $question->answer3 }}
+            {!! $question->answer3 !!}
           </h5>
         </div>
         <div class="p-2 d-flex gap-2">
           <input class="form-check-input" type="radio" name="answer"  value="{{$question->answer4}}" id="ans-4">
           <h5 class="form-check-label" for="ans-4">
-            {{ $question->answer4 }}
+            {!! $question->answer4 !!}
           </h5>
         </div>
       </div>
