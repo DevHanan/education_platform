@@ -42,7 +42,8 @@ class ExamController extends Controller
 
         if (!isset($request->QuizQuestion)) {
             $studentanswers = StudentQuestion::where('section_id', $request->section_id)->where('quiz_id', $request->quiz_id)->get();
-            return view('front.reviewquestionanswer', compact('section', 'studentanswers'));
+           return redirect()->route('questions.reviews',[optional($section->quiz)->id,$section->id])->compact('section', 'studentanswers');
+            // return view('front.reviewquestionanswer', compact('section', 'studentanswers'));
         } else {
             StudentQuestion::create($request->all());
             $question = BankQuestion::where('id', $request->QuizQuestion[0])->first();
@@ -50,5 +51,17 @@ class ExamController extends Controller
             unset($QuizQuestion[0]);
             return view('front.quizuestion', compact('question', 'section', 'QuizQuestion'));
         }
+    }
+
+
+    public function questionreviews(Request $request){
+        
+        $questions = StudentQuestion::where(function($q)use($request){
+            $q->where('quiz_id',$request->id);
+            if($request->section_id)
+            $q->where('section_id',$request->section_id);
+        })->get();
+        return view('front.reviewquestionanswer', compact('questions'));
+
     }
 }
