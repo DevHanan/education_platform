@@ -68,7 +68,7 @@
         </div>
         <input type="hidden" name="quiz_id" value="{{optional($section->quiz)->id}}">
         <input type="hidden" name="section_id" value="{{$section->id}}">
-        <input type="hidden" name="questions_ids[]"  value="<?php foreach($QuizQuestion as $value) echo $postvalue.","; ?>">
+        <input type="hidden" name="questions_ids[]"  value="<?php foreach($QuizQuestion as $value) echo $value.","; ?>">
         <input type="hidden" name="question_id" value="{{$question->id}}">
 
         <div class="p-2 d-flex gap-2">
