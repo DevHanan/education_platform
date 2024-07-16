@@ -49,7 +49,7 @@
     </div>
   </nav>
   @if(isset($QuizQuestion) && count($QuizQuestion) > 1 )
-  <form method="post" action="{{url('question/1')}}" method="POST">
+  <form method="post" action="{{url('question/'.$question->id)}}" method="POST">
   @elseif(isset($QuizQuestion) && count($QuizQuestion) == 1 )
   <form method="post" action="{{url('question/review/'.$section->id)}}" method="POST">
   @endif
@@ -107,18 +107,7 @@
     </div>
 
   </section>
-  <footer class="bg-primary position-absolute text-light w-100 bottom-0">
-    <div class="d-flex container-fluid justify-content-between align-items-center">
-      <h4 class="equations ps-2 p-1 mb-0 fw-bold"><span class="border p-0 px-2" style="font-size: 15px;border-radius: 50%;"><i class="fa-solid fa-question"></i></span> المعادلات</h4>
-      <h4 class="next-btn mb-0 p-1 pe-2 fw-bold">
-      @if($isset($QuizQuestion) && count($QuizQuestion) > 1 )
-      <button type="submit" class="text-docaration-none text-ligh"> التالى</>
-        @elseif($isset($QuizQuestion) && count($QuizQuestion) == 1 )
-        <a type="submit"  class="text-docaration-none text-ligh">  أنهاء </a>
-        @endif
-      </h4>
-    </div>
-  </footer>
+  
   </form>
 
   <script src="{{asset('public/front/exam/js/bootstrap.bundle.min.js')}}"></script>
