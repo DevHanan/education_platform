@@ -99,25 +99,10 @@
 
 
 
-                    <a href="{{ route($route.'.edit',$row->id) }}" class="btn btn-icon btn-primary btn-sm">
-                      <span class="far fa-edit "></span>
-                    </a>
-                    @if($row->has_levels == 1)
-                    <a href="{{ url('admin/quizzes/'.$row->id .'/sections') }}" class="btn btn-icon btn-primary btn-sm">
-                      <i class="fa fa-level-up" aria-hidden="true"></i>
-                    </a>
-                    @endif
-
                     <!-- <a href="{{ url('admin/quizzes/'.$row->id .'/questions') }}" class="btn btn-icon btn-primary btn-sm">
                     <i class="fa fa-question-circle" aria-hidden="true"></i>
                     </a> -->
 
-
-                    <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
-                      <i class="fas fa-trash-alt"></i>
-                    </button>
-                    <!-- Include Delete modal -->
-                    @include('admin.layouts.inc.delete')
                   </td>
                 </tr>
                 @endforeach
