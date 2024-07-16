@@ -26,8 +26,10 @@ class ExamController extends Controller
 
     public function getExamLevelQuestion($id){
         $section = QuizSection::find($id);
+        //get all questions id for this quiz 
           $QuizQuestion = QuizQuestion::where('quiz_id',$section->quiz_id)->pluck('question_id')->ToArray();
-          $questions = BankQuestion::whereIn('id',$QuizQuestion)->paginate('1');
+          //get all questions 
+          $questions = BankQuestion::whereIn('id',$QuizQuestion)->first();
           return view('front.quizuestion', compact('questions','section'));
 
     }
