@@ -49,7 +49,6 @@
     </div>
   </nav>
   <section class="container-fluid question-main-section">
-    @foreach ($questions as $question )
     <div class="row">
       <div class="col-md-6 p-4">
         <h5> {!! $question->title !!} </h5>
@@ -90,12 +89,11 @@
         <!-- <iframe class="w-100 my-4" height="315" src="https://www.youtube.com/embed/yrfIMgxG14w?si=jtJ1-rQClQ_QXm6g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
 
         <img src="{{$question->questionFullPath}}" style="height:200px ;" class="img-fluid my-2 w-100" alt="">
-      @else
-لا توجد بيانات توضيحية للعرض
-      @endif
+        @else
+        لا توجد بيانات توضيحية للعرض
+        @endif
       </div>
     </div>
-    @endforeach
 
   </section>
   <footer class="bg-primary position-absolute text-light w-100 bottom-0">

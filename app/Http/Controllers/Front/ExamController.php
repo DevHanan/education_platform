@@ -31,13 +31,13 @@ class ExamController extends Controller
         $QuizQuestion = QuizQuestion::where('quiz_id', $section->quiz_id)->pluck('question_id')->ToArray();
         //get all questions 
         $i = 0;
-        $questions = BankQuestion::where('id', $QuizQuestion[$i])->first();
+        $question = BankQuestion::where('id', $QuizQuestion[$i])->first();
         if (++$i < count($QuizQuestion))
             $second = BankQuestion::where('id', $QuizQuestion[$i])->first();
         elseif ($i ==  count($QuizQuestion))
             $last = BankQuestion::where('id', $QuizQuestion[$i])->first();
         else
             $second = '';
-        return view('front.quizuestion', compact('questions', 'section', 'second'));
+        return view('front.quizuestion', compact('question', 'section', 'second'));
     }
 }
