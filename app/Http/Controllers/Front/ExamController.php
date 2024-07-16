@@ -24,13 +24,20 @@ class ExamController extends Controller
     }
 
 
-    public function getExamLevelQuestion($id){
+    public function getExamLevelQuestion($id)
+    {
         $section = QuizSection::find($id);
         //get all questions id for this quiz 
-          $QuizQuestion = QuizQuestion::where('quiz_id',$section->quiz_id)->pluck('question_id')->ToArray();
-          //get all questions 
-          $questions = BankQuestion::whereIn('id',$QuizQuestion)->first();
-          return view('front.quizuestion', compact('questions','section'));
-
+        $QuizQuestion = QuizQuestion::where('quiz_id', $section->quiz_id)->pluck('question_id')->ToArray();
+        //get all questions 
+        $i = 0;
+        $questions = BankQuestion::where('id', $QuizQuestion[$i])->first();
+        if (++$i < count($QuizQuestion))
+            $second = BankQuestion::where('id', $QuizQuestion[$i])->first();
+        elseif ($i ==  count($QuizQuestion))
+            $last = BankQuestion::where('id', $QuizQuestion[$i])->first();
+        else
+            $second = '';
+        return view('front.quizuestion', compact('questions', 'section', 'second'));
     }
 }

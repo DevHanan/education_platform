@@ -102,7 +102,11 @@
     <div class="d-flex container-fluid justify-content-between align-items-center">
       <h4 class="equations ps-2 p-1 mb-0 fw-bold"><span class="border p-0 px-2" style="font-size: 15px;border-radius: 50%;"><i class="fa-solid fa-question"></i></span> المعادلات</h4>
       <h4 class="next-btn mb-0 p-1 pe-2 fw-bold">
-        <a href="{{}}" class="text-docaration-none text-ligh"> التالى</a>
+        @if($second && $second != '')
+        <a href="{{url('question/'.$second->id)}}" class="text-docaration-none text-ligh"> التالى</a>
+        @elseif($isset($last) && $last != '')
+        <a href="{{url('question/review/'.$section->id)}}" class="text-docaration-none text-ligh"> إنهاء المرحلة</a>
+        @endif
       </h4>
     </div>
   </footer>
