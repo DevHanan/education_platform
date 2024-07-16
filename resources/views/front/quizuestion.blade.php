@@ -48,7 +48,14 @@
       </select>
     </div>
   </nav>
+  @if($second && $second != '')
+  <form method="post" action="{{url('question/'.$second->id)}}" method="POST">
+  @elseif($isset($last) && $last != '')
+  <form method="post" action="{{url('question/review/'.$section->id)}}" method="POST">
+  @endif
+ 
   <section class="container-fluid question-main-section">
+    
     <div class="row">
       <div class="col-md-6 p-4">
         <h5> {!! $question->title !!} </h5>
@@ -110,6 +117,7 @@
       </h4>
     </div>
   </footer>
+  </form>
 
   <script src="{{asset('public/front/exam/js/bootstrap.bundle.min.js')}}"></script>
   <script src="{{asset('public/front/exam/js/all.min.js')}}"></script>
