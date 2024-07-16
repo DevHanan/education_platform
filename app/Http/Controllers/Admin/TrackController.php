@@ -30,6 +30,7 @@ class TrackController extends Controller
         $this->middleware('permission:tracks-view',   ['only' => ['show', 'index']]);
         $this->middleware('permission:tracks-edit',   ['only' => ['edit','update']]);
         $this->middleware('permission:tracks-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:tracks-footer',   ['only' => ['changeTrackFooter']]);
     }
     public function index(Request $request,)
     {

@@ -8,6 +8,7 @@ use App\Models\AboutSetting;
 use App\Models\Blog;
 use App\Models\Coupon;
 use App\Models\Course;
+use App\Models\Faculty;
 use App\Models\Partener;
 use App\Models\Team;
 use App\Models\Lecture;
@@ -266,7 +267,9 @@ class HomeController extends Controller
     }
 
     public function availablefacultities(Request $request){
-        //return $request->all();
-        return view('front.avilablefaculty');
+        $malefaculities = Faculty::where('min_accept_degree','<=',$request->result2)->where('gender','male')->get();
+        $femalefaculities = Faculty::where('min_accept_degree','<=',$request->result2)->where('gender','female')->get();
+
+        return view('front.availablefaculty',compact('malefaculities','femalefaculities'));
     }
 }

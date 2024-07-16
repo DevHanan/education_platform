@@ -158,6 +158,8 @@
     </div>
     <div class="collapse navbar-collapse" id="sidebar-menu">
       <ul class="navbar-nav pt-lg-3">
+        @canany(['home'])
+
         <li class="nav-item @if(request()->routeIs('admin.dashboard')) active @endif">
           <a class="nav-link @if(request()->routeIs('admin.dashboard')) active @endif" href="{{url('admin/dashboard')}}">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
@@ -173,6 +175,12 @@
             </span>
           </a>
         </li>
+        @endcanany
+
+        @canany(['tracks-create','tracks-view','tracks-edit','tracks-delete','tracks-footer','course-types-create','course-types-view',
+        'course-types-edit','course-types-delete','courses-create','courses-view','courses-edit','courses-delete','recommened-courses-view',
+        'make-recommened-courses-view','recent-courses-view'])
+
         <li class="nav-item  dropdown">
           <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.comments','admin.courses.*','admin.recommendCourses','admin.startsoonCourses','admin.lectures.*','admin.levels.*','admin.tracks.*','admin.course-types.*'])) show @endif" href="" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="true">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/layout-2 -->
@@ -191,14 +199,19 @@
           <div class="dropdown-menu  @if(request()->routeIs(['admin.coursereviews','admin.courses.*','admin.recommendCourses','admin.startsoonCourses','admin.lectures.*','admin.levels.*','admin.tracks.*','admin.course-types.*'])) show @endif">
             <div class="dropdown-menu-columns ">
               <div class="dropdown-menu-column ">
+                @canany(['tracks-create','tracks-view','tracks-edit','tracks-delete','tracks-footer'])
                 <a class="dropdown-item @if(request()->routeIs(['admin.tracks.index','admin.tracks.edit'])) active @endif" href="{{ url('admin/tracks')}}">
                   {{ __('navbar.courses.list_tracks') }}
 
                 </a>
+                @endcanany
+                @canany(['tracks-create'])
+
                 <a class="dropdown-item @if(request()->routeIs(['admin.tracks.create'])) active @endif" href="{{ url('admin/tracks/create')}}">
                   {{ __('navbar.courses.add_track') }}
 
                 </a>
+                @endcanany
 
                 @foreach($courseTypes as $type)
                 <a class="dropdown-item {{ request()->input('type') == $type->id ? 'active' : '' }}" href="{{ url('admin/courses?type='. $type->id)}}">
@@ -207,37 +220,51 @@
                 </a>
                 @endforeach
 
-
+                @canany(['recent-courses-view'])
                 <a class="dropdown-item @if(request()->routeIs(['admin.startsoonCourses'])) active @endif" href="{{ url('admin/start-soon-courses')}}">
 
                   {{ __('navbar.courses.start_soon_courses') }}
 
                 </a>
+                @endcanany
 
+                @canany(['recommened-courses-view'])
                 <a class="dropdown-item @if(request()->routeIs(['admin.recommendCourses'])) active @endif" href="{{ url('admin/recommend-courses?recommend=1')}}">
 
                   {{ __('navbar.courses.recommened_courses') }}
 
                 </a>
+                @endcanany
+
+                @canany(['courses-create','courses-view','courses-edit','courses-delete'])
+
                 <a class="dropdown-item @if(request()->routeIs('admin.courses.index')) active @endif" href="{{ url('admin/courses')}}">
                   {{ __('navbar.courses.all_courses') }}
 
                 </a>
+                @endcanany
+
+                @canany(['courses-create'])
                 <a class="dropdown-item @if(request()->routeIs('admin.courses.create')) active @endif" href="{{ url('admin/courses/create')}}">
                   {{ __('navbar.courses.add_course') }}
 
                 </a>
+                @endcanany
+
+                @canany(['course-types-create','course-types-view','course-types-edit','course-types-delete'])
                 <a class="dropdown-item @if(request()->routeIs(['admin.course-types.index','admin.course-types.edit'])) active @endif" href="{{ url('admin/course-types')}}">
                   {{ __('navbar.courses.list_course_types') }}
 
                 </a>
-                
+                @endcanany
 
+                @canany(['courses-comments'])
                 <a class="dropdown-item @if(request()->routeIs(['admin.comments.*'])) active @endif" href="{{url('admin/comments')}}">
 
                   {{ __('navbar.courses.reviews') }}
 
                 </a>
+                @endcanany
 
 
 
@@ -248,6 +275,11 @@
             </div>
           </div>
         </li>
+        @endcanany
+
+
+        @canany(['students-create','students-view','students-edit','students-delete','subscriptions-create','subscriptions-view',
+        'subscriptions-edit','subscriptions-delete'])
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.subscriptions.*','admin.students.*'])) show @endif" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
@@ -264,27 +296,39 @@
           <div class="dropdown-menu @if(request()->routeIs(['admin.subscriptions.*','admin.students.*'])) show @endif">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
+
+                @canany(['students-view','students-edit','students-delete'])
                 <a class="dropdown-item @if(request()->routeIs('admin.students')) active @endif" href="{{url('/admin/students')}}">
                   {{ __('navbar.students.list') }}
 
                 </a>
+                @endcanany
+
+                @canany(['students-create'])
                 <a class="dropdown-item @if(request()->routeIs('admin.students.create')) active @endif" href="{{url('/admin/students/create')}}">
                   {{ __('navbar.students.add') }}
                 </a>
 
+                @canany(['subscriptions-view',
+                'subscriptions-edit','subscriptions-delete'])
                 <a class="dropdown-item @if(request()->routeIs('admin.subscriptions')) active @endif" href="{{url('/admin/subscriptions')}}">
                   {{ __('navbar.subscriptions.list') }}
 
                 </a>
+                @endcanany
+                @canany(['subscriptions-create'])
                 <a class="dropdown-item @if(request()->routeIs('admin.subscriptions.create')) active @endif" href="{{url('/admin/subscriptions/create')}}">
                   {{ __('navbar.subscriptions.add') }}
                 </a>
+                @endcanany
 
               </div>
             </div>
           </div>
         </li>
+        @endcanany
 
+        @canany(['instructors-view','instructors-edit','instructors-delete','instructors-create'])
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle @if(request()->routeIs('admin.instructors.*')) show @endif" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
@@ -302,18 +346,25 @@
           <div class="dropdown-menu @if(request()->routeIs('admin.instructors.*')) show @endif">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
+              @canany(['instructors-view','instructors-edit','instructors-delete'])
                 <a class="dropdown-item @if(request()->routeIs('admin.instructors')) active @endif" href="{{url('/admin/instructors')}}">
                   {{ __('navbar.instructors.list') }}
 
                 </a>
+                @endcanany
+
+                @canany(['instructors-create'])
                 <a class="dropdown-item @if(request()->routeIs('admin.instructors.create')) active @endif" href="{{url('/admin/instructors/create')}}">
                   {{ __('navbar.instructors.add') }}
                 </a>
+                @endcanany
 
               </div>
             </div>
           </div>
         </li>
+
+        @endcanany
 
 
         <li class="nav-item dropdown">
@@ -383,7 +434,7 @@
                 <a class="dropdown-item  @if(request()->routeIs(['admin.subjects.thirdsubjects'])) active @endif" href="{{url('admin/subjects?classroom=3')}}">
                   {{ __('navbar.calculate_equation.third_secondary_subjects') }}
                 </a>
-  
+
                 <!-- <a class="dropdown-item @if(request()->routeIs(['admin.subjects.*'])) active @endif" href="{{url('admin/subjects?classroom=3')}}">
                   {{ __('navbar.calculate_equation.settings') }}
                 </a> -->
@@ -433,8 +484,8 @@
                 <a class="dropdown-item @if(request()->routeIs(['admin.grantingcertificate'])) active @endif" href="{{url('admin/grantingcertificate')}}">
                   {{ __('navbar.certifications.granting') }}
                 </a>
-                
-                
+
+
 
               </div>
             </div>

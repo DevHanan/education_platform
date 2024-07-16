@@ -30,10 +30,10 @@ class QuestionBankGroupsController extends Controller
         $this->view = 'admin.bankgroups';
         $this->path = 'bank-groups';
         $this->access = 'bank-groups';
-        // $this->middleware('permission:bank-groups-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:bank-groups-view',   ['only' => ['show', 'index']]);
-        // $this->middleware('permission:bank-groups-edit',   ['only' => ['edit','update']]);
-        // $this->middleware('permission:bank-groups-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:bank-groups-create', ['only' => ['create','store']]);
+        $this->middleware('permission:bank-groups-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:bank-groups-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:bank-groups-delete',   ['only' => ['delete']]);
     }
     public function index()
     {

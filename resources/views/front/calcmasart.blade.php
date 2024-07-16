@@ -36,7 +36,6 @@
 <div class="overlay d-none" style="width: 100%;height: 100%;position: absolute;top: 0;left: 0;background-color: rgba(0, 0, 0, 0.418);z-index: 9;"></div>
     <div class="pop-up d-none bg-white shadow-sm position-absolute p-4" style="width:350px ;top: 80%;left: 50%;transform: translate(-50%,-50%);z-index: 10;border-radius: 5px;">
     <form method="get"    action="{{url('available-facultities')}}">
-      @csrf
   
     <div class="d-flex justify-content-between align-items-center">
           <h5>المجموع الأعتباري</h5>
