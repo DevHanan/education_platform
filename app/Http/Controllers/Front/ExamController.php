@@ -42,7 +42,7 @@ class ExamController extends Controller
 
         if (!isset($request->QuizQuestion)) {
             $studentanswers = StudentQuestion::where('section_id', $request->section_id)->where('quiz_id', $request->quiz_id)->get();
-           return redirect()->route('questions.reviews',[optional($section->quiz)->id,$section->id])->compact('section', 'studentanswers');
+           return redirect()->route('questions.reviews',[optional($section->quiz)->id,$section->id])->with(['section', 'studentanswers']);
             // return view('front.reviewquestionanswer', compact('section', 'studentanswers'));
         } else {
             StudentQuestion::create($request->all());
