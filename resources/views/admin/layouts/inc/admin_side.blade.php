@@ -308,6 +308,8 @@
                 <a class="dropdown-item @if(request()->routeIs('admin.students.create')) active @endif" href="{{url('/admin/students/create')}}">
                   {{ __('navbar.students.add') }}
                 </a>
+                @endcanany
+
 
                 @canany(['subscriptions-view',
                 'subscriptions-edit','subscriptions-delete'])
@@ -363,7 +365,6 @@
             </div>
           </div>
         </li>
-
         @endcanany
 
 
