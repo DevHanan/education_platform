@@ -48,9 +48,9 @@
       </select>
     </div>
   </nav>
-  @if($second && $second != '')
+  @if($isset($QuizQuestion) && count($QuizQuestion) > 1 )
   <form method="post" action="{{url('question/'.$second->id)}}" method="POST">
-  @elseif($isset($last) && $last != '')
+  @if($isset($QuizQuestion) && count($QuizQuestion) == 1 )
   <form method="post" action="{{url('question/review/'.$section->id)}}" method="POST">
   @endif
  @csrf
