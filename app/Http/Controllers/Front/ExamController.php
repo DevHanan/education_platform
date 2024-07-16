@@ -61,7 +61,6 @@ class ExamController extends Controller
             if($request->section_id)
             $q->where('section_id',$request->section_id);
         })->get();
-        return $questions;
         return view('front.reviewquestionanswer', compact('questions'));
 
     }
