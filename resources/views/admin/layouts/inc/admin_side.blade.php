@@ -344,12 +344,12 @@
                 <a class="dropdown-item @if(request()->routeIs('admin.quizzes.create'))   active @endif" href="{{url('admin/quizzes/create')}}">
                   {{ __('navbar.exams.add_exam') }}
                 </a>
-                <a class="dropdown-item @if(request()->routeIs('admin.students-tickets'))   active @endif" href="#">
+                <a class="dropdown-item @if(request()->routeIs('admin.studentsexamresults'))   active @endif" href="{{url('admin/studentsexamresults')}}">
                   {{ __('navbar.exams.exam_result') }}
                 </a>
-                <a class="dropdown-item @if(request()->routeIs('admin.students-tickets'))   active @endif" href="#">
+                <!-- <a class="dropdown-item @if(request()->routeIs('admin.students-tickets'))   active @endif" href="#">
                   {{ __('navbar.exams.exam_setting') }}
-                </a>
+                </a> -->
 
 
 

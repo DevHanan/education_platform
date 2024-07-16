@@ -39,7 +39,7 @@ use App\Http\Controllers\Admin\SubjectController;
 use App\Http\Controllers\Admin\MailController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\CommentController;
-
+use App\Http\Controllers\Admin\ExamController;
 
 // Set Lang Version
 Route::get('locale/language/{locale}', function ($locale) {
@@ -185,8 +185,9 @@ Route::group(
             Route::resource('quizzes', QuizController::class);
             Route::resource('quizzes.sections', QuizSectionController::class);
             Route::resource('quizzes.questions', QuizQuestionController::class);
+            Route::get('studentsexamresults', [ExamController::class, 'listresult'])->name('studentsexamresults');
 
-
+            
 
 
             Route::resource('faculities', FacultyController::class);
