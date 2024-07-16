@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', $title)
+@section('title', 'عرض نتائج الطلاب')
 @section('content')
 <style>
   .list-unstyled {
