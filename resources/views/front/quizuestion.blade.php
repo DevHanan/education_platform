@@ -61,7 +61,7 @@
         <h5> {!! $question->title !!} </h5>
         <img src="{{ $question->pictureFullPath }}" style="height:200px ;" class="img-fluid mt-4 mb-5 w-100" alt="">
         <div class="p-2 d-flex gap-2">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="ans-1">
+          <input class="form-check-input" type="radio" name="answer1" id="ans-1">
           <h5 class="form-check-label" for="ans-1">
             {{ $question->answer1 }}
           </h5>
@@ -70,19 +70,19 @@
         <input type="hidden" name="question_id" value="{{$question->id}}">
 
         <div class="p-2 d-flex gap-2">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="ans-2">
+          <input class="form-check-input" type="radio" name="answer2" id="ans-2">
           <h5 class="form-check-label" for="ans-2">
             {{ $question->answer2 }}
           </h5>
         </div>
         <div class="p-2 d-flex gap-2">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="ans-3">
+          <input class="form-check-input" type="radio" name="answer3" id="ans-3">
           <h5 class="form-check-label" for="ans-3">
             {{ $question->answer3 }}
           </h5>
         </div>
         <div class="p-2 d-flex gap-2">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="ans-4">
+          <input class="form-check-input" type="radio" name="answer4" id="ans-4">
           <h5 class="form-check-label" for="ans-4">
             {{ $question->answer4 }}
           </h5>
