@@ -18,82 +18,327 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
 </head>
   <body>
+  <div class="overlay d-none" style="width: 100%;height: 100%;position: absolute;top: 0;left: 0;background-color: rgba(0, 0, 0, 0.418);z-index: 9;"></div>
+    <div class="unique-pop-up d-none bg-primary text-light shadow-sm position-absolute p-4" style="width:500px ;top: 40%;left: 50%;transform: translate(-50%,-50%);z-index: 10;border-radius: 5px;">
+      <div class="d-flex justify-content-between align-items-center">
+          <h5>الأسئلة المميزة بعلامة</h5>
+          <i class="fa-solid fa-close border px-2 py-1" onclick="hidePopUp()" style="cursor:pointer ;"></i>
+      </div>
+      <hr>
+      <div class="py-4 text-center">
+        <h5><i class="fa-solid fa-circle-info"></i> ليس هناك أى أسئلة مميزة بعلامة لمراجعتها</h5>
+      </div>
+      <hr>
+      <div class="text-center pt-2"><div class="btn border text-light" onclick="hidePopUp()">حسنا</div></div>
+    </div>
+    <div class="uncompleted-pop-up d-none bg-primary text-light shadow-sm position-absolute p-4" style="width:500px ;top: 40%;left: 50%;transform: translate(-50%,-50%);z-index: 10;border-radius: 5px;">
+      <div class="d-flex justify-content-between align-items-center">
+          <h5>الأسئلة الغير مكتملة</h5>
+          <i class="fa-solid fa-close border px-2 py-1" onclick="hidePopUp()" style="cursor:pointer ;"></i>
+      </div>
+      <hr>
+      <div class="py-4 text-center">
+        <h5><i class="fa-solid fa-circle-info"></i> ليس هناك أى أسئلة غير مكتملة لمراجعتها</h5>
+      </div>
+      <hr>
+      <div class="text-center pt-2"><div class="btn border text-light" onclick="hidePopUp()">حسنا</div></div>
+    </div>
+    <div class="review-pop-up-1 d-none bg-primary text-light shadow-sm position-absolute p-4" style="width:500px ;top: 40%;left: 50%;transform: translate(-50%,-50%);z-index: 10;border-radius: 5px;">
+      <div class="d-flex justify-content-between align-items-center">
+          <h5>إنهاء المراجعة</h5>
+          <i class="fa-solid fa-close border px-2 py-1" onclick="hidePopUp()" style="cursor:pointer ;"></i>
+      </div>
+      <hr>
+      <div class="py-4 text-center">
+        <h5><i class="fa-solid fa-triangle-exclamation text-warning"></i>الرجاء التأكيد على رغبتك فى إنهاء هذه المراجعة. إذا نقرت فوق "نعم" لن تكون هناك إمكانية لعودة إلى هذه المراجعة والإجابة على الاسئلة (عدد الاسئلة - 24 التى لم تكتمل)</h5>
+      </div>
+      <hr>
+      <div class="d-flex justify-content-center gap-3">
+          <div class="text-center pt-2"><div class="btn border text-light" onclick="hidePopUp()">لا</div></div>
+          <div class="text-center pt-2"><div class="btn border text-light" onclick="showSecondPopUp()">نعم</div></div>
+        </div>
+    </div>
+    <div class="review-pop-up-2 d-none bg-primary text-light shadow-sm position-absolute p-4" style="width:500px ;top: 40%;left: 50%;transform: translate(-50%,-50%);z-index: 10;border-radius: 5px;">
+      <div class="d-flex justify-content-between align-items-center">
+        <h5>إنهاء المراجعة</h5>
+          <i class="fa-solid fa-close border px-2 py-1" onclick="hidePopUp()" style="cursor:pointer ;"></i>
+      </div>
+      <hr>
+      <div class="py-4 text-center">
+        <h5><i class="fa-solid fa-circle-info"></i> هل أنت متأكد من أنك تريد إنهاء هذه المراجعة ؟</h5>
+      </div>
+      <hr>
+      <div class="d-flex justify-content-center gap-3">
+        <div class="text-center pt-2"><div class="btn border text-light" onclick="hidePopUp()">لا</div></div>
+        <div class="text-center pt-2"><div class="btn border text-light" onclick="goToFinalReview()">نعم</div></div>
+      </div>
+    </div>
       <nav class="bg-primary text-light w-100">
         <div class="d-flex justify-content-between container-fluid">
             <h2>اختبار قدرات</h2>
-            <div>
-                <div class="d-flex align-items-center gap-2">
-                    <i class="fa-solid fa-clock mb-1"></i>
-                    <h6>الوقت المستغرق</h6>
-                    <!-- <span class="rotate-icon"><i class="fa-solid fa-arrows-rotate"></i></span> -->
-                    <h6>22:00</h6>
-                  </div>
-                  <div class="d-flex justify-content-end">
-                        <span>1 من 24</span>
-                  </div>
+            <div class="d-flex align-items-center gap-2">
+                <i class="fa-solid fa-clock mb-1"></i>
+                <h6>الوقت المستغرق</h6>
+                <!-- <span class="rotate-icon"><i class="fa-solid fa-arrows-rotate"></i></span> -->
+                <h6 id="timer">22:34</h6>
             </div>
         </div>
       </nav>
-      <nav class="second-nav text-light w-100">
-        <div class="d-flex gap-3 align-items-center container-fluid justify-content-end">
-            <span><i class="fa-solid fa-flag"></i></span>
-            <h5>تمييز السؤال للمراجعة</h5>
-            <select class="form-select bg-primary px-5 py-0 w-auto">
-                <option value="1">1</option>
-                <option value="18" selected>18</option>
-            </select>
-      </div>
-      </nav>
-      <section class="container-fluid question-main-section">
-        <div class="row">
-            <div class="col-md-6 p-4">
-                <h5>برد : حر</h5>
-                <img src="./img/book1.jpeg" style="height:200px ;" class="img-fluid mt-4 mb-5 w-100" alt="">
-                <div class="p-2 d-flex gap-2">
-                    <input class="form-check-input" disabled  type="radio" name="flexRadioDefault" id="ans-1">
-                    <h5 class="form-check-label" for="ans-1">
-                        قحط : رخاء
-                    </h5>
-                </div>
-                <div class="p-2 d-flex gap-2">
-                    <input class="form-check-input" disabled  type="radio" name="flexRadioDefault" id="ans-2">
-                    <h5 class="form-check-label" for="ans-2">
-                        بذرة : نبتة
-                    </h5>
-                </div>
-                <div class="p-2 d-flex gap-2">
-                    <input class="form-check-input" disabled checked type="radio" name="flexRadioDefault" id="ans-3">
-                    <h5 class="form-check-label" for="ans-3">
-                        فائدة : كتاب
-                    </h5>
-                </div>
-                <div class="p-2 d-flex gap-2">
-                    <input class="form-check-input" disabled  type="radio" name="flexRadioDefault" id="ans-4">
-                    <h5 class="form-check-label" for="ans-4">
-                        انفجار : مولد
-                    </h5>
-                </div>
-            </div>
-            <div class="col-md-6 p-4">
-                <h2 class="mb-4">شرح الإجابة :-</h2>
-                <h5 class="text-danger">التناظر اللفظى</h5>
-                <h5 class="text-danger">الشركة نفسها هي شركة ناجحة جدا. ويحمد عناء إيجاد طريقة رائعة لهم. اتبع في تقديم الجسم في كثير من الأحيان! وفي وقت الواجبات يتبعهم المخترع، ما هي الأوقات والتملق والألم والرغبة من القادم، ولكن هل هذا كل شيء؟ سأشرح مرونة الملذات، فهي بالفعل أقل من أي شخص، ولكن يمكننا أن نكون لنا، حتى لا يتجنب أحد مضايقات اللطف العظيم، فلا نتهم المادحين بأي عفو. لكن المولود كله لا يعيق سوى متعة النفس الشاقة! هنا الألم من المرونة نفسها، شخص ما لمتابعة بعض الرحلة! فهروب الأنماط، ولا كونهم لا يعرفون مخترع أي خطأ، والذي قاله أولئك، يقع على عاتق الحق ذاته بمسؤوليات وآلام كبيرة. أولئك الذين ولدوا لتلقي المتعة، دعهم يشعرون بالراحة هنا، فهم لا يقدمون طرقًا مريحة لهذه، الألم المرهق للحقيقة ومثله، الذي يهرب بالفعل، ويطلقه، ويتفكك! إنه يكره مدى سهولة تجنب الألم الكبير! ومن أين يرضيه أقل مرونة، أعمته الحقيقة، إلا إذا اتهمناه في الوقت الذي لا يعرفون فيه تمييز التملق السهل؟ ولأن المتهمين غالباً ما يكونون المختار الذي آتي إليه، إلا إذا كان مستمتعاً بواجبات الحق، علاوة على ذلك، يقال إن فرار العميان والفاسدين يتحرر كما هم في ذلك الوقت و! أولئك الذين يتم صدهم عن القيام بأي تمرين، في الواقع. أو في تحملها، لأنها شاقة، يعميها من يعميها ألم اختيار الآلام العادلة، والضروريات والوسائل أبدا. يمكننا ذلك، لكنه يأخذ شيئًا ما ويصده.</h5>
-                <iframe class="w-100 my-4" height="315" src="https://www.youtube.com/embed/yrfIMgxG14w?si=jtJ1-rQClQ_QXm6g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <img src="./img/book1.jpeg" style="height:200px ;" class="img-fluid my-2 w-100" alt="">
-            </div>
-        </div>
+      <h4 class="text-center">قسم المراجعة</h4>
+      <div class="bg-primary container-fluid text-light py-2 fw-bold w-100">ارشادات</div>
+      <section class="container-fluid p-3">
+        <p>فيما يلى ملخص لإجابتك يمكنك مراجعة أسئلتك بثلاث (3) طرق مختلفة</p>
+        <p>الأزرار الموجودة فى الركن السفلى الأيسر تطابق هذه الخيارات :</p>
+        <ul>
+            <li>قم بمراجعة كل أسئلتك وإجاباتك</li>
+            <li>قم بمراجعة كل أسئلتك الغير مكتملة</li>
+            <li>قم بمراجعة الأسئلة المميزة بعلامة المراجعة</li>
+        </ul>
+        <p>يمكنك أيضا النقر فوق رقم سؤال لربطه مباشرة بموقعه فى الإختبار</p>
       </section>
+      <div class="d-flex bg-primary text-light justify-content-between container-fluid">
+        <div class=" py-2 fw-bold"> القسم الأول</div>
+        <div class="d-flex align-items-center gap-2">
+            <div class="fw-bold">(غير مكتمل/غير مرئى 14/24)</div>
+        </div>
+     </div> 
+     <section class="container-fluid">
+        <div class="row">
+            <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all unique uncompleted">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span><i class="fa-solid fa-flag text-secondary"></i></span>
+                        <span>سؤال 1</span>
+                    </div>
+                    <span class="text-danger">غير مكتمل</span>
+                </div>
+            </a>
+            <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all unique">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span><i class="fa-solid fa-flag text-secondary"></i></span>
+                        <span>سؤال 2</span>
+                    </div>
+                    
+                </div>
+            </a>
+            <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all uncompleted">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span><i class="fa-solid fa-flag text-secondary"></i></span>
+                        <span>سؤال 3</span>
+                    </div>
+                    <span class="text-danger">غير مكتمل</span>
+                </div>
+            </a>
+            <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all uncompleted">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span><i class="fa-solid fa-flag text-secondary"></i></span>
+                        <span>سؤال 4</span>
+                    </div>
+                    <span class="text-danger">غير مكتمل</span>
+                </div>
+            </a>
+            <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all uncompleted">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span><i class="fa-solid fa-flag text-secondary"></i></span>
+                        <span>سؤال 5</span>
+                    </div>
+                    <span class="text-danger">غير مكتمل</span>
+                </div>
+            </a>
+            <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all unique">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span><i class="fa-solid fa-flag text-secondary"></i></span>
+                        <span>سؤال 6</span>
+                    </div>
+                    
+                </div>
+            </a>
+            <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all unique">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span><i class="fa-solid fa-flag text-secondary"></i></span>
+                        <span>سؤال 7</span>
+                    </div>
+                    
+                </div>
+            </a>
+            <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all uncompleted">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span><i class="fa-solid fa-flag text-secondary"></i></span>
+                        <span>سؤال 8</span>
+                    </div>
+                    <span class="text-danger">غير مكتمل</span>
+                </div>
+            </a>
+            <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all unique">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span><i class="fa-solid fa-flag text-secondary"></i></span>
+                        <span>سؤال 9</span>
+                    </div>
+                    
+                </div>
+            </a>
+            <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all uncompleted">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span><i class="fa-solid fa-flag text-secondary"></i></span>
+                        <span>سؤال 10</span>
+                    </div>
+                    <span class="text-danger">غير مكتمل</span>
+                </div>
+            </a>
+            <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all uncompleted">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span><i class="fa-solid fa-flag text-secondary"></i></span>
+                        <span>سؤال 11</span>
+                    </div>
+                    <span class="text-danger">غير مكتمل</span>
+                </div>
+            </a>
+            <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all uncompleted">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span><i class="fa-solid fa-flag text-secondary"></i></span>
+                        <span>سؤال 12</span>
+                    </div>
+                    <span class="text-danger">غير مكتمل</span>
+                </div>
+            </a>
+            <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all uncompleted">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span><i class="fa-solid fa-flag text-secondary"></i></span>
+                        <span>سؤال 13</span>
+                    </div>
+                    <span class="text-danger">غير مكتمل</span>
+                </div>
+            </a>
+            <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all unique">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span><i class="fa-solid fa-flag text-secondary"></i></span>
+                        <span>سؤال 14</span>
+                    </div>
+                   
+                </div>
+            </a>
+            <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all uncompleted">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span><i class="fa-solid fa-flag text-secondary"></i></span>
+                        <span>سؤال 15</span>
+                    </div>
+                    <span class="text-danger">غير مكتمل</span>
+                </div>
+            </a>
+            <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all uncompleted">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span><i class="fa-solid fa-flag text-secondary"></i></span>
+                        <span>سؤال 16</span>
+                    </div>
+                    <span class="text-danger">غير مكتمل</span>
+                </div>
+            </a>
+            <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all uncompleted">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span><i class="fa-solid fa-flag text-secondary"></i></span>
+                        <span>سؤال 17</span>
+                    </div>
+                    <span class="text-danger">غير مكتمل</span>
+                </div>
+            </a>
+            <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all unique">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span><i class="fa-solid fa-flag text-secondary"></i></span>
+                        <span>سؤال 18</span>
+                    </div>
+                    
+                </div>
+            </a>
+            <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all unique">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span><i class="fa-solid fa-flag text-secondary"></i></span>
+                        <span>سؤال 19</span>
+                    </div>
+                    
+                </div>
+            </a>
+            <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all uncompleted">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span><i class="fa-solid fa-flag text-secondary"></i></span>
+                        <span>سؤال 20</span>
+                    </div>
+                    <span class="text-danger">غير مكتمل</span>
+                </div>
+            </a>
+            <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all uncompleted">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span><i class="fa-solid fa-flag text-secondary"></i></span>
+                        <span>سؤال 21</span>
+                    </div>
+                    <span class="text-danger">غير مكتمل</span>
+                </div>
+            </a>
+            <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all uncompleted">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span><i class="fa-solid fa-flag text-secondary"></i></span>
+                        <span>سؤال 22</span>
+                    </div>
+                    <span class="text-danger">غير مكتمل</span>
+                </div>
+            </a>
+            <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all uncompleted">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span><i class="fa-solid fa-flag text-secondary"></i></span>
+                        <span>سؤال 23</span>
+                    </div>
+                    <span class="text-danger">غير مكتمل</span>
+                </div>
+            </a>
+            <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all uncompleted">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span><i class="fa-solid fa-flag text-secondary"></i></span>
+                        <span>سؤال 24</span>
+                    </div>
+                    <span class="text-danger">غير مكتمل</span>
+                </div>
+            </a>
+        </div>
+     </section>
       <footer class="bg-primary position-absolute text-light w-100 bottom-0">
         <div class="d-flex container-fluid justify-content-between align-items-center">
-          <h4 class="equations ps-2 p-1 mb-0 fw-bold"><span class="border p-0 px-2" style="font-size: 15px;border-radius: 50%;"><i class="fa-solid fa-question"></i></span> المعادلات</h4>
-          <h4 class="next-btn mb-0 p-1 pe-2 fw-bold">التالى <i class="fa-solid fa-arrow-left"></i></h4>
+            <div>
+                <h4 class="equations ps-2 p-1 mb-0 fw-bold" onclick="finish()"><i class="fa-solid fa-arrow-right-from-bracket"></i> إنهاء المراجعة</h4>
+            </div>
+            <div class="d-flex">
+                <h4 class="review-all mb-0 p-1 pe-2 fw-bold" onclick="reviewAllFunction()"><i class="fa-solid fa-bars"></i> مراجعة الكل</h4>
+                <h4 class="review-uncompleted mb-0 p-1 pe-2 fw-bold" onclick="reviewUncompletedFunction()"><i class="fa-regular fa-circle-xmark"></i> مراجعة الغير مكتملة</h4>
+                <h4 class="review-unique mb-0 p-1 pe-2 fw-bold" onclick="reviewUniqueFunction()"><i class="fa-solid fa-flag"></i> مراجعة المميز بعلامة</h4>
+            </div>
         </div>
       </footer>
 
           <!--scirpt Files-->
-          <script src="{{asset('public/front/exam/js/bootstrap.bundle.min.js')}}"></script>
-  <script src="{{asset('public/front/exam/js/all.min.js')}}"></script>
-  <script src="{{asset('public/front/exam/js/question.js')}}"></script>
+    <script src="{{asset('public/front/exam/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('public/front/exam/js/all.min.js')}}"></script>
+    <script src="{{asset('public/front/exam/js/review.js')}}"></script>
     <!--scirpt Files-->
   </body>
 </html>
