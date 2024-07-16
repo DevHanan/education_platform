@@ -1,33 +1,22 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Education</title>
-    <!--bootstrap-file-->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <!--bootstrap-file-->
-    <!--fontawesome-file-->
-    <link rel="stylesheet" href="css/all.min.css" />
-    <!--icons-site-->
-    <link rel="icon" type="png" href="img/logo.png" />
-    <!--icons-site-->
-    <link rel="stylesheet" href="css/style.css" />
-    <!--google-font-->
-    <!--woow AnimateFiles Css-->
-    <link rel="stylesheet" href="css/all.min.css" />
-    <!--woow AnimateFiles Css-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap"
-      rel="stylesheet" />
-    <!--google-font-->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      rel="stylesheet" />
-  </head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Education</title>
+  <!--bootstrap-file-->
+  <link rel="stylesheet" href="{{asset('public/front/exam/css/bootstrap.min.css')}}" />
+  <!--bootstrap-file-->
+  <!--fontawesome-file-->
+  <link rel="stylesheet" href="{{asset('public/front/exam/css/all.min.css')}}">
+  <link rel="stylesheet" href="{{asset('public/front/exam/css/style.css')}}">
+
+  <!--woow AnimateFiles Css-->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet" />
+  <!--google-font-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+</head>
   <body>
       <nav class="bg-primary text-light w-100">
         <div class="d-flex justify-content-between container-fluid">
@@ -102,9 +91,9 @@
       </footer>
 
           <!--scirpt Files-->
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/all.min.js"></script>
-    <script src="js/question.js"></script>
+          <script src="{{asset('public/front/exam/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{asset('public/front/exam/js/all.min.js')}}"></script>
+  <script src="{{asset('public/front/exam/js/question.js')}}"></script>
     <!--scirpt Files-->
   </body>
 </html>
