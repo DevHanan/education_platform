@@ -674,7 +674,7 @@
 
 
 
-
+        @canany(['users-create', 'users-view','users-edit', 'users-delete','role-view', 'role-edit','roles-create', 'roles-delete' ])
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.users.*','admin.roles.*'])) show @endif" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
@@ -691,26 +691,36 @@
           <div class="dropdown-menu @if(request()->routeIs(['admin.users.*','admin.roles.*'])) show @endif">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
+              @canany(['role-view', 'role-edit', 'roles-delete' ])
                 <a class="dropdown-item @if(request()->routeIs(['admin.roles.index','admin.roles.edit'])) active @endif" href="{{url('admin/roles')}}">
                   {{ __('navbar.roles.list') }}
                 </a>
+                @endcanany
+                @canany([ 'roles-create'])
                 <a class="dropdown-item @if(request()->routeIs('admin.roles.create')) active @endif" href="{{url('admin/roles/create')}}">
                   {{ __('navbar.roles.add') }}
                 </a>
+                @endcanany
+
+                @canany([ 'users-view','users-edit', 'users-delete'])
                 <a class="dropdown-item @if(request()->routeIs(['admin.users.index','admin.users.edit'])) active @endif" href="{{url('admin/users')}}">
                   {{ __('navbar.users.list') }}
 
                 </a>
+                @endcanany
+                @canany([ 'users-create'])
                 <a class="dropdown-item @if(request()->routeIs('admin.users.create')) active @endif" href="{{url('admin/users/create')}}">
                   {{ __('navbar.users.add') }}
 
                 </a>
+                @endcanany
 
 
               </div>
             </div>
           </div>
         </li>
+        @endcanany
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle  @if(request()->routeIs(['admin.settings.zoom','admin.settings.mail','admin.questions.*','admin.settings.aboutUSSetting','admin.payment-types.*','admin.countries.*','admin.teams.*','admin.parteners.*','admin.setting.index','admin.policies.*']))  show @endif " href="#navbar-extra" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
