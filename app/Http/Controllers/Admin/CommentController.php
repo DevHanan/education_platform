@@ -25,7 +25,7 @@ class CommentController extends Controller
         $this->view = 'admin.comments';
         $this->path = 'comments';
         $this->access = 'comments';
-        $this->middleware('permission:comments-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:courses-comments',   ['only' => ['show', 'index']]);
       
     }
     public function index(Request $request)

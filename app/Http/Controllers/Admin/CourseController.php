@@ -42,6 +42,8 @@ class CourseController extends Controller
         $this->middleware('permission:recommened-courses-view',   ['only' => ['recommendCourses']]);
         $this->middleware('permission:make-recommened-courses-view',   ['only' => ['recommendCourses']]);
         $this->middleware('permission:recent-courses-view',   ['only' => ['startSoonCourses']]);
+        $this->middleware('permission:courses-comments',   ['only' => ['startSoonCourses']]);
+
 
     }
 
