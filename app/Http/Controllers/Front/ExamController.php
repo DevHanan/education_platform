@@ -33,26 +33,22 @@ class ExamController extends Controller
         //get all questions 
         $question = BankQuestion::where('id', $QuizQuestion[0])->first();
         unset($QuizQuestion[0]);
-        return view('front.quizuestion', compact('question', 'section','QuizQuestion'));
+        return view('front.quizuestion', compact('question', 'section', 'QuizQuestion'));
     }
 
-    public function question(Request $request){
-            
-            if(!isset($request->QuizQuestion)){
-            $studentanswers = StudentQuestion::where('section_id',$request->section_id)->where('quiz_id',$request->quiz_id)->get();
-            return view('front.reviewquestionanswer', compact( 'section','studentanswers'));
-            }
-            else{
+    public function question(Request $request)
+    {
+        $section = QuizSection::find($request->section_id);
+
+        if (!isset($request->QuizQuestion)) {
+            $studentanswers = StudentQuestion::where('section_id', $request->section_id)->where('quiz_id', $request->quiz_id)->get();
+            return view('front.reviewquestionanswer', compact('section', 'studentanswers'));
+        } else {
             StudentQuestion::create($request->all());
             $question = BankQuestion::where('id', $request->QuizQuestion[0])->first();
             $QuizQuestion = $request->QuizQuestion;
             unset($QuizQuestion[0]);
-            $section = QuizSection::find($request->section_id);
-            return view('front.quizuestion', compact('question', 'section','QuizQuestion'));
-            }
-
-
-
-
+            return view('front.quizuestion', compact('question', 'section', 'QuizQuestion'));
+        }
     }
 }
