@@ -20,7 +20,7 @@ class ExamController extends Controller
         
         $title = 'عرض نتائج اختبارات الطلاب';
         $rows = Quiz::whereHas('studentTest')->get();
-        return view('admin.exams.listresult', compact('data','title'));
+        return view('admin.exams.listresult', compact('rows','title'));
 
     }
 }
