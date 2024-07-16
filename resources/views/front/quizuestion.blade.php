@@ -49,7 +49,7 @@
     </div>
   </nav>
   @if(isset($QuizQuestion) && count($QuizQuestion) > 1 )
-  <form method="post" action="{{url('question/'.$question->id)}}" method="POST">
+  <form method="post" action="{{url('question/1')}}" method="POST">
   @elseif(isset($QuizQuestion) && count($QuizQuestion) == 1 )
   <form method="post" action="{{url('question/review/'.$section->id)}}" method="POST">
   @endif
