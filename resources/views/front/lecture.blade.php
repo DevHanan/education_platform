@@ -138,7 +138,7 @@
 
                     <section class="container py-3 mb-3 gallay-all">
                         <div class="row">
-                            <h3 class="fw-bold primary-color position-relative mb-5">الصور المرفقة</h3>
+                            <h3 class="fw-bold primary-color position-relative mb-5">الاختبارات</h3>
                             @if($lecture->quiz)
                             @foreach ($lecture->quiz as $quiz )
                             <div class="accordion mb-4" id="course_end_exam">
