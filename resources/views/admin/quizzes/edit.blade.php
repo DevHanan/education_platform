@@ -256,18 +256,19 @@
                         </p>
                         <div class="collapse" id="collapseExample{{$group->bank_group_id}}">
                           <div class="card card-body">
-                            <table class="table table-responsive">
+                            <table class="table card-table table-vcenter text-nowrap">
+                            <tbody>
                                 @foreach (($group->bankGroup)->questions  as  $item)
-                                <tbody>
                                 <tr>
                                   <td>
                                     <input type="checkbox" name="questions[{{$item->id}}]" >
                                   </td>
                                   <td> {{ $item->customTitle }}</td>
                                 </tr>
-                                </tbody>
+                           
                               
                                 @endforeach
+                                </tbody>
                             </table>
                           </div>
                         </div>
