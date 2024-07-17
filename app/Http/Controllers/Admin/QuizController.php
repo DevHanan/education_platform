@@ -85,16 +85,14 @@ class QuizController extends Controller
         //     }
         // }
 
-        return $request->all();
          if($request->banks)
-         for($i=0 ; $i<count($request->banks) ; $i++ )  
-        return $request->bank[$i];
+         for($i=0 ; $i<count($request['banks']) ; $i++ )  
          if ($request->banks[$i] !== null) {
             QuizBankGroup::create([
             'quiz_id'  => $quiz->id,
-            'bank_group_id' => $request->bank[$i],
-            'random'  =>$request->random[$i],
-            'question_number' => $request->question_number[$i]
+            'bank_group_id' => $request['bank'][$i],
+            'random'  =>$request['random'][$i],
+            'question_number' => $request['question_number'][$i]
         ]);  
     }
 
