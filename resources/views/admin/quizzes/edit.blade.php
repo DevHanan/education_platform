@@ -246,7 +246,6 @@
                       <td>
                         <select class="select2 form-control" name="banks[]" id="bank">
                           <option value="{{$group->bank_group_id}}"> {{ optional($group->bankGroup)->name }}</option>
-                          @endforeach
 
                         </select>
                       </td>
@@ -260,13 +259,15 @@
 
                         </select>
                       </td>
-                      <td><input type="number" name="questionNumber[]" id="questionNumber" value="{{$group->question_number}}" placeholder="عدد الأسئلة" /></td>
+                      <td>
+                        <input type="number" name="questionNumber[]" id="questionNumber" value="{{$group->question_number}}" placeholder="عدد الأسئلة" /></td>
 
-                      <td><a type="button" value="Delete" onclick="deleteRow(this)">
+                      <td>
+                        <a type="button" value="Delete" onclick="deleteRow(this)">
                           <i class="fas fa-trash-alt"></i>
-                        </a></td>
+                        </a>
+                      </td>
                     </tr>
-
                     @endforeach
 
                     @endif
