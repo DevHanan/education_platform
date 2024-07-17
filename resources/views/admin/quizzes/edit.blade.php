@@ -257,7 +257,12 @@
                         <div class="collapse" id="collapseExample{{$group->bank_group_id}}">
                           <div class="card card-body">
                             <table class="table table-responsive">
-
+                                @foreach (($group->bankGroup)->questions  as  $question)
+                                <tr>
+                                  <td></td>
+                                  <td> {{ optional($question->question)->title }}</td>
+                                </tr>
+                                @endforeach
                             </table>
                           </div>
                         </div>
