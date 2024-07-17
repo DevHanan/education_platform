@@ -116,8 +116,7 @@
 
 
                                         <input type="checkbox" name="questions[]" value="{{$question->id}}" @if(in_array($question->id,$quizuestionsids)) checked @endif>
-                                      </td>
-                                      <td> {{ $question->customTitle }}</td>
+                                       {{ $question->customTitle }}</td>
 
                                     </tr>
                                     @endforeach
