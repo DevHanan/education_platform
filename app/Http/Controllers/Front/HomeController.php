@@ -15,6 +15,7 @@ use App\Models\Lecture;
 use App\Models\Subscription;
 use App\Models\MailList;
 use App\Models\Ticket;
+use App\Models\Quiz;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 use Auth;
@@ -271,5 +272,11 @@ class HomeController extends Controller
         $femalefaculities = Faculty::where('min_accept_degree','<=',$request->result2)->where('gender','female')->get();
 
         return view('front.availablefaculty',compact('malefaculities','femalefaculities'));
+    }
+
+
+    public function tests(){
+        $quizzes = Quiz::whereNull('course_id')->whereNull('lecture_id')->whereNull('level_id')->get();
+        return $quizzes;
     }
 }
