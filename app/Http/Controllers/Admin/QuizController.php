@@ -70,7 +70,6 @@ class QuizController extends Controller
 
     public function store(Request $request)
     {
-        return $request->all();
         $active = $request->active ? '1' : '0';
         $has_levels = $request->has_levels ? '1' : '0';
         $request->merge(['active' => $active,'has_levels'=>$has_levels]);
