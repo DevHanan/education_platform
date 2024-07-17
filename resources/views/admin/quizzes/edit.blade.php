@@ -262,7 +262,7 @@
                                   <td>
                                     <input type="checkbox" name="questions[{{$item->id}}]" >
                                   </td>
-                                  <td> {{ optional($item->question)->title }}</td>
+                                  <td> {{ $item->question }}</td>
                                 </tr>
                                 @endforeach
                             </table>
