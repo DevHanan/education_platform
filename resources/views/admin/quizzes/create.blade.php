@@ -211,7 +211,7 @@
                       <thead>
                         <tr>
                           <td style="width: 100%;"> {{ __('admin.quizzes.section_name') }}</td>
-                          <td></td>
+                          <td style="width: 100%;"></td>
                           <td></td>
                         </tr>
                       </thead>
