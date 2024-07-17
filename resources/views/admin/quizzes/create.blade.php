@@ -225,7 +225,6 @@
 
                             </select>
                           </td>
-                          <td><input type="text" name="questionNumber[]" value="" placeholder="عدد الأسئلة" /></td>
                           <td>
                             <select class="select2 form-control" name="random[]" id="random">
                               <option value="1">{{ __('select.yes') }}</option>
@@ -233,6 +232,8 @@
 
                             </select>
                           </td>
+                          <td><input type="text" name="questionNumber[]" value="" placeholder="عدد الأسئلة" /></td>
+                         
                           <td><a type="button" value="Delete" onclick="deleteRow(this)">
                               <i class="fas fa-trash-alt"></i>
                             </a></td>
