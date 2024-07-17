@@ -90,9 +90,9 @@ class QuizController extends Controller
          if ($request->banks[$i] !== null) {
             QuizBankGroup::create([
             'quiz_id'  => $quiz->id,
-            'bank_group_id' => $request['bank'][$i],
+            'bank_group_id' => $request['banks'][$i],
             'random'  =>$request['random'][$i],
-            'question_number' => $request['question_number'][$i]
+            'question_number' => $request['questionNumber'][$i]
         ]);  
     }
 
