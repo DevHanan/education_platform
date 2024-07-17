@@ -128,7 +128,7 @@
                             @endif
                           </td>
                           <td>
-                            <select class="select2 form-control" name="random" id="random">
+                            <select class="select2 form-control" name="random[]" id="random[]">
                               <option value="1">{{ __('admin.yes') }}</option>
                               <option value="0">{{ __('admin.no') }}</option>
 
@@ -165,7 +165,7 @@
 
 <script>
   // Get the checkbox and the div elements
-  const flexHasLevelSwitchCheck = document.getElementById('random');
+  const flexHasLevelSwitchCheck = document.getElementById('random[]');
   const divToHide = document.getElementById('divToHide');
 
   // Add an event listener to the checkbox
