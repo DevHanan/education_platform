@@ -150,7 +150,7 @@ class QuizController extends Controller
 
         if ($request->questions) {
             foreach($request->questions as $question)
-            QuizQuestion::firstOrCreate(['quiz_id' => $quiz->id,'question_id'=>$question->id], []);
+            QuizQuestion::firstOrCreate(['quiz_id' => $quiz->id,'question_id'=>$question], []);
         }
 
 
