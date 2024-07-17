@@ -112,7 +112,7 @@
                       <input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" name="active" @if($row->active ==1 ) checked @endif>
                     </div>
                   </div>
-
+                  @if($row->has_level == 1)
                   <div class="col-md-6">
                     <label class="form-label" for="title"> {{ __('admin.quizzes.has_levels') }} <span>*</span></label>
                     <div class="form-check form-switch md-3" style="margin:10px">
@@ -120,6 +120,7 @@
                       <input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="flexHasLevelSwitchCheck" name="has_levels" @if($row->has_levels ==1 ) checked @endif>
                     </div>
                   </div>
+                  @endif
                 </div>
 
 
@@ -257,19 +258,19 @@
                         <div class="collapse" id="collapseExample{{$group->bank_group_id}}">
                           <div class="card card-body">
                             <table class="table card-table">
-                            <tbody>
-                              
-                                @foreach (($group->bankGroup)->questions  as  $item)
+                              <tbody>
+
+                                @foreach (($group->bankGroup)->questions as $item)
                                 <tr>
                                   <td>
-                                    <input type="checkbox" name="questions[]" value="{{$item->id}}"  @if(in_array($item->id , $quizquestions)) checked @endif>
+                                    <input type="checkbox" name="questions[]" value="{{$item->id}}" @if(in_array($item->id , $quizquestions)) checked @endif>
                                   </td>
                                   <td> {{ $item->customTitle }}</td>
                                 </tr>
-                           
-                              
+
+
                                 @endforeach
-                                </tbody>
+                              </tbody>
                             </table>
                           </div>
                         </div>
@@ -343,15 +344,15 @@
   }
 
   function deleteRow(row) {
-      var table = document.getElementById("instructorstable");
-      var rowCount = table.rows.length;
-      if (rowCount > 1) {
-        var rowIndex = row.parentNode.parentNode.rowIndex;
-        document.getElementById("instructorstable").deleteRow(rowIndex);
-      } else {
-        alert("Please specify at least one value.");
-      }
+    var table = document.getElementById("instructorstable");
+    var rowCount = table.rows.length;
+    if (rowCount > 1) {
+      var rowIndex = row.parentNode.parentNode.rowIndex;
+      document.getElementById("instructorstable").deleteRow(rowIndex);
+    } else {
+      alert("Please specify at least one value.");
     }
+  }
 </script>
 </script>
 @endpush
