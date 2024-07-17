@@ -241,7 +241,7 @@
                               <i class="fas fa-trash-alt"></i>
                             </a></td>
                         </tr>
-                        </tbody>
+                      </tbody>
 
                     </table>
                     <div class="pull-right">
@@ -274,18 +274,22 @@
 
 <script>
   function addRow(tableID) {
-    var table = document.getElementById(tableID);
-    var rowCount = table.rows.length;
-    var row = table.insertRow(rowCount);
-    var colCount = table.rows[0].cells.length;
-    console.log(colCount);
+    var tableBody = document.getElementById(tableID);
+    // var rowCount = table.rows.length;
+    // var row = table.insertRow(rowCount);
+    // var colCount = table.rows[0].cells.length;
+    // console.log(colCount);
 
-    for (var i = 0; i < colCount; i++) {
-      var newRow = row.insertCell(i);
+    // for (var i = 0; i < colCount; i++) {
+    //   var newRow = row.insertCell(i);
 
-      newRow.innerHTML = table.rows[0].cells[i].innerHTML;
-      newRow.childNodes[0].value = "";
-    }
+    //   newRow.innerHTML = table.rows[0].cells[i].innerHTML;
+    //   newRow.childNodes[0].value = "";
+    // Clone the existing table row
+    const newRow = tableBody.rows[0].cloneNode(true);
+    newRow.cells[2].getElementsByTagName('input')[0].value = '';
+    tableBody.appendChild(newRow);
+    // }
   }
 
   function deleteRow(row) {
