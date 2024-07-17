@@ -342,18 +342,16 @@
     cell4.innerHTML = '<a type="button" value="Delete" onclick="deleteRow(this)"><i class="fas fa-trash-alt"></i></a>';
   }
 
-  function deleteRow(obj) {
-
-
-    var table = document.getElementById("instructorstable");
-    var rowCount = table.rows.length;
-    if (rowCount > 1) {
-      var rowIndex = row.parentNode.parentNode.rowIndex;
-      document.getElementById("data").deleteRow(rowIndex);
-    } else {
-      alert("Please specify at least one value.");
+  function deleteRow(row) {
+      var table = document.getElementById("instructorstable");
+      var rowCount = table.rows.length;
+      if (rowCount > 1) {
+        var rowIndex = row.parentNode.parentNode.rowIndex;
+        document.getElementById("instructorstable").deleteRow(rowIndex);
+      } else {
+        alert("Please specify at least one value.");
+      }
     }
-  }
 </script>
 </script>
 @endpush
