@@ -220,7 +220,7 @@
                       <td>
                         <select class="select2 form-control" name="banks[]" id="bank">
                           <option value="">{{ __('select') }}</option>
-                          @foreach($bankgroups as $bank)
+                          @foreach($banks as $bank)
                           <option value="{{$bank->id}}"> {{ $bank->name }}</option>
                           @endforeach
 

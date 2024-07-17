@@ -124,6 +124,7 @@ class QuizController extends Controller
         $data['row'] = Quiz::find($id);
         $data['bank_groups']= $data['row']->bankGroups()->pluck('bank_group_id')->ToArray();
         $data['groups'] = BankGroup::wherein('id',$data['bank_groups'])->get();
+        $data['banks'] = BankGroup::active()->get();
         $data['bankgroups'] = QuizBankGroup::where('quiz_id',$id)->get();
 
         return view($this->view . '.edit', $data);
