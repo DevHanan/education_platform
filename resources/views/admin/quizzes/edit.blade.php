@@ -258,12 +258,15 @@
                           <div class="card card-body">
                             <table class="table table-responsive">
                                 @foreach (($group->bankGroup)->questions  as  $item)
+                                <tbody>
                                 <tr>
                                   <td>
                                     <input type="checkbox" name="questions[{{$item->id}}]" >
                                   </td>
-                                  <td> {{ $item->title }}</td>
+                                  <td> {{ $item->customTitle }}</td>
                                 </tr>
+                                </tbody>
+                              
                                 @endforeach
                             </table>
                           </div>
