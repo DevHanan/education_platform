@@ -83,6 +83,7 @@ class QuizSectionController extends Controller
         $data['route'] = $this->route;
         $data['quiz'] = Quiz::find($quiz_id);
         $data['quizuestionsids']=QuizQuestion::where('section_id',$id)->pluck('question_id')->ToArray();
+        return $data['quizuestionsids'];
         $data['bank_groups']= $data['quiz']->bankGroups()->pluck('bank_group_id')->ToArray();
         $data['questions'] = BankQuestion::whereIn('bank_group_id', $data['bank_groups'])->get();
         $data['title'] = trans('admin.quiz-sections.edit');
