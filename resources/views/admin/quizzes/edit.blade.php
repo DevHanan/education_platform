@@ -117,7 +117,7 @@
                     <label class="form-label" for="title"> {{ __('admin.quizzes.has_levels') }} <span>*</span></label>
                     <div class="form-check form-switch md-3" style="margin:10px">
 
-                      <input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="flexHasLevelSwitchCheck" name="has_levels" @if($row->has_levels ==1 ) checked @endif>
+                      <input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="hasLevel" name="has_levels" @if($row->has_levels ==1 ) checked @endif>
                     </div>
                   </div>
                   @endif

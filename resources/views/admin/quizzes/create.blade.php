@@ -134,7 +134,7 @@
                     <label class="form-label" for="title"> {{ __('admin.quizzes.has_levels') }} <span>*</span></label>
                     <div class="form-check form-switch md-3" style="margin:10px">
 
-                      <input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="flexHasLevelSwitchCheck" name="has_levels">
+                      <input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="hasLevel" name="has_levels">
                     </div>
                   </div>
 
@@ -201,7 +201,7 @@
 
 
 
-              <div class="card" style="margin-top: 20px;">
+              <div class="card" style="margin-top: 20px;" id="divToHide">
                 <div class="card-header">
                   <h3> {{ __('admin.quizzes.add_bank_group') }} </h3>
                 </div>
@@ -299,6 +299,22 @@
         alert("Please specify at least one value.");
       }
   }
-</script>
+
+
+  // Get the checkbox and the div elements
+const flexHasLevelSwitchCheck = document.getElementById('hasLevel');
+const divToHide = document.getElementById('divToHide');
+
+// Add an event listener to the checkbox
+flexHasLevelSwitchCheck.addEventListener('change', function() {
+  // If the checkbox is checked, hide the div
+  if (this.checked) {
+    divToHide.style.display = 'none';
+  } else {
+    // If the checkbox is not checked, show the div
+    divToHide.style.display = 'block';
+  }
+});
+
 </script>
 @endpush
