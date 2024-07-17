@@ -116,9 +116,9 @@
                                       <td>
 
 
-                                        <input type="checkbox" name="questions[]" value="{{$item->id}}" @if(in_array($item->id , $quizquestions)) checked @endif>
+                                        <input type="checkbox" name="questions[]" value="{{$question->id}}" >
                                       </td>
-                                      <td> {{ $item->customTitle }}</td>
+                                      <td> {{ $question->customTitle }}</td>
 
                                     </tr>
                                     @endforeach
