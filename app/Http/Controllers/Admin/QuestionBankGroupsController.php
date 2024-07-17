@@ -102,7 +102,7 @@ class QuestionBankGroupsController extends Controller
 
 
         $request->validate([
-            'name'=>'required|unique:bank_groups,name,'.$id,
+            'name'=>'required|unique:bank_groups,name,'.$request->id,
             'track_id' => 'required'
         ]);
         $group = BankGroup::find($request->id);
