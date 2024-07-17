@@ -166,7 +166,8 @@
                                 </div>
                             </div>
                             @endforeach
-                           
+                           @else
+                           لا توجد اختبارات
                             @endif
                             </div>
                 </section>
