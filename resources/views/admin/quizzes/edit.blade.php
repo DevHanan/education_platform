@@ -234,7 +234,7 @@
                     </td>
                     <td> 
 
-                    <input type="number" name="groupquestions[]" min="0">
+                    <input type="number" name="questionNumber[]" min="0" value="{{$group->question_number}}">
 
                     </td>
 
