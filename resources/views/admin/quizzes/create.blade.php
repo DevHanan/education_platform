@@ -228,8 +228,8 @@
                           </td>
                           <td>
                             <select class="select2 form-control" name="random[]" id="random">
-                              <option value="1">{{ __('select.yes') }}</option>
-                              <option value="0">{{ __('select.no') }}</option>
+                              <option value="1">{{ __('admin.yes') }}</option>
+                              <option value="0">{{ __('admin.no') }}</option>
 
                             </select>
                           </td>
