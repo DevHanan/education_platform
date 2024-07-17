@@ -91,7 +91,7 @@ class QuizController extends Controller
          QuizBankGroup::create([
             'quiz_id'  => $quiz->id,
             'bank_group_id' => $bank,
-            'random'  => ,
+            'random'  =>'' ,
             'question_number' => ' '
         ]);  
 
