@@ -210,11 +210,11 @@
                     <table class=" table data-table data-table-horizontal data-table-highlight">
                       <thead>
                         <tr>
-                          <td > {{ __('admin.quizzes.select_bank') }}</td>
-                          <td >{{ __('admin.quizzes.random_select') }} </td>
-                          
-                          <td >{{ __('admin.quizzes.question_number') }} </td>
-                        <td>#</td>
+                          <td> {{ __('admin.quizzes.select_bank') }}</td>
+                          <td>{{ __('admin.quizzes.random_select') }} </td>
+
+                          <td>{{ __('admin.quizzes.question_number') }} </td>
+                          <td>#</td>
                         </tr>
                       </thead>
                       <tbody id="instructorstable">
@@ -235,12 +235,13 @@
 
                             </select>
                           </td>
-                          <td><input type="number" name="questionNumber[]"  id="questionNumber" value="" placeholder="عدد الأسئلة" /></td>
-                         
+                          <td><input type="number" name="questionNumber[]" id="questionNumber" value="" placeholder="عدد الأسئلة" /></td>
+
                           <td><a type="button" value="Delete" onclick="deleteRow(this)">
                               <i class="fas fa-trash-alt"></i>
                             </a></td>
                         </tr>
+                        </tbody>
 
                     </table>
                     <div class="pull-right">
@@ -284,7 +285,6 @@
 
       newRow.innerHTML = table.rows[0].cells[i].innerHTML;
       newRow.childNodes[0].value = "";
-      console.log(newRow.childNodes[0].value);
     }
   }
 
