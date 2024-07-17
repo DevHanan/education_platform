@@ -246,8 +246,22 @@
                       <td>
                         <select class="select2 form-control" name="banks[]" id="bank">
                           <option value="{{$group->bank_group_id}}"> {{ optional($group->bankGroup)->name }}</option>
-
                         </select>
+                        @if($group->randmom == 0)
+                        <p>
+                          <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample{{$group->bank_group_id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            إختر الاسئلة
+                          </a>
+
+                        </p>
+                        <div class="collapse" id="collapseExample{{$group->bank_group_id}}">
+                          <div class="card card-body">
+                            <table class="table table-responsive">
+
+                            </table>
+                          </div>
+                        </div>
+                        @endif
                       </td>
                       <td>
                         <select class="select2 form-control" name="random[]" id="random">
@@ -260,7 +274,8 @@
                         </select>
                       </td>
                       <td>
-                        <input type="number" name="questionNumber[]" id="questionNumber" value="{{$group->question_number}}" placeholder="عدد الأسئلة" /></td>
+                        <input type="number" name="questionNumber[]" id="questionNumber" value="{{$group->question_number}}" placeholder="عدد الأسئلة" />
+                      </td>
 
                       <td>
                         <a type="button" value="Delete" onclick="deleteRow(this)">
@@ -306,23 +321,26 @@
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);
 
-    cell1.innerHTML = '<select class="select2 form-control" name="banks[]"><option value="">{{ __('select') }}</option>@foreach($banks as $bank)<option value="{{$bank->id}}"> {{ $bank->name }}</option>@endforeach</select>';
-    cell2.innerHTML = '<select class="select2 form-control" name="random[]"><option value="1">{{ __('admin.yes') }}</option><option value="0">{{ __('admin.no') }}</option></select>';
+    cell1.innerHTML = '<select class="select2 form-control" name="banks[]"><option value="">{{ __('
+    select ') }}</option>@foreach($banks as $bank)<option value="{{$bank->id}}"> {{ $bank->name }}</option>@endforeach</select>';
+    cell2.innerHTML = '<select class="select2 form-control" name="random[]"><option value="1">{{ __('
+    admin.yes ') }}</option><option value="0">{{ __('
+    admin.no ') }}</option></select>';
     cell3.innerHTML = '<input type="number" name="questionNumber[]" value="" placeholder="عدد الأسئلة" />';
     cell4.innerHTML = '<a type="button" value="Delete" onclick="deleteRow(this)"><i class="fas fa-trash-alt"></i></a>';
   }
 
   function deleteRow(obj) {
- 
+
 
     var table = document.getElementById("instructorstable");
-      var rowCount = table.rows.length;
-      if (rowCount > 1) {
-        var rowIndex = row.parentNode.parentNode.rowIndex;
-        document.getElementById("data").deleteRow(rowIndex);
-      } else {
-        alert("Please specify at least one value.");
-      }
+    var rowCount = table.rows.length;
+    if (rowCount > 1) {
+      var rowIndex = row.parentNode.parentNode.rowIndex;
+      document.getElementById("data").deleteRow(rowIndex);
+    } else {
+      alert("Please specify at least one value.");
+    }
   }
 </script>
 </script>
