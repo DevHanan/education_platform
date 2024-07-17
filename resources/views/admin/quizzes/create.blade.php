@@ -235,7 +235,7 @@
 
                             </select>
                           </td>
-                          <td><input type="number" name="questionNumber[]"  id="questionNumber[]" value="" placeholder="عدد الأسئلة" /></td>
+                          <td><input type="number" name="questionNumber[]"  id="questionNumber" value="" placeholder="عدد الأسئلة" /></td>
                          
                           <td><a type="button" value="Delete" onclick="deleteRow(this)">
                               <i class="fas fa-trash-alt"></i>
