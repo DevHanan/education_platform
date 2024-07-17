@@ -78,10 +78,6 @@
 
               <div class="card-status-top bg-blue"></div>
 
-              <div class="card-header">
-                <h3 class="card-title"> الاسئلة </h3>
-
-              </div>
               <div class="card" style="margin-top: 20px;" id="divToHide">
                 <div class="card-header">
                   <h3> {{ __('admin.quizzes.add_bank_group') }} </h3>
