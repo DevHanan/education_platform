@@ -33,7 +33,7 @@ Route::get('/courses', [HomeController::class, 'courses'])->name('courses');
 Route::post('courses',[HomeController::class, 'courses'])->name('searchcourses');
 Route::get('/blogs', [HomeController::class, 'blogs']);
 Route::get('/policies', [HomeController::class, 'policy']);
-Route::get('/tests', [HomeController::class, 'tests']);
+Route::get('/test-capabilities', [HomeController::class, 'tests']);
 
 Route::get('/contactus', [HomeController::class, 'contactus']);
 Route::get('/books', [HomeController::class, 'books']);

@@ -146,7 +146,8 @@
           <a class="nav-link" href="#">صانع CV</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  @if(Request::is('tests')) active @endif" href="{{ url('/tests') }}" target="_blank">اختبارات قدرات</a>
+          <a class="nav-link  @if(Request::is('tests')) active @endif" href="{{ url('/test-capabilities
+') }}" target="_blank">اختبارات قدرات</a>
         </li>
         <li class="nav-item">
           <a class="nav-link  @if(Request::is('policies')) active @endif" href="{{ url('/policies') }}" target="_blank">سياساتنا</a>
