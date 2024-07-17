@@ -91,7 +91,6 @@
                           <td>{{ __('admin.quizzes.random_select') }} </td>
 
                           <td>{{ __('admin.quizzes.question_number') }} </td>
-                          <td>#</td>
                         </tr>
                       </thead>
                       <tbody id="instructorstable">
@@ -116,7 +115,7 @@
                                       <td>
 
 
-                                        <input type="checkbox" name="questions[]" value="{{$question->id}}" >
+                                        <input type="checkbox" name="questions[]" value="{{$question->id}}">
                                       </td>
                                       <td> {{ $question->customTitle }}</td>
 
@@ -136,16 +135,15 @@
 
                             </select>
                           </td>
-                          <td><input type="number" name="questionNumber[]" id="questionNumber" value="" placeholder="عدد الأسئلة" /></td>
-
+                          <td>
+                            <input type="number" name="questionNumber[]" id="questionNumber" value="" placeholder="عدد الأسئلة" />
+                          </td>
                           @endforeach
                         </tr>
                       </tbody>
 
                     </table>
-                    <div class="pull-right">
-                      <input type="button" value="إضافة" class="top-buffer" onclick="addRow()" />
-                    </div>
+
                   </div>
                 </div>
               </div>
