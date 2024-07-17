@@ -257,10 +257,12 @@
                         <div class="collapse" id="collapseExample{{$group->bank_group_id}}">
                           <div class="card card-body">
                             <table class="table table-responsive">
-                                @foreach (($group->bankGroup)->questions  as  $question)
+                                @foreach (($group->bankGroup)->questions  as  $item)
                                 <tr>
-                                  <td></td>
-                                  <td> {{ optional($question->question)->title }}</td>
+                                  <td>
+                                    <input type="checkbox" name="questions[{{$item->id}}]" >
+                                  </td>
+                                  <td> {{ optional($item->question)->title }}</td>
                                 </tr>
                                 @endforeach
                             </table>
