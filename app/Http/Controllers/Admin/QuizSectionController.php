@@ -56,7 +56,6 @@ class QuizSectionController extends Controller
     }
     public function store(Request $request)
     {
-        return $request->all();
         $active = $request->active ? '1' : '0';
         $request->merge(['active' => $active]);
        $section = QuizSection::create($request->all());
@@ -97,9 +96,9 @@ class QuizSectionController extends Controller
         $request->merge(['active' => $active]);
        $section = QuizSection::find($request->id);
        $section->update($request->all());
-       if($request->questionids){
+       if($request->questions){
         QuizQuestion::whereNotIn('question_id', $request->questionids)->delete();
-        foreach($request->questionids as $id)
+        foreach($request->questions as $id)
         QuizQuestion::firstOrCreate(['section_id' => $section->id,'quiz_id'=>$section->quiz_id,'question_id'=>$id]); 
     }
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
