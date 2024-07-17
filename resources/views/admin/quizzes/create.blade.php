@@ -107,7 +107,7 @@
                   @enderror
                 </div>
 
-                <div class="mb-3" id="bankgroupsList">
+                <!-- <div class="mb-3" id="bankgroupsList">
                   <label class="form-label" for="bank">{{ __('admin.quizzes.select_bankgroups') }} <span>*</span></label>
                   <select class="select2 form-control" name="banks[]" id="bank" multiple>
                     <option value="">{{ __('select') }}</option>
@@ -116,7 +116,7 @@
                     @endforeach
 
                   </select>
-                </div>
+                </div> -->
 
 
               </div>
