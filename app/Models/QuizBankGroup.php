@@ -10,4 +10,10 @@ class QuizBankGroup extends Model
     use HasFactory;
     protected $fillable = ['quiz_id', 'bank_group_id','random','question_number'];
 
+
+    public function bankGroup()
+    {
+        return $this->belongsTo(BankGroup::class);
+    }
+
 }

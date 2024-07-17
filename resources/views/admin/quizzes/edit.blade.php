@@ -219,7 +219,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach($groups as $group)
+                  @foreach($bankgroups as $group)
 
                   <tr>
 
@@ -230,7 +230,7 @@
                     </td>
 
                     <td>
-                      {!! $group->name !!}
+                      {!! optional($group->bankGroup)->name !!}
                     </td>
                     <td> 
 
