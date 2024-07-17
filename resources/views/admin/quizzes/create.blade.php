@@ -288,9 +288,16 @@
   }
 
   function deleteRow(obj) {
-    var index = obj.parentNode.parentNode.rowIndex;
+ 
+
     var table = document.getElementById("instructorstable");
-    table.deleteRow(index);
+      var rowCount = table.rows.length;
+      if (rowCount > 1) {
+        var rowIndex = row.parentNode.parentNode.rowIndex;
+        document.getElementById("data").deleteRow(rowIndex);
+      } else {
+        alert("Please specify at least one value.");
+      }
   }
 </script>
 </script>
