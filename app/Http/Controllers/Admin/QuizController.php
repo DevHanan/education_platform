@@ -137,7 +137,8 @@ class QuizController extends Controller
         $request->merge(['active' => $active,'has_levels'=>$has_levels]);
         $quiz->update($request->all());
 
-        if($request->banks)
+        if($request->banks){
+            QuizBankGroup::where('quiz_id',$request->id)->delete();
          for($i=0 ; $i<count($request['banks']) ; $i++ )  
          if ($request->banks[$i] !== null) {
             QuizBankGroup::create([
@@ -147,6 +148,7 @@ class QuizController extends Controller
             'question_number' => $request['questionNumber'][$i]
         ]);  
     }
+}
 
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.quizzes.index');
