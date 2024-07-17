@@ -247,7 +247,7 @@
                         <select class="select2 form-control" name="banks[]" id="bank">
                           <option value="{{$group->bank_group_id}}"> {{ optional($group->bankGroup)->name }}</option>
                         </select>
-                        @if($group->randmom == 0)
+                        @if($group->randmom == 0 && count(($group->bankGroup)->questions)>0 )
                         <p>
                           <a class="text-primary" data-bs-toggle="collapse" href="#collapseExample{{$group->bank_group_id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
                             إختر الاسئلة
@@ -258,6 +258,7 @@
                           <div class="card card-body">
                             <table class="table card-table">
                             <tbody>
+                              
                                 @foreach (($group->bankGroup)->questions  as  $item)
                                 <tr>
                                   <td>
