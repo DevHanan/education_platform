@@ -138,7 +138,8 @@ class QuizController extends Controller
         $quiz->update($request->all());
 
         if ($request->banks) {
-            // QuizBankGroup::where('quiz_id', $request->id)->delete();
+            // delete unchecked 
+            QuizBankGroup::whereNotIn('question_id', $request->questions)->delete();
             for ($i = 0; $i < count($request['banks']); $i++)
                 if ($request->banks[$i] !== null) {
                     QuizBankGroup::firstOrCreate(['quiz_id' => $quiz->id, 'bank_group_id' => $request['banks'][$i]], [
