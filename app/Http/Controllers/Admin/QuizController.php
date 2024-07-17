@@ -138,13 +138,15 @@ class QuizController extends Controller
         $quiz->update($request->all());
 
         if($request->banks)
-        foreach($request->banks as $bank)  
-        QuizBankGroup::create([
-           'quiz_id'  => $quiz->id,
-           'bank_group_id' => $bank,
-           'random'  => ' ',
-           'prectange' => ' '
-       ]); 
+         for($i=0 ; $i<count($request['banks']) ; $i++ )  
+         if ($request->banks[$i] !== null) {
+            QuizBankGroup::create([
+            'quiz_id'  => $quiz->id,
+            'bank_group_id' => $request['banks'][$i],
+            'random'  =>$request['random'][$i],
+            'question_number' => $request['questionNumber'][$i]
+        ]);  
+    }
 
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.quizzes.index');
