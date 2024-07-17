@@ -217,7 +217,7 @@
                       <tbody id="instructorstable">
                         <tr>
                           <td>
-                            <select class="select2 form-control" name="banks[]" id="bank" multiple>
+                            <select class="select2 form-control" name="banks[]" id="bank">
                               <option value="">{{ __('select') }}</option>
                               @foreach($bankgroups as $bank)
                               <option value="{{$bank->id}}"> {{ $bank->name }}</option>
@@ -225,7 +225,14 @@
 
                             </select>
                           </td>
-                          <td><input type="text" name="sections[]" value="" placeholder="إسم المرحلة" /></td>
+                          <td><input type="text" name="questionNumber[]" value="" placeholder="عدد الأسئلة" /></td>
+                          <td>
+                            <select class="select2 form-control" name="random[]" id="random">
+                              <option value="1">{{ __('select.yes') }}</option>
+                              <option value="0">{{ __('select.no') }}</option>
+
+                            </select>
+                          </td>
                           <td><a type="button" value="Delete" onclick="deleteRow(this)">
                               <i class="fas fa-trash-alt"></i>
                             </a></td>
