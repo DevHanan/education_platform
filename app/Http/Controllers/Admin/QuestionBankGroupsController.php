@@ -59,7 +59,6 @@ class QuestionBankGroupsController extends Controller
      */
     public function store(BankGroupRequest $request)
     {
-        return $request->all();
         $active = $request->active ? '1' : '0';
         $request->merge(['active' => $active]);
         $row = BankGroup::create($request->all());

@@ -70,6 +70,7 @@ class QuizController extends Controller
 
     public function store(Request $request)
     {
+        return $request->all();
         $active = $request->active ? '1' : '0';
         $has_levels = $request->has_levels ? '1' : '0';
         $request->merge(['active' => $active,'has_levels'=>$has_levels]);
@@ -90,8 +91,8 @@ class QuizController extends Controller
          QuizBankGroup::create([
             'quiz_id'  => $quiz->id,
             'bank_group_id' => $bank,
-            'random'  => ' ',
-            'prectange' => ' '
+            'random'  => ,
+            'question_number' => ' '
         ]);  
 
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
