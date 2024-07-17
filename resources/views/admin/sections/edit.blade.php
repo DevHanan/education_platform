@@ -97,7 +97,7 @@
                         <tr>
                           @foreach($bankgroups as $bank)
                           <td>
-                            <input type="checkbox" name="banks[]" value="{{ $bank->id}}" @if(in_array($bank->id,$bank_groups)) checked @endif> {{ $bank->name }}
+                            <input type="checkbox" name="banks[]" value="{{ $bank->id}}" @if(in_array($bank->id,$groups)) checked @endif> {{ $bank->name }}
                             @if(count($bank->questions)>1)
                             <p>
                               <a class="text-primary" data-bs-toggle="collapse" href="#collapseExample{{$bank->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
