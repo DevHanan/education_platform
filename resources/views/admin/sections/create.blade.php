@@ -32,7 +32,7 @@
     <div class="row row-cards">
       <div class="col-md-12">
 
-        <form autocomplete="off" class="card"  action="{{ url('admin/quizzes/'.$quiz->id.'/sections' ) }}" method="post" enctype="multipart/form-data">
+        <form autocomplete="off" class="card" action="{{ url('admin/quizzes/'.$quiz->id.'/sections' ) }}" method="post" enctype="multipart/form-data">
           @csrf
 
           <input type="hidden" name="quiz_id" value="{{$quiz->id}}">
@@ -51,7 +51,7 @@
               <div class="mb-3">
                 <label class="form-label" for="question_number"> {{ __('admin.sections.question_number') }} <span>*</span></label>
 
-                <input type="text" class="form-control" name="question_number" id="question_number" value="{{ old('question_number') }}" required>
+                <input type="number" class="form-control" name="question_number" id="question_number" value="{{ old('question_number') }}" required>
 
                 @error('question_number')
                 <div class="invalid-feedback">
@@ -96,14 +96,38 @@
                       </thead>
                       <tbody id="instructorstable">
                         <tr>
+                          @foreach($bankgroups as $bank)
                           <td>
-                            <select class="select2 form-control" name="banks[]" id="bank">
-                              <option value="">{{ __('select') }}</option>
-                              @foreach($bankgroups as $bank)
-                              <option value="{{$bank->id}}"> {{ $bank->name }}</option>
-                              @endforeach
+                            <input type="checkbox" name="banks[]" value="{{ $bank->id}}">
+                            @if($bank->questions)
+                            <p>
+                              <a class="text-primary" data-bs-toggle="collapse" href="#collapseExample{{$group->bank_group_id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                إختر الاسئلة
+                              </a>
 
-                            </select>
+                            </p>
+                            <div class="collapse" id="collapseExample{{$group->bank_group_id}}">
+                              <div class="card card-body">
+                                <table class="table card-table">
+                                  <tbody>
+                                    @foreach ($bank->questions as $question )
+
+                                    <tr>
+                                      <td>
+
+
+                                        <input type="checkbox" name="questions[]" value="{{$item->id}}" @if(in_array($item->id , $quizquestions)) checked @endif>
+                                      </td>
+                                      <td> {{ $item->customTitle }}</td>
+
+                                    </tr>
+                                    @endforeach
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+
+                            @endif
                           </td>
                           <td>
                             <select class="select2 form-control" name="random" id="random">
@@ -114,9 +138,7 @@
                           </td>
                           <td><input type="number" name="questionNumber[]" id="questionNumber" value="" placeholder="عدد الأسئلة" /></td>
 
-                          <td><a type="button" value="Delete" onclick="deleteRow(this)">
-                              <i class="fas fa-trash-alt"></i>
-                            </a></td>
+                          @endforeach
                         </tr>
                       </tbody>
 
@@ -153,51 +175,22 @@
 @push('scripts')
 
 <script>
-  function addRow() {
-    var table = document.getElementById("instructorstable");
-    var row = table.insertRow(-1);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
-
-    cell1.innerHTML = '<select class="select2 form-control" name="banks[]"><option value="">{{ __('select') }}</option>@foreach($bankgroups as $bank)<option value="{{$bank->id}}"> {{ $bank->name }}</option>@endforeach</select>';
-    cell2.innerHTML = '<select class="select2 form-control" name="random[]"><option value="1">{{ __('admin.yes') }}</option><option value="0">{{ __('admin.no') }}</option></select>';
-    cell3.innerHTML = '<input type="number" name="questionNumber[]" value="" placeholder="عدد الأسئلة" />';
-    cell4.innerHTML = '<a type="button" value="Delete" onclick="deleteRow(this)"><i class="fas fa-trash-alt"></i></a>';
-  }
-
-  function deleteRow(obj) {
- 
-
-    var table = document.getElementById("instructorstable");
-      var rowCount = table.rows.length;
-      if (rowCount > 1) {
-        var rowIndex = row.parentNode.parentNode.rowIndex;
-        document.getElementById("data").deleteRow(rowIndex);
-      } else {
-        alert("Please specify at least one value.");
-      }
-  }
-
-
   // Get the checkbox and the div elements
-const flexHasLevelSwitchCheck = document.getElementById('random');
-const divToHide = document.getElementById('divToHide');
+  const flexHasLevelSwitchCheck = document.getElementById('random');
+  const divToHide = document.getElementById('divToHide');
 
-// Add an event listener to the checkbox
-flexHasLevelSwitchCheck.addEventListener('change', function() {
-  const selectedValue = selectElement.value;
-  // If the checkbox is checked, hide the div
-  if (selectedValue == '0') {
-    divToHide.style.display = 'block';
+  // Add an event listener to the checkbox
+  flexHasLevelSwitchCheck.addEventListener('change', function() {
+    const selectedValue = selectElement.value;
+    // If the checkbox is checked, hide the div
+    if (selectedValue == '0') {
+      divToHide.style.display = 'block';
 
-  } else {
-    // If the checkbox is not checked, show the div
-    divToHide.style.display = 'none';
+    } else {
+      // If the checkbox is not checked, show the div
+      divToHide.style.display = 'none';
 
-  }
-});
-
+    }
+  });
 </script>
 @endpush
