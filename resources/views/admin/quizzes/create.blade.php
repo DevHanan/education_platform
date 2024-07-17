@@ -212,6 +212,7 @@
                         <tr>
                           <td style="width: 100%;"> {{ __('admin.quizzes.section_name') }}</td>
                           <td></td>
+                          <td></td>
                         </tr>
                       </thead>
                       <tbody id="instructorstable">
