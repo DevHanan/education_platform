@@ -72,7 +72,7 @@ class QuizController extends Controller
     {
         $active = $request->active ? '1' : '0';
         $has_levels = $request->has_levels ? '1' : '0';
-        $request->merge(['active' => $active,'has_levels'=>$has_levels]);
+        $request->merge(['active' => $active, 'has_levels' => $has_levels]);
 
         $quiz = Quiz::create($request->all());
         // if (count($request->sections)) {
@@ -85,23 +85,22 @@ class QuizController extends Controller
         //     }
         // }
 
-         if($request->banks)
-         for($i=0 ; $i<count($request['banks']) ; $i++ )  
-         if ($request->banks[$i] !== null) {
-            QuizBankGroup::create([
-            'quiz_id'  => $quiz->id,
-            'bank_group_id' => $request['banks'][$i],
-            'random'  =>$request['random'][$i],
-            'question_number' => $request['questionNumber'][$i]
-        ]);  
-    }
+        if ($request->banks)
+            for ($i = 0; $i < count($request['banks']); $i++)
+                if ($request->banks[$i] !== null) {
+                    QuizBankGroup::create([
+                        'quiz_id'  => $quiz->id,
+                        'bank_group_id' => $request['banks'][$i],
+                        'random'  => $request['random'][$i],
+                        'question_number' => $request['questionNumber'][$i]
+                    ]);
+                }
 
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
-        if($request->has_levels == 1)
-        return redirect('admin/quizzes/'.$quiz->id .'/sections');
+        if ($request->has_levels == 1)
+            return redirect('admin/quizzes/' . $quiz->id . '/sections');
         else
-        return redirect('admin/quizzes/'.$quiz->id . '/edit');
-
+            return redirect('admin/quizzes/' . $quiz->id . '/edit');
     }
 
 
@@ -122,34 +121,38 @@ class QuizController extends Controller
         $data['path'] = $this->path;
         $data['access'] = $this->access;
         $data['row'] = Quiz::find($id);
-        $data['bank_groups']= $data['row']->bankGroups()->pluck('bank_group_id')->ToArray();
-        $data['groups'] = BankGroup::wherein('id',$data['bank_groups'])->get();
+        $data['bank_groups'] = $data['row']->bankGroups()->pluck('bank_group_id')->ToArray();
+        $data['groups'] = BankGroup::wherein('id', $data['bank_groups'])->get();
         $data['banks'] = BankGroup::active()->get();
-        $data['bankgroups'] = QuizBankGroup::where('quiz_id',$id)->get();
+        $data['bankgroups'] = QuizBankGroup::where('quiz_id', $id)->get();
 
         return view($this->view . '.edit', $data);
     }
     public function update(Request $request)
     {
-        return $request->input('questions');
         $quiz = Quiz::find($request->id);
         $active = $request->active ? '1' : '0';
         $has_levels = $request->has_levels ? '1' : '0';
-        $request->merge(['active' => $active,'has_levels'=>$has_levels]);
+        $request->merge(['active' => $active, 'has_levels' => $has_levels]);
         $quiz->update($request->all());
 
-        if($request->banks){
-            QuizBankGroup::where('quiz_id',$request->id)->delete();
-         for($i=0 ; $i<count($request['banks']) ; $i++ )  
-         if ($request->banks[$i] !== null) {
-            QuizBankGroup::create([
-            'quiz_id'  => $quiz->id,
-            'bank_group_id' => $request['banks'][$i],
-            'random'  =>$request['random'][$i],
-            'question_number' => $request['questionNumber'][$i]
-        ]);  
-    }
-}
+        if ($request->banks) {
+            // QuizBankGroup::where('quiz_id', $request->id)->delete();
+            for ($i = 0; $i < count($request['banks']); $i++)
+                if ($request->banks[$i] !== null) {
+                    QuizBankGroup::firstOrCreate(['quiz_id' => $quiz->id, 'bank_group_id' => $request['banks'][$i]], [
+                        'random'  => $request['random'][$i],
+                        'question_number' => $request['questionNumber'][$i]
+                    ]);
+                }
+        }
+
+
+        if ($request->questions) {
+            foreach($request->questions as $question)
+            QuizQuestion::firstOrCreate(['quiz_id' => $quiz->id,'question_id'=>$question->id], []);
+        }
+
 
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.quizzes.index');
