@@ -112,7 +112,7 @@
                       <input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" name="active" @if($row->active ==1 ) checked @endif>
                     </div>
                   </div>
-                  @if($row->has_level == 1)
+                  @if($row->has_levels == 1)
                   <div class="col-md-6">
                     <label class="form-label" for="title"> {{ __('admin.quizzes.has_levels') }} <span>*</span></label>
                     <div class="form-check form-switch md-3" style="margin:10px">
