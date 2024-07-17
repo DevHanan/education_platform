@@ -262,7 +262,7 @@
                                 @foreach (($group->bankGroup)->questions  as  $item)
                                 <tr>
                                   <td>
-                                    <input type="checkbox" name="questions[]" value="{{$item->id}}" >
+                                    <input type="checkbox" name="questions[]" value="{{$item->id}}"  @if(in_array($item->id , $quizquestions)) checked @endif>
                                   </td>
                                   <td> {{ $item->customTitle }}</td>
                                 </tr>
