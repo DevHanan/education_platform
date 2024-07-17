@@ -212,7 +212,7 @@
                         <tr>
                           <td style="width: 100%;"> {{ __('admin.quizzes.section_name') }}</td>
                           <td style="width: 100%;"></td>
-                          <td></td>
+                          <td style="width: 100%;"></td>
                         </tr>
                       </thead>
                       <tbody id="instructorstable">
@@ -233,7 +233,7 @@
 
                             </select>
                           </td>
-                          <td><input type="text" name="questionNumber[]" value="" placeholder="عدد الأسئلة" /></td>
+                          <td><input type="number" name="questionNumber[]" value="" placeholder="عدد الأسئلة" /></td>
                          
                           <td><a type="button" value="Delete" onclick="deleteRow(this)">
                               <i class="fas fa-trash-alt"></i>
