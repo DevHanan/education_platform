@@ -31,10 +31,10 @@ class QuizController extends Controller
         $this->view = 'admin.quizzes';
         $this->path = 'quizzes';
         $this->access = 'quizzes';
-        // $this->middleware('permission:quizzes-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:quizzes-view',   ['only' => ['show', 'index']]);
-        // $this->middleware('permission:quizzes-edit',   ['only' => ['edit','update']]);
-        // $this->middleware('permission:quizzes-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:quizzes-create', ['only' => ['create','store']]);
+        $this->middleware('permission:quizzes-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:quizzes-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:quizzes-delete',   ['only' => ['delete']]);
 
     }
 

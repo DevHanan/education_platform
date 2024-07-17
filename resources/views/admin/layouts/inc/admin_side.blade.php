@@ -348,7 +348,7 @@
           <div class="dropdown-menu @if(request()->routeIs('admin.instructors.*')) show @endif">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
-              @canany(['instructors-view','instructors-edit','instructors-delete'])
+                @canany(['instructors-view','instructors-edit','instructors-delete'])
                 <a class="dropdown-item @if(request()->routeIs('admin.instructors')) active @endif" href="{{url('/admin/instructors')}}">
                   {{ __('navbar.instructors.list') }}
 
@@ -367,7 +367,7 @@
         </li>
         @endcanany
 
-
+        @canany(['bank-groups-create','bank-groups-edit','bank-groups-delete','bank-groups-view','quizzes-create','quizzes-view','quizzes-edit','quizzes-delete'])
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.bank-groups.index','admin.bank-groups.create','admin.quizzes.*'])) show @endif " href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -384,18 +384,26 @@
           <div class="dropdown-menu  @if(request()->routeIs(['admin.bank-groups.index','admin.bank-groups.create','admin.quizzes.*']))  show @endif ">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
+                @canany(['bank-groups-create','bank-groups-edit','bank-groups-delete','bank-groups-view'])
                 <a class="dropdown-item @if(request()->routeIs('admin.bank-groups.index'))   active @endif" href="{{url('admin/bank-groups')}}">
                   {{ __('navbar.exams.quections_list') }}
                 </a>
+                @endcanany
+                @canany(['bank-groups-create'])
                 <a class="dropdown-item @if(request()->routeIs('admin.bank-groups.create'))   active @endif" href="{{url('admin/bank-groups/create')}}">
                   {{ __('navbar.exams.add_question') }}
                 </a>
+                @endcanany
+                @canany(['quizzes-view','quizzes-edit','quizzes-delete'])
                 <a class="dropdown-item @if(request()->routeIs('admin.quizzes.index'))   active @endif" href="{{url('admin/quizzes')}}">
                   {{ __('navbar.exams.list_exam') }}
                 </a>
+                @endcanany
+                @canany(['quizzes-create'])
                 <a class="dropdown-item @if(request()->routeIs('admin.quizzes.create'))   active @endif" href="{{url('admin/quizzes/create')}}">
                   {{ __('navbar.exams.add_exam') }}
                 </a>
+                @endcanany
                 <a class="dropdown-item @if(request()->routeIs('admin.studentsexamresults'))   active @endif" href="{{url('admin/studentsexamresults')}}">
                   {{ __('navbar.exams.exam_result') }}
                 </a>
@@ -409,6 +417,8 @@
             </div>
           </div>
         </li>
+        @endcanany
+        @canany(['subjects-create','subjects-edit','subjects-delete','subjects-view','faculities-create','faculities-view','faculities-edit','faculities-delete'])
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.subjects.*','admin.faculities.*'])) show @endif " href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
@@ -426,6 +436,7 @@
           <div class="dropdown-menu  @if(request()->routeIs(['admin.subjects.*','admin.faculities.*'])) show @endif  ">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
+                @canany(['subjects-create','subjects-edit','subjects-delete','subjects-view'])
                 <a class="dropdown-item  @if(request()->routeIs(['admin.subjects.firstsubjects'])) active @endif" href="{{url('admin/subjects?classroom=1')}}">
                   {{ __('navbar.calculate_equation.first_secondary_subjects') }}
                 </a>
@@ -435,18 +446,22 @@
                 <a class="dropdown-item  @if(request()->routeIs(['admin.subjects.thirdsubjects'])) active @endif" href="{{url('admin/subjects?classroom=3')}}">
                   {{ __('navbar.calculate_equation.third_secondary_subjects') }}
                 </a>
+                @endcanany
 
                 <!-- <a class="dropdown-item @if(request()->routeIs(['admin.subjects.*'])) active @endif" href="{{url('admin/subjects?classroom=3')}}">
                   {{ __('navbar.calculate_equation.settings') }}
                 </a> -->
+                @canany(['faculities-create','faculities-view','faculities-edit','faculities-delete'])
                 <a class="dropdown-item @if(request()->routeIs(['admin.faculities.*'])) active @endif" href="{{url('admin/faculities')}}">
                   {{ __('navbar.calculate_equation.list_of_colleges') }}
                 </a>
+                @endcanany
               </div>
             </div>
           </div>
         </li>
-
+        @endcanany
+        <!-- Not  -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.grantingcertificate','admin.certifications.index','admin.studentscertifications','admin.externelstudentscertifications'])) show @endif" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -492,6 +507,7 @@
             </div>
           </div>
         </li>
+        @canany(['coupons-create','coupons-edit','coupons-delete','coupons-view'])
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle @if(request()->routeIs('admin.coupons.*')) show @endif" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
@@ -510,19 +526,25 @@
           <div class="dropdown-menu @if(request()->routeIs('admin.coupons.*')) show @endif">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
+                @canany(['coupons-edit','coupons-delete','coupons-view'])
+
                 <a class="dropdown-item @if(request()->routeIs(['admin.coupons.index','admin.coupons.edit'])) active @endif" href="{{url('/admin/coupons')}}">
                   {{ __('navbar.coupons.list') }}
 
                 </a>
+                @endcanany
+                @canany(['coupons-create'])
                 <a class="dropdown-item @if(request()->routeIs('admin.coupons.create')) active @endif" href="{{url('/admin/coupons/create')}}">
                   {{ __('navbar.coupons.add') }}
                 </a>
+                @endcanany
 
               </div>
             </div>
           </div>
         </li>
-
+        @endcanany
+        <!-- Not  -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.instructorProfits','admin.courseprofits','admin.studentspayment','admin.listRequest','admin.listPaidRequest'])) show @endif " href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -561,7 +583,7 @@
             </div>
           </div>
         </li>
-
+        @canany(['cv-create','cv-edit','cv-delete','cv-view'])
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.cvs.*'])) show @endif " href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -579,18 +601,24 @@
           <div class="dropdown-menu  @if(request()->routeIs(['admin.cvs.*']))  show @endif ">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
+                @canany(['cv-edit','cv-delete','cv-view'])
                 <a class="dropdown-item @if(request()->routeIs(['admin.cvs.index','admin.cvs.edit']))   active @endif" href="{{url('admin/cvs')}}">
                   {{ __('navbar.cvmaker.cvmaker_template') }}
                 </a>
+                @endcanany
+                @canany(['cv-create'])
                 <a class="dropdown-item @if(request()->routeIs('admin.cvs.create'))   active @endif" href="{{url('admin/cvs/create')}}">
                   {{ __('navbar.cvmaker.add_cvmaker_template') }}
                 </a>
+                @endcanany
 
 
               </div>
             </div>
           </div>
         </li>
+        @endcanany
+        @canany(['blogs-create','blogs-edit','blogs-delete','blogs-view'])
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.blogs.index','admin.blogs.edit','admin.blogs.create'])) show @endif " href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -609,21 +637,24 @@
           <div class="dropdown-menu  @if(request()->routeIs(['admin.blogs.index','admin.blogs.edit','admin.blogs.create']))  show @endif ">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
-
+                @canany(['blogs-edit','blogs-delete','blogs-view'])
                 <a class="dropdown-item @if(request()->routeIs(['admin.blogs.index','admin.blogs.edit'])) active @endif" href="{{ url('admin/blogs')}}">
                   {{ __('navbar.blogs.list') }}
 
                 </a>
+                @endcanany
+                @canany(['blogs-create'])
                 <a class="dropdown-item @if(request()->routeIs(['admin.blogs.create'])) active @endif" href="{{ url('admin/blogs/create')}}">
                   {{ __('navbar.blogs.add') }}
 
                 </a>
+                @endcanany
               </div>
             </div>
           </div>
         </li>
-
-
+        @endcanany
+        <!-- Not  -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.notifications','admin.listemails.index','admin.listemails.create','admin.instructorstickets','admin.studentstickets','admin.visitorstickets'])) show @endif " href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -691,7 +722,7 @@
           <div class="dropdown-menu @if(request()->routeIs(['admin.users.*','admin.roles.*'])) show @endif">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
-              @canany(['role-view', 'role-edit', 'roles-delete' ])
+                @canany(['role-view', 'role-edit', 'roles-delete' ])
                 <a class="dropdown-item @if(request()->routeIs(['admin.roles.index','admin.roles.edit'])) active @endif" href="{{url('admin/roles')}}">
                   {{ __('navbar.roles.list') }}
                 </a>
@@ -721,6 +752,7 @@
           </div>
         </li>
         @endcanany
+        <!-- Not  -->
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle  @if(request()->routeIs(['admin.settings.zoom','admin.settings.mail','admin.questions.*','admin.settings.aboutUSSetting','admin.payment-types.*','admin.countries.*','admin.teams.*','admin.parteners.*','admin.setting.index','admin.policies.*']))  show @endif " href="#navbar-extra" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
@@ -738,6 +770,7 @@
           <div class="dropdown-menu @if(request()->routeIs(['admin.settings.zoom','admin.settings.mail','admin.reviews.*','admin.langauges.*','admin.settings.contactUs','admin.questions.*','admin.settings.aboutUSSetting','admin.setting.landingSetting','admin.payment-types.*','admin.countries.*','admin.teams.*','admin.parteners.*','admin.setting.index','admin.policies.*']))  show @endif ">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
+
                 <a class="dropdown-item  @if(request()->routeIs('admin.setting.index')) active @endif " href="{{url('admin/setting')}}">
 
                   {{ __('navbar.settings.general_settings') }}

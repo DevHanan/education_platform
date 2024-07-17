@@ -101,33 +101,6 @@
                               <option value="">{{ __('select') }}</option>
                               @foreach($bankgroups as $bank)
                               <option value="{{$bank->id}}"> {{ $bank->name }}</option>
-                              @if( count($bank->questions)>0 )
-                        <p>
-                          <a class="text-primary" data-bs-toggle="collapse" id="divToHide" href="#collapseExample{{$group->bank_group_id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            إختر الاسئلة
-                          </a>
-
-                        </p>
-                        <div class="collapse" id="collapseExample{{$group->bank_group_id}}">
-                          <div class="card card-body">
-                            <table class="table card-table">
-                              <tbody>
-
-                                @foreach (($group->bankGroup)->questions as $item)
-                                <tr>
-                                  <td>
-                                    <input type="checkbox" name="questions[]" value="{{$item->id}}" @if(in_array($item->id , $quizquestions)) checked @endif>
-                                  </td>
-                                  <td> {{ $item->customTitle }}</td>
-                                </tr>
-
-
-                                @endforeach
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                        @endif
                               @endforeach
 
                             </select>

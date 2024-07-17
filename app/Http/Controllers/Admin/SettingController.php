@@ -30,7 +30,6 @@ class SettingController extends Controller
         $this->path = 'setting';
         $this->access = 'setting';
 
-
         // $this->middleware('permission:'.$this->access.'-view');
     }
 
