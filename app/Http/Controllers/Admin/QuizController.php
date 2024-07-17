@@ -94,6 +94,7 @@ class QuizController extends Controller
             'random'  =>$request->random[$i],
             'question_number' => $request->question_number[$i]
         ]);  
+    }
 
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
         if($request->has_levels == 1)
