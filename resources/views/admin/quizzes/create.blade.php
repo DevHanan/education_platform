@@ -201,7 +201,7 @@
 
 
 
-              <!-- <div class="card" style="margin-top: 20px;">
+               <div class="card" style="margin-top: 20px;">
                 <div class="card-header">
                   <h3> {{ __('admin.quizzes.add_sections') }} </h3>
                 </div>
@@ -229,7 +229,7 @@
                     </div>
                   </div>
                 </div>
-              </div> -->
+              </div> 
 
 
             </div>
