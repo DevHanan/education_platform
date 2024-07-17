@@ -249,7 +249,7 @@
                         </select>
                         @if($group->randmom == 0)
                         <p>
-                          <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample{{$group->bank_group_id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                          <a class="text-primary" data-bs-toggle="collapse" href="#collapseExample{{$group->bank_group_id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
                             إختر الاسئلة
                           </a>
 
