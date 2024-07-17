@@ -212,7 +212,8 @@
                         <tr>
                           <td > {{ __('admin.quizzes.select_bank') }}</td>
                           <td >{{ __('admin.quizzes.random_select') }} </td>
-                          <td ></td>
+                          
+                          <td >{{ __('admin.quizzes.question_number') }} </td>
                         </tr>
                       </thead>
                       <tbody id="instructorstable">
