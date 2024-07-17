@@ -210,9 +210,9 @@
                     <table class=" table data-table data-table-horizontal data-table-highlight">
                       <thead>
                         <tr>
-                          <td style="width: 100%;"> {{ __('admin.quizzes.section_name') }}</td>
-                          <td style="width: 100%;"></td>
-                          <td style="width: 100%;"></td>
+                          <td > {{ __('admin.quizzes.select_bank') }}</td>
+                          <td >{{ __('admin.quizzes.random_select') }} </td>
+                          <td ></td>
                         </tr>
                       </thead>
                       <tbody id="instructorstable">

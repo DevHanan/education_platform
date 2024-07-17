@@ -635,6 +635,8 @@ return [
     ],
     'quizzes'  => [
         'add_bank_group' => 'بنك الاسئلة',
+        'select_bank' => 'إختر البنك',
+        'random_select' => 'الاختيار عشوائى',
         'add' => 'إضافة اختبار',
         'date' => 'تاريخ الإضافة',
         'question_number' => 'عدد الأسئلة',
