@@ -171,6 +171,7 @@
   // Add an event listener to the checkbox
   flexHasLevelSwitchCheck.addEventListener('change', function() {
     const selectedValue = selectElement.value;
+    alert(selectedValue);
     // If the checkbox is checked, hide the div
     if (selectedValue == '0') {
       divToHide.style.display = 'block';
