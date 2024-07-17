@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class QuizBankGroup extends Model
 {
     use HasFactory;
-    protected $fillable = ['quiz_id', 'bank_group_id','random','prectange'];
+    protected $fillable = ['quiz_id', 'bank_group_id','random','question_number'];
 
 }
