@@ -100,7 +100,7 @@ class QuestionBankGroupsController extends Controller
     public function update(Request $request,$id)
     {
 
-
+return $request->id;
         $request->validate([
             'name'=>'required|unique:bank_groups,name,'.$request->id,
             'track_id' => 'required'
