@@ -262,7 +262,7 @@
                                 @foreach (($group->bankGroup)->questions  as  $item)
                                 <tr>
                                   <td>
-                                    <input type="checkbox" name="questions[{{$item->id}}]" >
+                                    <input type="checkbox" name="questions[]" value="{{$item->id}}" >
                                   </td>
                                   <td> {{ $item->customTitle }}</td>
                                 </tr>
