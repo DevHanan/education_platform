@@ -31,7 +31,7 @@
     <div class="row row-cards">
       <div class="col-md-12">
 
-        <form autocomplete="off" class="card"  action="{{ route($route.'.store') }}" method="post" enctype="multipart/form-data">
+        <form autocomplete="off" class="card" action="{{ route($route.'.store') }}" method="post" enctype="multipart/form-data">
           @csrf
 
 
@@ -63,7 +63,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="track_id">{{ __('admin.coupons.track') }} <span>*</span></label>
-                  <select class="form-control" name="track_id" id="track_id" >
+                  <select class="form-control" name="track_id" id="track_id">
                     <option value="">{{ __('select') }}</option>
                     @foreach($tracks as $track)
                     <option value="{{$track->id}}">{{ $track->name }}</option>
@@ -92,9 +92,9 @@
                   </div>
                   @enderror
                 </div>
-               
 
-               
+
+
 
                 <div class="mb-3">
                   <label class="form-label" for="prectange"> {{ __('admin.quizzes.question_number') }} <span>*</span></label>
@@ -134,7 +134,7 @@
                     <label class="form-label" for="title"> {{ __('admin.quizzes.has_levels') }} <span>*</span></label>
                     <div class="form-check form-switch md-3" style="margin:10px">
 
-                      <input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="flexHasLevelSwitchCheck" name="has_levels" >
+                      <input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" id="flexHasLevelSwitchCheck" name="has_levels">
                     </div>
                   </div>
 
@@ -195,15 +195,15 @@
                   @enderror
                 </div>
 
-              
+
 
               </div>
 
 
 
-               <div class="card" style="margin-top: 20px;">
+              <div class="card" style="margin-top: 20px;">
                 <div class="card-header">
-                  <h3> {{ __('admin.quizzes.add_sections') }} </h3>
+                  <h3> {{ __('admin.quizzes.add_bank_group') }} </h3>
                 </div>
                 <div class="card-body">
                   <div class="main">
@@ -216,7 +216,15 @@
                       </thead>
                       <tbody id="instructorstable">
                         <tr>
+                          <td>
+                            <select class="select2 form-control" name="banks[]" id="bank" multiple>
+                              <option value="">{{ __('select') }}</option>
+                              @foreach($bankgroups as $bank)
+                              <option value="{{$bank->id}}"> {{ $bank->name }}</option>
+                              @endforeach
 
+                            </select>
+                          </td>
                           <td><input type="text" name="sections[]" value="" placeholder="إسم المرحلة" /></td>
                           <td><a type="button" value="Delete" onclick="deleteRow(this)">
                               <i class="fas fa-trash-alt"></i>
@@ -229,7 +237,7 @@
                     </div>
                   </div>
                 </div>
-              </div> 
+              </div>
 
 
             </div>
