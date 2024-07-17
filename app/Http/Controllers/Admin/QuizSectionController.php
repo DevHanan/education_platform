@@ -59,8 +59,8 @@ class QuizSectionController extends Controller
         $active = $request->active ? '1' : '0';
         $request->merge(['active' => $active]);
        $section = QuizSection::create($request->all());
-         if($request->questionids){
-            foreach($request->questionids as $id)
+         if($request->questions){
+            foreach($request->questions as $id)
             QuizQuestion::create(['section_id'=>$section->id , 'quiz_id'=>$section->quiz_id,'question_id'=>$id]);
          }
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
@@ -83,8 +83,8 @@ class QuizSectionController extends Controller
         $data['route'] = $this->route;
         $data['quiz'] = Quiz::find($quiz_id);
         $data['quizuestionsids']=QuizQuestion::where('section_id',$id)->pluck('question_id')->ToArray();
-        $bank_groups= $data['quiz']->bankGroups()->pluck('bank_group_id')->ToArray();
-        $data['questions'] = BankQuestion::whereIn('bank_group_id',$bank_groups)->get();
+        $data['bank_groups']= $data['quiz']->bankGroups()->pluck('bank_group_id')->ToArray();
+        $data['questions'] = BankQuestion::whereIn('bank_group_id', $data['bank_groups'])->get();
         $data['title'] = trans('admin.quiz-sections.edit');
         return view($this->view.'.edit',$data);
     }

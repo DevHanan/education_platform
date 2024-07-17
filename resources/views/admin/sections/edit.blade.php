@@ -14,7 +14,7 @@
 
           <div class="card-header">
             <div class="card-block">
-            <a href="{{ url('admin/courses/'.$quiz->id.'/sections') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
+              <a href="{{ url('admin/courses/'.$quiz->id.'/sections') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
 
             </div>
           </div>
@@ -30,14 +30,14 @@
       <div class="col-md-12">
 
 
-        <form class="card"  action="{{ route($route.'.update',[$quiz->id,$row]) }}" method="post" enctype="multipart/form-data">
+        <form class="card" action="{{ route($route.'.update',[$quiz->id,$row]) }}" method="post" enctype="multipart/form-data">
           @csrf
           @method("PUT")
           <div class="card-body">
-          <input type="hidden" name="quiz_id" value="{{$quiz->id}}">
-          <input type="hidden" name="id" value="{{$row->id}}">
+            <input type="hidden" name="quiz_id" value="{{$quiz->id}}">
+            <input type="hidden" name="id" value="{{$row->id}}">
 
-          <div class="row ">
+            <div class="row ">
               <div class="mb-3">
                 <label class="form-label" for="name"> {{ __('admin.sections.field_title') }} <span>*</span></label>
                 <input type="text" class="form-control" name="title" id="title" value="{{ old('title',$row) }}" required>
@@ -63,7 +63,7 @@
                 <label class="form-label" for="active" class="form-label">{{ __('admin.sections.status') }}</label>
                 <div>
                   <label class="form-check form-check-inline">
-                    <input class="form-check-input" value="1" type="radio" name="active"  @if($row->active == 1)checked @endif>
+                    <input class="form-check-input" value="1" type="radio" name="active" @if($row->active == 1)checked @endif>
                     <span class="form-check-label"> {{ __('admin.active')}}</span>
                   </label>
                   <label class="form-check form-check-inline">
@@ -78,48 +78,80 @@
 
               <div class="card-status-top bg-blue"></div>
 
-              <div class="card-header">
-                <h3 class="card-title"> الاسئلة </h3>
+              <div class="card" style="margin-top: 20px;" id="divToHide">
+                <div class="card-header">
+                  <h3> {{ __('admin.quizzes.add_bank_group') }} </h3>
+                </div>
+                <div class="card-body">
+                  <div class="main">
+                    <table class=" table data-table data-table-horizontal data-table-highlight">
+                      <thead>
+                        <tr>
+                          <td> {{ __('admin.quizzes.select_bank') }}</td>
+                          <td>{{ __('admin.quizzes.random_select') }} </td>
 
-              </div>
-              <div class="table-responsive">
-                <table class="  table card-table table-vcenter text-nowrap ">
-                  <thead>
-                    <tr>
-                      <th class="w-1">#
-                      </th>
-                      <th> {{__('admin.questions.title')}}</th>
-                      <th>{{ __('admin.questions.bank_group') }}</th>
+                          <td>{{ __('admin.quizzes.question_number') }} </td>
+                        </tr>
+                      </thead>
+                      <tbody id="instructorstable">
+                        <tr>
+                          @foreach($bankgroups as $bank)
+                          <td>
+                            <input type="checkbox" name="banks[]" value="{{ $bank->id}}" @if(in_array($bank->id,$bank_groups)) checked @endif> {{ $bank->name }}
+                            @if(count($bank->questions)>1)
+                            <p>
+                              <a class="text-primary" data-bs-toggle="collapse" href="#collapseExample{{$bank->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                إختر الاسئلة
+                              </a>
 
-                    </tr>
-                  </thead>
-                  <tbody>
-                    @foreach($questions as $question)
+                            </p>
+                            <div class="collapse" id="collapseExample{{$bank->id}}">
+                              <div class="card card-body">
+                                <table class="table card-table">
+                                  <tbody>
+                                    @foreach ($bank->questions as $question )
 
-                    <tr>
+                                    <tr>
+                                      <td>
 
-                      <td>
-                        <input class="form-check-input m-0 align-middle" type="checkbox" 
-                        aria-label="Select all invoices" name="questionids[]" value="{{ $question->id }}"
-                        @if(in_array($question->id,$quizuestionsids))  checked @endif
-                        >
 
-                        <span class="text-secondary">{{$loop->iteration}}</span>
-                      </td>
+                                        <input type="checkbox" name="questions[]" value="{{$question->id}}" @if(in_array($question->id,$quizuestionsids)) checked @endif>
+                                      </td>
+                                      <td> {{ $question->customTitle }}</td>
 
-                      <td> {!! $question->title !!}</td>
-                      <td> {{ optional($question->group)->name }}</td>
+                                    </tr>
+                                    @endforeach
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
 
-                    </tr>
-                    @endforeach
+                            @endif
+                          </td>
+                          <td>
+                            <select class="select2 form-control" name="random" id="random">
+                              <option value="1">{{ __('admin.yes') }}</option>
+                              <option value="0">{{ __('admin.no') }}</option>
 
-                  </tbody>
-                </table>
+                            </select>
+                          </td>
+                          <td>
+                            <input type="number" name="questionNumber[]" id="questionNumber" value="" placeholder="عدد الأسئلة" />
+                          </td>
+                        </tr>
+                        @endforeach
+
+                      </tbody>
+
+                    </table>
+
+                  </div>
+                </div>
               </div>
             </div>
-          <div class="card-footer">
-            <button type="submit" class="btn btn-success">{{ __('admin.btn_save') }}</button>
-          </div>
+            <div class="card-footer">
+              <button type="submit" class="btn btn-success">{{ __('admin.btn_save') }}</button>
+            </div>
         </form>
       </div>
     </div>
@@ -130,3 +162,25 @@
 
 
 @endsection
+@push('scripts')
+
+<script>
+  // Get the checkbox and the div elements
+  const flexHasLevelSwitchCheck = document.getElementById('random');
+  const divToHide = document.getElementById('divToHide');
+
+  // Add an event listener to the checkbox
+  flexHasLevelSwitchCheck.addEventListener('change', function() {
+    const selectedValue = selectElement.value;
+    // If the checkbox is checked, hide the div
+    if (selectedValue == '0') {
+      divToHide.style.display = 'block';
+
+    } else {
+      // If the checkbox is not checked, show the div
+      divToHide.style.display = 'none';
+
+    }
+  });
+</script>
+@endpush

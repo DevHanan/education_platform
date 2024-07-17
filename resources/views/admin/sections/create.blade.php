@@ -138,9 +138,9 @@
                           <td>
                             <input type="number" name="questionNumber[]" id="questionNumber" value="" placeholder="عدد الأسئلة" />
                           </td>
-                          </tr>
-                          @endforeach
-                       
+                        </tr>
+                        @endforeach
+
                       </tbody>
 
                     </table>
