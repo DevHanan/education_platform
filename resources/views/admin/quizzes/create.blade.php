@@ -214,6 +214,7 @@
                           <td >{{ __('admin.quizzes.random_select') }} </td>
                           
                           <td >{{ __('admin.quizzes.question_number') }} </td>
+                        <td>#</td>
                         </tr>
                       </thead>
                       <tbody id="instructorstable">
