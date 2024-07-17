@@ -89,9 +89,9 @@ class QuizController extends Controller
          foreach($request->banks as $bank)  
          QuizBankGroup::create([
             'quiz_id'  => $quiz->id,
-            'bank_group_id' => $bank['banks'],
-            'random'  =>$bank['random'] ,
-            'question_number' => $bank['question_number']
+            'bank_group_id' => $bank->banks,
+            'random'  =>$bank->random,
+            'question_number' => $bank->question_number
         ]);  
 
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
