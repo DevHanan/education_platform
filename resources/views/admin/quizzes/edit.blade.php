@@ -256,7 +256,7 @@
                         </p>
                         <div class="collapse" id="collapseExample{{$group->bank_group_id}}">
                           <div class="card card-body">
-                            <table class="table card-table table-vcenter text-nowrap">
+                            <table class="table card-table">
                             <tbody>
                                 @foreach (($group->bankGroup)->questions  as  $item)
                                 <tr>
