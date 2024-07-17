@@ -131,6 +131,7 @@ class QuizController extends Controller
     }
     public function update(Request $request)
     {
+        return $request->all();
         $quiz = Quiz::find($request->id);
         $active = $request->active ? '1' : '0';
         $has_levels = $request->has_levels ? '1' : '0';
