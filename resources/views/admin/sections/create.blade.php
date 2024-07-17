@@ -101,12 +101,39 @@
                               <option value="">{{ __('select') }}</option>
                               @foreach($bankgroups as $bank)
                               <option value="{{$bank->id}}"> {{ $bank->name }}</option>
+                              @if($group->randmom == 0 && count(($group->bankGroup)->questions)>0 )
+                        <p>
+                          <a class="text-primary" data-bs-toggle="collapse" id="divToHide" href="#collapseExample{{$group->bank_group_id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            إختر الاسئلة
+                          </a>
+
+                        </p>
+                        <div class="collapse" id="collapseExample{{$group->bank_group_id}}">
+                          <div class="card card-body">
+                            <table class="table card-table">
+                              <tbody>
+
+                                @foreach (($group->bankGroup)->questions as $item)
+                                <tr>
+                                  <td>
+                                    <input type="checkbox" name="questions[]" value="{{$item->id}}" @if(in_array($item->id , $quizquestions)) checked @endif>
+                                  </td>
+                                  <td> {{ $item->customTitle }}</td>
+                                </tr>
+
+
+                                @endforeach
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        @endif
                               @endforeach
 
                             </select>
                           </td>
                           <td>
-                            <select class="select2 form-control" name="random[]" id="random">
+                            <select class="select2 form-control" name="random" id="random">
                               <option value="1">{{ __('admin.yes') }}</option>
                               <option value="0">{{ __('admin.no') }}</option>
 
@@ -182,17 +209,20 @@
 
 
   // Get the checkbox and the div elements
-const flexHasLevelSwitchCheck = document.getElementById('hasLevel');
+const flexHasLevelSwitchCheck = document.getElementById('random');
 const divToHide = document.getElementById('divToHide');
 
 // Add an event listener to the checkbox
 flexHasLevelSwitchCheck.addEventListener('change', function() {
+  const selectedValue = selectElement.value;
   // If the checkbox is checked, hide the div
-  if (this.checked) {
-    divToHide.style.display = 'none';
+  if (selectedValue == '0') {
+    divToHide.style.display = 'block';
+
   } else {
     // If the checkbox is not checked, show the div
-    divToHide.style.display = 'block';
+    divToHide.style.display = 'none';
+
   }
 });
 
