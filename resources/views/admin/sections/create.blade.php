@@ -101,12 +101,12 @@
                             <input type="checkbox" name="banks[]" value="{{ $bank->id}}">
                             @if($bank->questions)
                             <p>
-                              <a class="text-primary" data-bs-toggle="collapse" href="#collapseExample{{$group->bank_group_id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                              <a class="text-primary" data-bs-toggle="collapse" href="#collapseExample{{$bank->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
                                 إختر الاسئلة
                               </a>
 
                             </p>
-                            <div class="collapse" id="collapseExample{{$group->bank_group_id}}">
+                            <div class="collapse" id="collapseExample{{$bank->id}}">
                               <div class="card card-body">
                                 <table class="table card-table">
                                   <tbody>
