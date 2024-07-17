@@ -97,8 +97,8 @@
                         <tr>
                           @foreach($bankgroups as $bank)
                           <td>
-                            <input type="checkbox" name="banks[]" value="{{ $bank->id}}">
-                            @if($bank->questions)
+                            <input type="checkbox" name="banks[]" value="{{ $bank->id}}"> {{ $bank->title }}
+                            @if(count($bank->questions)>1)
                             <p>
                               <a class="text-primary" data-bs-toggle="collapse" href="#collapseExample{{$bank->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
                                 إختر الاسئلة
