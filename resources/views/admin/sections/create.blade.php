@@ -101,7 +101,7 @@
                               <option value="">{{ __('select') }}</option>
                               @foreach($bankgroups as $bank)
                               <option value="{{$bank->id}}"> {{ $bank->name }}</option>
-                              @if($group->randmom == 0 && count(($group->bankGroup)->questions)>0 )
+                              @if( count($bank->questions)>0 )
                         <p>
                           <a class="text-primary" data-bs-toggle="collapse" id="divToHide" href="#collapseExample{{$group->bank_group_id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
                             إختر الاسئلة
