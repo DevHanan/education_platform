@@ -97,7 +97,7 @@ class QuizSectionController extends Controller
        $section = QuizSection::find($request->id);
        $section->update($request->all());
        if($request->questionids){
-        QuizQuestion::where(['section_id' => $section->id,'quiz_id'=>$section->quiz_id])->delete();
+        QuizQuestion::whereNotIn('question_id', $request->questionids)->delete();
         foreach($request->questionids as $id)
         QuizQuestion::firstOrCreate(['section_id' => $section->id,'quiz_id'=>$section->quiz_id,'question_id'=>$id]); 
     }
