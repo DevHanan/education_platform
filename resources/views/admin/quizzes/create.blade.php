@@ -277,18 +277,21 @@
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
     var colCount = table.rows[0].cells.length;
+    console.log(colCount);
 
     for (var i = 0; i < colCount; i++) {
       var newRow = row.insertCell(i);
 
       newRow.innerHTML = table.rows[0].cells[i].innerHTML;
       newRow.childNodes[0].value = "";
+      console.log(newRow.childNodes[0].value);
     }
   }
 
   function deleteRow(row) {
     var table = document.getElementById("instructorstable");
     var rowCount = table.rows.length;
+    console.log(rowCount);
     if (rowCount > 1) {
       var rowIndex = row.parentNode.parentNode.rowIndex;
       document.getElementById("instructorstable").deleteRow(rowIndex);
