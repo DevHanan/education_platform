@@ -35,6 +35,7 @@ Route::get('/blogs', [HomeController::class, 'blogs']);
 Route::get('/policies', [HomeController::class, 'policy']);
 Route::get('/test-capabilities', [HomeController::class, 'tests']);
 
+
 Route::get('/contactus', [HomeController::class, 'contactus']);
 Route::get('/books', [HomeController::class, 'books']);
 Route::get('/book', [HomeController::class, 'book']);
