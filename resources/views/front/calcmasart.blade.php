@@ -128,7 +128,7 @@
                   <div class="col-md-2 col-4 px-1 px-md-2"><div class="btn btn-primary transition w-100" style="border-radius: 15px;">القدرات</div></div>
                   <div class="col-md-10 col-8">
                     <div class="row">
-                      <div class="col-12"><input type="text"  class="form-control border-primary"  min="0" max="250" name="abilityVal" style="border-radius: 10px;"></div>
+                      <div class="col-12"><input type="text"  class="form-control border-primary"  min="0" max="205" name="abilityVal"  id="abilityValinput" style="border-radius: 10px;"></div>
                     </div>  
                   </div>
                 </div>
@@ -317,14 +317,24 @@ function secondaryThreeFunction(){
 let popUp = document.querySelector(".pop-up")
 let overlay = document.querySelector(".overlay")
 function showPopUp(){
-    var inputs = document.querySelectorAll('input[type="text"]:not([disabled])');
+    var inputs = document.querySelectorAll('input[type="text"]:not([disabled]):not([name="abilityVal"])');
     var sum = 0;
     inputs.forEach(function(input) {
       if(input.value != '')
       sum += parseInt(input.value);
     });
-    document.getElementById('result').innerHTML =  sum;
-    document.getElementById('result2').value =  sum;
+
+
+const abilityVal = document.getElementById('abilityValinput');
+// Get the input value
+const inputValue = inputElement.value;
+
+// Perform a calculation on the input value
+const finalabilityVal = (inputValue * 205)/100; //
+const subjectval = sum * 205;
+const finalresult = (finalabilityVal + subjectval)/410;
+document.getElementById('result').innerHTML =  finalresult;
+document.getElementById('result2').value =  finalresult;
 
     popUp.classList.remove("d-none")
     overlay.classList.remove("d-none")
