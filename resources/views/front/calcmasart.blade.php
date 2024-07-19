@@ -328,11 +328,15 @@ function showPopUp(){
 const abilityVal = document.getElementById('abilityValinput');
 // Get the input value
 const inputValue = inputElement.value;
+console.log(inputValue);
 
 // Perform a calculation on the input value
 const finalabilityVal = (inputValue * 205)/100; //
+console.log(finalabilityVal);
 const subjectval = sum * 205;
+console.log(subjectval);
 const finalresult = (finalabilityVal + subjectval)/410;
+console.log(finalresult);
 document.getElementById('result').innerHTML =  finalresult;
 document.getElementById('result2').value =  finalresult;
 
