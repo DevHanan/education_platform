@@ -327,7 +327,7 @@ function showPopUp(){
 
 const abilityVal = document.getElementById('abilityValinput');
 // Get the input value
-const inputValue = inputElement.value;
+const inputValue = abilityVal.value;
 console.log(inputValue);
 
 // Perform a calculation on the input value
