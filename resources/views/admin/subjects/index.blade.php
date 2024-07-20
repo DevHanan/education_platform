@@ -77,7 +77,7 @@
 
 
 
-                    <a href="{{ url('admin/subjects/'.$row->id.'edit?classroom='.request()->input('classroom')) }}"  title="{{__('admin.edit')}}"  data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm">
+                    <a href="{{ url('admin/subjects/'.$row->id.'/edit?classroom='.request()->input('classroom')) }}"  title="{{__('admin.edit')}}"  data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm">
                       <span class="far fa-edit "></span>
                     </a>
 
