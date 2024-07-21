@@ -25,7 +25,7 @@ class BulkImportExportController extends Controller
     public function __construct()
     {
         // Module Data
-        $this->title = trans_choice('module_bulk_import_export', 1);
+        $this->title = trans('admin.module_bulk_import_export');
         $this->route = 'admin.bulk-import-export';
         $this->view = 'admin.bulk-import-export';
         $this->path = 'bulk-import-export';

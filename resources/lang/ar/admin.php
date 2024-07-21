@@ -826,9 +826,10 @@ return [
     'show_student' => 'عرض بروفايل الطالب',
     'yes' => 'نعم',
     'no'=> 'لا',
-    'btn_import' => 'رفع',
+    'btn_import' => 'استيراد ملف',
     'bank_group_questions'=> 'أسئلة',
-    'table_name' => 'إسم الجدول'
+    'table_name' => 'إسم الجدول',
+    'module_bulk_import_export' => 'استيراد االملفات'
 
 
 
