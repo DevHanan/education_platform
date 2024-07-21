@@ -375,8 +375,8 @@
     console.log(subjectval);
     const finalresult = finalabilityVal + subjectval;
     console.log(finalresult);
-    document.getElementById('result').innerHTML = finalresult/410;
-    document.getElementById('result2').value = finalresult/410;
+    document.getElementById('result').innerHTML = finalresult ;
+    document.getElementById('result2').value = finalresult / 410;
 
     popUp.classList.remove("d-none")
     overlay.classList.remove("d-none")
