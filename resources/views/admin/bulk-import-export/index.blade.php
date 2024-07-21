@@ -18,8 +18,8 @@
                             <table class="display table nowrap table-striped table-hover">
                                 <thead>
                                     <tr>
-                                        <th>{{ __('DB Table Name') }}</th>
-                                        <th>{{ __('btn_import') }}</th>
+                                        <th>{{ __('admin.table_name') }}</th>
+                                        <th>{{ __('admin.btn_import') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>

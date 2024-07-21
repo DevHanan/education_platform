@@ -827,7 +827,8 @@ return [
     'yes' => 'نعم',
     'no'=> 'لا',
     'btn_import' => 'رفع',
-    'bank_group_questions'=> 'أسئلة'
+    'bank_group_questions'=> 'أسئلة',
+    'table_name' => 'إسم الجدول'
 
 
 
