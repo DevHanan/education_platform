@@ -825,7 +825,9 @@ return [
     ],
     'show_student' => 'عرض بروفايل الطالب',
     'yes' => 'نعم',
-    'no'=> 'لا'
+    'no'=> 'لا',
+    'btn_import' => 'رفع',
+    'bank_group_questions'=> 'أسئلة'
 
 
 

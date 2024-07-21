@@ -24,9 +24,9 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>{{ trans_choice('module_staff', 2) }}</td>
+                                        <td>{{ __('admin.bank_group_questions') }}</td>
                                         <td>
-                                        <form class="needs-validation" novalidate action="{{ route('admin.bulk.import', ['table' => 'users']) }}" method="post" enctype="multipart/form-data">
+                                        <form class="needs-validation" novalidate action="{{ route('admin.bulk.import', ['table' => 'bank_questions']) }}" method="post" enctype="multipart/form-data">
                                         @csrf
                                         <div class="row">
 
@@ -35,7 +35,7 @@
                                             </div>
 
                                             <div class="col-md-6">
-                                            <button type="submit" class="btn btn-success">{{ __('btn_import') }}</button>
+                                            <button type="submit" class="btn btn-success">{{ __('admin.btn_import') }}</button>
                                             </div>
                                         </div>
                                         </form>
@@ -43,65 +43,6 @@
                                         
                                     </tr>
 
-                                    <tr>
-                                        <td>{{ trans_choice('module_student', 2) }}</td>
-                                        <td>
-                                        <form class="needs-validation" novalidate action="{{ route('admin.bulk.import', ['table' => 'students']) }}" method="post" enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="row">
-
-                                            <div class="col-md-6">
-                                            <input type="file" name="import" class="form-control" required>
-                                            </div>
-
-                                            <div class="col-md-6">
-                                            <button type="submit" class="btn btn-success">{{ __('btn_import') }}</button>
-                                            </div>
-                                        </div>
-                                        </form>
-                                        </td>
-                                        
-                                    </tr>
-
-                                    <tr>
-                                        <td>{{ trans_choice('module_subject', 2) }}</td>
-                                        <td>
-                                        <form class="needs-validation" novalidate action="{{ route('admin.bulk.import', ['table' => 'subjects']) }}" method="post" enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="row">
-
-                                            <div class="col-md-6">
-                                            <input type="file" name="import" class="form-control" required>
-                                            </div>
-
-                                            <div class="col-md-6">
-                                            <button type="submit" class="btn btn-success">{{ __('btn_import') }}</button>
-                                            </div>
-                                        </div>
-                                        </form>
-                                        </td>
-                                       
-                                    </tr>
-
-                                    <tr>
-                                        <td>{{ trans_choice('module_book', 2) }}</td>
-                                        <td>
-                                        <form class="needs-validation" novalidate action="{{ route('admin.bulk.import', ['table' => 'books']) }}" method="post" enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="row">
-
-                                            <div class="col-md-6">
-                                            <input type="file" name="import" class="form-control" required>
-                                            </div>
-
-                                            <div class="col-md-6">
-                                            <button type="submit" class="btn btn-success">{{ __('btn_import') }}</button>
-                                            </div>
-                                        </div>
-                                        </form>
-                                        </td>
-                                        
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
