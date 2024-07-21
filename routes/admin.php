@@ -40,7 +40,7 @@ use App\Http\Controllers\Admin\MailController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\ExamController;
-
+use App\Http\Controllers\Admin\BulkImportExportController;
 // Set Lang Version
 Route::get('locale/language/{locale}', function ($locale) {
 
@@ -199,9 +199,10 @@ Route::group(
 
 
 
-            Route::get('setting/bulk-import-export', 'BulkImportExportController@importExportView')->name('bulk.import-export');
-            Route::get('setting/bulk-export/{table}', 'BulkImportExportController@export')->name('bulk.export');
-            Route::post('setting/bulk-import/{table}', 'BulkImportExportController@import')->name('bulk.import');
+            
+            Route::get('setting/bulk-import-export', [BulkImportExportController::class, 'importExportView'])->name('bulk.import-export');
+            Route::get('setting/bulk-import/{table}', [BulkImportExportController::class, 'import'])->name('bulk.import');
+
         
 
             // Translations Routes
