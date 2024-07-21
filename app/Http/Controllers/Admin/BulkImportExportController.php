@@ -10,7 +10,7 @@ use App\Exports\SubjectsExport;
 use App\Imports\SubjectsImport;
 use Illuminate\Http\Request;
 use App\Exports\UsersExport;
-use App\Imports\UsersImport;
+use App\Imports\BankQuestionImport;
 use App\Exports\BooksExport;
 use App\Imports\BooksImport;
 use Toastr;
@@ -82,9 +82,9 @@ class BulkImportExportController extends Controller
     public function import(Request $request, $table)
     {
         //
-        if($table == 'users'){
+        if($table == 'bank_questions'){
 
-            Excel::import(new UsersImport, $request->file('import'));
+            Excel::import(new BankQuestionImport, $request->file('import'));
         }
         elseif($table == 'students'){
 
