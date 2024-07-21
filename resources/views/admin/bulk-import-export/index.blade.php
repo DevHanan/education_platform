@@ -20,7 +20,6 @@
                                     <tr>
                                         <th>{{ __('DB Table Name') }}</th>
                                         <th>{{ __('btn_import') }}</th>
-                                        <th>{{ __('btn_export') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -41,9 +40,7 @@
                                         </div>
                                         </form>
                                         </td>
-                                        <td>
-                                            <a href="{{ route('admin.bulk.export', ['table' => 'users']) }}" class="btn btn-info">{{ __('btn_export') }}</a>
-                                        </td>
+                                        
                                     </tr>
 
                                     <tr>
@@ -63,9 +60,7 @@
                                         </div>
                                         </form>
                                         </td>
-                                        <td>
-                                            <a href="{{ route('admin.bulk.export', ['table' => 'students']) }}" class="btn btn-info">{{ __('btn_export') }}</a>
-                                        </td>
+                                        
                                     </tr>
 
                                     <tr>
@@ -85,9 +80,7 @@
                                         </div>
                                         </form>
                                         </td>
-                                        <td>
-                                            <a href="{{ route('admin.bulk.export', ['table' => 'subjects']) }}" class="btn btn-info">{{ __('btn_export') }}</a>
-                                        </td>
+                                       
                                     </tr>
 
                                     <tr>
@@ -107,9 +100,7 @@
                                         </div>
                                         </form>
                                         </td>
-                                        <td>
-                                            <a href="{{ route('admin.bulk.export', ['table' => 'books']) }}" class="btn btn-info">{{ __('btn_export') }}</a>
-                                        </td>
+                                        
                                     </tr>
                                 </tbody>
                             </table>
