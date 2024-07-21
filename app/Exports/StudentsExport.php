@@ -3,58 +3,23 @@
 namespace App\Exports;
 
 use App\Models\Student;
-use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
-use Maatwebsite\Excel\Concerns\WithMapping;
 
-class StudentsExport implements FromCollection, WithHeadings, WithMapping
+class StudentsExport implements FromCollection, WithHeadings, ShouldAutoSize
 {
-    
-
     /**
-     * @return Collection
-     */
+    * @return \Illuminate\Support\Collection
+    */
     public function collection()
     {
-        return Student::all(); // replace with your query to get the table data
+        return Student::get(['student_id', 'batch_id', 'program_id', 'admission_date', 'first_name', 'last_name', 'father_name', 'mother_name', 'email', 'present_province', 'present_district', 'present_village', 'present_address', 'permanent_province', 'permanent_district', 'permanent_village', 'permanent_address', 'gender', 'dob', 'phone', 'marital_status', 'blood_group', 'national_id', 'passport_no', 'school_name', 'school_exam_id', 'school_graduation_year', 'school_graduation_point', 'collage_name', 'collage_exam_id', 'collage_graduation_year', 'collage_graduation_point', 'login', 'status', 'is_transfer']);
     }
 
-    /**
-     * @inheritDoc
-     */
+
     public function headings(): array
     {
-        return [
-            'ID',
-            'First Name',
-            'Last Name',
-            'userName',
-            'Phone',
-            'Email',
-            'country',
-            'track',
-            'qualifications',
-            'About Student'
-        ];
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function map($student): array
-    {
-        return [
-            $student->id,
-            $student->first_name,
-            $student->last_name,
-            $student->userName,
-            $student->phone,
-            $student->email,
-            $student->country ? $student->country->name : "",
-           $student->track ?  $student->track->name :"",
-            $student->qualifications,
-            $student->about_student
-        ];
+        return ['student_id', 'batch_id', 'program_id', 'admission_date', 'first_name', 'last_name', 'father_name', 'mother_name', 'email', 'present_province', 'present_district', 'present_village', 'present_address', 'permanent_province', 'permanent_district', 'permanent_village', 'permanent_address', 'gender', 'dob', 'phone', 'marital_status', 'blood_group', 'national_id', 'passport_no', 'school_name', 'school_exam_id', 'school_graduation_year', 'school_graduation_point', 'collage_name', 'collage_exam_id', 'collage_graduation_year', 'collage_graduation_point', 'login', 'status', 'is_transfer'];
     }
 }

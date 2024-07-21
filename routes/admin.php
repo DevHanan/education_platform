@@ -197,6 +197,13 @@ Route::group(
             Route::get('subjects?classroom=2', [SubjectController::class, 'index'])->name('subjects.secondsubjects');
             Route::get('subjects?classroom=3', [SubjectController::class, 'index'])->name('subjects.thirdsubjects');
 
+
+
+            Route::get('setting/bulk-import-export', 'BulkImportExportController@importExportView')->name('bulk.import-export');
+            Route::get('setting/bulk-export/{table}', 'BulkImportExportController@export')->name('bulk.export');
+            Route::post('setting/bulk-import/{table}', 'BulkImportExportController@import')->name('bulk.import');
+        
+
             // Translations Routes
             Route::get('translations', [TranslateController::class, 'index'])->name('translations.index');
 

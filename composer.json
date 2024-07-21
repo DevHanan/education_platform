@@ -18,6 +18,7 @@
         "maatwebsite/excel": "^3.1",
         "mcamara/laravel-localization": "*",
         "outhebox/laravel-translations": "^1.0",
+        "phpoffice/phpspreadsheet": "*",
         "spatie/laravel-permission": "^6.9",
         "spatie/laravel-translatable": "^6.7",
         "yajra/laravel-datatables": "10.0",
