@@ -32,7 +32,7 @@ class BulkImportExportController extends Controller
         $this->access = 'bulk-import-export';
 
 
-        $this->middleware('permission:'.$this->access.'-view');
+        // $this->middleware('permission:'.$this->access.'-view');
     }
 
     /**
