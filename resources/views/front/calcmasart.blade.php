@@ -99,8 +99,8 @@
                     <div class="col-md-10 col-8">
                       <div class="row">
                         <div class="col-4"><input type="text"   min="0" max="{{ $item2->degree}}" class="form-control border-primary" name="item{{$item2->id}}" style="border-radius: 10px;" @if(!in_array('1',json_decode($item2->terms) ?? [] ))  disabled="disabled"  @else value="0" @endif></div>
-                        <div class="col-4"><input type="text"  min="0" max="{{ $item2->degree}}" class="form-control border-primary" name="item{{$item2->id}}" style="border-radius: 10px;" @if(!in_array('1',json_decode($item2->terms) ?? [] ))  disabled="disabled"   @else value="0" @endif></div>
-                        <div class="col-4"><input type="text"   min="0" max="{{ $item2->degree}}" class="form-control border-primary" name="item{{$item2->id}}" style="border-radius: 10px;" @if(!in_array('1',json_decode($item2->terms) ?? [] ))  disabled="disabled"  @else value="0" @endif></div>
+                        <div class="col-4"><input type="text"  min="0" max="{{ $item2->degree}}" class="form-control border-primary" name="item{{$item2->id}}" style="border-radius: 10px;" @if(!in_array('2',json_decode($item2->terms) ?? [] ))  disabled="disabled"   @else value="0" @endif></div>
+                        <div class="col-4"><input type="text"   min="0" max="{{ $item2->degree}}" class="form-control border-primary" name="item{{$item2->id}}" style="border-radius: 10px;" @if(!in_array('3',json_decode($item2->terms) ?? [] ))  disabled="disabled"  @else value="0" @endif></div>
                       </div>  
                     </div>
                   </div>
@@ -115,8 +115,8 @@
                     <div class="col-md-10 col-8">
                       <div class="row">
                         <div class="col-4"><input type="text"   min="0" max="{{ $item3->degree}}" class="form-control border-primary" name="item{{$item3->id}}" style="border-radius: 10px;" @if(!in_array('1',json_decode($item3->terms)?? [] ))  disabled="disabled"  @else value="0" @endif></div>
-                        <div class="col-4"><input type="text"  min="0" max="{{ $item3->degree}}"  class="form-control border-primary" name="item{{$item3->id}}" style="border-radius: 10px;" @if(!in_array('1',json_decode($item3->terms)?? [] ))  disabled="disabled"  @else value="0" @endif></div>
-                        <div class="col-4"><input type="text"   min="0" max="{{ $item3->degree}}"class="form-control border-primary" name="item{{$item3->id}}" style="border-radius: 10px;" @if(!in_array('1',json_decode($item3->terms)?? [] ))  disabled="disabled"   @else value="0" @endif></div>
+                        <div class="col-4"><input type="text"  min="0" max="{{ $item3->degree}}"  class="form-control border-primary" name="item{{$item3->id}}" style="border-radius: 10px;" @if(!in_array('2',json_decode($item3->terms)?? [] ))  disabled="disabled"  @else value="0" @endif></div>
+                        <div class="col-4"><input type="text"   min="0" max="{{ $item3->degree}}"class="form-control border-primary" name="item{{$item3->id}}" style="border-radius: 10px;" @if(!in_array('3',json_decode($item3->terms)?? [] ))  disabled="disabled"   @else value="0" @endif></div>
                       </div>  
                     </div>
                   </div>
