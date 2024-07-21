@@ -248,6 +248,7 @@ class HomeController extends Controller
         $data['first'] = Subject::where('active', '1')->where('classroom', '1')->get();
         $data['second'] = Subject::where('active', '1')->where('classroom', '2')->get();
         $data['third'] = Subject::where('active', '1')->where('classroom', '3')->get();
+        return $data['third'];
         return view('front.calcmasart', $data);
     }
 
