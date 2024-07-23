@@ -21,6 +21,21 @@
                           <h3> {{ $test->name }}</h2>
                           <p class="mt-4">  {!! optional($test->track)->name !!}</p>
                       </div>
+                      <div id="end_exam" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#course_end_exam">
+                                    <div class="accordion-body">
+                                        <div class="d-flex flex-wrap justify-content-between align-items-center">
+                                            <div class="my-2">المحاولات : <span>0/3</span></div>
+                                            <div class="my-2">درجات الاجتياز : <span>{{ $$test->pass_mark }}/{{ $$test->total_mark}}</span></div>
+                                            <div class="time my-2 ms-3"> <img src="{{asset('front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> 30 : 1 ساعة </div>
+                                            <div class="time my-2 ms-3"> <img src="{{asset('front/img/icons/fi-rr-calendar.png')}}" class="mx-1" width="15" alt=""> {{ $$test->end_time }}</div>
+                                        </div>                                            
+                                        <div class="d-flex flex-wrap justify-content-end mt-2">
+                                            <div class="mt-2">
+                                                <a href="{{url('exam/'.$$test->id)}}" class="btn secondary-bg px-3 text-white">ابدء الأختبار</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  </div>ss
                       <div>
                           <a href="#" class="btn btn-success primary-bg">
                               إبدا الأختبار </a>
