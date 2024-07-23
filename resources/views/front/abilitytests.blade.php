@@ -10,17 +10,7 @@
       </section>
   
       <section class="tests container my-5 p-5 rounded">
-          <div class="test-info d-flex justify-content-between align-items-center mb-5">
-              <div>
-                  <!-- <h1 class="fw-bold">السياسات واللوائح</h1> -->
-                  <p class="fw-bold mt-4">
-                  تعرف على أختبارات العامة الخاصة بنا
-                  </p>
-              </div>
-              <div>
-                  <img src="public/front/img/docs.png" alt="">
-              </div>
-          </div>
+          
           <div class="row">
              
           @if($tests)
