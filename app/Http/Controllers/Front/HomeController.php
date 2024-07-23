@@ -117,11 +117,12 @@ class HomeController extends Controller
 
         $course = Course::with(['levels', 'lectures', 'tracks', 'instructors', 'coupon', 'comments'])->find($id);
         $tracks_id = $course->tracks()->pluck('track_id')->ToArray();
+        $tests = Quiz::whereHas('questions')->where('course_id',$id)->whereNull(['lecture_id','level_id'])->get();
         $related_courses = Course::whereHas('tracks', function ($query) use ($tracks_id) {
             $query->whereIn('track_id', $tracks_id);
         })->where('id', '!=', $course->id)->get();
         $title = $course->name;
-        return view('front.course', compact('course', 'related_courses', 'title'));
+        return view('front.course', compact('course', 'related_courses', 'title','tests'));
     }
 
     public function lecture($id)
@@ -277,7 +278,7 @@ class HomeController extends Controller
 
 
     public function tests(){
-        $tests = Quiz::whereHas('questions')->whereNull('course_id')->whereNull('lecture_id')->whereNull('level_id')->get();
+        $tests = Quiz::whereHas('questions')->whereNull(['course_id','lecture_id','level_id'])->get();
         return view('front.abilitytests',compact('tests'));
     }
 }
