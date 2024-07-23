@@ -119,7 +119,8 @@
                                         <table class=" export-table table card-table table-vcenter text-nowrap datatable">
                                             <thead>
                                                 <tr>
-                                                    
+
+
                                                     <th class="w-1">
                                                         #
                                                     </th>
@@ -134,26 +135,26 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach($row->questions as $question)
+                                                @foreach($row->questions as $obj)
 
                                                 <tr>
                                                     <td><span class="text-secondary">{{$loop->iteration }}</span></td>
-                                                    <td>{{$question->title}}</td>
-                                                    <td><img src="{{ $question->pictureFullPath }}" style="width:40px"></td>
-                                                    <td>{{ optional($question->group)->name}}</td>
+                                                    <td>{{optional($obj->question)->title}}</td>
+                                                    <td><img src="{{ optional($obj->question)->pictureFullPath }}" style="width:40px"></td>
+                                                    <td>{{ optional($obj->question->group)->name}}</td>
                                                     <td>
                                                         <ul style="list-style-type:decimal;">
                                                             <li>
-                                                                <span class="badge bg-cyan text-cyan-fg">{{ $question->answer1 }}</span>
+                                                                <span class="badge bg-cyan text-cyan-fg">{{ optional($obj->question)->answer1 }}</span>
                                                             </li>
                                                             <li>
-                                                                <span class="badge bg-cyan text-cyan-fg">{{ $question->answer2 }}</span>
+                                                                <span class="badge bg-cyan text-cyan-fg">{{ optional($obj->question)->answer2 }}</span>
                                                             </li>
                                                             <li>
-                                                                <span class="badge bg-cyan text-cyan-fg">{{ $question->answer3 }}</span>
+                                                                <span class="badge bg-cyan text-cyan-fg">{{ optional($obj->question)->answer3 }}</span>
                                                             </li>
                                                             <li>
-                                                                <span class="badge bg-cyan text-cyan-fg">{{ $question->answer4 }}</span>
+                                                                <span class="badge bg-cyan text-cyan-fg">{{ optional($obj->question)->answer4 }}</span>
                                                             </li>
                                                         </ul>
 
@@ -170,7 +171,7 @@
 
                                                         <div class="form-check form-switch md-3" style="margin:10px">
 
-                                                            <input data-id="{{$question->id}}" data-type='App\Models\BankQuestion' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($question->active==1) checked="checked" @endif name="active">
+                                                            <input data-id="{{$obj->question_id}}" data-type='App\Models\BankQuestion' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($obj->active==1) checked="checked" @endif name="active">
                                                         </div>
                                                     </td>
 
