@@ -277,7 +277,7 @@ class HomeController extends Controller
 
 
     public function tests(){
-        $quizzes = Quiz::whereNull('course_id')->whereNull('lecture_id')->whereNull('level_id')->get();
-        return $quizzes;
+        $tests = Quiz::whereNull('course_id')->whereNull('lecture_id')->whereNull('level_id')->get();
+        return view('front.abilitytests',compact('tests'));
     }
 }
