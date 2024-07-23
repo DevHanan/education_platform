@@ -121,9 +121,9 @@
                     </a>
                     @endif
 
-                    <!-- <a href="{{ url('admin/quizzes/'.$row->id .'/questions') }}" class="btn btn-icon btn-primary btn-sm">
+                    <a href="{{ url('admin/quizzes/'.$row->id) }}" class="btn btn-icon btn-primary btn-sm">
                     <i class="fa fa-question-circle" aria-hidden="true"></i>
-                    </a> -->
+                    </a>
 
 
                     <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
