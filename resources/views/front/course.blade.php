@@ -137,14 +137,14 @@
                             <!-- اختبار بداية الدورة -->
                             @if(count($tests))
                             @foreach($tests as $test)
-                            <div class="accordion mb-4" id="course_start_exam">
+                            <div class="accordion mb-4" id="course_start_exam_{{$test->id}}">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="heading">
                                         <button class="accordion-button bg-white border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#start_exam" aria-expanded="true" aria-controls="start_exam">
                                             <img src="{{ asset('public/front/img/icons/fi-rr-document.png')}}" class="ms-2" alt=""> {{ $test->name }}
                                         </button>
                                     </h2>
-                                    <div id="start_exam" class="accordion-collapse collapse" aria-labelledby="heading" data-bs-parent="#course_start_exam">
+                                    <div id="start_exam" class="accordion-collapse collapse" aria-labelledby="heading" data-bs-parent="#course_start_exam_{{$test->id}}">
                                         <div class="accordion-body">
                                             <div class="d-flex flex-wrap justify-content-between align-items-center">
                                                 <div class="my-2">
@@ -243,14 +243,14 @@
 
                                     @if($level->tests)
                                     @foreach($level->tests as $test)
-                            <div class="accordion mb-4" id="course_start_exam">
+                            <div class="accordion mb-4" id="leveltest_{{$test->id}}">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="heading">
                                         <button class="accordion-button bg-white border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#start_exam" aria-expanded="true" aria-controls="start_exam">
                                             <img src="{{ asset('public/front/img/icons/fi-rr-document.png')}}" class="ms-2" alt=""> {{ $test->name }}
                                         </button>
                                     </h2>
-                                    <div id="start_exam" class="accordion-collapse collapse" aria-labelledby="heading" data-bs-parent="#course_start_exam">
+                                    <div id="start_exam" class="accordion-collapse collapse" aria-labelledby="heading" data-bs-parent="#leveltest_{{$test->id}}">
                                         <div class="accordion-body">
                                             <div class="d-flex flex-wrap justify-content-between align-items-center">
                                                 <div class="my-2">
