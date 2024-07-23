@@ -141,7 +141,7 @@
                                                     <td><span class="text-secondary">{{$loop->iteration }}</span></td>
                                                     <td>{{optional($obj->question)->title}}</td>
                                                     <td><img src="{{ optional($obj->question)->pictureFullPath }}" style="width:40px"></td>
-                                                    <td>{{ optional($obj->question->group)->name}}</td>
+                                                    <td>{{ optional(optional($obj->question)->group)->name}}</td>
                                                     <td>
                                                         <ul style="list-style-type:decimal;">
                                                             <li>
