@@ -140,8 +140,7 @@
       @foreach($tests as $test)
         <div class=" col-lg-6 cardcontainer">
             <div class="photo">
-                <img src="https://images.pexels.com/photos/2346006/pexels-photo-2346006.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=1&w=500">
-                <div class="photos">Photos</div>
+                <div class="photos">{{ $test->name }}</div>
             </div>
             <div class="content">
                 <p class="txt4">City Lights In Newyork</p>
