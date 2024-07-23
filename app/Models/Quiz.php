@@ -58,7 +58,7 @@ class Quiz extends Model
     }
     public function questions()
     {
-        return $this->hasManyThrough(QuizQuestion::class, QuizSection::class, 'quiz_id', 'quiz_section_id');
+        return $this->hasMany(QuizQuestion::class);
     }
 
     public function attempts()
