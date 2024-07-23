@@ -122,7 +122,7 @@
                     @endif
 
                     <a href="{{ url('admin/quizzes/'.$row->id) }}" class="btn btn-icon btn-primary btn-sm">
-                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    <i class="far fa-eye" aria-hidden="true"></i>
                     </a>
 
 

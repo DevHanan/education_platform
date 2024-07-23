@@ -137,6 +137,7 @@ return [
         'home_settings' => 'اعدادات الصفحة الرئيسية',
         'contactus_settings' => 'تواصل معنا',
         'reviews' =>'تقييمات وآراء',
+        'importexport' => 'استيراد الملفات'
 
 
     ],
@@ -250,7 +251,6 @@ return [
         'list' => 'قائمة المواد',
         'add' => 'إضافة مادة'
     ],
-    'importexport' => 'استيراد الملفات'
     
 
 ];
