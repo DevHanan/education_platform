@@ -16,11 +16,12 @@
         @if($tests)
         @foreach($tests as $test)
         <div class="col-lg-6">
-            <div class="d-flex justify-content-between align-items-center bg-white rounded policy-card mb-4">
-                <div style="display: block !important;">
+        <div style="display: block !important;">
                     <h3> {{ $test->name }}</h2>
                         <p class="mt-4"> {!! optional($test->track)->name !!}</p>
                 </div>
+            <div class="d-flex justify-content-between align-items-center bg-white rounded policy-card mb-4">
+                
                 <div id="end_exam" aria-labelledby="headingOne" data-bs-parent="#course_end_exam">
                     <div class="accordion-body">
                         <div class="d-flex flex-wrap justify-content-between align-items-center">
