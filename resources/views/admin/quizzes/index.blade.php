@@ -173,6 +173,10 @@ if (app()->getLocale() == 'ar') {
       url: url
     },
     'direction': dir,
+    "scrollX": true,
+    "fixedHeader": {
+      "headerOffset": 1
+    },
     columnDefs: [{
       className: 'dt-center',
       targets: '_all',
