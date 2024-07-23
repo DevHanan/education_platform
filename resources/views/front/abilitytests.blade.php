@@ -24,15 +24,16 @@
                 <div id="end_exam" aria-labelledby="headingOne" data-bs-parent="#course_end_exam">
                     <div class="accordion-body">
                         <div class="d-flex flex-wrap justify-content-between align-items-center">
-                            <div class="time my-2 ms-3">  
-                                <img src="{{asset('front/img/icons//fi-rr-user.svg')}}" class="mx-1" width="15" alt=""> 
-                                 {{ $test->passingattempt }} / 3
+                            <div class="time my-2 ms-3">
+                                <img src="{{asset('front/img/icons//fi-rr-user.svg')}}" class="mx-1" width="15" alt="">
+                                {{ $test->passingattempt }} / 3
 
-                                 </div>
-                            <div class="time my-2 ms-3"> 
-                                 <img src="{{asset('front/img/icons/fi-rr-graduation-cap.svg')}}" class="mx-1" width="15" alt=""> 
-                            {{ $test->pass_mark }}/{{ $test->total_mark}}</div>
-                            <div class="time my-2 ms-3"> <img src="{{asset('front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt="">  {{ $test->start_time }}  </div>
+                            </div>
+                            <div class="time my-2 ms-3">
+                                <img src="{{asset('front/img/icons/fi-rr-graduation-cap.svg')}}" class="mx-1" width="15" alt="">
+                                {{ $test->pass_mark }}/{{ $test->total_mark}}
+                            </div>
+                            <div class="time my-2 ms-3"> <img src="{{asset('front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> {{ $test->start_time }} </div>
                             <div class="time my-2 ms-3"> <img src="{{asset('front/img/icons/fi-rr-calendar.png')}}" class="mx-1" width="15" alt=""> {{ $test->end_time }}</div>
                         </div>
                         <!-- <div class="d-flex flex-wrap justify-content-end mt-2">
@@ -43,11 +44,11 @@
                     </div>
                 </div>
                 <div>
-                @if (Auth::guard('students-login')->check())
+                    @if (Auth::guard('students-login')->check())
                     <a href="{{url('exam/'.$test->id)}}" class="btn secondary-bg px-3 text-white">ابدء الأختبار</a>
                     @else
                     <!-- Show a placeholder for guests -->
-                    <a  class="btn secondary-bg px-3 text-white" disabled>سجل الدخول للمتابعة</a>
+                    <a class="btn secondary-bg px-3 text-white" disabled>سجل الدخول للمتابعة</a>
                     @endauth
 
                 </div>

@@ -254,29 +254,40 @@
 
                                                         {{ $test->name }}
 
-                                                        @if($test->free == 0)
+                                                        <!-- @if($test->free == 0)
                                                         <span style="float: left !important;font-size:18px;margin: -0px 130px 0px 0px;">
                                                             <i class="fas fa-lock"></i>
                                                         </span>
-                                                        @endif
+                                                        @endif -->
 
                                                     </button>
 
                                                 </h2>
                                                 <div id="stage1_lec{{$test->id}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#data_body">
                                                     <div class="accordion-body">
-                                                        <p>
-                                                            {!!
-                                                            $test->short_description
-                                                            !!} </p>
+
                                                         <div class="d-flex flex-wrap justify-content-between align-items-center mt-4">
                                                             <div class="d-flex flex-wrap mt-2">
-                                                                <div class="time ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> {{ $test->period }} ساعة</div>
-                                                                <div class="time ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-calendar.png')}}" class="mx-1" width="15" alt=""> {{ $test->created_at->format('l, F j, Y') }} </div>
+                                                                <div class="time my-2 ms-3">
+                                                                    <img src="{{asset('front/img/icons//fi-rr-user.svg')}}" class="mx-1" width="15" alt="">
+                                                                    {{ $test->passingattempt }} / 3
+
+                                                                </div>
+                                                                <div class="time my-2 ms-3">
+                                                                    <img src="{{asset('front/img/icons/fi-rr-graduation-cap.svg')}}" class="mx-1" width="15" alt="">
+                                                                    {{ $test->pass_mark }}/{{ $test->total_mark}}
+                                                                </div>
+                                                                <div class="time my-2 ms-3"> <img src="{{asset('front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> {{ $test->start_time }} </div>
+                                                                <div class="time my-2 ms-3"> <img src="{{asset('front/img/icons/fi-rr-calendar.png')}}" class="mx-1" width="15" alt=""> {{ $test->end_time }}</div>
                                                             </div>
-                                                            @if($test->free == 1 || $course->isSubscribed == 1)
+                                                            @if($course->isSubscribed == 1)
                                                             <div class="mt-2">
-                                                                <a class="btn secondary-bg px-3 text-white" href="{{url('test/'.$test->id)}}">اذهب الي المحاضرة</a>
+                                                                @if (Auth::guard('students-login')->check())
+                                                                <a href="{{url('exam/'.$test->id)}}" class="btn secondary-bg px-3 text-white">ابدء الأختبار</a>
+                                                                @else
+                                                                <!-- Show a placeholder for guests -->
+                                                                <a class="btn secondary-bg px-3 text-white" disabled>سجل الدخول للمتابعة</a>
+                                                                @endauth
                                                             </div>
                                                             @endif
                                                         </div>
