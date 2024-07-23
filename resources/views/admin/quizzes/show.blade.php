@@ -109,6 +109,81 @@
                         </div>
 
 
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3> {{ __('admin.quizzes.questions') }} </h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class=" export-table table card-table table-vcenter text-nowrap datatable">
+                                            <thead>
+                                                <tr>
+                                                    <th class="w-1">
+                                                        #
+                                                    </th>
+                                                    <th>{{__('admin.bankquestions.title')}} </th>
+                                                    <th>{{__('admin.bankquestions.title_photo')}} </th>
+                                                    <th>{{__('admin.bankquestions.ban_group')}} </th>
+                                                    <th> {{__('admin.bankquestions.options')}}</th>
+                                                    <th> {{__('admin.bankquestions.correct_answer')}}</th>
+                                                    <th>{{__('admin.bankquestions.mark')}} </th>
+                                                    <th>{{ __('admin.levels.status') }}</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach($row->questions as $question)
+
+                                                <tr>
+                                                    <td><span class="text-secondary">{{$loop->iteration }}</span></td>
+                                                    <td>{{$question->title}}</td>
+                                                    <td><img src="{{ $question->pictureFullPath }}" style="width:40px"></td>
+                                                    <td>{{ optional($question->group)->name}}</td>
+                                                    <td>
+                                                        <ul style="list-style-type:decimal;">
+                                                            <li>
+                                                                <span class="badge bg-cyan text-cyan-fg">{{ $question->answer1 }}</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="badge bg-cyan text-cyan-fg">{{ $question->answer2 }}</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="badge bg-cyan text-cyan-fg">{{ $question->answer3 }}</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="badge bg-cyan text-cyan-fg">{{ $question->answer4 }}</span>
+                                                            </li>
+                                                        </ul>
+
+
+                                                    </td>
+                                                    <td> {{ $question->correctanswer}}</td>
+
+                                                    <td>{{$question->mark}}</td>
+
+
+
+                                                    <td>
+
+
+                                                        <div class="form-check form-switch md-3" style="margin:10px">
+
+                                                            <input data-id="{{$question->id}}" data-type='App\Models\BankQuestion' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($question->active==1) checked="checked" @endif name="active">
+                                                        </div>
+                                                    </td>
+
+                                                </tr>
+                                                @endforeach
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
                         <!-- [ Data table ] end -->
                     </div>
                 </div>
