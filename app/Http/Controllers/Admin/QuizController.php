@@ -107,6 +107,7 @@ class QuizController extends Controller
     {
 
         $data['row'] = Quiz::find($id);
+        return $row;
         $data['title'] = trans('admin.quizzes.show');
         $data['route'] = $this->route;
         $data['view'] = $this->view;

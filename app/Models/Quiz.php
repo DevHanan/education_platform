@@ -13,6 +13,8 @@ class Quiz extends Model
     protected $fillable = ['track_id','course_id','level_id','active', 'name', 'start_time', 'end_time', 
                             'duration_in_minutes', 'total_mark','pass_mark','active','quiz_type','has_levels','question_number'];
 
+                            protected $with = ['questions'];
+
     public function getStartTimeAttribute($value)
     {
         return Carbon::parse($value);
