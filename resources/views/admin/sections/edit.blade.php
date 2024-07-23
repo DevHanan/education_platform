@@ -14,7 +14,7 @@
 
           <div class="card-header">
             <div class="card-block">
-              <a href="{{ url('admin/courses/'.$quiz->id.'/sections') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
+              <a href="{{ url('admin/quizzes/'.$quiz->id.'/sections') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
 
             </div>
           </div>
