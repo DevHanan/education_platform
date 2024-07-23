@@ -106,6 +106,7 @@ class QuizController extends Controller
 
     public function show($id)
     {
+        
         $quiz = Quiz::find($id);
         if ($quiz)
             return $this->okApiResponse($quiz, __('course loades successfully'));
