@@ -16,7 +16,7 @@
         @if($tests)
         @foreach($tests as $test)
         <div class="col-lg-6">
-            <div class="d-flex justify-content-between align-items-center bg-white rounded policy-card mb-4">
+            <div class=" justify-content-between align-items-center bg-white rounded policy-card mb-4">
                 <div style="display: block !important;">
                     <h3> {{ $test->name }}</h2>
                         <p class="mt-4"> {!! optional($test->track)->name !!}</p>
