@@ -243,7 +243,7 @@
 
                                     @if($level->tests)
                                     @foreach($level->tests as $test)
-                                    <div id="dataTab{{$test->id}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion{{$test->id}}">
+                                    <div id="dataTab{{$test->id}}" class="accordion-collapse collapse"  style="display:block;" aria-labelledby="headingOne" data-bs-parent="#accordion{{$test->id}}">
                                         <div class="accordion-body">
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="headingOne{{$test->id}}">
