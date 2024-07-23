@@ -20,4 +20,9 @@ class QuizQuestion extends Model
     }
 
 
+    public function question()
+    {
+        return $this->belongsTo(BankQuestion::class);
+    }
+
 }
