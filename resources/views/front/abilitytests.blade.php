@@ -28,14 +28,10 @@
               <div class="col-lg-6">
                   <div class="d-flex justify-content-between align-items-center bg-white rounded test-card mb-4">
                       <div>
-                          <h3> {{ $test->title }}</h2>
+                          <h3> {{ $test->name }}</h2>
                           <p class="mt-4">  {!! $test->description !!}</p>
                       </div>
-                      <div>
-                          <a href="{{ asset($test->file )}}" class="btn btn-success primary-bg"  target="_blank" download="{{ asset($test->file )}}">
-                             <!-- <img src="{{ asset($test->file )}}" alt=""> -->
-                              تنزيل </a>
-                      </div>
+                    
                   </div>
               </div>
               @endforeach
