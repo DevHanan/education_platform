@@ -628,7 +628,7 @@ Breadcrumbs::for('update-faculities', function (BreadcrumbTrail $trail,$row) {
 
 Breadcrumbs::for('importexportModule', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push(trans('navbar.importexport'), route('admin.bulk.import-export'));
+    $trail->push(trans('navbar.settings.importexport'), route('admin.bulk.import-export'));
 });
 
 Breadcrumbs::for('subjects', function (BreadcrumbTrail $trail) {
