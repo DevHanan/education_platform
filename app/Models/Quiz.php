@@ -7,13 +7,27 @@ use Illuminate\Database\Eloquent\Model;
 
 class Quiz extends Model
 {
-   
+
 
     protected $guarded = ['id'];
-    protected $fillable = ['track_id','course_id','level_id','active', 'name', 'start_time', 'end_time', 
-                            'duration_in_minutes', 'total_mark','pass_mark','active','quiz_type','has_levels','question_number'];
+    protected $fillable = [
+        'track_id', 'course_id', 'level_id', 'active', 'name', 'start_time', 'end_time',
+        'duration_in_minutes', 'total_mark', 'pass_mark', 'active', 'quiz_type', 'has_levels', 'question_number'
+    ];
 
-                            protected $with = ['questions'];
+    protected $with = ['questions'];
+    protected $appends = ['passingAttempt'];
+
+    public function getPassingAttemptAttribute($value)
+    {
+        if(auth()->guard('students-login')->check()){
+
+            $attempt = PassingAttempt::where('quiz_id',$this->id)->where('student_id',auth()->guard('students-login')->user()->id)->count();
+            return $attempt;
+        }
+        else
+        return 0;
+    }
 
     public function getStartTimeAttribute($value)
     {

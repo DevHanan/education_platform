@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\BankQuestion;
+use App\Models\PassingAttempt;
 use App\Models\Quiz;
 use App\Models\QuizSection;
 use App\Models\QuizQuestion;
@@ -18,6 +19,8 @@ class ExamController extends Controller
     public function getExam($id)
     {
         $quiz = Quiz::find($id);
+        // add attempt to pass exam 
+        PassingAttempt::create(['student_id'=>auth()->guard('students-login')->user()->id , 'quiz_id'=>$id]);
         if ($quiz->has_levels)
             return view('front.quizdepartment', compact('quiz'));
         else{

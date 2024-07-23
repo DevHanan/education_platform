@@ -72,6 +72,11 @@ class Student extends Authenticatable  implements MustVerifyEmail
         return $this->hasMany(Subscription::class);
     }
 
+    public function passingAttempsQuiz()
+    {
+        return $this->hasMany(PassingAttempt::class);
+    }
+
     public function courses()
     {
         return $this->hasMany(Course::class);
