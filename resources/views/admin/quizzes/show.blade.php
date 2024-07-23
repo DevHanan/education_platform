@@ -160,9 +160,9 @@
 
 
                                                     </td>
-                                                    <td> {{ $question->correctanswer}}</td>
+                                                    <td> {{ optional($obj->question)->correctanswer}}</td>
 
-                                                    <td>{{$question->mark}}</td>
+                                                    <td>{{optional($obj->question)->mark}}</td>
 
 
 
