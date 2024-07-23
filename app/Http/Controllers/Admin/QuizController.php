@@ -31,11 +31,10 @@ class QuizController extends Controller
         $this->view = 'admin.quizzes';
         $this->path = 'quizzes';
         $this->access = 'quizzes';
-        $this->middleware('permission:quizzes-create', ['only' => ['create','store']]);
+        $this->middleware('permission:quizzes-create', ['only' => ['create', 'store']]);
         $this->middleware('permission:quizzes-view',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:quizzes-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:quizzes-edit',   ['only' => ['edit', 'update']]);
         $this->middleware('permission:quizzes-delete',   ['only' => ['delete']]);
-
     }
 
 
@@ -106,12 +105,14 @@ class QuizController extends Controller
 
     public function show($id)
     {
-        
-        $quiz = Quiz::find($id);
-        if ($quiz)
-            return $this->okApiResponse($quiz, __('course loades successfully'));
-        else
-            return $this->notFoundApiResponse([], __('Data Not Found'));
+
+        $data['row'] = Quiz::find($id);
+        $data['title'] = trans('admin.quizzes.show');
+        $data['route'] = $this->route;
+        $data['view'] = $this->view;
+        $data['path'] = $this->path;
+        $data['access'] = $this->access;
+        return view($this->view . '.show', $data);
     }
 
     public function edit($id)
@@ -126,7 +127,7 @@ class QuizController extends Controller
         $data['groups'] = BankGroup::wherein('id', $data['bank_groups'])->get();
         $data['banks'] = BankGroup::active()->get();
         $data['bankgroups'] = QuizBankGroup::where('quiz_id', $id)->get();
-        $data['quizquestions'] = QuizQuestion::where('quiz_id',$id)->pluck('question_id')->toArray();
+        $data['quizquestions'] = QuizQuestion::where('quiz_id', $id)->pluck('question_id')->toArray();
 
         return view($this->view . '.edit', $data);
     }
@@ -152,8 +153,8 @@ class QuizController extends Controller
 
         if ($request->questions) {
             QuizQuestion::whereNotIn('question_id', $request->questions)->delete();
-            foreach($request->questions as $question)
-            QuizQuestion::firstOrCreate(['quiz_id' => $quiz->id,'question_id'=>$question], []);
+            foreach ($request->questions as $question)
+                QuizQuestion::firstOrCreate(['quiz_id' => $quiz->id, 'question_id' => $question], []);
         }
 
 
