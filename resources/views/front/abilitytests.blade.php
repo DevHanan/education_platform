@@ -134,9 +134,11 @@
   
       <section class="tests container my-5 p-5 rounded">
           
-      <div class="container">
-        <h1>News Card</h1>
-        <div class="cardcontainer">
+      <div class="row">
+
+      @if($tests)
+      @foreach($tests as $test)
+        <div class=" col-lg-6 cardcontainer">
             <div class="photo">
                 <img src="https://images.pexels.com/photos/2346006/pexels-photo-2346006.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=1&w=500">
                 <div class="photos">Photos</div>
@@ -151,6 +153,10 @@
                 <p class="txt3"><i class="far fa-clock"></i>10 Minutes Ago <span class="comments"><i class="fas fa-comments"></i>45 Comments</span></p>
             </div>
         </div>
+        @endforeach
+        @else
+لا توجد بيانات للعرض
+        @endif
     </div>
           <!-- <div class="row">
              
