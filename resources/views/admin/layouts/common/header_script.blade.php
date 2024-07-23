@@ -125,7 +125,7 @@ button.btn.btn-icon.btn-danger.btn-sm[data-title]:hover::after {
 
 @endif
 
-@if(app()->getLocale() == 'en')
+<!-- @if(app()->getLocale() == 'en')
 
 <style>
     .fa-eye-slash {
@@ -177,4 +177,4 @@ button.btn.btn-icon.btn-danger.btn-sm[data-title]:hover::after {
         color: #666;
     }
 </style>
-@endif
+@endif -->
