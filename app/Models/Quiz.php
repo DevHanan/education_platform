@@ -10,7 +10,7 @@ class Quiz extends Model
    
 
     protected $guarded = ['id'];
-    protected $fillable = ['track_id','course_id','level_id','type="text" value="0"_id' ,'active', 'name', 'start_time', 'end_time', 
+    protected $fillable = ['track_id','course_id','level_id','active', 'name', 'start_time', 'end_time', 
                             'duration_in_minutes', 'total_mark','pass_mark','active','quiz_type','has_levels','question_number'];
 
     public function getStartTimeAttribute($value)
