@@ -130,7 +130,6 @@
                                                     <th> {{__('admin.bankquestions.options')}}</th>
                                                     <th> {{__('admin.bankquestions.correct_answer')}}</th>
                                                     <th>{{__('admin.bankquestions.mark')}} </th>
-                                                    <th>{{ __('admin.levels.status') }}</th>
 
                                                 </tr>
                                             </thead>
@@ -139,7 +138,7 @@
 
                                                 <tr>
                                                     <td><span class="text-secondary">{{$loop->iteration }}</span></td>
-                                                    <td>{!! optional($obj->question)->title !!}</td>
+                                                    <td> {{ Str::words( optional($obj->question)->customTitle, 7) }}</td>
                                                     <td><img src="{{ optional($obj->question)->pictureFullPath }}" style="width:40px"></td>
                                                     <td>{{ optional(optional($obj->question)->group)->name}}</td>
                                                     <td>
@@ -166,14 +165,7 @@
 
 
 
-                                                    <td>
-
-
-                                                        <div class="form-check form-switch md-3" style="margin:10px">
-
-                                                            <input data-id="{{$obj->question_id}}" data-type='App\Models\BankQuestion' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($obj->active==1) checked="checked" @endif name="active">
-                                                        </div>
-                                                    </td>
+                                                   
 
                                                 </tr>
                                                 @endforeach
