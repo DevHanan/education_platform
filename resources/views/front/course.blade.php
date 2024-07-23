@@ -241,6 +241,48 @@
                                     </div>
                                     @endforeach
 
+                                    @if($level->tests)
+                                    @foreach($level->tests as $test)
+                            <div class="accordion mb-4" id="course_start_exam">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading">
+                                        <button class="accordion-button bg-white border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#start_exam" aria-expanded="true" aria-controls="start_exam">
+                                            <img src="{{ asset('public/front/img/icons/fi-rr-document.png')}}" class="ms-2" alt=""> {{ $test->name }}
+                                        </button>
+                                    </h2>
+                                    <div id="start_exam" class="accordion-collapse collapse" aria-labelledby="heading" data-bs-parent="#course_start_exam">
+                                        <div class="accordion-body">
+                                            <div class="d-flex flex-wrap justify-content-between align-items-center">
+                                                <div class="my-2">
+                                                    <img src="{{asset('front/img/icons//fi-rr-user.svg')}}" class="mx-1" width="15" alt="">
+                                                    {{ $test->passingattempt }} / 3
+                                                </div>
+                                                <div class="my-2">
+                                                    <img src="{{asset('front/img/icons/fi-rr-graduation-cap.svg')}}" class="mx-1" width="15" alt="">
+                                                    {{ $test->pass_mark }}/{{ $test->total_mark}}
+                                                </div>
+                                                <div class="time my-2 ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> {{ $test->start_time }} </div>
+                                                <div class="time my-2 ms-3"> <img src="{{ asset('public/front/img/icons/fi-rr-calendar.png')}}" class="mx-1" width="15" alt=""> {{ $test->end_time }} </div>
+                                            </div>
+                                            <div class="d-flex flex-wrap justify-content-end mt-2">
+                                                <div class="mt-2">
+                                                    @if (Auth::guard('students-login')->check())
+                                                    <a href="{{url('exam/'.$test->id)}}" class="btn secondary-bg px-3 text-white">ابدء الأختبار</a>
+                                                    @else
+                                                    <!-- Show a placeholder for guests -->
+                                                    <a class="btn secondary-bg px-3 text-white" disabled>سجل الدخول للمتابعة</a>
+                                                    @endauth
+                                                    <!-- <button class="btn secondary-bg px-3 text-white">ابدء الأختبار</button> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+
+                                    @endif
+
 
                                 </div>
                             </div>

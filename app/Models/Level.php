@@ -46,4 +46,9 @@ class Level extends Model
         return $this->hasMany(Lecture::class);
     }
 
+    public function tests()
+    {
+        return $this->hasMany(Quiz::class)->whereNotNull(['course_id','level_id']);
+    }
+
 }
