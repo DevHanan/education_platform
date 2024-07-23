@@ -26,6 +26,14 @@
             </svg>
             {{__('admin.btn_add_new')}} </a>
 
+            <a href="{{url('admin/setting/bulk-import-export') }}" class="btn btn-primary d-none d-sm-inline-block">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M12 5l0 14" />
+              <path d="M5 12l14 0" />
+            </svg>
+            {{__('admin.btn_import')}} </a>
+
         </div>
       </div>
     </div>
@@ -187,6 +195,10 @@ if (app()->getLocale() == 'ar') {
       url: url
     },
     'direction': dir,
+    "scrollX": true,
+    "fixedHeader": {
+      "headerOffset": 1
+    },
     columnDefs: [{
       className: 'dt-center',
       targets: '_all',
