@@ -21,7 +21,7 @@
                           <h3> {{ $test->name }}</h2>
                           <p class="mt-4">  {!! optional($test->track)->name !!}</p>
                       </div>
-                      <div id="end_exam" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#course_end_exam">
+                      <div id="end_exam"  aria-labelledby="headingOne" data-bs-parent="#course_end_exam">
                                     <div class="accordion-body">
                                         <div class="d-flex flex-wrap justify-content-between align-items-center">
                                             <div class="my-2">المحاولات : <span>0/3</span></div>
