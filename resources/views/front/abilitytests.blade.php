@@ -37,7 +37,12 @@
                     </div>
                 </div>
                 <div>
+                @if (Auth::guard('students-login')->check())
                     <a href="{{url('exam/'.$test->id)}}" class="btn secondary-bg px-3 text-white">ابدء الأختبار</a>
+                    @else
+                    <!-- Show a placeholder for guests -->
+                    <a disabled>سجل الدخول اولا</a>
+                    @endauth
 
                 </div>
             </div>
