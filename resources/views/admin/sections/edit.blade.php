@@ -173,9 +173,9 @@
     // Add an event listener to each select element
     selectElements.on('change', function() {
         // Get the ID of the select element that triggered the event
-        alert("here");
         const selectId = this.id;
-        alert(selectId);
+        const value = this.value;
+        alert(value);
       });
     });
 
