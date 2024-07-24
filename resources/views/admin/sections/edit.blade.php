@@ -176,14 +176,12 @@
       // Get the ID of the select element that triggered the event
       const selectId = this.id;
       const value = this.value;
-      alert("bankquestion_${selectId}");
-
       if (value == '0') {
-        document.getElementById('bankquestion_${selectId}').style.display = 'none';
+        document.getElementById("bankquestion_".$selectId).style.display = 'none';
 
       } else {
         // If the checkbox is not checked, show the div
-        document.getElementById('bankquestion_${selectId}').style.display = 'block';
+        document.getElementById("bankquestion_".$selectId).style.display = 'block';
 
       }
 
