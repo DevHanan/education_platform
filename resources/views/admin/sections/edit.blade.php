@@ -85,14 +85,14 @@
                 <div class="card-body">
                   <div class="main">
                     <table class=" table data-table data-table-horizontal data-table-highlight">
-                      <thead>
+                      <!-- <thead>
                         <tr>
                           <td> {{ __('admin.quizzes.select_bank') }}</td>
-                          <!-- <td>{{ __('admin.quizzes.random_select') }} </td>
+                          <td>{{ __('admin.quizzes.random_select') }} </td>
 
-                          <td>{{ __('admin.quizzes.question_number') }} </td> -->
+                          <td>{{ __('admin.quizzes.question_number') }} </td>
                         </tr>
-                      </thead>
+                      </thead> -->
                       <tbody id="instructorstable">
                         <tr>
                           @foreach($bankgroups as $bank)
