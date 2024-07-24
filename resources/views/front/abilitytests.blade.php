@@ -33,8 +33,8 @@
                                 <img src="{{asset('front/img/icons/fi-rr-graduation-cap.svg')}}" class="mx-1" width="15" alt="">
                                 {{ $test->pass_mark }}/{{ $test->total_mark}}
                             </div>
-                            <div class="time my-2 ms-3"> <img src="{{asset('front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> {{ $test->start_time }} </div>
-                            <div class="time my-2 ms-3"> <img src="{{asset('front/img/icons/fi-rr-calendar.png')}}" class="mx-1" width="15" alt=""> {{ $test->end_time }}</div>
+                            <div class="time my-2 ms-3"> <img src="{{asset('front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> {{ $test->created_at }} </div>
+                            <!-- <div class="time my-2 ms-3"> <img src="{{asset('front/img/icons/fi-rr-calendar.png')}}" class="mx-1" width="15" alt=""> {{ $test->end_time }}</div> -->
                         </div>
                         <!-- <div class="d-flex flex-wrap justify-content-end mt-2">
                                             <div class="mt-2">
