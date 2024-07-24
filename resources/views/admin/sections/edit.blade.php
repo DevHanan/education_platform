@@ -115,7 +115,8 @@
                           </td>
                         </tr>
                         <tr>
-                        <p>
+                          <td>
+                          <p>
                               <a class="text-primary" id="bankquestion_{{$bank->id}}" data-bs-toggle="collapse" href="#collapseExample{{$bank->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
                                 إختر الاسئلة
                               </a>
@@ -135,13 +136,15 @@
                                         {{ $question->customTitle }}
                                       </td>
 
-                                      
+
                                     </tr>
                                     @endforeach
                                   </tbody>
                                 </table>
                               </div>
                             </div>
+                          </td>
+                        
                         </tr>
                         @endforeach
 
