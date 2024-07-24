@@ -96,11 +96,28 @@
                       <tbody id="instructorstable">
                         <tr>
                           @foreach($bankgroups as $bank)
+
                           <td>
-                            <input type="checkbox" name="banks[]" value="{{ $bank->id}}"> {{ $bank->name }}
-                            @if(count($bank->questions)>1)
+                            <input type="checkbox" name="banks[]" value="{{ $bank->id}}" @if(in_array($bank->id,$groups)) checked @endif> {{ $bank->name }}
+
+                          </td>
+
+                          <td>
+                            <select class="select2 form-control randomlist" name="random[]" id="{{$bank->id}}">
+                              <option selected disabled>{{ __('admin.select') }}</option>
+                              <option value="1">{{ __('admin.yes') }}</option>
+                              <option value="0">{{ __('admin.no') }}</option>
+
+                            </select>
+                          </td>
+                          <td>
+                            <input type="number" name="questionNumber[]" id="questionNumber" value="" placeholder="عدد الأسئلة" />
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="3">
                             <p>
-                              <a class="text-primary" data-bs-toggle="collapse" href="#collapseExample{{$bank->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                              <a class="text-primary" id="bankquestion_{{$bank->id}}" data-bs-toggle="collapse" href="#collapseExample{{$bank->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
                                 إختر الاسئلة
                               </a>
 
@@ -115,9 +132,10 @@
                                       <td>
 
 
-                                        <input type="checkbox" name="questions[]" value="{{$question->id}}">
+                                        <input type="checkbox" name="questions[]" value="{{$question->id}}" @if(in_array($question->id,$quizuestionsids)) checked @endif>
+                                        {{ $question->customTitle }}
                                       </td>
-                                      <td> {{ $question->customTitle }}</td>
+
 
                                     </tr>
                                     @endforeach
@@ -125,19 +143,8 @@
                                 </table>
                               </div>
                             </div>
+                          </td>
 
-                            @endif
-                          </td>
-                          <td>
-                            <select class="select2 form-control" name="random" id="random">
-                              <option value="1">{{ __('admin.yes') }}</option>
-                              <option value="0">{{ __('admin.no') }}</option>
-
-                            </select>
-                          </td>
-                          <td>
-                            <input type="number" name="questionNumber[]" id="questionNumber" value="" placeholder="عدد الأسئلة" />
-                          </td>
                         </tr>
                         @endforeach
 
@@ -174,22 +181,28 @@
 @push('scripts')
 
 <script>
-  // Get the checkbox and the div elements
-  const flexHasLevelSwitchCheck = document.getElementById('random');
-  const divToHide = document.getElementById('divToHide');
+  $(document).ready(function() {
+    // Get all select elements with the same class name
+    const selectElements = $('.randomlist');
 
-  // Add an event listener to the checkbox
-  flexHasLevelSwitchCheck.addEventListener('change', function() {
-    const selectedValue = selectElement.value;
-    // If the checkbox is checked, hide the div
-    if (selectedValue == '0') {
-      divToHide.style.display = 'block';
 
-    } else {
-      // If the checkbox is not checked, show the div
-      divToHide.style.display = 'none';
+    // Add an event listener to each select element
+    selectElements.on('change', function() {
+      // Get the ID of the select element that triggered the event
+      const selectId = this.id;
+      const value = this.value;
+      console.log("bankquestion_"+selectId);
+      if (value == '0') {
+        document.getElementById("bankquestion_"+selectId).style.display = 'none';
 
-    }
+
+      } else {
+        // If the checkbox is not checked, show the div
+        document.getElementById("bankquestion_"+selectId).style.display = 'block';
+
+      }
+
+    });
   });
 </script>
 @endpush
