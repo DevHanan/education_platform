@@ -117,7 +117,7 @@
                         <tr>
                           <td colspan="3">
                             <p>
-                              <a class="text-primary" id="bankquestion_{{$bank->id}}" data-bs-toggle="collapse" href="#collapseExample{{$bank->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                              <a class="text-primary" id="bankquestion_{{$bank->id}}" style="display:none;" data-bs-toggle="collapse" href="#collapseExample{{$bank->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
                                 إختر الاسئلة
                               </a>
 

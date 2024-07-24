@@ -57,13 +57,26 @@ class QuizSectionController extends Controller
     public function store(Request $request)
     {
         return $request->all();
+        $this->validate($request, [
+            'banks' => [
+                'required',
+                'array',
+                function ($attribute, $value, $fail) {
+                    if (count($value) < 1) {
+                        $fail('At least one bank must be selected.');
+                    }
+                },
+            ],
+        ]);
         $active = $request->active ? '1' : '0';
         $request->merge(['active' => $active]);
        $section = QuizSection::create($request->all());
-         if($request->questions){
+         if($request->banks && $request->questions){
             foreach($request->questions as $id)
             QuizQuestion::create(['section_id'=>$section->id , 'quiz_id'=>$section->quiz_id,'question_id'=>$id]);
          }
+         if()
+
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
         return redirect("admin/quizzes/".$request->quiz_id."/sections");
     }
