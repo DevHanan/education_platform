@@ -56,6 +56,7 @@ class QuizSectionController extends Controller
     }
     public function store(Request $request)
     {
+        return $request->all();
         $active = $request->active ? '1' : '0';
         $request->merge(['active' => $active]);
        $section = QuizSection::create($request->all());
