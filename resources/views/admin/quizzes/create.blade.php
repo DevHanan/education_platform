@@ -201,51 +201,84 @@
 
 
 
-              <div class="card" style="margin-top: 20px;" id="divToHide">
-                <div class="card-header">
-                  <h3> {{ __('admin.quizzes.add_bank_group') }} </h3>
-                </div>
-                <div class="card-body">
-                  <div class="main">
-                    <table class=" table data-table data-table-horizontal data-table-highlight">
-                      <thead>
-                        <tr>
-                          <td> {{ __('admin.quizzes.select_bank') }}</td>
-                          <td>{{ __('admin.quizzes.random_select') }} </td>
+              <div class="card-body">
 
-                          <td>{{ __('admin.quizzes.question_number') }} </td>
-                          <td>#</td>
-                        </tr>
-                      </thead>
-                      <tbody id="instructorstable">
-                        <tr>
-                          <td>
-                            <select class="select2 form-control" name="banks[]" id="bank">
-                              <option value="">{{ __('select') }}</option>
-                              @foreach($bankgroups as $bank)
-                              <option value="{{$bank->id}}"> {{ $bank->name }}</option>
-                              @endforeach
+                <div class="card-status-top bg-blue"></div>
 
-                            </select>
-                          </td>
-                          <td>
-                            <select class="select2 form-control" name="random[]" id="random">
-                              <option value="1">{{ __('admin.yes') }}</option>
-                              <option value="0">{{ __('admin.no') }}</option>
+                <div class="card" style="margin-top: 20px;" id="divToHide">
+                  <div class="card-header">
+                    <h3> {{ __('admin.quizzes.add_bank_group') }} </h3>
+                  </div>
+                  <div class="card-body">
+                    <div class="main">
+                      <table class=" table data-table data-table-horizontal data-table-highlight">
+                        <thead>
+                          <tr>
+                            <td> {{ __('admin.quizzes.select_bank') }}</td>
+                            <td>{{ __('admin.quizzes.random_select') }} </td>
 
-                            </select>
-                          </td>
-                          <td><input type="number" name="questionNumber[]" id="questionNumber" value="" placeholder="عدد الأسئلة" /></td>
+                            <td>{{ __('admin.quizzes.question_number') }} </td>
+                          </tr>
+                        </thead>
+                        <tbody id="instructorstable">
+                          <tr>
+                            @foreach($bankgroups as $bank)
 
-                          <td><a type="button" value="Delete" onclick="deleteRow(this)">
-                              <i class="fas fa-trash-alt"></i>
-                            </a></td>
-                        </tr>
-                      </tbody>
+                            <td>
+                              <input type="checkbox" name="banks[]" value="{{ $bank->id}}"> {{ $bank->name }}
 
-                    </table>
-                    <div class="pull-right">
-                      <input type="button" value="إضافة" class="top-buffer" onclick="addRow()" />
+                            </td>
+
+                            <td>
+                              <select class="select2 form-control randomlist" name="random[]" id="{{$bank->id}}">
+                                <option selected disabled>{{ __('admin.select') }}</option>
+                                <option value="1">{{ __('admin.yes') }}</option>
+                                <option value="0">{{ __('admin.no') }}</option>
+
+                              </select>
+                            </td>
+                            <td>
+                              <input type="number" name="questionNumber[]" id="questionNumber" value="" placeholder="عدد الأسئلة" max="{{$bank->questions()->count()}}" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="3">
+                              <p>
+                                <a class="text-primary" id="bankquestion_{{$bank->id}}" style="display:none;" data-bs-toggle="collapse" href="#collapseExample{{$bank->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                  إختر الاسئلة
+                                </a>
+
+                              </p>
+                              <div class="collapse" id="collapseExample{{$bank->id}}">
+                                <div class="card card-body">
+                                  <table class="table card-table">
+                                    <tbody>
+                                      @foreach ($bank->questions as $question )
+
+                                      <tr>
+                                        <td>
+
+
+                                          <input type="checkbox" name="questions[]" value="{{$question->id}}">
+                                          {{ $question->customTitle }}
+                                        </td>
+
+
+                                      </tr>
+                                      @endforeach
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </td>
+
+                          </tr>
+                          @endforeach
+
+                        </tbody>
+
+                      </table>
+
                     </div>
                   </div>
                 </div>
@@ -273,48 +306,70 @@
 @push('scripts')
 
 <script>
-  function addRow() {
-    var table = document.getElementById("instructorstable");
-    var row = table.insertRow(-1);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
+  $(document).ready(function() {
+    // Get all select elements with the same class name
+    const selectElements = $('.randomlist');
 
-    cell1.innerHTML = '<select class="select2 form-control" name="banks[]"><option value="">{{ __('select') }}</option>@foreach($bankgroups as $bank)<option value="{{$bank->id}}"> {{ $bank->name }}</option>@endforeach</select>';
-    cell2.innerHTML = '<select class="select2 form-control" name="random[]"><option value="1">{{ __('admin.yes') }}</option><option value="0">{{ __('admin.no') }}</option></select>';
-    cell3.innerHTML = '<input type="number" name="questionNumber[]" value="" placeholder="عدد الأسئلة" />';
-    cell4.innerHTML = '<a type="button" value="Delete" onclick="deleteRow(this)"><i class="fas fa-trash-alt"></i></a>';
-  }
 
-  function deleteRow(obj) {
- 
+    // Add an event listener to each select element
+    selectElements.on('change', function() {
+      // Get the ID of the select element that triggered the event
+      const selectId = this.id;
+      const value = this.value;
+      console.log("bankquestion_" + selectId);
+      if (value == '1') {
+        document.getElementById("bankquestion_" + selectId).style.display = 'none';
 
-    var table = document.getElementById("instructorstable");
-      var rowCount = table.rows.length;
-      if (rowCount > 1) {
-        var rowIndex = row.parentNode.parentNode.rowIndex;
-        document.getElementById("data").deleteRow(rowIndex);
+
       } else {
-        alert("Please specify at least one value.");
+        // If the checkbox is not checked, show the div
+        document.getElementById("bankquestion_" + selectId).style.display = 'block';
+
       }
-  }
+
+    });
+  });
+  // function addRow() {
+  //   var table = document.getElementById("instructorstable");
+  //   var row = table.insertRow(-1);
+  //   var cell1 = row.insertCell(0);
+  //   var cell2 = row.insertCell(1);
+  //   var cell3 = row.insertCell(2);
+  //   var cell4 = row.insertCell(3);
+
+  //   cell1.innerHTML = '<select class="select2 form-control" name="banks[]"><option value="">{{ __('select') }}</option>@foreach($bankgroups as $bank)<option value="{{$bank->id}}"> {{ $bank->name }}</option>@endforeach</select>';
+  //   cell2.innerHTML = '<select class="select2 form-control" name="random[]"><option value="1">{{ __('admin.yes') }}</option><option value="0">{{ __('admin.no') }}</option></select>';
+  //   cell3.innerHTML = '<input type="number" name="questionNumber[]" value="" placeholder="عدد الأسئلة" />';
+  //   cell4.innerHTML = '<a type="button" value="Delete" onclick="deleteRow(this)"><i class="fas fa-trash-alt"></i></a>';
+  // }
+
+  // function deleteRow(obj) {
+
+
+  //   var table = document.getElementById("instructorstable");
+  //     var rowCount = table.rows.length;
+  //     if (rowCount > 1) {
+  //       var rowIndex = row.parentNode.parentNode.rowIndex;
+  //       document.getElementById("data").deleteRow(rowIndex);
+  //     } else {
+  //       alert("Please specify at least one value.");
+  //     }
+  // }
 
 
   // Get the checkbox and the div elements
-const flexHasLevelSwitchCheck = document.getElementById('hasLevel');
-const divToHide = document.getElementById('divToHide');
+  const flexHasLevelSwitchCheck = document.getElementById('hasLevel');
+  const divToHide = document.getElementById('divToHide');
 
-// Add an event listener to the checkbox
-flexHasLevelSwitchCheck.addEventListener('change', function() {
-  // If the checkbox is checked, hide the div
-  if (this.checked) {
-    divToHide.style.display = 'none';
-  } else {
-    // If the checkbox is not checked, show the div
-    divToHide.style.display = 'block';
-  }
-});
-
+  // Add an event listener to the checkbox
+  flexHasLevelSwitchCheck.addEventListener('change', function() {
+    // If the checkbox is checked, hide the div
+    if (this.checked) {
+      divToHide.style.display = 'none';
+    } else {
+      // If the checkbox is not checked, show the div
+      divToHide.style.display = 'block';
+    }
+  });
 </script>
 @endpush

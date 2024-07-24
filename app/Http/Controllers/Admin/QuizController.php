@@ -13,6 +13,8 @@ use App\Models\BankGroup;
 use App\Models\QuizBankGroup;
 use App\Models\QuizQuestion;
 use App\Models\QuizSection;
+use App\Models\BankQuestion;
+
 use Toastr;
 
 
@@ -69,37 +71,57 @@ class QuizController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'banks' => [
+                'required',
+                'array',
+                function ($attribute, $value, $fail) {
+                    if (count($value) < 1) {
+                        $fail('At least one bank must be selected.');
+                    }
+                },
+            ],
+        ]);
         $active = $request->active ? '1' : '0';
         $has_levels = $request->has_levels ? '1' : '0';
         $request->merge(['active' => $active, 'has_levels' => $has_levels]);
 
         $quiz = Quiz::create($request->all());
-        // if (count($request->sections)) {
-        //     for ($i = 0; $i < count($request->sections); $i++) {
-        //         if ($request->sections[$i] != null)
-        //             QuizSection::create([
-        //                 'quiz_id' => $quiz->id,
-        //                 'title' => $request->sections[$i]
+
+        // if ($request->banks)
+        //     for ($i = 0; $i < count($request['banks']); $i++)
+        //         if ($request->banks[$i] !== null) {
+        //             QuizBankGroup::create([
+        //                 'quiz_id'  => $quiz->id,
+        //                 'bank_group_id' => $request['banks'][$i],
+        //                 'random'  => $request['random'][$i],
+        //                 'question_number' => $request['questionNumber'][$i]
         //             ]);
-        //     }
-        // }
+        //         }
 
-        if ($request->banks)
-            for ($i = 0; $i < count($request['banks']); $i++)
-                if ($request->banks[$i] !== null) {
-                    QuizBankGroup::create([
-                        'quiz_id'  => $quiz->id,
-                        'bank_group_id' => $request['banks'][$i],
-                        'random'  => $request['random'][$i],
-                        'question_number' => $request['questionNumber'][$i]
-                    ]);
+        if ($request->banks) {
+            // insert selected questions not random 
+            if ($request->questions) {
+                foreach ($request->questions as $id)
+                    QuizQuestion::create(['section_id' => '', 'quiz_id' => $quiz->id, 'question_id' => $id]);
+            }
+
+            // Random bank question if exist 
+            for ($i = 0; $i < count($request->random); $i++) {
+                if ($request->random[$i] == 1) {
+                    $question_num = $request->questionNumber[$i];
+                    $bank_id = $request->banks[$i];
+                    $randomIds = BankQuestion::where('bank_group_id', $bank_id)->inRandomOrder()->take($question_num)->pluck('id');
+                    foreach ($randomIds as $id)
+                        QuizQuestion::create(['section_id' => '', 'quiz_id' => $quiz->id, 'question_id' => $id]);
                 }
-
+            }
+        }
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
         if ($request->has_levels == 1)
             return redirect('admin/quizzes/' . $quiz->id . '/sections');
         else
-            return redirect('admin/quizzes/' . $quiz->id . '/edit');
+            return redirect('admin/quizzes/' . $quiz->id);
     }
 
 
