@@ -3,7 +3,8 @@
 namespace App\Imports;
 
 use App\Models\BankQuestion;
-use App\User;
+use App\Models\BankGroup;
+
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Hash;
@@ -23,6 +24,7 @@ class BankQuestionmport implements ToCollection, WithHeadingRow
     {
         Validator::make($rows->toArray(), [
             '*.title' => 'required',
+            '*.bank' => 'required',
             '*.mark' => 'required|integer',
             '*.active' => 'required|integer',
             '*.answer_notes' => 'required',
@@ -37,9 +39,16 @@ class BankQuestionmport implements ToCollection, WithHeadingRow
 
 
         foreach ($rows as $row) {
+            $bank = BankGroup::where('name', $row['bank'])->first();
+            if (!$bank) {
+                // Handle the case where the bank is not found
+                // You can throw an exception, log an error, or skip the row
+                continue;
+            }
             BankQuestion::updateOrCreate(
                 [
                 'title'     => $row['title'],
+                'bank_group_id' => $bank->id,
                 'mark'    => $row['mark'],
                 ],[
                 'active'     => $row['active'],

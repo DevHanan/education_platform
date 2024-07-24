@@ -201,7 +201,7 @@ Route::group(
 
             
             Route::get('setting/bulk-import-export', [BulkImportExportController::class, 'importExportView'])->name('bulk.import-export');
-            Route::get('setting/bulk-import/{table}', [BulkImportExportController::class, 'import'])->name('bulk.import');
+            Route::post('setting/bulk-import/{table}', [BulkImportExportController::class, 'import'])->name('bulk.import');
 
         
 
