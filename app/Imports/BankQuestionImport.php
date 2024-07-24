@@ -40,15 +40,11 @@ class BankQuestionImport implements ToCollection, WithHeadingRow
 
         foreach ($rows as $row) {
             $bank = BankGroup::where('name', $row['bank'])->first();
-            if (!$bank) {
-                // Handle the case where the bank is not found
-                // You can throw an exception, log an error, or skip the row
-                continue;
-            }
+           
             BankQuestion::updateOrCreate(
                 [
                 'title'     => $row['title'],
-                'bank_group_id' => $bank->id,
+                'bank_group_id' => $bank? $bank->id : '',
                 'mark'    => $row['mark'],
                 ],[
                 'active'     => $row['active'],
