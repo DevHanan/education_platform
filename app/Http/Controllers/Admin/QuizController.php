@@ -74,12 +74,7 @@ class QuizController extends Controller
         $this->validate($request, [
             'banks' => [
                 'required',
-                'array',
-                function ($attribute, $value, $fail) {
-                    if (count($value) < 1) {
-                        $fail('At least one bank must be selected.');
-                    }
-                },
+                'array'
             ],
         ]);
         $active = $request->active ? '1' : '0';
