@@ -99,8 +99,10 @@
                         
                           <td>
                             <input type="checkbox" name="banks[]" value="{{ $bank->id}}" @if(in_array($bank->id,$groups)) checked @endif> {{ $bank->name }}
-                            @if(count($bank->questions)>1)
-                            <p>
+                           
+
+                          </td>
+                          <p>
                               <a class="text-primary" id="bankquestion_{{$bank->id}}" data-bs-toggle="collapse" href="#collapseExample{{$bank->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
                                 إختر الاسئلة
                               </a>
@@ -126,9 +128,6 @@
                                 </table>
                               </div>
                             </div>
-
-                            @endif
-                          </td>
                           <td>
                             <select class="select2 form-control randomlist" name="random[]" id="{{$bank->id}}">
                               <option selected disabled>{{ __('admin.select') }}</option>
