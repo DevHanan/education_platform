@@ -51,7 +51,7 @@
               <div class="mb-3">
                 <label class="form-label" for="question_number"> {{ __('admin.sections.question_number') }} <span>*</span></label>
 
-                <input type="text" class="form-control" name="question_number" id="question_number" value="{{ old('question_number',$row) }}" required>
+                <input type="text" class="form-control" name="question_number" id="question_number" value="{{ old('question_number',$row) }}"  max="{{$bank->questions()->count()}}" required>
 
                 @error('question_number')
                 <div class="invalid-feedback">

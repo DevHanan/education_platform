@@ -111,7 +111,7 @@
                             </select>
                           </td>
                           <td>
-                            <input type="number" name="questionNumber[]" id="questionNumber" value="" placeholder="عدد الأسئلة" />
+                            <input type="number" name="questionNumber[]" id="questionNumber" value="" placeholder="عدد الأسئلة" max="{{$bank->questions()->count()}}" />
                           </td>
                         </tr>
                         <tr>
