@@ -166,18 +166,26 @@
 @push('scripts')
 
 <script>
- $(document).ready(function() {
+  $(document).ready(function() {
     // Get all select elements with the same class name
     const selectElements = $('.randomlist');
 
+
     // Add an event listener to each select element
     selectElements.on('change', function() {
-        // Get the ID of the select element that triggered the event
-        const selectId = this.id;
-        const value = this.value;
-        alert(value);
-      });
-    });
+      // Get the ID of the select element that triggered the event
+      const selectId = this.id;
+      const value = this.value;
+      if (value == '0') {
+        document.getElementById('bankquestion_${selectId}').style.display = 'none';
 
+      } else {
+        // If the checkbox is not checked, show the div
+        document.getElementById('bankquestion_${selectId}').style.display = 'block';
+
+      }
+
+    });
+  });
 </script>
 @endpush
