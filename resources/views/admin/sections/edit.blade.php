@@ -51,7 +51,7 @@
               <div class="mb-3">
                 <label class="form-label" for="question_number"> {{ __('admin.sections.question_number') }} <span>*</span></label>
 
-                <input type="text" class="form-control" name="question_number" id="question_number" value="{{ old('question_number',$row) }}"  max="{{$bank->questions()->count()}}" required>
+                <input type="text" class="form-control" name="question_number" id="question_number" value="{{ old('question_number',$row) }}"   required>
 
                 @error('question_number')
                 <div class="invalid-feedback">
@@ -111,7 +111,7 @@
                             </select>
                           </td>
                           <td>
-                            <input type="number" name="questionNumber[]" id="questionNumber" value="" placeholder="عدد الأسئلة" />
+                            <input type="number" name="questionNumber[]" id="questionNumber" value="" placeholder="عدد الأسئلة"  max="{{$bank->questions()->count()}}"/>
                           </td>
                         </tr>
                         <tr>
