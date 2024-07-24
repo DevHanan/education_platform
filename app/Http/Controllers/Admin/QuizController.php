@@ -156,16 +156,16 @@ class QuizController extends Controller
         $request->merge(['active' => $active, 'has_levels' => $has_levels]);
         $quiz->update($request->all());
 
-        if ($request->banks) {
-            // delete unchecked 
-            for ($i = 0; $i < count($request['banks']); $i++)
-                if ($request->banks[$i] !== null) {
-                    QuizBankGroup::firstOrCreate(['quiz_id' => $quiz->id, 'bank_group_id' => $request['banks'][$i]], [
-                        'random'  => $request['random'][$i],
-                        'question_number' => $request['questionNumber'][$i]
-                    ]);
-                }
-        }
+        // if ($request->banks) {
+        //     // delete unchecked 
+        //     for ($i = 0; $i < count($request['banks']); $i++)
+        //         if ($request->banks[$i] !== null) {
+        //             QuizBankGroup::firstOrCreate(['quiz_id' => $quiz->id, 'bank_group_id' => $request['banks'][$i]], [
+        //                 'random'  => $request['random'][$i],
+        //                 'question_number' => $request['questionNumber'][$i]
+        //             ]);
+        //         }
+        // }
 
 
         if ($request->questions) {
