@@ -75,7 +75,7 @@ class QuizSectionController extends Controller
             foreach($request->questions as $id)
             QuizQuestion::create(['section_id'=>$section->id , 'quiz_id'=>$section->quiz_id,'question_id'=>$id]);
          }
-         if()
+        
 
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
         return redirect("admin/quizzes/".$request->quiz_id."/sections");
