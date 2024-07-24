@@ -180,6 +180,7 @@
       if (value == '0') {
         document.getElementById("bankquestion_"+selectId).style.display = 'none';
 
+        
       } else {
         // If the checkbox is not checked, show the div
         document.getElementById("bankquestion_"+selectId).style.display = 'block';
