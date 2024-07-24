@@ -166,19 +166,18 @@
 @push('scripts')
 
 <script>
-  $('document').ready(function() {
+ $(document).ready(function() {
     // Get all select elements with the same class name
-    const selectElements = document.querySelectorAll('.randomlist');
+    const selectElements = $('.randomlist');
 
     // Add an event listener to each select element
-    selectElements.forEach(function(selectElement) {
-      selectElement.addEventListener('change', function() {
+    selectElements.on('change', function() {
         // Get the ID of the select element that triggered the event
         alert("here");
         const selectId = this.id;
         alert(selectId);
       });
     });
-  });
+
 </script>
 @endpush
