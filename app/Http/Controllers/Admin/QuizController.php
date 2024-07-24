@@ -71,12 +71,12 @@ class QuizController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'banks' => [
-                'required',
-                'array'
-            ],
-        ]);
+        
+        if($request->banks && count($request->banks)>0){
+            Toastr::success(__('admin.plz_select_one_bank'), __('admin.msg_error'));
+            return redirect()->back();
+
+        }
         $active = $request->active ? '1' : '0';
         $has_levels = $request->has_levels ? '1' : '0';
         $request->merge(['active' => $active, 'has_levels' => $has_levels]);
