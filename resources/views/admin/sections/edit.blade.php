@@ -135,6 +135,7 @@
                                         {{ $question->customTitle }}
                                       </td>
 
+                                      
                                     </tr>
                                     @endforeach
                                   </tbody>
