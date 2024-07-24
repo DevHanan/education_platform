@@ -35,7 +35,7 @@
                     </div>
                     <!-- [ Data table ] start -->
                     <div class="table-responsive">
-                        <table  class="display table nowrap table-striped table-hover" style="width:100%">
+                        <table id="export-table" class="display table nowrap table-striped table-hover" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>#</th>

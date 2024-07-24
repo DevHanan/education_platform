@@ -61,7 +61,7 @@
             </div>
           </div>
           <div class="table-responsive">
-            <table id="bankuestionTable" class="table card-table table-vcenter text-nowrap datatable">
+            <table id="bankuestionTable" class="table card-table table-vcenter text-nowrap">
               <thead>
                 <tr>
                   <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select all invoices"></th>
