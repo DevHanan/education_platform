@@ -200,110 +200,84 @@
 
           </div>
           @if($groups && $row->has_levels == 0)
-          <div class="card" style="margin-top: 20px;">
-            <div class="card-header">
-              <h3> {{ __('admin.quizzes.add_bank_group') }} </h3>
-            </div>
-            <div class="card-body">
-              <div class="main">
-                <table class=" table data-table data-table-horizontal data-table-highlight">
-                  <thead>
-                    <tr>
-                      <td> {{ __('admin.quizzes.select_bank') }}</td>
-                      <td>{{ __('admin.quizzes.random_select') }} </td>
+          <div class="card-body">
 
-                      <td>{{ __('admin.quizzes.question_number') }} </td>
-                      <td>#</td>
-                    </tr>
-                  </thead>
-                  <tbody id="instructorstable">
-                    <tr>
-                      <td>
-                        <select class="select2 form-control" name="banks[]" id="bank">
-                          <option value="">{{ __('select') }}</option>
-                          @foreach($banks as $bank)
-                          <option value="{{$bank->id}}"> {{ $bank->name }}</option>
-                          @endforeach
+            <div class="card-status-top bg-blue"></div>
 
-                        </select>
-                      </td>
-                      <td>
-                        <select class="select2 form-control" name="random[]" id="random">
-                          <option value="1">{{ __('admin.yes') }}</option>
-                          <option value="0">{{ __('admin.no') }}</option>
+            <div class="card" style="margin-top: 20px;" id="divToHide">
+              <div class="card-header">
+                <h3> {{ __('admin.quizzes.add_bank_group') }} </h3>
+              </div>
+              <div class="card-body">
+                <div class="main">
+                  <table class=" table data-table data-table-horizontal data-table-highlight">
+                    <!-- <thead>
+          <tr>
+            <td> {{ __('admin.quizzes.select_bank') }}</td>
+            <td>{{ __('admin.quizzes.random_select') }} </td>
 
-                        </select>
-                      </td>
-                      <td><input type="number" name="questionNumber[]" id="questionNumber" value="" placeholder="عدد الأسئلة" /></td>
+            <td>{{ __('admin.quizzes.question_number') }} </td>
+          </tr>
+        </thead> -->
+                    <tbody id="instructorstable">
+                      <tr>
+                        @foreach($bankgroups as $bank)
 
-                      <td><a type="button" value="Delete" onclick="deleteRow(this)">
-                          <i class="fas fa-trash-alt"></i>
-                        </a></td>
-                    </tr>
-                    @if($bankgroups)
-                    @foreach ($bankgroups as $group )
+                        <td>
+                          <input type="checkbox" name="banks[]" value="{{ $bank->id}}" @if(in_array($bank->id,$groups)) checked @endif> {{ $bank->name }}
 
-                    <tr>
-                      <td>
-                        <select class="select2 form-control" name="banks[]" id="bank">
-                          <option value="{{$group->bank_group_id}}"> {{ optional($group->bankGroup)->name }}</option>
-                        </select>
-                        @if($group->randmom == 0 && count(($group->bankGroup)->questions)>0 )
-                        <p>
-                          <a class="text-primary" data-bs-toggle="collapse" href="#collapseExample{{$group->bank_group_id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            إختر الاسئلة
-                          </a>
+                        </td>
 
-                        </p>
-                        <div class="collapse" id="collapseExample{{$group->bank_group_id}}">
-                          <div class="card card-body">
-                            <table class="table card-table">
-                              <tbody>
+                        <!-- <td>
+              <select class="select2 form-control randomlist" name="random[]" id="{{$bank->id}}">
+                <option selected disabled>{{ __('admin.select') }}</option>
+                <option value="1">{{ __('admin.yes') }}</option>
+                <option value="0">{{ __('admin.no') }}</option>
 
-                                @foreach (($group->bankGroup)->questions as $item)
-                                <tr>
-                                  <td>
-                                    <input type="checkbox" name="questions[]" value="{{$item->id}}" @if(in_array($item->id , $quizquestions)) checked @endif>
-                                  </td>
-                                  <td> {{ $item->customTitle }}</td>
-                                </tr>
+              </select>
+            </td>
+            <td>
+              <input type="number" name="questionNumber[]" id="questionNumber" value="" placeholder="عدد الأسئلة"  max="{{$bank->questions()->count()}}"/>
+            </td> -->
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>
+                            <a class="text-primary" id="bankquestion_{{$bank->id}}" data-bs-toggle="collapse" href="#collapseExample{{$bank->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                              إختر الاسئلة
+                            </a>
+
+                          </p>
+                          <div class="collapse" id="collapseExample{{$bank->id}}">
+                            <div class="card card-body">
+                              <table class="table card-table">
+                                <tbody>
+                                  @foreach ($bank->questions as $question )
+
+                                  <tr>
+                                    <td>
 
 
-                                @endforeach
-                              </tbody>
-                            </table>
+                                      <input type="checkbox" name="questions[]" value="{{$question->id}}" @if(in_array($question->id,$quizuestionsids)) checked @endif>
+                                      {{ $question->customTitle }}
+                                    </td>
+
+
+                                  </tr>
+                                  @endforeach
+                                </tbody>
+                              </table>
+                            </div>
                           </div>
-                        </div>
-                        @endif
-                      </td>
-                      <td>
-                        <select class="select2 form-control" name="random[]" id="random">
-                          @if($group->randmom == 1)
-                          <option value="1">{{ __('admin.yes') }}</option>
-                          @else
-                          <option value="0">{{ __('admin.no') }}</option>
-                          @endif
+                        </td>
 
-                        </select>
-                      </td>
-                      <td>
-                        <input type="number" name="questionNumber[]" id="questionNumber" value="{{$group->question_number}}" placeholder="عدد الأسئلة" />
-                      </td>
+                      </tr>
+                      @endforeach
 
-                      <td>
-                        <a type="button" value="Delete" onclick="deleteRow(this)">
-                          <i class="fas fa-trash-alt"></i>
-                        </a>
-                      </td>
-                    </tr>
-                    @endforeach
+                    </tbody>
 
-                    @endif
-                  </tbody>
+                  </table>
 
-                </table>
-                <div class="pull-right">
-                  <input type="button" value="إضافة" class="top-buffer" onclick="addRow()" />
                 </div>
               </div>
             </div>
@@ -325,34 +299,6 @@
 @endsection
 @push('scripts')
 
-<script>
-  function addRow() {
-    var table = document.getElementById("instructorstable");
-    var row = table.insertRow(-1);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
 
-    cell1.innerHTML = '<select class="select2 form-control" name="banks[]"><option value="">{{ __('
-    select ') }}</option>@foreach($banks as $bank)<option value="{{$bank->id}}"> {{ $bank->name }}</option>@endforeach</select>';
-    cell2.innerHTML = '<select class="select2 form-control" name="random[]"><option value="1">{{ __('
-    admin.yes ') }}</option><option value="0">{{ __('
-    admin.no ') }}</option></select>';
-    cell3.innerHTML = '<input type="number" name="questionNumber[]" value="" placeholder="عدد الأسئلة" />';
-    cell4.innerHTML = '<a type="button" value="Delete" onclick="deleteRow(this)"><i class="fas fa-trash-alt"></i></a>';
-  }
 
-  function deleteRow(row) {
-    var table = document.getElementById("instructorstable");
-    var rowCount = table.rows.length;
-    if (rowCount > 1) {
-      var rowIndex = row.parentNode.parentNode.rowIndex;
-      document.getElementById("instructorstable").deleteRow(rowIndex);
-    } else {
-      alert("Please specify at least one value.");
-    }
-  }
-</script>
-</script>
 @endpush
