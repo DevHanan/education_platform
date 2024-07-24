@@ -143,6 +143,7 @@ class QuizController extends Controller
         $data['bank_groups'] = $data['row']->bankGroups()->pluck('bank_group_id')->ToArray();
         $data['banks'] = BankGroup::active()->get();
         $data['quizuestionsids'] = QuizQuestion::where('quiz_id', $id)->pluck('question_id')->ToArray();
+        return $data['quizuestionsids'];
         $data['groups'] = BankQuestion::whereIn('id', $data['quizuestionsids'])->pluck('bank_group_id')->ToArray();
         $data['bankgroups'] = QuizBankGroup::where('quiz_id', $id)->get();
         $data['quizquestions'] = QuizQuestion::where('quiz_id', $id)->pluck('question_id')->toArray();
