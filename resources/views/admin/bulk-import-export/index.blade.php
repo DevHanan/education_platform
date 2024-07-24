@@ -50,6 +50,7 @@
                                                     <div class="col-md-3">
                                                     <a href="{{asset('public/uploads/exports/testimportquestions.xslx')}}" style="padding:10px 5px 10px 5px;" target="_blank" class="btn btn-success primary-bg" download="{{asset('public/uploads/exports/testimportquestions.xslx')}}"> 
                                                     تحميل مثال </a>
+                                                    
                                                     </div>
                                                 </div>
                                             </form>
