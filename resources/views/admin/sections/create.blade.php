@@ -132,7 +132,7 @@
                                       <td>
 
 
-                                        <input type="checkbox" name="questions[]" value="{{$question->id}}" @if(in_array($question->id,$quizuestionsids)) checked @endif>
+                                        <input type="checkbox" name="questions[]" value="{{$question->id}}" >
                                         {{ $question->customTitle }}
                                       </td>
 
