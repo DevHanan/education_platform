@@ -115,7 +115,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td>
+                          <td colspan="3">
                           <p>
                               <a class="text-primary" id="bankquestion_{{$bank->id}}" data-bs-toggle="collapse" href="#collapseExample{{$bank->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
                                 إختر الاسئلة
