@@ -72,6 +72,7 @@ class QuizController extends Controller
     public function store(Request $request)
     {
         
+        return $request->all();
         if($request->banks && count($request->banks)>0){
             Toastr::success(__('admin.plz_select_one_bank'), __('admin.msg_error'));
             return redirect()->back();
