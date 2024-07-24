@@ -98,7 +98,7 @@
                           @foreach($bankgroups as $bank)
 
                           <td>
-                            <input type="checkbox" name="banks[]" value="{{ $bank->id}}" @if(in_array($bank->id,$groups)) checked @endif> {{ $bank->name }}
+                            <input type="checkbox" name="banks[]" value="{{ $bank->id}}" > {{ $bank->name }}
 
                           </td>
 
