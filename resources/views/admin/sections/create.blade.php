@@ -192,7 +192,7 @@
       const selectId = this.id;
       const value = this.value;
       console.log("bankquestion_"+selectId);
-      if (value == '0') {
+      if (value == '1') {
         document.getElementById("bankquestion_"+selectId).style.display = 'none';
 
 
