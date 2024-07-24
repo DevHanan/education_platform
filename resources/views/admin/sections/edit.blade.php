@@ -116,7 +116,8 @@
 
 
                                         <input type="checkbox" name="questions[]" value="{{$question->id}}" @if(in_array($question->id,$quizuestionsids)) checked @endif>
-                                       {{ $question->customTitle }}</td>
+                                        {{ $question->customTitle }}
+                                      </td>
 
                                     </tr>
                                     @endforeach
@@ -129,7 +130,7 @@
                           </td>
                           <td>
                             <select class="select2 form-control randomlist" name="random[]" id="{{$bank->id}}">
-                            <option selected disabled>{{ __('admin.select') }}</option>
+                              <option selected disabled>{{ __('admin.select') }}</option>
                               <option value="1">{{ __('admin.yes') }}</option>
                               <option value="0">{{ __('admin.no') }}</option>
 
@@ -160,23 +161,24 @@
 </div>
 <!-- [ Main Content ] end -->
 
-<script>
-  
-  // Get all select elements with the same class name
-const selectElements = document.querySelectorAll('.randomlist');
 
-// Add an event listener to each select element
-selectElements.forEach(function(selectElement) {
-  selectElement.addEventListener('change', function() {
-    // Get the ID of the select element that triggered the event
-    alert("here");
-    const selectId = this.id;
-    alert(selectId);
-  });
-});
-</script>
 @endsection
 @push('scripts')
 
+<script>
+  $('document').ready(function() {
+    // Get all select elements with the same class name
+    const selectElements = document.querySelectorAll('.randomlist');
 
+    // Add an event listener to each select element
+    selectElements.forEach(function(selectElement) {
+      selectElement.addEventListener('change', function() {
+        // Get the ID of the select element that triggered the event
+        alert("here");
+        const selectId = this.id;
+        alert(selectId);
+      });
+    });
+  });
+</script>
 @endpush
