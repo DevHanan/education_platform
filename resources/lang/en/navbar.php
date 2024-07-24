@@ -128,7 +128,7 @@ return [
         'list' => 'View partners and supporters',
         'add' => 'Add a new partner',
     ],
-    'faculties' => [
+    'faculities' => [
         'title' => 'Show list of colleges',
         'list' => 'View list of colleges',
         'add' => 'Add a new college',
