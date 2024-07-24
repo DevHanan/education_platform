@@ -173,8 +173,9 @@ const selectElements = document.querySelectorAll('.randomlist');
 selectElements.forEach(function(selectElement) {
   selectElement.addEventListener('change', function() {
     // Get the ID of the select element that triggered the event
+    alert("here");
     const selectId = this.id;
-    console.log(`Select element with ID ${selectId} has been changed`);
+    alert(selectId);
   });
 });
 </script>
