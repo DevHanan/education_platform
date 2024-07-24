@@ -39,8 +39,7 @@ class BankQuestionImport implements ToCollection, WithHeadingRow
 
 
         foreach ($rows as $row) {
-            $bank = BankGroup::where('name','LIKE', $row['bank'])->first();
-            return $bank;
+            $bank = BankGroup::where('name', 'LIKE', '%'.$row['bank'].'%')->first();
            
             BankQuestion::updateOrCreate(
                 [
