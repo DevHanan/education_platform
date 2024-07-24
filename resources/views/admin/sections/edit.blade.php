@@ -160,10 +160,6 @@
 </div>
 <!-- [ Main Content ] end -->
 
-
-@endsection
-@push('scripts')
-
 <script>
   
   // Get all select elements with the same class name
@@ -179,4 +175,8 @@ selectElements.forEach(function(selectElement) {
   });
 });
 </script>
+@endsection
+@push('scripts')
+
+
 @endpush
