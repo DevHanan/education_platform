@@ -40,11 +40,14 @@
                                                 <div class="row">
 
                                                     <div class="col-md-6">
-                                                        <input type="file" name="import" class="form-control" required>
+                                                        <input type="file" name="import" class="form-control" required accept=".xlsx">
                                                     </div>
 
                                                     <div class="col-md-6">
                                                         <button type="submit" class="btn btn-success">{{ __('admin.btn_import') }}</button>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                    <a href="{{asset('public/uploads/testimportquestions.xslx')}}" style="padding:10px 5px 10px 5px;" target="_blank" class="btn btn-success primary-bg" download="{{asset($book->file)}}"> <img src="{{asset('front/img/icons/material-symbols_download.png')}}" alt=""> تحميل نسخه </a>
                                                     </div>
                                                 </div>
                                             </form>
