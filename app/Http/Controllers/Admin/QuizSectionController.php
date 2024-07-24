@@ -19,7 +19,7 @@ class QuizSectionController extends Controller
     use ApiResponse, FileUploader;
 
 
-    
+
     public function __construct()
     {
         $this->title = trans('admin.sections.title');
@@ -32,31 +32,30 @@ class QuizSectionController extends Controller
         // $this->middleware('permission:sections-edit',   ['only' => ['edit','update']]);
         // $this->middleware('permission:sections-delete',   ['only' => ['delete']]);
     }
-    public function index(Request $request,$quiz_id)
+    public function index(Request $request, $quiz_id)
     {
         $data['route'] = $this->route;
         $data['title'] = $this->title;
         $data['quiz'] = Quiz::find($quiz_id);
-        $data['rows'] = QuizSection::where(function($q)use($request){
+        $data['rows'] = QuizSection::where(function ($q) use ($request) {
             if ($request->name)
-            $q->Where('name', 'like', '%' . $request->name  . '%');
-        })->where('quiz_id',$quiz_id)->paginate(10);
-        return view($this->view.'.index', $data);
+                $q->Where('name', 'like', '%' . $request->name  . '%');
+        })->where('quiz_id', $quiz_id)->paginate(10);
+        return view($this->view . '.index', $data);
     }
 
-    public function create(QuizSection $section,$quiz_id)
+    public function create(QuizSection $section, $quiz_id)
     {
-        
+
         $data['title'] = trans('admin.quiz-sections.add');
         $data['route'] = $this->route;
         $data['quiz'] = Quiz::find($quiz_id);
-        $bank_groups= $data['quiz']->bankGroups()->pluck('bank_group_id')->ToArray();
-        $data['questions'] = BankQuestion::whereIn('bank_group_id',$bank_groups)->get();
-        return view($this->view .'.create',$data);
+        $bank_groups = $data['quiz']->bankGroups()->pluck('bank_group_id')->ToArray();
+        $data['questions'] = BankQuestion::whereIn('bank_group_id', $bank_groups)->get();
+        return view($this->view . '.create', $data);
     }
     public function store(Request $request)
     {
-        return $request->all();
         $this->validate($request, [
             'banks' => [
                 'required',
@@ -70,62 +69,75 @@ class QuizSectionController extends Controller
         ]);
         $active = $request->active ? '1' : '0';
         $request->merge(['active' => $active]);
-       $section = QuizSection::create($request->all());
-         if($request->banks && $request->questions){
-            foreach($request->questions as $id)
-            QuizQuestion::create(['section_id'=>$section->id , 'quiz_id'=>$section->quiz_id,'question_id'=>$id]);
-         }
-        
+        $section = QuizSection::create($request->all());
+        if ($request->banks) {
+            // insert selected questions not random 
+            if ($request->questions) {
+                foreach ($request->questions as $id)
+                    QuizQuestion::create(['section_id' => $section->id, 'quiz_id' => $section->quiz_id, 'question_id' => $id]);
+            }
+
+            // Random bank question if exist 
+            for ($i = 0; $i < count($request->random); $i++) {
+                if ($request->random[$i] == 1) {
+                    $question_num = $request->questionNumber[$i];
+                    $bank_id = $request->banks[$i];
+                    $randomIds = BankQuestion::where('bank_group_id', $bank_id)->inRandomOrder()->take($question_num)->pluck('id');
+                    foreach ($randomIds as $id)
+                        QuizQuestion::create(['section_id' => $section->id, 'quiz_id' => $section->quiz_id, 'question_id' => $id]);
+                }
+            }
+        }
+
 
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
-        return redirect("admin/quizzes/".$request->quiz_id."/sections");
+        return redirect("admin/quizzes/" . $request->quiz_id . "/sections");
     }
 
 
-    public function show($id){
-       $section = QuizSection::find($id);
-        if($track)
-        return $this->okApiResponse(new TrackResource($track), __('Track loades successfully'));
+    public function show($id)
+    {
+        $section = QuizSection::find($id);
+        if ($track)
+            return $this->okApiResponse(new TrackResource($track), __('Track loades successfully'));
         else
-        return $this->notFoundApiResponse([],__('Data Not Found'));
-
+            return $this->notFoundApiResponse([], __('Data Not Found'));
     }
 
-    public function edit($quiz_id,$id)
-    {   
+    public function edit($quiz_id, $id)
+    {
         $data['row'] = QuizSection::find($id);
         $data['route'] = $this->route;
         $data['quiz'] = Quiz::find($quiz_id);
-        $data['quizuestionsids']=QuizQuestion::where('section_id',$id)->pluck('question_id')->ToArray();
-        $data['groups'] = BankQuestion::whereIn('id',$data['quizuestionsids'])->pluck('bank_group_id')->ToArray();
-        $data['bank_groups']= $data['quiz']->bankGroups()->pluck('bank_group_id')->ToArray();
+        $data['quizuestionsids'] = QuizQuestion::where('section_id', $id)->pluck('question_id')->ToArray();
+        $data['groups'] = BankQuestion::whereIn('id', $data['quizuestionsids'])->pluck('bank_group_id')->ToArray();
+        $data['bank_groups'] = $data['quiz']->bankGroups()->pluck('bank_group_id')->ToArray();
         $data['questions'] = BankQuestion::whereIn('bank_group_id', $data['bank_groups'])->get();
         $data['title'] = trans('admin.quiz-sections.edit');
-        return view($this->view.'.edit',$data);
+        return view($this->view . '.edit', $data);
     }
 
-    public function update(Request $request,$quiz_id)
+    public function update(Request $request, $quiz_id)
     {
         $active = $request->active ? '1' : '0';
         $request->merge(['active' => $active]);
-       $section = QuizSection::find($request->id);
-       $section->update($request->all());
-       if($request->questions){
-        QuizQuestion::whereNotIn('question_id', $request->questions)->delete();
-        foreach($request->questions as $id)
-        QuizQuestion::firstOrCreate(['section_id' => $section->id,'quiz_id'=>$section->quiz_id,'question_id'=>$id]); 
-    }
+        $section = QuizSection::find($request->id);
+        $section->update($request->all());
+        if ($request->questions) {
+            QuizQuestion::whereNotIn('question_id', $request->questions)->delete();
+            foreach ($request->questions as $id)
+                QuizQuestion::firstOrCreate(['section_id' => $section->id, 'quiz_id' => $section->quiz_id, 'question_id' => $id]);
+        }
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
-        return redirect("admin/quizzes/".$quiz_id."/sections");
-    
+        return redirect("admin/quizzes/" . $quiz_id . "/sections");
     }
 
-    public function destroy (Request $request ,$quiz_id)
+    public function destroy(Request $request, $quiz_id)
     {
-       $section = QuizSection::find($request->id);
+        $section = QuizSection::find($request->id);
         if ($section)
-           $section->delete();
-            Toastr::success(__('admin.msg_deleted_successfully'), __('admin.msg_success'));
-            return redirect()->back();
+            $section->delete();
+        Toastr::success(__('admin.msg_deleted_successfully'), __('admin.msg_success'));
+        return redirect()->back();
     }
 }
