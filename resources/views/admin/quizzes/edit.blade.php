@@ -211,14 +211,7 @@
               <div class="card-body">
                 <div class="main">
                   <table class=" table data-table data-table-horizontal data-table-highlight">
-                    <!-- <thead>
-          <tr>
-            <td> {{ __('admin.quizzes.select_bank') }}</td>
-            <td>{{ __('admin.quizzes.random_select') }} </td>
-
-            <td>{{ __('admin.quizzes.question_number') }} </td>
-          </tr>
-        </thead> -->
+               
                     <tbody id="instructorstable">
                       <tr>
                         @foreach($bankgroups as $bank)
@@ -228,17 +221,7 @@
 
                         </td>
 
-                        <!-- <td>
-              <select class="select2 form-control randomlist" name="random[]" id="{{$bank->id}}">
-                <option selected disabled>{{ __('admin.select') }}</option>
-                <option value="1">{{ __('admin.yes') }}</option>
-                <option value="0">{{ __('admin.no') }}</option>
-
-              </select>
-            </td>
-            <td>
-              <input type="number" name="questionNumber[]" id="questionNumber" value="" placeholder="عدد الأسئلة"  max="{{$bank->questions()->count()}}"/>
-            </td> -->
+                    
                       </tr>
                       <tr>
                         <td>
