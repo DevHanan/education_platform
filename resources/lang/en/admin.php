@@ -756,7 +756,6 @@ return [
     ],
     'subjects' => [
         'title' => 'List of subjects',
-
         'name' => 'name of material',
         'status' => 'appearance status',
         'degree' => 'total degree',
@@ -764,5 +763,40 @@ return [
         'first_classroom_title' => 'List of Secondary School Subjects',
         'second_classroom_title' => 'List of Secondary Subjects',
         'third_classroom_title' => 'List of third secondary subjects'
-    ]
+    ], 'student_no_active' => 'الطالب غير مفعل يمكن تفعيله أولا لتسجيل الدخول لحسابه',
+    'student_not_exist' => ' خطأ فى بيانات الحساب من فضلك تواصل مع الإدارة',
+    'msg_error' => 'خطأ !',
+    'msg_login_successfully' => 'تم تسجيل الدخول بنجاح',
+    'instructor_no_active' => 'المحاضر غير مفعل يمكن تفعيله أولا لتسجيل الدخول لحسابه',
+    'instructor_not_exist' => ' خطأ فى بيانات الحساب من فضلك تواصل مع الإدارة',
+    'subscribtion_added_again' => 'هذا الطالب مشترك بالدورة بالفعل',
+    'show_file' => 'عرض الملف',
+    'book_store_visiable' => 'رابط متجر الكتب',
+    'msg_added_successfully' => 'تم إضافة بنجاح',
+    'female_gender' => 'Female',
+    'male_gender' => 'Male',
+    'make_msg_read'  => 'Make Msg read',
+    'make_msg_unread' => 'Make Msg not read',
+    'msg_status_changed_successfully' => 'تم تغير الحالة بنجاح',
+    'all'  => 'All',
+    'studentlabel' => 'Students',
+    'instructorlabel' => 'Instructors',
+    'notificaion_send_successfully' => 'تم إرسال الإشعار بنجاح',
+    'comments' => [
+        'date' => 'publish date',
+        'rate' => 'Rate',
+        'comment' => 'Comment',
+        'status'  => 'Status',
+        'actions' => 'Action',
+        'student' => 'Student',
+        'title' => 'Course reviews'
+    ],
+    'show_student' => 'Student Profile',
+    'yes' => 'Yes',
+    'no'=> 'No',
+    'btn_import' => 'Import',
+    'bank_group_questions'=> 'Questions',
+    'table_name' => 'Table Name',
+    'module_bulk_import_export' => 'Import Files',
+    'select' => 'Plz select Value'
 ];
