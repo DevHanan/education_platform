@@ -72,7 +72,7 @@ class QuizController extends Controller
     public function store(Request $request)
     {
         
-        if(!isset($request->banks)){
+        if(!isset($request->banks) ){
             Toastr::success(__('admin.plz_select_one_bank'), __('admin.msg_error'));
             return redirect()->back();
 
@@ -141,8 +141,10 @@ class QuizController extends Controller
         $data['access'] = $this->access;
         $data['row'] = Quiz::find($id);
         $data['bank_groups'] = $data['row']->bankGroups()->pluck('bank_group_id')->ToArray();
-        $data['groups'] = BankGroup::wherein('id', $data['bank_groups'])->get();
         $data['banks'] = BankGroup::active()->get();
+        $data['quizuestionsids'] = QuizQuestion::where('section_id', $id)->pluck('question_id')->ToArray();
+        $data['groups'] = BankQuestion::whereIn('id', $data['quizuestionsids'])->pluck('bank_group_id')->ToArray();
+        $data['bankgroups'] = QuizBankGroup::where('quiz_id', $id)->get();
         $data['quizquestions'] = QuizQuestion::where('quiz_id', $id)->pluck('question_id')->toArray();
 
         return view($this->view . '.edit', $data);
