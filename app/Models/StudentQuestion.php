@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Symfony\Component\VarDumper\Cloner\Stub;
 
 class StudentQuestion extends Model
 {
@@ -13,5 +14,10 @@ class StudentQuestion extends Model
     public function question(){
 
         return $this->belongsTo(BankQuestion::class,'question_id','id');
+    }
+
+    public function student(){
+
+        return $this->belongsTo(Student::class);
     }
 }

@@ -100,7 +100,7 @@
                             <input type="checkbox" name="banks[]" value="{{ $bank->id}}" @if(in_array($bank->id,$groups)) checked @endif> {{ $bank->name }}
                             @if(count($bank->questions)>1)
                             <p>
-                              <a class="text-primary" data-bs-toggle="collapse" href="#collapseExample{{$bank->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                              <a class="text-primary" id="bankquestion_{{$bank->id}}" data-bs-toggle="collapse" href="#collapseExample{{$bank->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
                                 إختر الاسئلة
                               </a>
 
@@ -128,7 +128,8 @@
                             @endif
                           </td>
                           <td>
-                            <select class="select2 form-control" name="random[]" id="random[]">
+                            <select class="select2 form-control randomlist" name="random[]" id="{{$bank->id}}">
+                            <option selected disabled>{{ __('admin.select') }}</option>
                               <option value="1">{{ __('admin.yes') }}</option>
                               <option value="0">{{ __('admin.no') }}</option>
 
@@ -164,23 +165,17 @@
 @push('scripts')
 
 <script>
-  // Get the checkbox and the div elements
-  const flexHasLevelSwitchCheck = document.getElementById('random[]');
-  const divToHide = document.getElementById('divToHide');
+  
+  // Get all select elements with the same class name
+const selectElements = document.querySelectorAll('.randomlist');
 
-  // Add an event listener to the checkbox
-  flexHasLevelSwitchCheck.addEventListener('change', function() {
-    const selectedValue = selectElement.value;
-    alert(selectedValue);
-    // If the checkbox is checked, hide the div
-    if (selectedValue == '0') {
-      divToHide.style.display = 'block';
-
-    } else {
-      // If the checkbox is not checked, show the div
-      divToHide.style.display = 'none';
-
-    }
+// Add an event listener to each select element
+selectElements.forEach(function(selectElement) {
+  selectElement.addEventListener('change', function() {
+    // Get the ID of the select element that triggered the event
+    const selectId = this.id;
+    console.log(`Select element with ID ${selectId} has been changed`);
   });
+});
 </script>
 @endpush
