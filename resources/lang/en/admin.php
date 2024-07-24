@@ -744,7 +744,7 @@ return [
     "field_account_id" => "Account Id",
     "number" => "order number",
     "notes" => "notes",
-    'faculties' => [
+    'faculities' => [
         'title' => 'List of colleges',
         'name' => 'college name',
         'status' => 'appearance status',
