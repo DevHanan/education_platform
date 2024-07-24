@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Validator;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class BankQuestionmport implements ToCollection, WithHeadingRow
+class BankQuestionImport implements ToCollection, WithHeadingRow
 {
     /**
     * @param array $row
