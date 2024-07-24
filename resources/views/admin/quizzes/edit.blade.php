@@ -199,7 +199,7 @@
             </div>
 
           </div>
-          @if($groups && $row->has_levels == 0)
+          @if( $row->has_levels == 0)
           <div class="card-body">
 
             <div class="card-status-top bg-blue"></div>
