@@ -96,6 +96,7 @@
                       <tbody id="instructorstable">
                         <tr>
                           @foreach($bankgroups as $bank)
+                        
                           <td>
                             <input type="checkbox" name="banks[]" value="{{ $bank->id}}" @if(in_array($bank->id,$groups)) checked @endif> {{ $bank->name }}
                             @if(count($bank->questions)>1)
@@ -180,7 +181,7 @@
       if (value == '0') {
         document.getElementById("bankquestion_"+selectId).style.display = 'none';
 
-        
+
       } else {
         // If the checkbox is not checked, show the div
         document.getElementById("bankquestion_"+selectId).style.display = 'block';

@@ -64,7 +64,7 @@ class AppServiceProvider extends ServiceProvider
         $subscriptions = Subscription::all();
         $landingSetting = LandingSetting::first();
         $latest  = Course::whereDate('start_date', '>=', now()->addDays($landingSetting->start_soon_period))->latest()->take(6)->get();
-        $bankgroup = BankGroup::active()->latest()->get();
+        $bankgroup = BankGroup::whereHas('questions')->active()->latest()->get();
         $reviews = Review::active()->latest()->get();
         $policies = Policy::active()->get();
        $toprated = Course::selectRaw('*, AVG(comments.rate) as avg')
