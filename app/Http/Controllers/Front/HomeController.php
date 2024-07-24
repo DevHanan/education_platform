@@ -270,7 +270,6 @@ class HomeController extends Controller
     }
 
     public function availablefacultities(Request $request){
-        return $request->all();
         $malefaculities = Faculty::where('min_accept_degree','<=',$request->result2)->where('gender','male')->get();
         $femalefaculities = Faculty::where('min_accept_degree','<=',$request->result2)->where('gender','female')->get();
 
