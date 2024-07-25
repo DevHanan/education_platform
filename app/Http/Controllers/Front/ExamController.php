@@ -25,7 +25,7 @@ class ExamController extends Controller
             return view('front.quizdepartment', compact('quiz'));
         else{
             $id = QuizQuestion::where('quiz_id',$id)->first();
-            $question = BankQuestion::where('question_id',$id)->first();
+            $question = BankQuestion::where('id',$id->question_id)->first();
             $QuizQuestion = QuizQuestion::where('quiz_id', $id)->pluck('question_id')->ToArray();
             return view('front.quizuestion', compact('quiz','question','QuizQuestion'));
         }
