@@ -31,10 +31,12 @@ class ExamController extends Controller
     public function getquestion( $id,$quiz_id)
     {
         $question = BankQuestion::where('id', $id)->first();
+        $studentanswer = StudentQuestion::where('question_id',$id)->where('quiz_id',$quiz_id)->first();
+        $answer = 'answer_'.$studentanswer->answer;
         $quiz = Quiz::find($quiz_id);
         $QuizQuestion  = [];
         $questionnumber = 1;
-        return view('front.quizuestion', compact('quiz', 'question', 'questionnumber','QuizQuestion'));
+        return view('front.quizuestion', compact('quiz', 'question', 'questionnumber','QuizQuestion','studentanswer','answer'));
     }
 
 
@@ -54,7 +56,7 @@ class ExamController extends Controller
                 ],
                 [
                     'answer'     => $request->answer,
-                    'status'     => $request->answer ? '1':'0'
+                    'status'     =>  $request->answer != null ? '1' : '0'
                 ]
             );
             $question = BankQuestion::where('id', $request->QuizQuestion[0])->first();
