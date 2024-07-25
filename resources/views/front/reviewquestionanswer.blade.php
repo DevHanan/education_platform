@@ -85,7 +85,8 @@
        <form post="method" action="{{url('finish-exam')}}">
       <input type="hidden" name="quiz_id" value="{{$quiz->id}}">
       <div class="text-center pt-2">
-        <div class="btn border text-light" onclick="goToFinalReview()">نعم</div>
+        <button type="submit" class="btn border text-light" >نعم</button>
+        <!-- <div class="btn border text-light" onclick="goToFinalReview()">نعم</div> -->
       </div>
       @csrf
       </form>
