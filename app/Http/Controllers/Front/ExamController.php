@@ -43,7 +43,7 @@ class ExamController extends Controller
     public function question(Request $request)
     {
 
-        retrun $request->all();
+        return $request->all();
         $quiz = Quiz::find($request->quiz_id);
         $questionnumber = $request->questionnumber + 1;
         if (!isset($request->QuizQuestion)) {
