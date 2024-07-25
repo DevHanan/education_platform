@@ -24,8 +24,8 @@ class ExamController extends Controller
         if ($quiz->has_levels)
             return view('front.quizdepartment', compact('quiz'));
         else{
-            $question = QuizQuestion::where('quiz_id',$id)->first();
-            return $question;
+            $id = QuizQuestion::where('quiz_id',$id)->first();
+            $question = BankQuestion::where('question_id',$id)->first();
             $QuizQuestion = QuizQuestion::where('quiz_id', $id)->pluck('question_id')->ToArray();
             return view('front.quizuestion', compact('quiz','question','QuizQuestion'));
         }
