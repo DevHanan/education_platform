@@ -28,25 +28,39 @@ class ExamController extends Controller
 
 
 
-    public function getquestion( $id,$quiz_id)
+    public function getquestion($id, $quiz_id)
     {
         $question = BankQuestion::where('id', $id)->first();
-        $studentanswer = StudentQuestion::where('question_id',$id)->where('quiz_id',$quiz_id)->first();
-        $answer = 'answer_'.$studentanswer->answer;
+        $studentanswer = StudentQuestion::where('question_id', $id)->where('quiz_id', $quiz_id)->first();
+        $answer = 'answer_' . $studentanswer->answer;
         $quiz = Quiz::find($quiz_id);
         $QuizQuestion  = [];
         $questionnumber = 1;
-        return view('front.quizuestion', compact('quiz', 'question', 'questionnumber','QuizQuestion','studentanswer','answer'));
+        return view('front.quizuestion', compact('quiz', 'question', 'questionnumber', 'QuizQuestion', 'studentanswer', 'answer'));
     }
 
 
     public function question(Request $request)
     {
 
-        return $request->all();
         $quiz = Quiz::find($request->quiz_id);
         $questionnumber = $request->questionnumber + 1;
-        if (!isset($request->QuizQuestion)) {
+        if ($request->question_id && !isset($request->QuizQuestion)) {
+
+            StudentQuestion::updateOrCreate(
+                [
+                    'student_id'     => $request->student_id,
+                    'quiz_id' => $request->quiz_id,
+                    'question_id'    => $request->question_id,
+                ],
+                [
+                    'answer'     => $request->answer,
+                    'status'     =>  $request->answer != null ? '1' : '0'
+                ]
+            );
+            $studentanswers = StudentQuestion::where('quiz_id', $request->quiz_id)->where('quiz_id', $request->quiz_id)->get();
+            return redirect()->route('questions.reviews', [$quiz->id])->with(['studentanswers']);
+        } elseif (!isset($request->QuizQuestion)) {
             $studentanswers = StudentQuestion::where('quiz_id', $request->quiz_id)->where('quiz_id', $request->quiz_id)->get();
             return redirect()->route('questions.reviews', [$quiz->id])->with(['studentanswers']);
         } else {
@@ -120,6 +134,6 @@ class ExamController extends Controller
                 $q->where('section_id', $request->section_id);
         })->get();
         $quiz = Quiz::find($request->id);
-        return view('front.reviewquestionanswer', compact('questions','title','quiz'));
+        return view('front.reviewquestionanswer', compact('questions', 'title', 'quiz'));
     }
 }
