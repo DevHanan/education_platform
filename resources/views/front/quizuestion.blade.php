@@ -50,6 +50,7 @@
     </div>
   </nav> -->
 
+  @if(isset($question))
   <form method="post" action="{{url('question/'.$question->id)}}" method="POST">
  @csrf
  <section class="container-fluid question-main-section">
@@ -119,6 +120,7 @@
     </div>
   </footer>
   </form>
+  @endif
 
   <script src="{{asset('public/front/exam/js/bootstrap.bundle.min.js')}}"></script>
   <script src="{{asset('public/front/exam/js/all.min.js')}}"></script>
