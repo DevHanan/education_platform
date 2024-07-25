@@ -120,7 +120,7 @@
     <div class="row">
       @foreach($questions as $item )
       @if($item->status == 0)
-      <a href="#" class="text-decoration-none text-dark col-md-4 border p-3 all unique uncompleted">
+      <a href="{{ url('get-question/'.$item->question_id . '/' . $quiz->id ) }}" class="text-decoration-none text-dark col-md-4 border p-3 all unique uncompleted">
         <div class="d-flex justify-content-between">
           <div>
             <span><i class="fa-solid fa-flag text-secondary"></i></span>
@@ -133,13 +133,16 @@
         </div>
       </a>
       @else
-      <a href="#" class="text-decoration-none text-dark col-md-4 border p-3 all unique">
+      <a href="{{ url('get-question/'.$item->question_id . '/' . $quiz->id ) }}" class="text-decoration-none text-dark col-md-4 border p-3 all unique">
         <div class="d-flex justify-content-between">
           <div>
             <span><i class="fa-solid fa-flag text-secondary"></i></span>
-            <span> {!! $item->question->customTitle !!}</span>
+            <span> {{ optional($item->question)->customTitle }}</span>
           </div>
-
+          <span class="text-info">
+            
+             مكتمل
+          </span>
         </div>
       </a>
 
