@@ -113,7 +113,7 @@ class ExamController extends Controller
             if ($request->section_id)
                 $q->where('section_id', $request->section_id);
         })->get();
-        $quiz = Quiz::where('id',$questions->first()->quiz_id);
+        $quiz = Quiz::find($request->id);
         return view('front.reviewquestionanswer', compact('questions','title','quiz'));
     }
 }
