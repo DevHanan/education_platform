@@ -82,7 +82,7 @@
       <div class="text-center pt-2">
         <div class="btn border text-light" onclick="hidePopUp()">لا</div>
       </div>
-       <form post="method" action="{{url('finish-exam')}}">
+       <form method="post" action="{{url('finish-exam')}}">
       <input type="hidden" name="quiz_id" value="{{$quiz->id}}">
       <div class="text-center pt-2">
         <button type="submit" class="btn border text-light" >نعم</button>
