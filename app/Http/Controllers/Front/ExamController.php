@@ -46,7 +46,26 @@ class ExamController extends Controller
         return view('front.quizuestion', compact('question', 'section', 'QuizQuestion'));
     }
 
+
+    
     public function question(Request $request)
+    {
+        $quiz = Quiz::find($request->quiz_id);
+
+        if (!isset($request->QuizQuestion)) {
+            $studentanswers = StudentQuestion::where('quiz_id', $request->quiz_id)->where('quiz_id', $request->quiz_id)->get();
+           return redirect()->route('questions.reviews',[$quiz->id])->with(['studentanswers']);
+            // return view('front.reviewquestionanswer', compact('section', 'studentanswers'));
+        } else {
+            StudentQuestion::create($request->all());
+            $question = BankQuestion::where('id', $request->QuizQuestion[0])->first();
+            $QuizQuestion = $request->QuizQuestion;
+            unset($QuizQuestion[0]);
+            return view('front.quizuestion', compact('question', 'quiz', 'QuizQuestion'));
+        }
+    }
+
+    public function question1(Request $request)
     {
         $section = QuizSection::find($request->section_id);
 
