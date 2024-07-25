@@ -22,7 +22,8 @@ class ExamController extends Controller
             $quiz = Quiz::find($id);
             $question = BankQuestion::where('id',$first_question->question_id)->first();
             $QuizQuestion = QuizQuestion::where('quiz_id', $id)->pluck('question_id')->ToArray();
-            return view('front.quizuestion', compact('quiz','question','QuizQuestion'));
+            $questionnumber = 1;
+            return view('front.quizuestion', compact('quiz','question','QuizQuestion','questionnumber'));
     }
 
 

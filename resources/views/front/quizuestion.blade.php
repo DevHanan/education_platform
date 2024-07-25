@@ -33,7 +33,8 @@
           <h6 id="timer">25:00</h6>
         </div>
         <div class="d-flex justify-content-end">
-          <span>1 من {{ $quiz->questions()->count()}}</span>
+          <span>{{ $questionnumber}} من {{ $quiz->questions()->count()}}</span>
+          <input type="hidden" name="questionnumber"value="{{ $questionnumber }}">
         </div>
       </div>
     </div>
