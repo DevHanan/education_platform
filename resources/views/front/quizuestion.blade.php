@@ -53,7 +53,6 @@
   <form method="post" action="{{url('question/'.$question->id)}}" method="POST">
  @csrf
  <section class="container-fluid question-main-section">
- <input type="hidden" name="quiz_id" value="{{$quiz->id}}">
     <div class="row">
       <div class="col-md-6 p-4">
         <h5> {!! $question->title !!} </h5>
@@ -69,6 +68,7 @@
         <input type="hidden" name="QuizQuestion[]"  value="{{$qid}}">
         @endforeach
         <input type="hidden" name="question_id" value="{{$question->id}}">
+        <input type="hidden" name="quiz_id" value="{{$quiz->id}}">
 
         <div class="p-2 d-flex gap-2">
           <input class="form-check-input" type="radio" name="answer"  value="{{$question->answer2}}" id="ans-2">
