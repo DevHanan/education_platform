@@ -49,6 +49,7 @@
       </select>
     </div>
   </nav> -->
+  
   <form method="post" action="{{url('question/'.$question->id)}}" method="POST">
  @csrf
  <section class="container-fluid question-main-section">
