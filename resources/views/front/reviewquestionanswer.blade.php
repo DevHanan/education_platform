@@ -124,7 +124,7 @@
         <div class="d-flex justify-content-between">
           <div>
             <span><i class="fa-solid fa-flag text-secondary"></i></span>
-            <span> {!!  $item->question->title !!}</span>
+            <span> {!!  $item->question->customTitle !!}</span>
           </div>
           <span class="text-danger">
             
@@ -137,7 +137,7 @@
         <div class="d-flex justify-content-between">
           <div>
             <span><i class="fa-solid fa-flag text-secondary"></i></span>
-            <span> {!! $item->question->title !!}</span>
+            <span> {!! $item->question->customTitle !!}</span>
           </div>
 
         </div>
