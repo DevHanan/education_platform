@@ -120,17 +120,20 @@
     <div class="row">
       @foreach($questions as $item )
       @if($item->status == 0)
-      <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all unique uncompleted">
+      <a href="{{url('question/'.$item->question->id)}}" class="text-decoration-none text-dark col-md-4 border p-3 all unique uncompleted">
         <div class="d-flex justify-content-between">
           <div>
             <span><i class="fa-solid fa-flag text-secondary"></i></span>
             <span> {!!  $item->question->title !!}</span>
           </div>
-          <span class="text-danger">غير مكتمل</span>
+          <span class="text-danger">
+            
+            غير مكتمل
+          </span>
         </div>
       </a>
       @else
-      <a href="answer-question.html" class="text-decoration-none text-dark col-md-4 border p-3 all unique">
+      <a href="{{url('question/'.$item->question->id)}}" class="text-decoration-none text-dark col-md-4 border p-3 all unique">
         <div class="d-flex justify-content-between">
           <div>
             <span><i class="fa-solid fa-flag text-secondary"></i></span>

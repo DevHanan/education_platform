@@ -53,6 +53,7 @@ class ExamController extends Controller
                 ],
                 [
                     'answer'     => $request->answer,
+                    'status'     => $request->answer ? '1':'0'
                 ]
             );
             $question = BankQuestion::where('id', $request->QuizQuestion[0])->first();
