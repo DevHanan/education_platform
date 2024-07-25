@@ -89,7 +89,7 @@
   </div>
   <nav class="bg-primary text-light w-100">
     <div class="d-flex justify-content-between container-fluid">
-      <h2> {{ $quiz->name }}</h2>
+      <h2> {{ ${{url('question/'.$item->question->id)}}z->name }}</h2>
       <div class="d-flex align-items-center gap-2">
         <i class="fa-solid fa-clock mb-1"></i>
         <h6>الوقت المستغرق</h6>
@@ -120,7 +120,7 @@
     <div class="row">
       @foreach($questions as $item )
       @if($item->status == 0)
-      <a href="{{url('question/'.$item->question->id)}}" class="text-decoration-none text-dark col-md-4 border p-3 all unique uncompleted">
+      <a href="{{url('question/'.$item->question->id .'/' . $quiz->id)}}" class="text-decoration-none text-dark col-md-4 border p-3 all unique uncompleted">
         <div class="d-flex justify-content-between">
           <div>
             <span><i class="fa-solid fa-flag text-secondary"></i></span>
@@ -133,7 +133,7 @@
         </div>
       </a>
       @else
-      <a href="{{url('question/'.$item->question->id)}}" class="text-decoration-none text-dark col-md-4 border p-3 all unique">
+      <a href="{{url('question/'.$item->question->id .'/'.$quiz->id)}}" class="text-decoration-none text-dark col-md-4 border p-3 all unique">
         <div class="d-flex justify-content-between">
           <div>
             <span><i class="fa-solid fa-flag text-secondary"></i></span>

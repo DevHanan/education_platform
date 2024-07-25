@@ -28,12 +28,10 @@ class ExamController extends Controller
 
 
 
-    public function getquestion(Request $request,$id)
+    public function getquestion($quiz_id ,$id)
     {
         $question = BankQuestion::where('id', $id)->first();
-        return $question;
-        $quiz = Quiz::find($question->bank_group_id);
-        return $quiz;
+        $quiz = Quiz::find($quiz_id);
         $questionnumber = 1;
         return view('front.quizuestion', compact('quiz', 'question', 'questionnumber'));
     }
