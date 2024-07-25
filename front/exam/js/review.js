@@ -29,9 +29,9 @@ overlay.addEventListener("click", () => {
     overlay.classList.remove("d-none")
   }
 
-  function goToFinalReview(){
-    window.location.href = 'quez-final-review.html';
-  }
+//   function goToFinalReview(){
+//     window.location.href = 'quez-final-review.html';
+//   }
 
   function goToResult(){
     window.location.href = 'result.html';
