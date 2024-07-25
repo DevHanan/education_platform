@@ -30,7 +30,6 @@ class ExamController extends Controller
 
     public function getquestion(Request $request,$id)
     {
-        return $request->all();
         $question = BankQuestion::where('id', $id)->first();
         return $question;
         $quiz = Quiz::find($question->bank_group_id);
