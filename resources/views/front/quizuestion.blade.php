@@ -53,7 +53,7 @@
   <form method="post" action="{{url('question/'.$question->id)}}" method="POST">
  @csrf
  <section class="container-fluid question-main-section">
-    
+ <input type="hidden" name="quiz_id" value="{{$quiz->id}}">
     <div class="row">
       <div class="col-md-6 p-4">
         <h5> {!! $question->title !!} </h5>
