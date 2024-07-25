@@ -51,7 +51,7 @@ class ExamController extends Controller
     public function question(Request $request)
     {
         $quiz = Quiz::find($request->quiz_id);
-
+        $questionnumber = $request->questionnumber + 1;
         if (!isset($request->QuizQuestion)) {
             $studentanswers = StudentQuestion::where('quiz_id', $request->quiz_id)->where('quiz_id', $request->quiz_id)->get();
            return redirect()->route('questions.reviews',[$quiz->id])->with(['studentanswers']);
@@ -61,7 +61,7 @@ class ExamController extends Controller
             $question = BankQuestion::where('id', $request->QuizQuestion[0])->first();
             $QuizQuestion = $request->QuizQuestion;
             unset($QuizQuestion[0]);
-            return view('front.quizuestion', compact('question', 'quiz', 'QuizQuestion'));
+            return view('front.quizuestion', compact('question', 'quiz', 'QuizQuestion','questionnumber'));
         }
     }
 
