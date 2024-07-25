@@ -90,6 +90,7 @@ Route::get('/exam-level-question/{id}', [ExamController::class, 'getExamLevelQue
 Route::get('/get-question/{id}/{quiz_id}', [ExamController::class, 'getquestion']);
 Route::post('/question/{id}', [ExamController::class, 'question']);
 Route::get('/question/review/{id}/{section?}', [ExamController::class, 'questionreviews'])->name('questions.reviews');
+Route::post('/finish-exam', [ExamController::class, 'approveexam']);
 
 
 

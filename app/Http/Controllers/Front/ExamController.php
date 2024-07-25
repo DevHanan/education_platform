@@ -136,4 +136,11 @@ class ExamController extends Controller
         $quiz = Quiz::find($request->id);
         return view('front.reviewquestionanswer', compact('questions', 'title', 'quiz'));
     }
+
+
+    public function approveexam(Request $request){
+        StudentQuestion::where(['quiz_id'=>$request->quiz_id,'student_id'=>auth()->guard('students-login')->user()->id])->update(['status'=>'2']);
+     
+        return redirect('/');
+    }
 }

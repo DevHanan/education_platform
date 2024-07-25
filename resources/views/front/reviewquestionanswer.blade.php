@@ -82,9 +82,13 @@
       <div class="text-center pt-2">
         <div class="btn border text-light" onclick="hidePopUp()">لا</div>
       </div>
+       <form post="method" action="{{url('finish-exam')}}">
+      <input type="hidden" name="quiz_id" value="{{$quiz->id}}">
       <div class="text-center pt-2">
         <div class="btn border text-light" onclick="goToFinalReview()">نعم</div>
       </div>
+      @csrf
+      </form>
     </div>
   </div>
   <nav class="bg-primary text-light w-100">
