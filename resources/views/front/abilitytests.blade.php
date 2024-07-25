@@ -35,12 +35,16 @@
                             </div>
                             <div class="time my-2 ms-3"> <img src="{{asset('front/img/icons/fi-rr-alarm-clock.svg')}}" class="mx-1" width="15" alt=""> {{ $test->created_at }} </div>
                         </div>
-                      
+
                     </div>
                 </div>
                 <div>
                     @if (Auth::guard('students-login')->check())
-                    <a href="{{url('exam/'.$test->id)}}" class="btn secondary-bg px-3 text-white">ابدء الأختبار</a>
+                    @if($test->has_level == 0)
+                    <a href="{{url('start-exam/'.$test->id)}}" class="btn secondary-bg px-3 text-white">ابدء الأختبار</a>
+                    @else
+                    <a href="{{url('start-exam-levels/'.$test->id)}}" class="btn secondary-bg px-3 text-white">ابدء الأختبار</a>
+                    @endif
                     @else
                     <!-- Show a placeholder for guests -->
                     <a class="btn secondary-bg px-3 text-white" disabled>سجل الدخول للمتابعة</a>

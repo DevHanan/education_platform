@@ -18,19 +18,20 @@ class ExamController extends Controller
 
     public function getExam($id)
     {
+            $id = QuizQuestion::where('quiz_id',$id)->first();
+            $question = BankQuestion::where('id',$id->question_id)->first();
+            $QuizQuestion = QuizQuestion::where('quiz_id', $id)->pluck('question_id')->ToArray();
+            return view('front.quizuestion', compact('quiz','question','QuizQuestion'));
+    }
+
+
+    public function getExamWithLevel($id){
         $quiz = Quiz::find($id);
         // add attempt to pass exam 
         PassingAttempt::create(['student_id'=>auth()->guard('students-login')->user()->id , 'quiz_id'=>$id]);
         if ($quiz->has_levels)
             return view('front.quizdepartment', compact('quiz'));
-        else{
-            $id = QuizQuestion::where('quiz_id',$id)->first();
-            $question = BankQuestion::where('id',$id->question_id)->first();
-            $QuizQuestion = QuizQuestion::where('quiz_id', $id)->pluck('question_id')->ToArray();
-            return view('front.quizuestion', compact('quiz','question','QuizQuestion'));
-        }
     }
-
 
     public function getExamLevelQuestion($id)
     {
