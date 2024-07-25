@@ -49,7 +49,7 @@
       </select>
     </div>
   </nav> -->
-  
+
   <form method="post" action="{{url('question/'.$question->id)}}" method="POST">
  @csrf
  <section class="container-fluid question-main-section">
@@ -108,7 +108,7 @@
   </section>
   <footer class="bg-primary position-absolute text-light w-100 bottom-0">
     <div class="d-flex container-fluid justify-content-between align-items-center">
-      <!-- <h4 class="equations ps-2 p-1 mb-0 fw-bold"><span class="border p-0 px-2" style="font-size: 15px;border-radius: 50%;"><i class="fa-solid fa-question"></i></span> المعادلات</h4> -->
+      <h4 class="equations ps-2 p-1 mb-0 fw-bold"><span class="border p-0 px-2" style="font-size: 15px;border-radius: 50%;"><i class="fa-solid fa-question"></i></span> </h4>
       <h4 class="next-btn mb-0 p-1 pe-2 fw-bold">
       @if(isset($QuizQuestion) && count($QuizQuestion) > 0 )
       <button type="submit" class="text-docaration-none text-ligh"> التالى</>
