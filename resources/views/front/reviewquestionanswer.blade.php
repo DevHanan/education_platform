@@ -56,7 +56,7 @@
     </div>
     <hr>
     <div class="py-4 text-center">
-      <h5><i class="fa-solid fa-triangle-exclamation text-warning"></i>الرجاء التأكيد على رغبتك فى إنهاء هذه المراجعة. إذا نقرت فوق "نعم" لن تكون هناك إمكانية لعودة إلى هذه المراجعة والإجابة على الاسئلة (عدد الاسئلة - 24 التى لم تكتمل)</h5>
+      <h5><i class="fa-solid fa-triangle-exclamation text-warning"></i>الرجاء التأكيد على رغبتك فى إنهاء هذه المراجعة. إذا نقرت فوق "نعم" لن تكون هناك إمكانية لعودة إلى هذه المراجعة والإجابة على الاسئلة (عدد الاسئلة - {{ $quiz->questions()->where('status','0')->count()}} التى لم تكتمل)</h5>
     </div>
     <hr>
     <div class="d-flex justify-content-center gap-3">
