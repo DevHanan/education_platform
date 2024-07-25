@@ -39,7 +39,7 @@
       </div>
     </div>
   </nav>
-  <nav class="second-nav text-light w-100">
+  <!-- <nav class="second-nav text-light w-100">
     <div class="d-flex gap-3 align-items-center container-fluid justify-content-end">
       <span><i class="fa-solid fa-flag"></i></span>
       <h5>تمييز السؤال للمراجعة</h5>
@@ -48,7 +48,7 @@
         <option value="18" selected>18</option>
       </select>
     </div>
-  </nav>
+  </nav> -->
   <form method="post" action="{{url('question/'.$question->id)}}" method="POST">
  @csrf
  <section class="container-fluid question-main-section">
