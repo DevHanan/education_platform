@@ -3,7 +3,7 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Education</title>
+  <title>{{ $title }}</title>
   <!--bootstrap-file-->
   <link rel="stylesheet" href="{{asset('public/front/exam/css/bootstrap.min.css')}}" />
   <!--bootstrap-file-->
@@ -21,7 +21,7 @@
 
 <body>
   <div class="overlay d-none" style="width: 100%;height: 100%;position: absolute;top: 0;left: 0;background-color: rgba(0, 0, 0, 0.418);z-index: 9;"></div>
-  <div class="unique-pop-up d-none bg-primary text-light shadow-sm position-absolute p-4" style="width:500px ;top: 40%;left: 50%;transform: translate(-50%,-50%);z-index: 10;border-radius: 5px;">
+  <!-- <div class="unique-pop-up d-none bg-primary text-light shadow-sm position-absolute p-4" style="width:500px ;top: 40%;left: 50%;transform: translate(-50%,-50%);z-index: 10;border-radius: 5px;">
     <div class="d-flex justify-content-between align-items-center">
       <h5>الأسئلة المميزة بعلامة</h5>
       <i class="fa-solid fa-close border px-2 py-1" onclick="hidePopUp()" style="cursor:pointer ;"></i>
@@ -34,7 +34,7 @@
     <div class="text-center pt-2">
       <div class="btn border text-light" onclick="hidePopUp()">حسنا</div>
     </div>
-  </div>
+  </div> -->
   <div class="uncompleted-pop-up d-none bg-primary text-light shadow-sm position-absolute p-4" style="width:500px ;top: 40%;left: 50%;transform: translate(-50%,-50%);z-index: 10;border-radius: 5px;">
     <div class="d-flex justify-content-between align-items-center">
       <h5>الأسئلة الغير مكتملة</h5>
@@ -89,7 +89,7 @@
   </div>
   <nav class="bg-primary text-light w-100">
     <div class="d-flex justify-content-between container-fluid">
-      <h2>اختبار قدرات</h2>
+      <h2> {{ $quiz->name }}</h2>
       <div class="d-flex align-items-center gap-2">
         <i class="fa-solid fa-clock mb-1"></i>
         <h6>الوقت المستغرق</h6>

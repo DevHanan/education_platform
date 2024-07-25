@@ -18,19 +18,55 @@ class ExamController extends Controller
 
     public function getExam($id)
     {
-            $first_question = QuizQuestion::where('quiz_id',$id)->first();
-            $quiz = Quiz::find($id);
-            $question = BankQuestion::where('id',$first_question->question_id)->first();
-            $QuizQuestion = QuizQuestion::where('quiz_id', $id)->pluck('question_id')->ToArray();
-            $questionnumber = 1;
-            return view('front.quizuestion', compact('quiz','question','QuizQuestion','questionnumber'));
+        $first_question = QuizQuestion::where('quiz_id', $id)->first();
+        $quiz = Quiz::find($id);
+        $question = BankQuestion::where('id', $first_question->question_id)->first();
+        $QuizQuestion = QuizQuestion::where('quiz_id', $id)->pluck('question_id')->ToArray();
+        $questionnumber = 1;
+        return view('front.quizuestion', compact('quiz', 'question', 'QuizQuestion', 'questionnumber'));
     }
 
 
-    public function getExamWithLevel($id){
+
+    public function getquestion($id)
+    {
+        $question = BankQuestion::where('id', $id)->first();
+        $quiz = Quiz::find($question->bank_group_id);
+        $questionnumber = 1;
+        return view('front.quizuestion', compact('quiz', 'question', 'questionnumber'));
+    }
+
+
+    public function question(Request $request)
+    {
+        $quiz = Quiz::find($request->quiz_id);
+        $questionnumber = $request->questionnumber + 1;
+        if (!isset($request->QuizQuestion)) {
+            $studentanswers = StudentQuestion::where('quiz_id', $request->quiz_id)->where('quiz_id', $request->quiz_id)->get();
+            return redirect()->route('questions.reviews', [$quiz->id])->with(['studentanswers']);
+        } else {
+            StudentQuestion::updateOrCreate(
+                [
+                    'student_id'     => $request->student_id,
+                    'quiz_id' => $request->quiz_id,
+                    'question_id'    => $request->question_id,
+                ],
+                [
+                    'answer'     => $request->answer,
+                ]
+            );
+            $question = BankQuestion::where('id', $request->QuizQuestion[0])->first();
+            $QuizQuestion = $request->QuizQuestion;
+            unset($QuizQuestion[0]);
+            return view('front.quizuestion', compact('question', 'quiz', 'QuizQuestion', 'questionnumber'));
+        }
+    }
+
+    public function getExamWithLevel($id)
+    {
         $quiz = Quiz::find($id);
         // add attempt to pass exam 
-        PassingAttempt::create(['student_id'=>auth()->guard('students-login')->user()->id , 'quiz_id'=>$id]);
+        PassingAttempt::create(['student_id' => auth()->guard('students-login')->user()->id, 'quiz_id' => $id]);
         if ($quiz->has_levels)
             return view('front.quizdepartment', compact('quiz'));
     }
@@ -47,23 +83,8 @@ class ExamController extends Controller
     }
 
 
-    
-    public function question(Request $request)
-    {
-        $quiz = Quiz::find($request->quiz_id);
-        $questionnumber = $request->questionnumber + 1;
-        if (!isset($request->QuizQuestion)) {
-            $studentanswers = StudentQuestion::where('quiz_id', $request->quiz_id)->where('quiz_id', $request->quiz_id)->get();
-           return redirect()->route('questions.reviews',[$quiz->id])->with(['studentanswers']);
-            // return view('front.reviewquestionanswer', compact('section', 'studentanswers'));
-        } else {
-            StudentQuestion::create($request->all());
-            $question = BankQuestion::where('id', $request->QuizQuestion[0])->first();
-            $QuizQuestion = $request->QuizQuestion;
-            unset($QuizQuestion[0]);
-            return view('front.quizuestion', compact('question', 'quiz', 'QuizQuestion','questionnumber'));
-        }
-    }
+
+
 
     public function question1(Request $request)
     {
@@ -71,7 +92,7 @@ class ExamController extends Controller
 
         if (!isset($request->QuizQuestion)) {
             $studentanswers = StudentQuestion::where('section_id', $request->section_id)->where('quiz_id', $request->quiz_id)->get();
-           return redirect()->route('questions.reviews',[optional($section->quiz)->id,$section->id])->with(['section', 'studentanswers']);
+            return redirect()->route('questions.reviews', [optional($section->quiz)->id, $section->id])->with(['section', 'studentanswers']);
             // return view('front.reviewquestionanswer', compact('section', 'studentanswers'));
         } else {
             StudentQuestion::create($request->all());
@@ -83,14 +104,16 @@ class ExamController extends Controller
     }
 
 
-    public function questionreviews(Request $request){
-        
-        $questions = StudentQuestion::where(function($q)use($request){
-            $q->where('quiz_id',$request->id);
-            if($request->section_id)
-            $q->where('section_id',$request->section_id);
-        })->get();
-        return view('front.reviewquestionanswer', compact('questions'));
+    public function questionreviews(Request $request)
+    {
 
+        $title = 'مراجعة الاجابات';
+        $questions = StudentQuestion::where(function ($q) use ($request) {
+            $q->where('quiz_id', $request->id);
+            if ($request->section_id)
+                $q->where('section_id', $request->section_id);
+        })->get();
+        $quiz = Quiz::where('id',$questions->first()->id);
+        return view('front.reviewquestionanswer', compact('questions','title','quiz'));
     }
 }
