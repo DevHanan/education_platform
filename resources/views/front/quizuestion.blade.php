@@ -63,7 +63,7 @@
           </h5>
         </div>
         <input type="hidden" name="quiz_id" value="{{optional($section->quiz)->id}}">
-        @if(isset($section))
+        @if(isset($section) && $section != null)
         <input type="hidden" name="section_id" value="{{$section->id}}">
         @endif
         @foreach ($QuizQuestion as  $qid)
