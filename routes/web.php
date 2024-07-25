@@ -87,7 +87,7 @@ Route::get('/clear-cache', function () {
 Route::get('/start-exam/{id}', [ExamController::class, 'getExam']);
 Route::get('/start-exam-levels/{id}', [ExamController::class, 'getExamWithLevel']);
 Route::get('/exam-level-question/{id}', [ExamController::class, 'getExamLevelQuestion']);
-Route::get('/question/{id}/{quiz_id}', [ExamController::class, 'getquestion']);
+Route::get('/get-question/{id}/{quiz_id}', [ExamController::class, 'getquestion']);
 Route::post('/question/{id}', [ExamController::class, 'question']);
 Route::get('/question/review/{id}/{section?}', [ExamController::class, 'questionreviews'])->name('questions.reviews');
 
