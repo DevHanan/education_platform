@@ -11,6 +11,7 @@
 
       </div>
       <!-- Page title actions -->
+      @canany(['course-types-create'])
       <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
 
@@ -24,6 +25,7 @@
 
         </div>
       </div>
+      @endcan
     </div>
   </div>
 </div>
@@ -72,15 +74,19 @@
                   </td>
 
                   <td class="text-end">
-                    <a href="{{ route($route.'.edit',$row->id) }}" title="{{__('admin.edit')}}"  data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm">
+                  @canany(['course-types-edit'])
+                    <a href="{{ route($route.'.edit',$row->id) }}" title="{{__('admin.edit')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm">
                       <span class="far fa-edit "></span>
                     </a>
+                    @endcan
+                    @canany(['course-types-view'])
 
-                    <button type="button" class="btn btn-icon btn-danger btn-sm"  title="{{__('admin.delete')}}"   data-bs-placement="bottom" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
+                    <button type="button" class="btn btn-icon btn-danger btn-sm" title="{{__('admin.delete')}}" data-bs-placement="bottom" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
                       <i class="fas fa-trash-alt"></i>
                     </button>
                     <!-- Include Delete modal -->
                     @include('admin.layouts.inc.delete')
+                    @endcan
                   </td>
                 </tr>
                 @endforeach
@@ -99,15 +105,13 @@
 </div>
 
 
-<?php 
-if(app()->getLocale() == 'ar'){
-$locale = 'Arabic';
-$dir = 'right to left';
-}
-else
-{ 
-$locale = 'English';
-$dir = 'left to right';
+<?php
+if (app()->getLocale() == 'ar') {
+  $locale = 'Arabic';
+  $dir = 'right to left';
+} else {
+  $locale = 'English';
+  $dir = 'left to right';
 }
 
 ?>
@@ -115,68 +119,73 @@ $dir = 'left to right';
 
 @push('scripts')
 <script>
+  let locale = '<?= $locale ?>'; // assuming this is set by your PHP code
+  let url = `https://cdn.datatables.net/plug-ins/1.10.24/i18n/${locale}.json`;
+  let dir = '<?= $dir ?>';
+  console.log(url);
 
-let locale = '<?= $locale?>'; // assuming this is set by your PHP code
-let url = `https://cdn.datatables.net/plug-ins/1.10.24/i18n/${locale}.json`;
-let dir = '<?= $dir?>'; 
-console.log(url);
+  new DataTable('#courseTypes', {
+    "createdRow": function(row, data, dataIndex) {
+      $('#courseTypes').removeClass('dataTable');
+    },
+    language: {
 
-new DataTable('#courseTypes', {
-  language: {
+      url: url
+    },
+    'direction': dir,
+    "scrollX": true,
+    "fixedHeader": {
+      "headerOffset": 1
+    },
+    columnDefs: [{
+      className: 'dt-center',
+      targets: '_all',
 
-    url: url
-  },
-  'direction': dir,
-  columnDefs: [
-                      {className: 'dt-center', targets: '_all' ,
-
-                      }
-                        ],
+    }],
     layout: {
-        topStart: {
-            buttons: [
-              {
-                    extend: 'colvis',
-                    text: '<i class="fa fa-eye-slash text-primary" aria-hidden="true" style="font-size:large;"></i>',
-                    
-                    columns: ":not(':first')"
-                  },
-                  
-                {
-                    extend: 'copyHtml5',
-                    text: '<i class="fas fa-copy text-primary" style="font-size:large;"></i>',
-                    exportOptions: {
-                      columns: ':visible'
-                    }
-                },
-                {
-                    extend: 'excelHtml5',
-                    text: '<i class="fas fa-file-excel text-primary" style="font-size:large;"></i>',
-                    exportOptions: {
-                        columns: ':visible'
-                    }
-                },
-                {
-                    extend: 'pdfHtml5',
-                    text: '<i class="far fa-file-pdf fa-lg text-primary"></i>',
-                    exportOptions: {
-                      columns: ':visible'
-                    }
-                },
-                {
-                        extend: 'csvHtml5',
-						title: 'CSV',
-                        text: '<i class="fas fa-file text-primary" style="font-size:large;"></i>',
-                        exportOptions: {
-                            columns: ':not(:last-child)',
-                            columns: ':visible'
+      topStart: {
+        buttons: [{
+            extend: 'colvis',
+            text: '<i class="fa fa-eye-slash text-primary" aria-hidden="true" style="font-size:large;"></i>',
 
-                        }
-                    },
-               
-            ]
-        }
+            columns: ":not(':first')"
+          },
+
+          {
+            extend: 'copyHtml5',
+            text: '<i class="fas fa-copy text-primary" style="font-size:large;"></i>',
+            exportOptions: {
+              columns: ':visible'
+            }
+          },
+          {
+            extend: 'excelHtml5',
+            text: '<i class="fas fa-file-excel text-primary" style="font-size:large;"></i>',
+            exportOptions: {
+              columns: ':visible'
+            }
+          },
+          {
+            extend: 'pdfHtml5',
+            text: '<i class="far fa-file-pdf fa-lg text-primary"></i>',
+            exportOptions: {
+              columns: ':visible'
+            }
+          },
+          {
+            extend: 'csvHtml5',
+            title: 'CSV',
+            text: '<i class="fas fa-file text-primary" style="font-size:large;"></i>',
+            exportOptions: {
+              columns: ':not(:last-child)',
+              columns: ':visible'
+
+            }
+          },
+
+        ]
+      }
     }
-});
+  });
 </script>
 @endpush
