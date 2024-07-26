@@ -140,7 +140,7 @@ if (app()->getLocale() == 'ar') {
 
   new DataTable('#tracks', {
     "createdRow": function(row, data, dataIndex) {
-    $('#tracks').removeClass('datatable');
+    $('#tracks').removeClass('dataTable');
   },
     language: {
 
