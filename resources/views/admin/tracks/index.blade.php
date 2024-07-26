@@ -202,7 +202,12 @@ if (app()->getLocale() == 'ar') {
           },
 
         ]
-      }
+      },
+      bottomEnd: {
+            paging: {
+                firstLast: false
+            }
+        }
     }
   });
 </script>
