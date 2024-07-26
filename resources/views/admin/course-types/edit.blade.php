@@ -16,7 +16,6 @@
                         <div class="card-block">
                             <a href="{{ route('admin.course-types.index') }}" class="btn btn-rounded btn-primary">{{ __('admin.btn_back') }}</a>
 
-                            <a href="{{ route('admin.course-types.create') }}" class="btn btn-rounded btn-info">{{ __('admin.btn_refresh') }}</a>
                         </div>
                     </div>
 
