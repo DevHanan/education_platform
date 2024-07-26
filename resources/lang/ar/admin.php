@@ -86,7 +86,8 @@ return [
         'actions' => 'الحدث',
         'field_photo' => 'الصورة',
         'courses_number' => 'عدد الدورات',
-        'in_footer' => 'الظهور فى الفوتر'
+        'in_footer' => 'الظهور فى الفوتر',
+        'name' => 'إسم المسار',
     ],
 
     "emails" => [
