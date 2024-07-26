@@ -5,7 +5,7 @@
     <div class="container-xl">
         <div class="row g-2 align-items-center">
             <div class="col">
-            @include('admin.layouts.inc.breadcrumb')
+            {{ Breadcrumbs::render('add-course-types') }}
 
             </div>
             <!-- Page title actions -->

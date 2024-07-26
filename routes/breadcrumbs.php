@@ -244,6 +244,25 @@ Breadcrumbs::for('update-courses', function (BreadcrumbTrail $trail,$row) {
 });
 
 
+
+
+Breadcrumbs::for('course-types', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.courses.list_course_types'), route('admin.course-types.index'));
+});
+
+Breadcrumbs::for('add-course-types', function (BreadcrumbTrail $trail) {
+    $trail->parent('course-types');
+    $trail->push(trans('navbar.courses.add_course_types'), route('admin.course-types.create'));
+});
+
+Breadcrumbs::for('update-course-types', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('course-types');
+    $trail->push(trans('navbar.courses.'), route('admin.course-types.edit', $row));
+});
+
+
+
 // Home > Course details  > Levels
  Breadcrumbs::for('levels', function (BreadcrumbTrail $trail,$course) {
     $trail->parent('show-courses',$course);

@@ -103,6 +103,7 @@ return [
         "add_track" => " إضافه مسار",
         "list_course_types"  => "أنواع الدورات",
         "add_course_types" => "إضافة نوع",
+        "edit_course_types" => " تعديل نوع دورة",
         "list_lectures"  => "عرض المحاضرات",
         "add_lecture" => " إضافه محاضره",
         'edit_lecture' => 'تعديل محاضرة',
