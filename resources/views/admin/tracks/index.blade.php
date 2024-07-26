@@ -210,7 +210,10 @@ if (app()->getLocale() == 'ar') {
                 }
               }
 
-            }
+            },
+            customize: function(doc) {
+            doc.defaultStyle.font = 'Arial'; // or any other font that supports Arabic characters
+          }
           },
           {
             extend: 'csvHtml5',
