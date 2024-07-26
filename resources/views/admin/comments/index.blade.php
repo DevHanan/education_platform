@@ -116,7 +116,6 @@ if (app()->getLocale() == 'ar') {
     },
 
     'direction': dir,
-    "scrollX": true,
     "fixedHeader": {
       "headerOffset": 1
     },
