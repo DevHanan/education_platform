@@ -299,9 +299,7 @@ if (app()->getLocale() == 'ar') {
       url: url
     },
 
-    'direction': dir,
-    "scrollX": true,
-    
+    'direction': dir,    
     columnDefs: [{
       className: 'dt-center',
       targets: '_all',
