@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Carbon;
 
 
 class Course extends Model
@@ -22,7 +23,7 @@ class Course extends Model
     );
     protected $dates = ['deleted_at'];
 
-    protected $appends = ['avgrating','backgroundImageFullPath', 'imageFullPath', 'DifficultyLevelLabel', 'SubscriptionCount', 'Totalsubscription', 'TotalDiscount', 'isSubscribed', 'periodLabel'];
+    protected $appends = ['avgrating', 'backgroundImageFullPath', 'imageFullPath', 'DifficultyLevelLabel', 'SubscriptionCount', 'Totalsubscription', 'TotalDiscount', 'isSubscribed', 'periodLabel'];
 
     public function getperiodLabelAttribute()
     {
@@ -49,7 +50,7 @@ class Course extends Model
 
     public function getSubscriptionCountAttribute()
     {
-         $count = $this->subscriptions()->count();
+        $count = $this->subscriptions()->count();
         if ($count > 0)
             return $count;
         else return 0;
@@ -89,21 +90,22 @@ class Course extends Model
 
     public function getTotalsubscriptionAttribute()
     {
-         $total = $this->subscriptions()->count() * $this->price_with_discount;
+        $total = $this->subscriptions()->count() * $this->price_with_discount;
         if ($total > 0)
             return $total;
         else return 0;
     }
 
-    public function getavgratingAttribute(){
-        if($this->comments()->count() >0)
-            return $this->comments()->sum('rate')/$this->comments()->count();
+    public function getavgratingAttribute()
+    {
+        if ($this->comments()->count() > 0)
+            return $this->comments()->sum('rate') / $this->comments()->count();
         else
-        return 0;
+            return 0;
     }
 
 
- 
+
 
     public function getTotalDiscountAttribute()
     {
@@ -119,8 +121,9 @@ class Course extends Model
     public function scoperecentStart($query)
     {
         $landingSetting = LandingSetting::first();
-        return $query->
-        where('start_date', '>=', now())->where('start_date','<=', now() + $landingSetting->star_recently_courses);
+        $date = Carbon::now();
+        $newDate = $date->addDays($landingSetting->star_recently_courses);
+        return $query->where('start_date', '>=', $date)->where('start_date', '<=', $newDate);
     }
 
 
@@ -153,7 +156,7 @@ class Course extends Model
     }
 
 
-   
+
     public function comments()
     {
         return $this->hasMany(Comment::class);
