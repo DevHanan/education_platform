@@ -227,7 +227,7 @@
 
                   <td style="width: 270px;">
 
-                  @canany(['courses-show'])
+                  @canany(['courses-view'])
 
                     <a href="{{ url('admin/courses/'.$row->id) }}" title="{{__('admin.show')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm">
                       <span class="far fa-eye "></span>
@@ -239,10 +239,12 @@
                       <span class="far fa-edit "></span>
                     </a>
                     @endcan
+                    @canany(['levels-view'])
 
                     <a href="{{ url('admin/courses/'.$row->id .'/levels') }}" title="{{__('admin.show_level')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm">
                       <i class="fa fa-level-up" aria-hidden="true"></i>
                     </a>
+                    @endcan
                     @canany(['courses-delete'])
 
                     <button type="button" title="{{__('admin.delete')}}" data-bs-placement="bottom" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
