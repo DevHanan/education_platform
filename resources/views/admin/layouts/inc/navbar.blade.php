@@ -23,14 +23,14 @@
         @if(app()->getLocale() == 'en')
         <li style="padding: 14px;">
           <a href="{{ url('language/ar') }}">
-             <img src="{{ asset('public/uploads/ar.png')}}" width="60" height="25" alt="Tabler" class="navbar-brand-image">
+             <img src="{{ asset('public/uploads/ar.png')}}" width="60px" height="25px" alt="Tabler" class="navbar-brand-image">
            {{__('admin.arabic')}}
           </a>
         </li>
         @else
         <li style="padding: 14px;">
           <a href="{{ url('language/en') }}">
-          <img src="{{ asset('public/uploads/en.png')}}" width="60" height="25" alt="Tabler" class="navbar-brand-image">
+          <img src="{{ asset('public/uploads/en.png')}}" width="60px" height="25px" alt="Tabler" class="navbar-brand-image">
           {{__('admin.english')}}
 
         </a>
