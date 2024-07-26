@@ -26,6 +26,8 @@ class CommentController extends Controller
         $this->path = 'comments';
         $this->access = 'comments';
         $this->middleware('permission:courses-comments',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:courses-comments-delete',   ['only' => ['delete']]);
+
       
     }
     public function index(Request $request)
