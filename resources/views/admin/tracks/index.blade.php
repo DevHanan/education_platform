@@ -10,6 +10,7 @@
         {{ Breadcrumbs::render('tracks') }}
 
       </div>
+      @canany(['tracks-create'])
       <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
 
@@ -23,6 +24,7 @@
 
         </div>
       </div>
+      @endcan
       <!-- Page title actions -->
     </div>
   </div>
@@ -90,10 +92,15 @@
 
                   <td style="width: 270px;">
 
+                  @canany(['tracks-edit'])
 
                     <a href="{{ route($route.'.edit',$row->id) }}" title="{{__('admin.edit')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm" data-title="{{__('admin.edit')}}">
                       <span class="far fa-edit "></span>
                     </a>
+                    @endcan
+
+
+                    @canany(['tracks-delete'])
 
 
 
@@ -102,6 +109,7 @@
                     </button>
                     <!-- Include Delete modal -->
                     @include('admin.layouts.inc.delete')
+                    @endcan
                   </td>
                 </tr>
                 @endforeach
