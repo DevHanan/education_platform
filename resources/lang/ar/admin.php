@@ -832,7 +832,9 @@ return [
     'bank_group_questions'=> 'أسئلة',
     'table_name' => 'إسم الجدول',
     'module_bulk_import_export' => 'استيراد االملفات',
-    'select' => 'من فضلك اختر قيمة'
+    'select' => 'من فضلك اختر قيمة',
+    'arabic' => 'العربية',
+    'english' => 'الإنجليزية'
 
 
 

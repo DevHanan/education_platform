@@ -798,5 +798,7 @@ return [
     'bank_group_questions'=> 'Questions',
     'table_name' => 'Table Name',
     'module_bulk_import_export' => 'Import Files',
-    'select' => 'Plz select Value'
+    'select' => 'Plz select Value',
+     'arabic' => 'Arabic',
+    'english' => 'English'
 ];
