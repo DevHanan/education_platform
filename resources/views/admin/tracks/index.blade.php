@@ -212,8 +212,15 @@ if (app()->getLocale() == 'ar') {
 
             },
             customize: function(doc) {
-            doc.defaultStyle.font = 'Arial'; // or any other font that supports Arabic characters
-          }
+              doc.defaultStyle.font = 'Arial';
+            doc.fonts = {
+              Arial: {
+                normal: 'arial.ttf',
+                bold: 'arialbd.ttf',
+                italics: 'ariali.ttf',
+                bolditalics: 'arialbi.ttf'
+              }
+            };          }
           },
           {
             extend: 'csvHtml5',
