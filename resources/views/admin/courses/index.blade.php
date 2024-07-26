@@ -287,7 +287,7 @@ if (app()->getLocale() == 'ar') {
 
   new DataTable('#courses', {
     "createdRow": function(row, data, dataIndex) {
-      $('#tracks').removeClass('dataTable');
+      $('#courses').removeClass('dataTable');
     },
     language: {
 
