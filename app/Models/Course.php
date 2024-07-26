@@ -116,6 +116,13 @@ class Course extends Model
     }
 
 
+    public function scoperecentStart($query)
+    {
+        $landingSetting = LandingSetting::first();
+        return $query->
+        where('start_date', '>=', now())->where('start_date','<=', now() + $landingSetting->star_recently_courses);
+    }
+
 
     public function scoperecommened($query)
     {

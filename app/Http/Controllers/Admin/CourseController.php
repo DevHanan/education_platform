@@ -15,6 +15,7 @@ use App\Exports\CourseExport;
 use App\Models\CourseInstructor;
 use App\Models\CourseTrack;
 use App\Models\Instructor;
+use App\Models\LandingSetting;
 use App\Models\Lecture;
 use App\Models\Level;
 use Toastr;
@@ -42,7 +43,6 @@ class CourseController extends Controller
         $this->middleware('permission:recommened-courses-view',   ['only' => ['recommendCourses']]);
         $this->middleware('permission:make-recommened-courses-view',   ['only' => ['recommendCourses']]);
         $this->middleware('permission:recent-courses-view',   ['only' => ['startSoonCourses']]);
-        $this->middleware('permission:courses-comments',   ['only' => ['startSoonCourses']]);
 
 
     }
@@ -93,7 +93,8 @@ class CourseController extends Controller
         $data['path'] = $this->path;
         $data['access'] = $this->access;
 
-        $data['rows'] = Course::with('tracks', 'instructors')->where(function ($q) use ($request) {
+        $data['rows'] = Course::recentStart()->
+        with('tracks', 'instructors')->where(function ($q) use ($request) {
             if ($request->type)
                 $q->where('course_type_id', $request->type);
             if ($request->recommend)
