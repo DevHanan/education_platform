@@ -17,6 +17,8 @@
 
       </div>
       <!-- Page title actions -->
+      @canany(['courses-create'])
+
       <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
 
@@ -30,6 +32,7 @@
 
         </div>
       </div>
+      @endcan
     </div>
   </div>
 </div>
@@ -228,20 +231,24 @@
                     <a href="{{ url('admin/courses/'.$row->id) }}" title="{{__('admin.show')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm">
                       <span class="far fa-eye "></span>
                     </a>
+                    @canany(['courses-edit'])
+
                     <a href="{{ route($route.'.edit',$row->id) }}" title="{{__('admin.edit')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm">
                       <span class="far fa-edit "></span>
                     </a>
+                    @endcan
 
                     <a href="{{ url('admin/courses/'.$row->id .'/levels') }}" title="{{__('admin.show_level')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm">
                       <i class="fa fa-level-up" aria-hidden="true"></i>
                     </a>
-
+                    @canany(['courses-delete'])
 
                     <button type="button" title="{{__('admin.delete')}}" data-bs-placement="bottom" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
                       <i class="fas fa-trash-alt"></i>
                     </button>
                     <!-- Include Delete modal -->
                     @include('admin.layouts.inc.delete')
+                    @endcan
                   </td>
                 </tr>
                 @endforeach
@@ -279,6 +286,9 @@ if (app()->getLocale() == 'ar') {
   console.log(url);
 
   new DataTable('#courses', {
+    "createdRow": function(row, data, dataIndex) {
+      $('#tracks').removeClass('dataTable');
+    },
     language: {
 
       url: url
