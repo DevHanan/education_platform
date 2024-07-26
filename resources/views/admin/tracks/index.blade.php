@@ -139,6 +139,7 @@ if (app()->getLocale() == 'ar') {
   console.log(url);
 
   new DataTable('#tracks', {
+    "className": "",
     language: {
 
       url: url
