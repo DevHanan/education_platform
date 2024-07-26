@@ -132,7 +132,12 @@
 
         </div>
         <div class="row">
-            <p style="text-align:center;color:#ffffff;"> Developed with ♥️ by Brain Soft Solutions </p>
+            <p style="text-align:center;color:#ffffff;">
+                 <a href="https://wa.me/0201287848630" class="text-white text-decoration-none">
+                    Developed with ♥️ by Brain Soft Solutions
+    
+                  </a>
+                </p>
         </div>
 
     </div>

@@ -6,7 +6,11 @@
                 <ul class="list-inline list-inline-dots mb-0">
                  
                   <li class="list-inline-item">
-                  Developed with ♥️ by Brain Soft Solutions
+                    <a href="https://wa.me/0201287848630" class="text-white text-decoration-none">
+                    Developed with ♥️ by Brain Soft Solutions
+    
+                  </a>
+
                   </li>
                   
                 </ul>
