@@ -31,7 +31,7 @@
         @endif
 
         <li style="padding: 14px;" title="واجهه الموقع" href="#navbar-layout" data-bs-toggle="tooltip" data-bs-placement="bottom">
-          <a href="{{ url('/') }}"><i class="fa fa-link" aria-hidden="true"></i></a>
+          <a href="{{ url('/') }}"><i class="fa-solid fa-globe"></i></a>
         </li>
 
       </div>
