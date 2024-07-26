@@ -138,7 +138,7 @@ if (app()->getLocale() == 'ar') {
   let dir = '<?= $dir ?>';
   console.log(url);
 
-  new dataTable('#tracks', {
+  new DataTable('#tracks', {
     language: {
 
       url: url
