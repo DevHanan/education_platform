@@ -92,7 +92,7 @@
 
                   <td style="width: 270px;">
 
-                  @canany(['tracks-edit'])
+                    @canany(['tracks-edit'])
 
                     <a href="{{ route($route.'.edit',$row->id) }}" title="{{__('admin.edit')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm" data-title="{{__('admin.edit')}}">
                       <span class="far fa-edit "></span>
@@ -148,8 +148,8 @@ if (app()->getLocale() == 'ar') {
 
   new DataTable('#tracks', {
     "createdRow": function(row, data, dataIndex) {
-    $('#tracks').removeClass('dataTable');
-  },
+      $('#tracks').removeClass('dataTable');
+    },
     language: {
 
       url: url
@@ -187,28 +187,30 @@ if (app()->getLocale() == 'ar') {
             extend: 'pdfHtml5',
             text: '<i class="far fa-file-pdf fa-lg text-primary"></i>',
             exportOptions: {
-                columns: ':visible',
-                modifier: {order: 'index'},
-                format: {
-                    body: function (data, row, column, node) {
-                        const arabic = /[\u0600-\u06FF]/;
+              columns: ':visible',
+              modifier: {
+                order: 'index'
+              },
+              format: {
+                body: function(data, row, column, node) {
+                  const arabic = /[\u0600-\u06FF]/;
 
-                        if (arabic.test(data)) {
-                            return data.split(' ').reverse().join(' ');
-                        }
-                        return data;
-                    },
-                    header: function (data, row, column, node) {
-                        const arabic = /[\u0600-\u06FF]/;
+                  if (arabic.test(data)) {
+                    return data.split(' ').reverse().join(' ');
+                  }
+                  return data;
+                },
+                header: function(data, row, column, node) {
+                  const arabic = /[\u0600-\u06FF]/;
 
-                        if (arabic.test(data)) {
-                            return data.split(' ').reverse().join(' ');
-                        }
-                        return data;
-                    }
+                  if (arabic.test(data)) {
+                    return data.split(' ').reverse().join(' ');
+                  }
+                  return data;
                 }
+              }
+
             }
-        }
           },
           {
             extend: 'csvHtml5',
@@ -224,10 +226,10 @@ if (app()->getLocale() == 'ar') {
         ]
       },
       bottomEnd: {
-            paging: {
-                firstLast: false
-            }
+        paging: {
+          firstLast: false
         }
+      }
     }
   });
 </script>
