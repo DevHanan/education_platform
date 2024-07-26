@@ -39,7 +39,7 @@
           </div>
 
           <div class="table-responsive">
-            <table class="table card-table table-vcenter text-nowrap" id="tracks" style="padding:15px 5px 5px 5px;">
+            <table class="table card-table table-vcenter text-nowrap cell-border" id="tracks" style="padding:15px 5px 5px 5px;">
               <thead>
                 <tr>
                   <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select all invoices"></th>
