@@ -258,7 +258,7 @@ Breadcrumbs::for('add-course-types', function (BreadcrumbTrail $trail) {
 
 Breadcrumbs::for('update-course-types', function (BreadcrumbTrail $trail,$row) {
     $trail->parent('course-types');
-    $trail->push(trans('navbar.courses.'), route('admin.course-types.edit', $row));
+    $trail->push(trans('navbar.courses.edit_course_types'), route('admin.course-types.edit', $row));
 });
 
 
