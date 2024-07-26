@@ -187,8 +187,28 @@ if (app()->getLocale() == 'ar') {
             extend: 'pdfHtml5',
             text: '<i class="far fa-file-pdf fa-lg text-primary"></i>',
             exportOptions: {
-              columns: ':visible'
+                columns: ':visible',
+                modifier: {order: 'index'},
+                format: {
+                    body: function (data, row, column, node) {
+                        const arabic = /[\u0600-\u06FF]/;
+
+                        if (arabic.test(data)) {
+                            return data.split(' ').reverse().join(' ');
+                        }
+                        return data;
+                    },
+                    header: function (data, row, column, node) {
+                        const arabic = /[\u0600-\u06FF]/;
+
+                        if (arabic.test(data)) {
+                            return data.split(' ').reverse().join(' ');
+                        }
+                        return data;
+                    }
+                }
             }
+        }
           },
           {
             extend: 'csvHtml5',
