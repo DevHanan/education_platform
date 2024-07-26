@@ -149,7 +149,8 @@
 
 
           <div class="table-responsive">
-            <table class="table card-table table-vcenter text-nowrap" id="courses">
+            <table class="table card-table table-vcenter text-nowrap cell-border" id="courses">
+
               <thead>
                 <tr>
                   <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select all invoices"></th>
