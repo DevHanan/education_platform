@@ -302,9 +302,7 @@ if (app()->getLocale() == 'ar') {
     'direction': dir,
     "scrollX": true,
     "fixedHeader": {
-      "headerOffset": 0,
-      "header": false
-
+      "headerOffset": 0
     },
     columnDefs: [{
       className: 'dt-center',
