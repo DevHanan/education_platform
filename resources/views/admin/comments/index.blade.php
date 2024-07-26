@@ -58,7 +58,7 @@
                       <input data-id="{{$row->id}}" data-type='App\Models\Comment' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
                     </div>
                   </td>
-                  <td>{{ $row->date }}</td>
+                  <td>{{ $row->created_at }}</td>
 
 
                   <td style="width: 270px;">
