@@ -193,7 +193,8 @@ if (app()->getLocale() == 'ar') {
               columns: ':visible'
 
             }
-          } {
+          },
+           {
             extend: 'csvHtml5',
             title: 'CSV',
             text: '<i class="fas fa-file text-primary" style="font-size:large;"></i>',
