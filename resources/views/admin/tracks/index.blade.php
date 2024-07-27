@@ -153,9 +153,9 @@ if (app()->getLocale() == 'ar') {
     },
     charset: 'utf-8',
     font: {
-    "family": "Roboto",
-    "src": "https://fonts.googleapis.com/css?family=Roboto"
-  },
+      "family": "Roboto",
+      "src": "https://fonts.googleapis.com/css?family=Roboto"
+    },
 
     direction: dir,
     columnDefs: [{
@@ -168,7 +168,6 @@ if (app()->getLocale() == 'ar') {
         buttons: [{
             extend: 'colvis',
             text: '<i class="fa fa-eye-slash text-primary" aria-hidden="true" style="font-size:large;"></i>',
-
             columns: ":not(':first')"
           },
 
@@ -180,8 +179,8 @@ if (app()->getLocale() == 'ar') {
             }
           },
           {
-            extend: 'excelHtml5',
-            text: '<i class="fas fa-file-excel text-primary" style="font-size:large;"></i>',
+            extend: 'copyHtml5',
+            text: '<i class="fas fa-copy text-primary" style="font-size:large;"></i>',
             exportOptions: {
               columns: ':visible'
             }
@@ -194,8 +193,7 @@ if (app()->getLocale() == 'ar') {
               columns: ':visible'
 
             }
-          }
-          {
+          } {
             extend: 'csvHtml5',
             title: 'CSV',
             text: '<i class="fas fa-file text-primary" style="font-size:large;"></i>',
