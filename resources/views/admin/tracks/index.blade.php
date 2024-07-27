@@ -145,6 +145,8 @@ if (app()->getLocale() == 'ar') {
   let url = `https://cdn.datatables.net/plug-ins/1.10.24/i18n/${locale}.json`;
   let dir = '<?= $dir ?>';
   new DataTable('#tracks', {
+    dom: 'Bfrtip',
+
     "createdRow": function(row, data, dataIndex) {
       $('#tracks').removeClass('dataTable');
     },
