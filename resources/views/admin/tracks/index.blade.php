@@ -151,7 +151,9 @@ if (app()->getLocale() == 'ar') {
     language: {
       url: url
     },
-    'direction': dir,
+    charset: 'utf-8',
+
+    direction: dir,
     columnDefs: [{
       className: 'dt-center',
       targets: '_all',
