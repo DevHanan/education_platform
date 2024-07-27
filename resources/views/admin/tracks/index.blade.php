@@ -152,6 +152,10 @@ if (app()->getLocale() == 'ar') {
       url: url
     },
     charset: 'utf-8',
+    font: {
+    "family": "Roboto",
+    "src": "https://fonts.googleapis.com/css?family=Roboto"
+  },
 
     direction: dir,
     columnDefs: [{
@@ -186,42 +190,11 @@ if (app()->getLocale() == 'ar') {
             extend: 'pdfHtml5',
             text: '<i class="far fa-file-pdf fa-lg text-primary"></i>',
             exportOptions: {
-              columns: ':visible',
-              modifier: {
-                order: 'index'
-              },
-              format: {
-                body: function(data, row, column, node) {
-                  const arabic = /[\u0600-\u06FF]/;
+              columns: ':not(:last-child)',
+              columns: ':visible'
 
-                  if (arabic.test(data)) {
-                    return data.split(' ').reverse().join(' ');
-                  }
-                  return data;
-                },
-                header: function(data, row, column, node) {
-                  const arabic = /[\u0600-\u06FF]/;
-
-                  if (arabic.test(data)) {
-                    return data.split(' ').reverse().join(' ');
-                  }
-                  return data;
-                }
-              }
-
-            },
-            customize: function(doc) {
-              pdfMake.fonts = {
-                Arial: {
-                  normal: 'public/uploads/fonts/Roboto-Regular.ttf',
-                  bold: 'public/uploads/fonts/Roboto-Medium.ttf',
-                  italics: 'public/uploads/fonts/Roboto-Italic.ttf',
-                  bolditalics: 'public/uploads/fonts/Roboto-MediumItalic.ttf'
-                }
-              };
-              doc.defaultStyle.font = 'Arial';
             }
-          },
+          }
           {
             extend: 'csvHtml5',
             title: 'CSV',
