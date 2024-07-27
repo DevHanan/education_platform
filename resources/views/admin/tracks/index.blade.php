@@ -144,14 +144,11 @@ if (app()->getLocale() == 'ar') {
   let locale = '<?= $locale ?>'; // assuming this is set by your PHP code
   let url = `https://cdn.datatables.net/plug-ins/1.10.24/i18n/${locale}.json`;
   let dir = '<?= $dir ?>';
-  console.log(url);
-
   new DataTable('#tracks', {
     "createdRow": function(row, data, dataIndex) {
       $('#tracks').removeClass('dataTable');
     },
     language: {
-
       url: url
     },
     'direction': dir,

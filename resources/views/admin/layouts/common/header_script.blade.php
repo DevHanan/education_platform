@@ -8,9 +8,6 @@
   {{ $setting->title }}
 </title>
 <link rel="shortcut icon" href="{{ asset($setting->iconFullPath) }}">
-<!-- CSS files -->
-
-
 
 <link href="{{asset('dist/css/tabler.min.css?1692870487')}}" rel="stylesheet" />
 <link href="{{asset('dist/css/tabler-flags.min.css?1692870487')}}" rel="stylesheet" />
