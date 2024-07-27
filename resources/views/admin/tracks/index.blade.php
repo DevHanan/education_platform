@@ -10,7 +10,6 @@
         {{ Breadcrumbs::render('tracks') }}
 
       </div>
-      @canany(['tracks-create'])
       <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
 
@@ -24,7 +23,6 @@
 
         </div>
       </div>
-      @endcan
       <!-- Page title actions -->
     </div>
   </div>
@@ -39,7 +37,7 @@
           </div>
 
           <div class="table-responsive">
-            <table class="table card-table table-vcenter text-nowrap cell-border" id="tracks" style="padding:15px 5px 5px 5px;">
+            <table class="table card-table table-vcenter text-nowrap" id="tracks" style="padding:15px 5px 5px 5px;">
               <thead>
                 <tr>
                   <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select all invoices"></th>
@@ -92,15 +90,10 @@
 
                   <td style="width: 270px;">
 
-                    @canany(['tracks-edit'])
 
                     <a href="{{ route($route.'.edit',$row->id) }}" title="{{__('admin.edit')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm" data-title="{{__('admin.edit')}}">
                       <span class="far fa-edit "></span>
                     </a>
-                    @endcan
-
-
-                    @canany(['tracks-delete'])
 
 
 
@@ -109,7 +102,6 @@
                     </button>
                     <!-- Include Delete modal -->
                     @include('admin.layouts.inc.delete')
-                    @endcan
                   </td>
                 </tr>
                 @endforeach
@@ -144,17 +136,14 @@ if (app()->getLocale() == 'ar') {
   let locale = '<?= $locale ?>'; // assuming this is set by your PHP code
   let url = `https://cdn.datatables.net/plug-ins/1.10.24/i18n/${locale}.json`;
   let dir = '<?= $dir ?>';
-  new DataTable('#tracks', {
-    dom: 'Bfrtip',
+  console.log(url);
 
-    "createdRow": function(row, data, dataIndex) {
-      $('#tracks').removeClass('dataTable');
-    },
+  new DataTable('#tracks', {
     language: {
+
       url: url
     },
-  
-    direction: dir,
+    'direction': dir,
     columnDefs: [{
       className: 'dt-center',
       targets: '_all',
@@ -165,6 +154,7 @@ if (app()->getLocale() == 'ar') {
         buttons: [{
             extend: 'colvis',
             text: '<i class="fa fa-eye-slash text-primary" aria-hidden="true" style="font-size:large;"></i>',
+
             columns: ":not(':first')"
           },
 
@@ -176,8 +166,8 @@ if (app()->getLocale() == 'ar') {
             }
           },
           {
-            extend: 'copyHtml5',
-            text: '<i class="fas fa-copy text-primary" style="font-size:large;"></i>',
+            extend: 'excelHtml5',
+            text: '<i class="fas fa-file-excel text-primary" style="font-size:large;"></i>',
             exportOptions: {
               columns: ':visible'
             }
@@ -186,12 +176,10 @@ if (app()->getLocale() == 'ar') {
             extend: 'pdfHtml5',
             text: '<i class="far fa-file-pdf fa-lg text-primary"></i>',
             exportOptions: {
-              columns: ':not(:last-child)',
               columns: ':visible'
-
             }
           },
-           {
+          {
             extend: 'csvHtml5',
             title: 'CSV',
             text: '<i class="fas fa-file text-primary" style="font-size:large;"></i>',
@@ -203,11 +191,6 @@ if (app()->getLocale() == 'ar') {
           },
 
         ]
-      },
-      bottomEnd: {
-        paging: {
-          firstLast: false
-        }
       }
     }
   });
