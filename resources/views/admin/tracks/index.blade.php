@@ -153,12 +153,7 @@ if (app()->getLocale() == 'ar') {
     language: {
       url: url
     },
-    charset: 'utf-8',
-    font: {
-      "family": "Roboto",
-      "src": "https://fonts.googleapis.com/css?family=Roboto"
-    },
-
+  
     direction: dir,
     columnDefs: [{
       className: 'dt-center',
