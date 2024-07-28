@@ -207,7 +207,34 @@
             <div class="row">
 
 
+            <div class="mb-3">
+                <label class="form-label">{{__('admin.bankquestions.question_link')}}</label>
+                <input type="text" class="form-control" name="question_video_link" 
+                value="{{old('question_video_link',$row)}}">
+                @error('question_video_link')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
+              </div>
 
+
+              <div class="mb-3" id="provider_div">
+                  <label class="form-label" for="question_provider">{{ __('admin.lectures.provider') }} <span>*</span></label>
+                  <select class="form-control" name="question_provider" id="provideSelect" required>
+                    <option value="">{{ __('select') }}</option>
+                    <option value="1" @if($row->question_provider== 1) selected @endif> {{ __('admin.lectures.viemo')}}</option>
+                    <option value="2"  @if($row->question_provider== 2) selected @endif> {{ __('admin.lectures.Youtube')}}</option>
+                    <option value="3"  @if($row->question_provider== 3) selected @endif > {{ __('admin.lectures.external_link')}}</option>
+
+                  </select>
+
+                  @error('question_provider')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
 
 
 
@@ -258,6 +285,26 @@
                 </div>
                 @enderror
               </div>
+
+
+              <div class="mb-3" id="provider_div">
+                  <label class="form-label" for="answer_provider">{{ __('admin.lectures.provider') }} <span>*</span></label>
+                  <select class="form-control" name="answer_provider" id="provideSelect" required>
+                    <option value="">{{ __('select') }}</option>
+                    <option value="1" @if($row->answer_provider== 1) selected @endif> {{ __('admin.lectures.viemo')}}</option>
+                    <option value="2"  @if($row->answer_provider== 2) selected @endif> {{ __('admin.lectures.Youtube')}}</option>
+                    <option value="3"  @if($row->answer_provider== 3) selected @endif > {{ __('admin.lectures.external_link')}}</option>
+
+                  </select>
+
+                  @error('question_provider')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
+
+              
 
 
 
