@@ -12,7 +12,7 @@ class Quiz extends Model
     protected $guarded = ['id'];
     protected $fillable = [
         'track_id', 'course_id', 'level_id', 'active', 'name', 'start_time', 'end_time',
-        'duration_in_minutes', 'total_mark', 'pass_mark', 'active', 'quiz_type', 'has_levels', 'question_number'
+        'duration_in_minutes', 'total_mark', 'pass_mark', 'active', 'quiz_type', 'has_levels', 'lecture_id','question_number'
     ];
 
     protected $with = ['questions'];
