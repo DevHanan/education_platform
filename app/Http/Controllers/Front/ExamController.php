@@ -55,6 +55,8 @@ class ExamController extends Controller
         $question = BankQuestion::find($request->question_id);
         if ($question->answer == $request->answer)
             $mark = $question->mark;
+        else 
+        $mark = 0;
         if ($request->question_id && !isset($request->QuizQuestion)) {
 
          
