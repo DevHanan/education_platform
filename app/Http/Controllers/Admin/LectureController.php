@@ -92,7 +92,11 @@ class LectureController extends Controller
         }
 
         if ($request->link && $request->provider == 2) {
-            if (preg_match('/v=([^&]+)/', $request->link, $matches)) {
+            
+            $pattern = '/(?:v=|be\/)([^&\n]+)/';
+
+
+            if (preg_match($pattern, $request->link, $matches)) {
                 $video_id = $matches[1];
             } else {
                 $video_id = ''; // If no video code is found, set it to an empty string
@@ -179,7 +183,8 @@ class LectureController extends Controller
 
 
         if ($request->link && $request->provider == 2) {
-            if (preg_match('/v=([^&]+)/', $request->link, $matches)) {
+                $pattern = '/(?:v=|be\/)([^&\n]+)/';
+                if (preg_match($pattern, $request->link, $matches)) {
                 $video_id = $matches[1];
             } else {
                 $video_id = ''; // If no video code is found, set it to an empty string
