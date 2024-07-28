@@ -26,7 +26,6 @@ class ExamController extends Controller
         $questionnumber = 1;
         StudentExam::create(['quiz_id'=>$quiz->id,'student_id'=>auth()->guard('students-login')->user()->id,
         'totalmark'=>$quiz->total_mark]);
-        PassingAttempt::create(['student_id' => auth()->guard('students-login')->user()->id, 'quiz_id' => $id]);
         return view('front.quizuestion', compact('quiz', 'question', 'QuizQuestion', 'questionnumber'));
     }
 
@@ -49,13 +48,11 @@ class ExamController extends Controller
 
         $quiz = Quiz::find($request->quiz_id);
         $questionnumber = $request->questionnumber + 1;
-        $student_id = auth()->guard('students-login')->user()->id;
-        return $student_id;
         if ($request->question_id && !isset($request->QuizQuestion)) {
 
             StudentExamdetail::updateOrCreate(
                 [
-                    'student_id'     => $student_id,
+                    'student_id'     => $request->student_id,
                     'quiz_id' => $request->quiz_id,
                     'question_id'    => $request->question_id,
                 ],
@@ -93,10 +90,8 @@ class ExamController extends Controller
         $quiz = Quiz::find($id);
         // add attempt to pass exam 
         PassingAttempt::create(['student_id' => auth()->guard('students-login')->user()->id, 'quiz_id' => $id]);
-              if ($quiz->has_levels)
-        StudentExam::create(['quiz_id'=>$quiz->id,'student_id'=>auth()->guard('students-login')->user()->id,
-        'totalmark'=>$quiz->total_mark]);
-              return view('front.quizdepartment', compact('quiz'));
+        if ($quiz->has_levels)
+            return view('front.quizdepartment', compact('quiz'));
     }
 
     public function getExamLevelQuestion($id)
