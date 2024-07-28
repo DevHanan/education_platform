@@ -149,7 +149,8 @@ class CourseController extends Controller
         $recommend = $request->recommend ? '1' : '0';
         $request->merge(['active' => $active, 'recommend' => $recommend]);
         if ($request->promo_url && $request->provider == 2) {
-            if (preg_match('/v=([^&]+)/', $request->promo_url, $matches)) {
+            $pattern = '/(?:v=|be\/)([^&\n]+)/';
+            if (preg_match($pattern, $request->promo_url, $matches)) {
                 $video_id = $matches[1];
             } else {
                 $video_id = ''; // If no video code is found, set it to an empty string
@@ -242,7 +243,8 @@ class CourseController extends Controller
         $active = $request->active ? '1' : '0';
         $recommend = $request->recommend ? '1' : '0';
         if ($request->promo_url && $request->provider == 2) {
-            if (preg_match('/v=([^&]+)/', $request->promo_url, $matches)) {
+            $pattern = '/(?:v=|be\/)([^&\n]+)/';
+            if (preg_match($pattern, $request->promo_url, $matches)) {
                 $video_id = $matches[1];
             } else {
                 $video_id = ''; // If no video code is found, set it to an empty string
