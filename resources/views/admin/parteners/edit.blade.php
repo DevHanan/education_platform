@@ -73,7 +73,7 @@
                     <label for="logo">{{ __('admin.parteners.field_photo') }}</label>
                     <input type="file" class="form-control" name="image" id="logo">
                     @if(isset($row->image))
-                    <img src="{{ asset($row->imageFullPath) }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
+                    <img src="{{ asset($row->imageFullPath) }}"   style="mx-height:150px;padding:10px;" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
                     <div class="clearfix"></div>
                     @endif
                     @error('image')
