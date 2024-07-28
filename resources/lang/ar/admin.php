@@ -637,6 +637,7 @@ return [
         'title' => 'عرض جميع الأسئلة',
     ],
     'quizzes'  => [
+        'show' => 'عرض تفاصيل الاختبار',
         'add_bank_group' => 'بنك الاسئلة',
         'select_bank' => 'إختر البنك',
         'random_select' => 'الاختيار عشوائى',
