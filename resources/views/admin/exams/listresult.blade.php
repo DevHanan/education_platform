@@ -89,7 +89,8 @@
 
 
 
-                    <a href="{{ url('admin/student-exam/'.$row->id) }}" class="btn btn-icon btn-primary btn-sm">
+                    <a href="{{ url('admin/student-exam/'.$row->id) }}" 
+                    title="تفاصيل الاختبار" class="btn btn-icon btn-primary btn-sm">
                     <i class="fa fa-question-circle" aria-hidden="true"></i>
                     </a>
 
