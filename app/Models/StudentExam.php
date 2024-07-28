@@ -24,7 +24,7 @@ class StudentExam extends Model
 
     public function studentresult()
     {
-        return $this->hasMany(StudentExamdetail::class);
+        return $this->hasMany(StudentExamdetail::class,'student_exam_id');
     }
 
 }
