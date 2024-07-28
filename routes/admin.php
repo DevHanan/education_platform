@@ -186,7 +186,7 @@ Route::group(
             Route::resource('quizzes.sections', QuizSectionController::class);
             Route::resource('quizzes.questions', QuizQuestionController::class);
             Route::get('studentsexamresults', [ExamController::class, 'listresult'])->name('studentsexamresults');
-            Route::get('studentexam/{id}', [ExamController::class, 'studentexam'])->name('studentexam');
+            Route::get('student-exam/{id}', [ExamController::class, 'studentexam'])->name('studentexam');
 
             
 
