@@ -76,7 +76,7 @@
                   </td>
 
                   <td>
-                    {{ optional(optional($row->quiz)->lecture))->title}}
+                    {{ optional(optional($row->quiz)->lecture)->title}}
 
                   </td>
 
