@@ -17,7 +17,7 @@ class Review extends Model
     public function getcustomCommentAttribute($value)
     {
 
-        return  strip_tags($this->comment);
+        return  strip_tags(htmlspecialchars_decode($this->comment));
     }
 
     public function scopeActive($query)
