@@ -52,12 +52,12 @@ class ExamController extends Controller
         $questionnumber = $request->questionnumber + 1;
         $authid = auth()->guard('students-login')->user()->id;
         $student_exam_id = StudentExam::where('quiz_id', $quiz->id)->where('student_id', $authid)->latest()->first();
-       return $student_exam_id;
+        $question = BankQuestion::find($request->question_id);
+        if ($question->answer == $request->answer)
+            $mark = $question->mark;
         if ($request->question_id && !isset($request->QuizQuestion)) {
 
-            $question = BankQuestion::find($request->question_id);
-            if ($question->answer == $request->answer)
-                $mark = $question->mark;
+         
             StudentExamdetail::Create(
                 [
 
@@ -78,11 +78,13 @@ class ExamController extends Controller
         } else {
             StudentExamdetail::Create(
                 [
-                    'student_id'     => $request->student_id,
+                   'student_exam_id' => $student_exam_id->id,
+                    'student_id'     => $student_exam_id->student_id,
                     'quiz_id' => $request->quiz_id,
                     'question_id'    => $request->question_id,
                     'answer'     => $request->answer,
-                    'status'     =>  $request->answer != null ? '1' : '0'
+                    'status'     =>  $request->answer != null ? '1' : '0',
+                    'mark' => $mark
                 ]
             );
             $question = BankQuestion::where('id', $request->QuizQuestion[0])->first();
