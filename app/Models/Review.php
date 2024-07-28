@@ -12,7 +12,7 @@ class Review extends Model
     public $timestamps = true;
 
     protected $fillable = array('name','active','comment','job');
-    protected $appends = ['customCommen'];
+    protected $appends = ['customComment'];
 
     public function getcustomCommentAttribute($value)
     {
