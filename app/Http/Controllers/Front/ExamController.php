@@ -50,6 +50,7 @@ class ExamController extends Controller
         $quiz = Quiz::find($request->quiz_id);
         $questionnumber = $request->questionnumber + 1;
         $student_id = auth()->guard('students-login')->user()->id;
+        return $student_id;
         if ($request->question_id && !isset($request->QuizQuestion)) {
 
             StudentExamdetail::updateOrCreate(
