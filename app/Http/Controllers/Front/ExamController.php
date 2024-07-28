@@ -54,7 +54,7 @@ class ExamController extends Controller
         $student_exam_id = StudentExam::where('quiz_id', $quiz->id)->where('student_id', $authid)->latest()->first();
         $question = BankQuestion::find($request->question_id);
 
-        $correctanswer = $question->answer .'_' . $question->correct_answer;
+        $correctanswer = 'answer'.'_' . $question->correct_answer;
         return $correctanswer;
 
         if ($question->correct_answer == $request->answer)
