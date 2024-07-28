@@ -243,6 +243,7 @@
 
                                     @if($level->tests)
                                     @foreach($level->tests as $test)
+                                    @if($test->lecture_id == null)
                                     <div id="dataTab{{$level->id}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion{{$test->id}}">
                                         <div class="accordion-body">
                                             <div class="accordion-item">
@@ -296,6 +297,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @endif
 
                                     @endforeach
 
