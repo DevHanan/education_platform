@@ -30,8 +30,8 @@ class BankQuestion extends Model
     public function getCorrectAnswerAttribute()
     {
 
-        $answer = 'answer'.$this->correct_answer;
-            return $this->$answer;
+        return $this->correct_answer;
+            
     }
 
     public function getcustomTitleAttribute($value)
