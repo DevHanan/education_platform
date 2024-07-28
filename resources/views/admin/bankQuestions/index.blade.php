@@ -112,15 +112,7 @@
 
                   </td>
                   <td>
-                    @if( $row->correct_answer == 1)
-                    {{ $row->answer1 }}
-                    @elseif( $row->correct_answer == 2)
-                    {{ $row->answer2 }}
-                    @elseif( $row->correct_answer == 3)
-                    {{ $row->answer3 }}
-                    @else
-                    {{ $row->answer4 }}
-                    @endif
+                   {{ $row->correct_answer  }} 
                   
                   </td>
 
