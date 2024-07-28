@@ -18,5 +18,12 @@ class ExamController extends Controller
         $rows = StudentExam::latest()->paginate(20);
         return view('admin.exams.listresult', compact('rows','title'));
 
+        
+    }
+
+    public function studentexam($id){
+        $title = 'عرض تفاصيل اختبار  الطلاب';
+        $row = StudentExam::find($id);
+        return view('admin.exams.showresult', compact('row','title'));
     }
 }
