@@ -52,6 +52,7 @@ class ExamController extends Controller
         $questionnumber = $request->questionnumber + 1;
         $authid = auth()->guard('students-login')->user()->id;
         $student_exam_id = StudentExam::where('quiz_id', $quiz->id)->where('student_id', $authid)->latest()->first();
+       return $student_exam_id;
         if ($request->question_id && !isset($request->QuizQuestion)) {
 
             $question = BankQuestion::find($request->question_id);
