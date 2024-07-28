@@ -31,7 +31,7 @@ class BankQuestion extends Model
     public function getCorrectAnswerAttribute($value)
     {
 
-      return $this->answer.'_'.$this->correct_answer;
+      return $this->answer .'_'. $this->correct_answer;
 
     }
 
