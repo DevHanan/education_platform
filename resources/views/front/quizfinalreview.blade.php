@@ -119,10 +119,9 @@
             <p class="m-0" data-bs-toggle="collapse" href="#part1" role="button" aria-expanded="false" aria-controls="part1"><i class="fa-solid fa-caret-down"></i></p>
         </div>
      </div> 
-     <section class="container-fluid collapse multi-collapse" id="part1">
         <div class="row">
             @foreach ($questions  as $item )
-            <a href="review-question-answer.html" class="text-decoration-none text-dark col-md-4 border p-3 all uncompleted">
+            <a href="{{ url('review-question/'.$item->id)}}" class="text-decoration-none text-dark col-md-4 border p-3 all uncompleted">
                 <div class="d-flex justify-content-between">
                     <div>
                         <span><i class="fa-solid fa-flag text-secondary"></i></span>
@@ -141,7 +140,7 @@
            
            
         </div>
-     </section>
+   
      @else
       <div class="d-flex mb-2 bg-primary text-light justify-content-between container-fluid">
         <div class=" py-2 fw-bold"> القسم الثانى</div>
