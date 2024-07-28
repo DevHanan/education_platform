@@ -145,7 +145,7 @@ class ExamController extends Controller
     {
 
         $title = 'مراجعة الاجابات';
-        $questions = StudentExamdetail::where(function ($q) use ($request) {
+        $questions = StudentExamdetail::with('question')->where(function ($q) use ($request) {
             $q->where('quiz_id', $request->id);
             if ($request->section_id)
                 $q->where('section_id', $request->section_id);
