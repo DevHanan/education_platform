@@ -165,9 +165,10 @@ class ExamController extends Controller
         $quiz = Quiz::find($request->quiz_id);
         $questions = StudentExamdetail::where(function ($q) use ($request) {
             $q->where('quiz_id', $request->id);
+            
             if ($request->section_id)
                 $q->where('section_id', $request->section_id);
-        })->get();
+        })->where('student_id',auth()->guard('students-login')->user()->id)->get();
         $studentMark = 0;
         foreach($questions as $question)
         $studentMark += $question->mark;

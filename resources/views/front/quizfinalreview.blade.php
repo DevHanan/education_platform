@@ -126,7 +126,7 @@
                 <div class="d-flex justify-content-between">
                     <div>
                         <span><i class="fa-solid fa-flag text-secondary"></i></span>
-                        <span> {!!  $item->question->customTitle !!}</span>
+                        <span> {!!  optional($item->question)->customTitle !!}</span>
                         </div>
                         @if($item->status == 0)
                     <span class="text-danger">غير مكتمل</span>
