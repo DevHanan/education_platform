@@ -63,13 +63,14 @@ class ExamController extends Controller
         if ($request->question_id && !isset($request->QuizQuestion)) {
 
          
-            StudentExamdetail::Create(
+            StudentExamdetail::updateOrCreate(
                 [
-
-                    'student_exam_id' => $student_exam_id->id,
+                    [
+                   'student_exam_id' => $student_exam_id->id,
                     'student_id'     => $student_exam_id->student_id,
                     'quiz_id' => $request->quiz_id,
                     'question_id'    => $request->question_id,
+                    ],
                     'answer'     => $request->answer,
                     'status'     =>  $request->answer != null ? '1' : '0',
                     'mark' => $mark
@@ -81,12 +82,14 @@ class ExamController extends Controller
             $studentanswers = StudentExamdetail::where('quiz_id', $request->quiz_id)->where('quiz_id', $request->quiz_id)->get();
             return redirect()->route('questions.reviews', [$quiz->id])->with(['studentanswers']);
         } else {
-            StudentExamdetail::Create(
+            StudentExamdetail::updateOrCreate(
                 [
+                    [
                    'student_exam_id' => $student_exam_id->id,
                     'student_id'     => $student_exam_id->student_id,
                     'quiz_id' => $request->quiz_id,
                     'question_id'    => $request->question_id,
+                    ],
                     'answer'     => $request->answer,
                     'status'     =>  $request->answer != null ? '1' : '0',
                     'mark' => $mark
