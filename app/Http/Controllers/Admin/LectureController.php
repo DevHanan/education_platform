@@ -11,6 +11,8 @@ use App\Models\Lecture;
 use App\Models\Level;
 use Illuminate\Http\Request;
 use Toastr;
+use Illuminate\Support\Facades\URL;
+
 
 
 class LectureController extends Controller
@@ -26,9 +28,9 @@ class LectureController extends Controller
         $this->view = 'admin.lectures';
         $this->path = 'lectures';
         $this->access = 'lectures';
-        $this->middleware('permission:lectures-create', ['only' => ['create','store']]);
+        $this->middleware('permission:lectures-create', ['only' => ['create', 'store']]);
         $this->middleware('permission:lectures-view',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:lectures-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:lectures-edit',   ['only' => ['edit', 'update']]);
         $this->middleware('permission:lectures-delete',   ['only' => ['delete']]);
     }
     public function index(Request $request, $level_id)
@@ -92,14 +94,14 @@ class LectureController extends Controller
         }
 
         if ($request->link && $request->provider == 2) {
-            
-            $pattern = '/(?:v=|be\/)([^&\n]+)/';
 
-
-            if (preg_match($pattern, $request->link, $matches)) {
-                $video_id = $matches[1];
-            } else {
-                $video_id = ''; // If no video code is found, set it to an empty string
+            $parsedUrl = URL::parse($request->link);
+            $video_id = '';
+            if ($parsedUrl->getHost() == 'www.youtube.com') {
+                $video_id = $parsedUrl->getQuery();
+            } elseif ($parsedUrl->getHost() == 'youtu.be') {
+                $path = $parsedUrl->getPath();
+                $video_id = explode('?', $path)[0];
             }
             $lecture->link = 'https://www.youtube.com/embed/' . $video_id;
             $lecture->save();
@@ -137,7 +139,7 @@ class LectureController extends Controller
         $lecture->update($request->except(['img', 'bookFiles']));
 
         if (count($request->imgTitle)) {
-             PhotoLecture::where('lecture_id',$lecture->id)->delete();
+            PhotoLecture::where('lecture_id', $lecture->id)->delete();
             for ($i = 0; $i < count($request->imgTitle); $i++) {
                 if (isset($request->img[$i]) && $request->img[$i] != null) {
 
@@ -156,9 +158,9 @@ class LectureController extends Controller
 
 
         if (count($request->bookTitles)) {
-             BookLecture::where('lecture_id',$lecture->id)->delete();
+            BookLecture::where('lecture_id', $lecture->id)->delete();
             for ($i = 0; $i < count($request->bookTitles); $i++) {
-                if (isset($request->bookFiles[$i]) && $request->bookFiles[$i] != null ) {
+                if (isset($request->bookFiles[$i]) && $request->bookFiles[$i] != null) {
 
                     $thumbnail = $request->bookFiles[$i];
                     $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
@@ -170,25 +172,26 @@ class LectureController extends Controller
                         'lecture_id'  => $lecture->id
                     ]);
                 } else {
-                    if (isset($request->bookLinks[$i]) && $request->bookLinks[$i] != null ) 
-                    BookLecture::create([
-                        'title' => $request->bookTitles[$i],
-                        'file' => '',
-                        'link'  => $request->bookLinks[$i],
-                        'lecture_id'  => $lecture->id
-                    ]);
+                    if (isset($request->bookLinks[$i]) && $request->bookLinks[$i] != null)
+                        BookLecture::create([
+                            'title' => $request->bookTitles[$i],
+                            'file' => '',
+                            'link'  => $request->bookLinks[$i],
+                            'lecture_id'  => $lecture->id
+                        ]);
                 }
             }
-            
         }
 
 
         if ($request->link && $request->provider == 2) {
-                $pattern = '/(?:v=|be\/)([^&\n]+)/';
-                if (preg_match($pattern, $request->link, $matches)) {
-                $video_id = $matches[1];
-            } else {
-                $video_id = ''; // If no video code is found, set it to an empty string
+            $parsedUrl = URL::parse($request->link);
+            $video_id = '';
+            if ($parsedUrl->getHost() == 'www.youtube.com') {
+                $video_id = $parsedUrl->getQuery();
+            } elseif ($parsedUrl->getHost() == 'youtu.be') {
+                $path = $parsedUrl->getPath();
+                $video_id = explode('?', $path)[0];
             }
             $lecture->link = 'https://www.youtube.com/embed/' . $video_id;
             $lecture->save();

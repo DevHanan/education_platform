@@ -19,6 +19,8 @@ use App\Models\LandingSetting;
 use App\Models\Lecture;
 use App\Models\Level;
 use Toastr;
+use Illuminate\Support\Facades\URL;
+
 
 
 
@@ -149,12 +151,15 @@ class CourseController extends Controller
         $recommend = $request->recommend ? '1' : '0';
         $request->merge(['active' => $active, 'recommend' => $recommend]);
         if ($request->promo_url && $request->provider == 2) {
-            $pattern = '/(?:v=|be\/)([^&\n]+)/';
-            if (preg_match($pattern, $request->promo_url, $matches)) {
-                $video_id = $matches[1];
-            } else {
-                $video_id = ''; // If no video code is found, set it to an empty string
-            }
+            if ($request->promo_url && $request->provider == 2) {
+                $parsedUrl = URL::parse($request->promo_url);
+                $video_id = '';
+                if ($parsedUrl->getHost() == 'www.youtube.com') {
+                    $video_id = $parsedUrl->getQuery();
+                } elseif ($parsedUrl->getHost() == 'youtu.be') {
+                    $path = $parsedUrl->getPath();
+                    $video_id= explode('?', $path)[0];
+                }
             $request->merge(['videoId' => 'https://www.youtube.com/embed/' . $video_id]);
         } else {
             if (preg_match('%^https?:\/\/(?:www\.|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|video\/|)(\d+)(?:$|\/|\?)(?:[?]?.*)$%im', $request->promo_url, $regs)) {
@@ -243,12 +248,15 @@ class CourseController extends Controller
         $active = $request->active ? '1' : '0';
         $recommend = $request->recommend ? '1' : '0';
         if ($request->promo_url && $request->provider == 2) {
-            $pattern = '/(?:v=|be\/)([^&\n]+)/';
-            if (preg_match($pattern, $request->promo_url, $matches)) {
-                $video_id = $matches[1];
-            } else {
-                $video_id = ''; // If no video code is found, set it to an empty string
+            $parsedUrl = URL::parse($request->promo_url);
+            $video_id = '';
+            if ($parsedUrl->getHost() == 'www.youtube.com') {
+                $video_id = $parsedUrl->getQuery();
+            } elseif ($parsedUrl->getHost() == 'youtu.be') {
+                $path = $parsedUrl->getPath();
+                $video_id= explode('?', $path)[0];
             }
+
             $request->merge(['videoId' => 'https://www.youtube.com/embed/' . $video_id]);
         } else {
             if (preg_match('%^https?:\/\/(?:www\.|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|video\/|)(\d+)(?:$|\/|\?)(?:[?]?.*)$%im', $request->promo_url, $regs)) {
