@@ -10,53 +10,58 @@ class BankQuestion extends Model
 
     protected $fillable = [
         'title', 'mark', 'bank_group_id', 'active', 'model_answer', 'answer_notes',
-        'answer_video_link', 'question_video_link','question_provider','answer_provider','question_notes', 'answer1', 'answer2', 'answer3', 'answer4', 'correct_answer'
+        'answer_video_link', 'question_video_link', 'question_provider', 'answer_provider', 'question_notes', 'answer1', 'answer2', 'answer3', 'answer4', 'correct_answer'
     ];
 
-    protected $appends = ['pictureFullPath', 'questionFullPath', 'answerFullPath','customTitle','correctAnswer'];
+    protected $appends = ['pictureFullPath', 'questionFullPath', 'answerFullPath', 'customTitle', 'correctAnswer'];
 
 
-  
+
     public function getPictureFullPathAttribute($value)
     {
 
-        if($this->picture)
-        return asset('public/' . $this->picture);
-    else
-    return asset('public/uploads/bankquestions/default.png');
-
+        if ($this->picture)
+            return asset('public/' . $this->picture);
+        else
+            return asset('public/uploads/bankquestions/default.png');
     }
 
 
-    public function getCorrectAnswerAttribute($value)
+    public function getCorrectAnswerAttribute()
     {
 
-      return $this->answer .'_'. $this->correct_answer;
-
+        if ($this->correct_answer == 1)
+            return $this->answer1;
+        elseif ($this->correct_answer == 2)
+            return $this->answer2;
+        elseif ($this->correct_answer == 3)
+            return $this->answer3;
+        else
+            return $this->answer4;
     }
 
     public function getcustomTitleAttribute($value)
     {
 
-        return  strip_tags($this->title) ;
+        return  strip_tags($this->title);
     }
 
     public function getQuestionFullPathAttribute($value)
     {
 
-        if($this->question_declare_img)
-        return asset('public/' . $this->question_declare_img);
+        if ($this->question_declare_img)
+            return asset('public/' . $this->question_declare_img);
         else
-        return asset('public/uploads/bankquestions/default.png');
+            return asset('public/uploads/bankquestions/default.png');
     }
 
     public function getAnswerFullPathAttribute($value)
     {
 
-        if($this->answer_declare_img)
-        return asset('public/' . $this->answer_declare_img);
+        if ($this->answer_declare_img)
+            return asset('public/' . $this->answer_declare_img);
         else
-        return asset('public/uploads/bankquestions/default.png');
+            return asset('public/uploads/bankquestions/default.png');
     }
 
     public function scopeActive($query)
