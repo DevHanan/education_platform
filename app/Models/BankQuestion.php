@@ -10,7 +10,7 @@ class BankQuestion extends Model
 
     protected $fillable = [
         'title', 'mark', 'bank_group_id', 'active', 'model_answer', 'answer_notes',
-        'answer_video_link', 'question_notes', 'answer1', 'answer2', 'answer3', 'answer4', 'correct_answer'
+        'answer_video_link', 'question_video_link','question_provider','answer_provider','question_notes', 'answer1', 'answer2', 'answer3', 'answer4', 'correct_answer'
     ];
 
     protected $appends = ['pictureFullPath', 'questionFullPath', 'answerFullPath','customTitle'];
