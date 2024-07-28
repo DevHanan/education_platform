@@ -126,10 +126,12 @@
                                                     </th>
                                                     <th>{{__('admin.bankquestions.title')}} </th>
                                                     <th>{{__('admin.bankquestions.title_photo')}} </th>
+                                                    
                                                     <th>{{__('admin.bankquestions.ban_group')}} </th>
-                                                    <th> {{__('admin.bankquestions.options')}}</th>
                                                     <th> {{__('admin.bankquestions.correct_answer')}}</th>
                                                     <th>{{__('admin.bankquestions.mark')}} </th>
+                                                    <th> {{__('admin.bankquestions.options')}}</th>
+                                                   
 
                                                 </tr>
                                             </thead>
@@ -141,6 +143,10 @@
                                                     <td> {{ Str::words( optional($obj->question)->customTitle, 7) }}</td>
                                                     <td><img src="{{ optional($obj->question)->pictureFullPath }}" style="width:40px"></td>
                                                     <td>{{ optional(optional($obj->question)->group)->name}}</td>
+                                                    <td> {{ optional($obj->question)->correctanswer}}</td>
+
+                                                    <td>{{optional($obj->question)->mark}}</td>
+
                                                     <td>
                                                         <ul style="list-style-type:decimal;">
                                                             <li>
@@ -159,13 +165,11 @@
 
 
                                                     </td>
-                                                    <td> {{ optional($obj->question)->correctanswer}}</td>
-
-                                                    <td>{{optional($obj->question)->mark}}</td>
 
 
 
-                                                   
+
+
 
                                                 </tr>
                                                 @endforeach
