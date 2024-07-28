@@ -157,13 +157,21 @@ class ExamController extends Controller
 
     public function approveexam(Request $request)
     {
-        StudentExamdetail::where(['quiz_id' => $request->quiz_id, 'student_id' => auth()->guard('students-login')->user()->id])->update(['approved' => '1']);
+        StudentExamdetail::where(['quiz_id' => $request->quiz_id, 
+        'student_id' => auth()->guard('students-login')->user()->id])->update(['approved' => '1']);
         $quiz = Quiz::find($request->quiz_id);
         $questions = StudentExamdetail::where(function ($q) use ($request) {
             $q->where('quiz_id', $request->id);
             if ($request->section_id)
                 $q->where('section_id', $request->section_id);
         })->get();
+        $studentMark = 0;
+        foreach($questions as $question)
+        $studentMark += $question->mark;
+        StudentExam::where(['quiz_id' => $request->quiz_id, 
+        'student_id' => auth()->guard('students-login')->user()->id])->update(['studentmark' => $studentMark]);
+
+
         $title = 'مراجعه نهائية';
         return view('front.quizfinalreview', compact('questions', 'title', 'quiz'));
     }
