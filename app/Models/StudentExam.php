@@ -20,4 +20,11 @@ class StudentExam extends Model
 
         return $this->belongsTo(Quiz::class);
     }
+
+
+    public function studentresult()
+    {
+        return $this->hasMany(StudentExamdetail::class);
+    }
+
 }

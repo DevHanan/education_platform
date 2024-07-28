@@ -134,7 +134,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach($row->questions as $obj)
+                                                @foreach($row->StudentExamdetail as $obj)
 
                                                 <tr>
                                                     <td><span class="text-secondary">{{$loop->iteration }}</span></td>
