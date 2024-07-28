@@ -168,6 +168,9 @@ if (app()->getLocale() == 'ar') {
   console.log(url);
 
   new DataTable('#quizzesTable', {
+    "createdRow": function(row, data, dataIndex) {
+      $('#quizzesTable').removeClass('dataTable');
+    },
     language: {
 
       url: url
