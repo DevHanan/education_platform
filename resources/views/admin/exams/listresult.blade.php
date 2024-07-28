@@ -57,25 +57,26 @@
                 <tr>
                   <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
                   <td><span class="text-secondary">{{$loop->iteration}}</span></td>
-                  <td>{{$row->name}}</td>
-                  <td>{{$row->created_at}}</td>
-                  <td> {{ $row->total_mark }}</td>
-                  <td> {{ $row->pass_mark }}</td>
+                  <td>{{ optional($row->quiz)->name}}</td>
+                  <td>{{$row->date}}</td>
+                  <td> {{ optional($row->quiz)->total_mark }}</td>
+                  <td> {{ optional($row->quiz)->pass_mark }}</td>
+
                   <td>
-                    {{ optional($row->track)->name}}
+                    {{ optional(optional($row->quiz)->track)->name}}
 
                   </td>
                   <td>
-                    {{ optional($row->course)->name}}
+                    {{ optional(optional($row->quiz)->course)->name}}
 
                   </td>
                   <td>
-                    {{ optional($row->level)->name}}
+                    {{ optional(optional($row->quiz)->level)->name}}
 
                   </td>
 
                   <td>
-                    {{ optional($row->lecture)->title}}
+                    {{ optional(optional($row->quiz)->lecture))->title}}
 
                   </td>
 
@@ -88,9 +89,9 @@
 
 
 
-                    <!-- <a href="{{ url('admin/quizzes/'.$row->id .'/questions') }}" class="btn btn-icon btn-primary btn-sm">
+                    <a href="{{ url('admin/student-exam/'.$row->id) }}" class="btn btn-icon btn-primary btn-sm">
                     <i class="fa fa-question-circle" aria-hidden="true"></i>
-                    </a> -->
+                    </a>
 
                   </td>
                 </tr>
