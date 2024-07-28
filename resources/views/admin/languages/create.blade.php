@@ -35,7 +35,7 @@
 
 
                         <div class="col-md-12">
-                            <label class="form-label" for="title"> {{__('admin.tracks.name')}} <span>*</span></label>
+                            <label class="form-label" for="title"> {{__('admin.languages.name')}} <span>*</span></label>
                             <input type="text" class="form-control" name="name" id="title" value="{{ old('name') }}" required>
 
                             @error('name')
@@ -52,7 +52,7 @@
                         <div class="form-group col-md-6">
 
 
-                            <label for="logo">{{ __('admin.tracks.field_photo') }}</label>
+                            <label for="logo">{{ __('admin.languages.field_photo') }}</label>
                             <input type="file" class="form-control" name="image" id="logo">
 
                             @error('image')

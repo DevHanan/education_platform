@@ -39,7 +39,7 @@
 
 
               <div class="form-group col-md-12">
-                <label class="form-label" for="name"> {{__('admin.tracks.name')}} <span>*</span></label>
+                <label class="form-label" for="name"> {{__('admin.languages.name')}} <span>*</span></label>
                 <input type="text" class="form-control" name="name" id="name" value="{{ old('name',$row) }}" required>
 
                 @error('name')
@@ -54,7 +54,7 @@
 
 
               <div class="form-group col-md-12">
-                <label class="form-label" for="active" class="form-label">{{ __('admin.tracks.status') }}</label>
+                <label class="form-label" for="active" class="form-label">{{ __('admin.languages.status') }}</label>
                 <div>
                   <label class="form-check form-check-inline">
                     <input class="form-check-input" value="1" @if($row->active ==1) checked="checked" @endif type="radio" name="active" >
@@ -72,7 +72,7 @@
 
               
 
-                <label for="logo">{{ __('admin.tracks.field_photo') }}</label>
+                <label for="logo">{{ __('admin.languages.field_photo') }}</label>
                 <input type="file" class="form-control" name="image" id="logo">
                 @if(isset($row->image))
                 <img src="{{ $row->imageFullPath }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
