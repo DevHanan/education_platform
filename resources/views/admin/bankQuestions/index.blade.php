@@ -74,6 +74,7 @@
                   <th>{{__('admin.bankquestions.title')}} </th>
                   <th>{{__('admin.bankquestions.title_photo')}} </th>
                   <th>{{__('admin.bankquestions.ban_group')}} </th>
+                  <th>{{__('admin.bankquestions.quizzes_number')}} </th>
                   <th> {{__('admin.bankquestions.options')}}</th>
                   <th> {{__('admin.bankquestions.correct_answer')}}</th>
                   <th>{{__('admin.bankquestions.mark')}} </th>
@@ -90,6 +91,8 @@
                   <td>  {{ Str::words( $row->customTitle, 7) }}</td>
                   <td><img src="{{ $row->pictureFullPath }}" style="width:40px"></td>
                   <td>{{ optional($row->group)->name}}</td>
+                  <td>{{ $row->quizzes()->count()}}</td>
+
                   <td>
                     <ul style="list-style-type:decimal;">
                       <li>

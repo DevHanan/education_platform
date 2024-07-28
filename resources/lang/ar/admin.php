@@ -604,6 +604,7 @@ return [
 
     ],
     'bankquestions' => [
+        'quizzes_number' => 'عدد الاختبارات',
         'explain_question_data' => 'بيانات توضيحية للسؤال',
         'explain_answer_data' => 'بيانات توضيحية لشرح إجابة السؤال',
         'title'  => 'رأس السؤال نص',
