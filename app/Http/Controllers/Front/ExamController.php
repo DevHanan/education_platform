@@ -24,8 +24,10 @@ class ExamController extends Controller
         $question = BankQuestion::where('id', $first_question->question_id)->first();
         $QuizQuestion = QuizQuestion::where('quiz_id', $id)->pluck('question_id')->ToArray();
         $questionnumber = 1;
-        StudentExam::create(['quiz_id'=>$quiz->id,'student_id'=>auth()->guard('students-login')->user()->id,
-        'totalmark'=>$quiz->total_mark]);
+        StudentExam::create([
+            'quiz_id' => $quiz->id, 'student_id' => auth()->guard('students-login')->user()->id,
+            'totalmark' => $quiz->total_mark
+        ]);
         return view('front.quizuestion', compact('quiz', 'question', 'QuizQuestion', 'questionnumber'));
     }
 
@@ -48,17 +50,22 @@ class ExamController extends Controller
 
         $quiz = Quiz::find($request->quiz_id);
         $questionnumber = $request->questionnumber + 1;
+        $student_exam_id = StudentExam::where('quiz_id', $quiz->id)->where('student_id', $authid)->latest()->first();
         if ($request->question_id && !isset($request->QuizQuestion)) {
 
-            StudentExamdetail::updateOrCreate(
+            $question = BankQuestion::find($request->question_id);
+            if ($question->answer == $request->answer)
+                $mark = $question->mark;
+            StudentExamdetail::Create(
                 [
-                    'student_id'     => $request->student_id,
+
+                    'student_exam_id' => $student_exam_id->id,
+                    'student_id'     => $student_exam_id->student_id,
                     'quiz_id' => $request->quiz_id,
                     'question_id'    => $request->question_id,
-                ],
-                [
                     'answer'     => $request->answer,
-                    'status'     =>  $request->answer != null ? '1' : '0'
+                    'status'     =>  $request->answer != null ? '1' : '0',
+                    'mark' => $mark
                 ]
             );
             $studentanswers = StudentExamdetail::where('quiz_id', $request->quiz_id)->where('quiz_id', $request->quiz_id)->get();
@@ -67,13 +74,11 @@ class ExamController extends Controller
             $studentanswers = StudentExamdetail::where('quiz_id', $request->quiz_id)->where('quiz_id', $request->quiz_id)->get();
             return redirect()->route('questions.reviews', [$quiz->id])->with(['studentanswers']);
         } else {
-            StudentExamdetail::updateOrCreate(
+            StudentExamdetail::Create(
                 [
                     'student_id'     => $request->student_id,
                     'quiz_id' => $request->quiz_id,
                     'question_id'    => $request->question_id,
-                ],
-                [
                     'answer'     => $request->answer,
                     'status'     =>  $request->answer != null ? '1' : '0'
                 ]
@@ -141,16 +146,16 @@ class ExamController extends Controller
     }
 
 
-    public function approveexam(Request $request){
-        StudentExamdetail::where(['quiz_id'=>$request->quiz_id,'student_id'=>auth()->guard('students-login')->user()->id])->update(['approved'=>'1']);
-         $quiz = Quiz::find($request->quiz_id);
-         $questions = StudentExamdetail::where(function ($q) use ($request) {
+    public function approveexam(Request $request)
+    {
+        StudentExamdetail::where(['quiz_id' => $request->quiz_id, 'student_id' => auth()->guard('students-login')->user()->id])->update(['approved' => '1']);
+        $quiz = Quiz::find($request->quiz_id);
+        $questions = StudentExamdetail::where(function ($q) use ($request) {
             $q->where('quiz_id', $request->id);
             if ($request->section_id)
                 $q->where('section_id', $request->section_id);
         })->get();
         $title = 'مراجعه نهائية';
         return view('front.quizfinalreview', compact('questions', 'title', 'quiz'));
-
     }
 }
