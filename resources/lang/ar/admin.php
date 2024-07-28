@@ -599,7 +599,8 @@ return [
         'actions' => 'الحدث',
         'bank_question' => 'أسئلة البنك',
         'bank_questions_number' => 'عدد الأسئلة المضافة',
-        'question_number' => 'عدد الأسئلة من عدد الكلى'
+        'question_number' => 'عدد الأسئلة من عدد الكلى',
+        'add' => 'إضافة بنك جديد'
 
     ],
     'bankquestions' => [
