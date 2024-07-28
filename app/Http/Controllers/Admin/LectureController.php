@@ -95,13 +95,15 @@ class LectureController extends Controller
 
         if ($request->link && $request->provider == 2) {
 
-            $parsedUrl = URL::parse($request->link);
-            $video_id = '';
-            if ($parsedUrl->getHost() == 'www.youtube.com') {
-                $video_id = $parsedUrl->getQuery();
-            } elseif ($parsedUrl->getHost() == 'youtu.be') {
-                $path = $parsedUrl->getPath();
-                $video_id = explode('?', $path)[0];
+            $parsedUrl = parse_url($request->link);
+            if ($parsedUrl['host'] == 'www.youtube.com') {
+                parse_str($parsedUrl['query'], $query);
+                $video_id =  $query['v'];
+            } elseif ($parsedUrl['host'] == 'youtu.be') {
+                $path = explode('?', $parsedUrl['path']);
+                $video_id = trim($path[0], '/');
+            } else {
+                $video_id = '';
             }
             $lecture->link = 'https://www.youtube.com/embed/' . $video_id;
             $lecture->save();
@@ -185,13 +187,15 @@ class LectureController extends Controller
 
 
         if ($request->link && $request->provider == 2) {
-            $parsedUrl = URL::parse($request->link);
-            $video_id = '';
-            if ($parsedUrl->getHost() == 'www.youtube.com') {
-                $video_id = $parsedUrl->getQuery();
-            } elseif ($parsedUrl->getHost() == 'youtu.be') {
-                $path = $parsedUrl->getPath();
-                $video_id = explode('?', $path)[0];
+            $parsedUrl = parse_url($request->link);
+            if ($parsedUrl['host'] == 'www.youtube.com') {
+                parse_str($parsedUrl['query'], $query);
+                $video_id =  $query['v'];
+            } elseif ($parsedUrl['host'] == 'youtu.be') {
+                $path = explode('?', $parsedUrl['path']);
+                $video_id = trim($path[0], '/');
+            } else {
+                $video_id = '';
             }
             $lecture->link = 'https://www.youtube.com/embed/' . $video_id;
             $lecture->save();
