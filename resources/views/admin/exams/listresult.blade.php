@@ -13,7 +13,7 @@
     <div class="row g-2 align-items-center">
 
       <div class="col">
-        {{ Breadcrumbs::render('quizzes') }}
+        {{ Breadcrumbs::render('list-results') }}
 
       </div>
 

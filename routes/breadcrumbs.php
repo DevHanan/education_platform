@@ -397,6 +397,18 @@ Breadcrumbs::for('show-bankquestions', function (BreadcrumbTrail $trail,$bankgro
 
 
 
+Breadcrumbs::for('list-results', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.exams.exam_result'),route('admin.studentsexamresults'));
+});
+
+
+Breadcrumbs::for('show-result', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('list-results');
+    $trail->push(optional($row->student)->name, route('admin.studentexam', $row));
+});
+
+
 
 
 Breadcrumbs::for('listmails', function (BreadcrumbTrail $trail) {
