@@ -38,15 +38,13 @@ class CourseController extends Controller
         $this->view = 'admin.courses';
         $this->path = 'courses';
         $this->access = 'courses';
-        $this->middleware('permission:courses-create', ['only' => ['create','store']]);
+        $this->middleware('permission:courses-create', ['only' => ['create', 'store']]);
         $this->middleware('permission:courses-view',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:courses-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:courses-edit',   ['only' => ['edit', 'update']]);
         $this->middleware('permission:courses-delete',   ['only' => ['delete']]);
         $this->middleware('permission:recommened-courses-view',   ['only' => ['recommendCourses']]);
         $this->middleware('permission:make-recommened-courses-view',   ['only' => ['recommendCourses']]);
         $this->middleware('permission:recent-courses-view',   ['only' => ['startSoonCourses']]);
-
-
     }
 
 
@@ -59,7 +57,7 @@ class CourseController extends Controller
         $data['access'] = $this->access;
 
         $data['rows'] = Course::with('tracks', 'instructors')->where(function ($q) use ($request) {
-          
+
             if ($request->type)
                 $q->where('course_type_id', $request->type);
             if ($request->recommend)
@@ -95,8 +93,7 @@ class CourseController extends Controller
         $data['path'] = $this->path;
         $data['access'] = $this->access;
 
-        $data['rows'] = Course::recentStart()->
-        with('tracks', 'instructors')->where(function ($q) use ($request) {
+        $data['rows'] = Course::recentStart()->with('tracks', 'instructors')->where(function ($q) use ($request) {
             if ($request->type)
                 $q->where('course_type_id', $request->type);
             if ($request->recommend)
@@ -122,7 +119,7 @@ class CourseController extends Controller
         $data['path'] = $this->path;
         $data['access'] = $this->access;
 
-        $data['rows'] = Course::where('recommened','1')->with('tracks', 'instructors')->where(function ($q) use ($request) {
+        $data['rows'] = Course::where('recommened', '1')->with('tracks', 'instructors')->where(function ($q) use ($request) {
             if ($request->name)
                 $q->Where('name', 'like', '%' . $request->name  . '%');
             if ($request->instructor_id)
@@ -134,7 +131,8 @@ class CourseController extends Controller
         })->paginate(10);
 
         return view($this->view . '.index', $data);
-    }    public function create()
+    }
+    public function create()
     {
         $data['title'] = trans('admin.courses.add');
         $data['route'] = $this->route;
@@ -151,14 +149,16 @@ class CourseController extends Controller
         $recommend = $request->recommend ? '1' : '0';
         $request->merge(['active' => $active, 'recommend' => $recommend]);
         if ($request->promo_url && $request->provider == 2) {
-                $parsedUrl = URL::parse($request->promo_url);
+            $parsedUrl = parse_url($request->promo_url);
+            if ($parsedUrl['host'] == 'www.youtube.com') {
+                parse_str($parsedUrl['query'], $query);
+                $video_id =  $query['v'];
+            } elseif ($parsedUrl['host'] == 'youtu.be') {
+                $path = explode('?', $parsedUrl['path']);
+                $video_id = trim($path[0], '/');
+            } else {
                 $video_id = '';
-                if ($parsedUrl->getHost() == 'www.youtube.com') {
-                    $video_id = $parsedUrl->getQuery();
-                } elseif ($parsedUrl->getHost() == 'youtu.be') {
-                    $path = $parsedUrl->getPath();
-                    $video_id= explode('?', $path)[0];
-                }
+            }
             $request->merge(['videoId' => 'https://www.youtube.com/embed/' . $video_id]);
         } else {
             if (preg_match('%^https?:\/\/(?:www\.|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|video\/|)(\d+)(?:$|\/|\?)(?:[?]?.*)$%im', $request->promo_url, $regs)) {
@@ -247,13 +247,15 @@ class CourseController extends Controller
         $active = $request->active ? '1' : '0';
         $recommend = $request->recommend ? '1' : '0';
         if ($request->promo_url && $request->provider == 2) {
-            $parsedUrl = URL::parse($request->promo_url);
-            $video_id = '';
-            if ($parsedUrl->getHost() == 'www.youtube.com') {
-                $video_id = $parsedUrl->getQuery();
-            } elseif ($parsedUrl->getHost() == 'youtu.be') {
-                $path = $parsedUrl->getPath();
-                $video_id= explode('?', $path)[0];
+            $parsedUrl = parse_url($request->promo_url);
+            if ($parsedUrl['host'] == 'www.youtube.com') {
+                parse_str($parsedUrl['query'], $query);
+                $video_id =  $query['v'];
+            } elseif ($parsedUrl['host'] == 'youtu.be') {
+                $path = explode('?', $parsedUrl['path']);
+                $video_id = trim($path[0], '/');
+            } else {
+                $video_id = '';
             }
 
             $request->merge(['videoId' => 'https://www.youtube.com/embed/' . $video_id]);
@@ -278,14 +280,14 @@ class CourseController extends Controller
             CourseInstructor::where('course_id', $course->id)->delete();
             for ($i = 0; $i < count($request->instructors); $i++) {
                 if ($request->instructors[$i] != 0)
-                CourseInstructor::updateOrCreate([
-                    'course_id' => $course->id,
-                    'instructor_id' => $request->instructors[$i],
-                ], [
-                    'course_price' => $request->instructorsprice[$i],
-                    'course_prectange' => $request->instructorsprecentage[$i]
+                    CourseInstructor::updateOrCreate([
+                        'course_id' => $course->id,
+                        'instructor_id' => $request->instructors[$i],
+                    ], [
+                        'course_price' => $request->instructorsprice[$i],
+                        'course_prectange' => $request->instructorsprecentage[$i]
 
-                ]);
+                    ]);
             }
         }
         if ($request->hasFile('image')) {
