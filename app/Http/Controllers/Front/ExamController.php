@@ -175,7 +175,7 @@ class ExamController extends Controller
         StudentExam::where(['quiz_id' => $request->quiz_id, 
         'student_id' => auth()->guard('students-login')->user()->id])->update(['studentmark' => $studentMark]);
 
-
+return $questions;
         $title = 'مراجعه نهائية';
         return view('front.quizfinalreview', compact('questions', 'title', 'quiz'));
     }
