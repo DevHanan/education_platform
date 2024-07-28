@@ -126,7 +126,7 @@
                                                     </th>
                                                     <th>{{__('admin.bankquestions.title')}} </th>
                                                     <th>{{__('admin.bankquestions.title_photo')}} </th>
-                                                    
+                                    
                                                     <th>{{__('admin.bankquestions.ban_group')}} </th>
                                                     <th> {{__('admin.bankquestions.correct_answer')}}</th>
                                                     <th>{{__('admin.bankquestions.mark')}} </th>
@@ -143,7 +143,7 @@
                                                     <td> {{ Str::words( optional($obj->question)->customTitle, 7) }}</td>
                                                     <td><img src="{{ optional($obj->question)->pictureFullPath }}" style="width:40px"></td>
                                                     <td>{{ optional(optional($obj->question)->group)->name}}</td>
-                                                    <td> {{ optional($obj->question)->correctanswer}}</td>
+                                                    <td> {{ optional($obj->question)->correct_answer}}</td>
 
                                                     <td>{{optional($obj->question)->mark}}</td>
 
