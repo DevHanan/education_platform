@@ -179,6 +179,7 @@ class LectureController extends Controller
                     ]);
                 }
             }
+            
         }
 
 
