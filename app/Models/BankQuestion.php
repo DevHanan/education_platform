@@ -28,8 +28,6 @@ class BankQuestion extends Model
 
 
      
-    }
-
     public function getcustomTitleAttribute($value)
     {
 
