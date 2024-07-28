@@ -13,7 +13,7 @@ class BankQuestion extends Model
         'answer_video_link', 'question_video_link', 'question_provider', 'answer_provider', 'question_notes', 'answer1', 'answer2', 'answer3', 'answer4', 'correct_answer'
     ];
 
-    protected $appends = ['pictureFullPath', 'questionFullPath', 'answerFullPath', 'customTitle', 'correctAnswer'];
+    protected $appends = ['pictureFullPath', 'questionFullPath', 'answerFullPath', 'customTitle'];
 
 
 
@@ -27,18 +27,6 @@ class BankQuestion extends Model
     }
 
 
-    public function getCorrectAnswerAttribute()
-    {
-
-        if ($this->correct_answer == 1)
-            return $this->answer1;
-        elseif ($this->correct_answer == 2)
-            return $this->answer2;
-        elseif ($this->correct_answer == 3)
-            return $this->answer3;
-        else
-            return $this->answer4;
-    }
 
     public function getcustomTitleAttribute($value)
     {

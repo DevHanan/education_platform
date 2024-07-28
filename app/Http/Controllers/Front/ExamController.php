@@ -53,7 +53,11 @@ class ExamController extends Controller
         $authid = auth()->guard('students-login')->user()->id;
         $student_exam_id = StudentExam::where('quiz_id', $quiz->id)->where('student_id', $authid)->latest()->first();
         $question = BankQuestion::find($request->question_id);
-        if ($question->correctAnswer == $request->answer)
+
+        $correctanswer = $question->answer .'_' . $question->correct_answer;
+        return $correctanswer;
+
+        if ($question->correct_answer == $request->answer)
             $mark = $question->mark;
         else 
         $mark = 0;
