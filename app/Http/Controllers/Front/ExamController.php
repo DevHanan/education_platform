@@ -64,13 +64,13 @@ class ExamController extends Controller
 
          
             StudentExamdetail::updateOrCreate(
-                [
+                
                     [
                    'student_exam_id' => $student_exam_id->id,
                     'student_id'     => $student_exam_id->student_id,
                     'quiz_id' => $request->quiz_id,
                     'question_id'    => $request->question_id,
-                    ],
+                    ],[
                     'answer'     => $request->answer,
                     'status'     =>  $request->answer != null ? '1' : '0',
                     'mark' => $mark
@@ -83,13 +83,13 @@ class ExamController extends Controller
             return redirect()->route('questions.reviews', [$quiz->id])->with(['studentanswers']);
         } else {
             StudentExamdetail::updateOrCreate(
-                [
+                
                     [
                    'student_exam_id' => $student_exam_id->id,
                     'student_id'     => $student_exam_id->student_id,
                     'quiz_id' => $request->quiz_id,
                     'question_id'    => $request->question_id,
-                    ],
+                    ],[
                     'answer'     => $request->answer,
                     'status'     =>  $request->answer != null ? '1' : '0',
                     'mark' => $mark
