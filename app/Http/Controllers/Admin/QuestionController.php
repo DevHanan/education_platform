@@ -31,7 +31,7 @@ class QuestionController extends Controller
         $data['rows'] =Question::where(function($q)use($request){
             if ($request->question)
             $q->Where('question', 'like', '%' . $request->question  . '%');
-        })->get();
+        })->latest()->get();
         return view($this->view.'.index', $data);
     }
 
