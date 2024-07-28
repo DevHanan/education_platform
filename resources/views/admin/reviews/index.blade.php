@@ -78,7 +78,7 @@
                   <td>
 
 
-                    {{  $row->customComment }}
+                    {{  $row->comment }}
 
 
 
