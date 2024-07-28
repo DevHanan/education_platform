@@ -74,10 +74,8 @@
 
                 <label for="logo">{{ __('admin.languages.field_photo') }}</label>
                 <input type="file" class="form-control" name="image" id="logo">
-                @if(isset($row->image))
                 <img src="{{ $row->imageFullPath }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
                 <div class="clearfix"></div>
-                @endif
                 @error('image')
                 <div class="invalid-feedback">
                   {{ $message }}
