@@ -20,7 +20,7 @@ class StudentExamdetail extends Model
 
     public function question(){
 
-        return $this->belongsTo(BankQuestion::class,'id','question_id');
+        return $this->belongsTo(BankQuestion::class,'question_id','id');
     }
 
     public function quiz(){
