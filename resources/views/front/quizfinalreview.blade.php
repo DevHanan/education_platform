@@ -97,7 +97,7 @@
       </nav>
       <div class="py-3 d-flex align-items-center justify-content-center text-center">
         <h2 class="p-2">درجتك :</h2>
-        <h1 class="p-2 text-danger">17/24</h1>
+        <h1 class="p-2 text-danger">{{ $studentexam->studentmark }}/{{ $studentexam->totalmark }}</h1>
   </div>
       <h4 class="text-center">مراجعة الإختبار</h4>
       <div class="bg-primary container-fluid text-light py-2 fw-bold w-100">ارشادات</div>

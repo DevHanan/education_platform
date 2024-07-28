@@ -172,10 +172,12 @@ class ExamController extends Controller
         $studentMark = 0;
         foreach($questions as $question)
         $studentMark += $question->mark;
-        StudentExam::where(['quiz_id' => $request->quiz_id, 
-        'student_id' => auth()->guard('students-login')->user()->id])->update(['studentmark' => $studentMark]);
+        $studentexam = StudentExam::where(['quiz_id' => $request->quiz_id, 
+        'student_id' => auth()->guard('students-login')->user()->id])->first();
+
+        $studentexam->update(['studentmark' => $studentMark]);
 
         $title = 'مراجعه نهائية';
-        return view('front.quizfinalreview', compact('questions', 'title', 'quiz'));
+        return view('front.quizfinalreview', compact('questions', 'title', 'quiz','studentexam'));
     }
 }
