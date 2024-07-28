@@ -78,7 +78,7 @@
                   <td>
 
 
-                    {{ Str::words( $row->customComment, 7) }}
+                    {{  $row->customComment }}
 
 
 
