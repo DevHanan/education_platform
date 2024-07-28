@@ -19,10 +19,10 @@ class QuestionController extends Controller
         $this->view = 'admin.questions';
         $this->path = 'questions';
         $this->access = 'questions';
-        $this->middleware('permission:questions-create', ['only' => ['create','store']]);
-        $this->middleware('permission:questions-view',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:questions-edit',   ['only' => ['edit','update']]);
-        $this->middleware('permission:questions-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:faq-create', ['only' => ['create','store']]);
+        $this->middleware('permission:faq-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:faq-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:faq-delete',   ['only' => ['delete']]);
     }
     public function index(Request $request)
     {
