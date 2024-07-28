@@ -12,4 +12,19 @@ class StudentExamdetail extends Model
         'student_id', 'quiz_id', 'student_exam_id',
         'question_id', 'answer', 'status', 'approved', 'mark'
     ];
+
+    public function student(){
+
+        return $this->belongsTo(Student::class);
+    }
+
+    public function question(){
+
+        return $this->belongsTo(Question::class);
+    }
+
+    public function quiz(){
+
+        return $this->belongsTo(Quiz::class);
+    }
 }
