@@ -73,10 +73,9 @@
                         </td>
                       
                         <td>
-                          <p>
-                          {!! \Illuminate\Support\Str::limit($row->comment, 100) !!}
+                         
 
-                          </p>
+                          {{ Str::words( $row->customComment, 7) }}
 
 
                           

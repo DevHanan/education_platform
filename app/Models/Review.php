@@ -12,6 +12,13 @@ class Review extends Model
     public $timestamps = true;
 
     protected $fillable = array('name','active','comment','job');
+    protected $appends = ['customCommen'];
+
+    public function getcustomCommentAttribute($value)
+    {
+
+        return  strip_tags($this->comment);
+    }
 
     public function scopeActive($query)
     {
