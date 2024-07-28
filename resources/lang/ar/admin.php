@@ -612,7 +612,7 @@ return [
         'answer_notes' => 'شرح إجابة السؤال نص',
         'title_notes_img'  => 'شرح إجابة السؤال صورة',
         'title_photo' => 'رأس السؤال صورة',
-        'question_photo' => 'شرح السؤال صورة',
+        'question_photo' => 'رأس السؤال صورة',
         'ban_group' => 'البنك التابع له',
         'active' => 'مفعل',
         'mark' => 'درجة السؤال',
