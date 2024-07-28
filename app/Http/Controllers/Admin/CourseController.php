@@ -151,7 +151,6 @@ class CourseController extends Controller
         $recommend = $request->recommend ? '1' : '0';
         $request->merge(['active' => $active, 'recommend' => $recommend]);
         if ($request->promo_url && $request->provider == 2) {
-            if ($request->promo_url && $request->provider == 2) {
                 $parsedUrl = URL::parse($request->promo_url);
                 $video_id = '';
                 if ($parsedUrl->getHost() == 'www.youtube.com') {
