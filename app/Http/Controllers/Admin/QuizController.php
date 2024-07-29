@@ -74,6 +74,16 @@ class QuizController extends Controller
     {
       
 
+        for ($i = 0; $i < count($request->random); $i++) 
+        if ($request->random[$i] == 1) {
+            $bank_id = $request->banks[$i];
+            if($bank_id){
+            $randomIds = BankQuestion::where('bank_group_id', $bank_id)->inRandomOrder()->take($request->questionNumber[$i])->pluck('id');
+          return $randomIds;
+            foreach ($randomIds as $id)
+                QuizQuestion::create(['section_id' => '', 'quiz_id' => $quiz->id, 'question_id' => $id]);
+        }
+    }
 
         if( $request->question_number > array_sum($request->questionNumber)){
             Toastr::error(__('admin.bank_questions_larger_bank_question'), __('admin.msg_error'));
@@ -107,6 +117,7 @@ class QuizController extends Controller
                     $bank_id = $request->banks[$i];
                     if($bank_id){
                     $randomIds = BankQuestion::where('bank_group_id', $bank_id)->inRandomOrder()->take($request->questionNumber[$i])->pluck('id');
+                  return $randomIds;
                     foreach ($randomIds as $id)
                         QuizQuestion::create(['section_id' => '', 'quiz_id' => $quiz->id, 'question_id' => $id]);
                 }
