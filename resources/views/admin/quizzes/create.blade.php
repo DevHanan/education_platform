@@ -230,7 +230,7 @@
                             </td>
 
                             <td>
-                              <select class="select2 form-control randomlist" name="random[$bank->id][]" id="{{$bank->id}}">
+                              <select class="select2 form-control randomlist" name="random[{{$bank->id}}][]" id="{{$bank->id}}">
                                 <option selected disabled>{{ __('admin.select') }}</option>
                                 <option value="1">{{ __('admin.yes') }}</option>
                                 <option value="0">{{ __('admin.no') }}</option>
@@ -238,7 +238,7 @@
                               </select>
                             </td>
                             <td>
-                              <input type="number" name="questionNumber[$bank->id][]" id="questionNumber" value="" placeholder="عدد الأسئلة" max="{{$bank->questions()->count()}}" />
+                              <input type="number" name="questionNumber[{{$bank->id}}][]" id="questionNumber" value="" placeholder="عدد الأسئلة" max="{{$bank->questions()->count()}}" />
                             </td>
                           </tr>
                           <tr>
