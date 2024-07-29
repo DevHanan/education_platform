@@ -10,9 +10,10 @@ use App\Models\Quiz;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\CourseExport;
 use App\Models\BankGroup;
-use App\Models\QuizBankGroup;
+use App\Models\Level;
+use App\Models\Course;
 use App\Models\QuizQuestion;
-use App\Models\QuizSection;
+use App\Models\Lecture;
 use App\Models\BankQuestion;
 
 use Toastr;
@@ -140,6 +141,10 @@ class QuizController extends Controller
         $data['path'] = $this->path;
         $data['access'] = $this->access;
         $data['row'] = Quiz::find($id);
+        $data['courses'] = Course::where('track_id',$data['row']->track_id)->get();
+        $data['levels'] = Level::where('course_id',$data['row']->course_id)->get();
+        $data['lectures'] = Lecture::where('level_id',$data['row']->level_id)->get();
+
         $data['bank_groups'] = $data['row']->bankGroups()->pluck('bank_group_id')->ToArray();
         $data['banks'] = BankGroup::active()->get();
         $data['quizuestionsids'] = QuizQuestion::where('quiz_id', $id)->pluck('question_id')->ToArray();

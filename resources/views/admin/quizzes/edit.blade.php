@@ -140,7 +140,11 @@
                   <label class="form-label" for="course_id">{{ __('admin.quizzes.course') }} <span>*</span></label>
                   <select class="select2 form-control" name="course_id" id="course_id">
                     <option value="">{{ __('select') }}</option>
-                    <option value="{{ $row->course_id }}" selected> {{ optional($row->course)->name }}</option>
+                    @if(count($courses))
+                    @foreach($courses as $course)
+                    <option value="{{ $course->id }}"  @if($row->course_id == $course->id ) selected @endif> {{ $course->name }}</option>
+                    @endforeach
+                    @endif
                   </select>
 
                   @error('course_id')
