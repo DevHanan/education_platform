@@ -42,7 +42,9 @@
                   </th>
                   <th> {{__('admin.quizzes.name')}}</th>
                   <th>{{ __('admin.quizzes.join_date') }}</th>
+                  <th>{{ __('admin.quizzes.student') }}</th>
                   <th>{{ __('admin.quizzes.total_mark') }}</th>
+                  <th>{{ __('admin.quizzes.student_mark') }}</th>
                   <th>{{ __('admin.quizzes.pass_mark') }}</th>
                   <th>{{ __('admin.quizzes.track') }}</th>
                   <th>{{ __('admin.quizzes.course') }}</th>
@@ -59,7 +61,9 @@
                   <td><span class="text-secondary">{{$loop->iteration}}</span></td>
                   <td>{{ optional($row->quiz)->name}}</td>
                   <td>{{$row->date}}</td>
+                  <td>{{ optional($row->student)->name}}</td>
                   <td> {{ optional($row->quiz)->total_mark }}</td>
+                  <td>{{$row->studentmark}}</td>
                   <td> {{ optional($row->quiz)->pass_mark }}</td>
 
                   <td>
