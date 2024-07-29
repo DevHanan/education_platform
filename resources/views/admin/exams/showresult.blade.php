@@ -45,7 +45,7 @@
                                     </tr>
                                     <tr>
                                         <th>{{ __('admin.quizzes.total_mark') }}</th>
-                                        <td> {{ $row->total_mark }}</td>
+                                        <td> {{ optional($row->quiz)->total_mark }}</td>
 
 
                                     </tr>
@@ -57,13 +57,13 @@
                                     </tr>
                                     <tr>
                                         <th>{{ __('admin.quizzes.pass_mark') }}</th>
-                                        <td> {{ $row->pass_mark }}</td>
+                                        <td> {{ optional($row->quiz)->pass_mark }}</td>
 
 
                                     </tr>
                                     <tr>
                                         <th>{{ __('admin.quizzes.question_number') }}</th>
-                                        <td>{{$row->question_number}}</td>
+                                        <td>{{ optional($row->quiz)->questions()->count()}}</td>
 
 
 
