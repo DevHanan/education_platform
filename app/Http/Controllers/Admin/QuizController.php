@@ -73,6 +73,7 @@ class QuizController extends Controller
     public function store(Request $request)
     {
       
+        return $request->all();
         if( $request->question_number > array_sum($request->questionNumber)){
             Toastr::error(__('admin.bank_questions_larger_bank_question'), __('admin.msg_error'));
             return redirect()->back();
