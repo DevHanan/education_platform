@@ -28,18 +28,30 @@
 
                                     <tr>
                                         <th> {{__('admin.quizzes.name')}}</th>
-                                        <td>{{$row->name}}</td>
+                                        <td>{{optional($row->quiz)->name}}</td>
 
 
                                     </tr>
                                     <tr>
-                                        <th>{{ __('admin.quizzes.date') }}</th>
-                                        <td>{{$row->created_at}}</td>
+                                        <th>{{ __('admin.quizzes.join_date') }}</th>
+                                        <td>{{$row->date}}</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th>{{ __('admin.quizzes.student') }}</th>
+                                        <td> {{ optional($row->student)->name }}</td>
+
 
                                     </tr>
                                     <tr>
                                         <th>{{ __('admin.quizzes.total_mark') }}</th>
                                         <td> {{ $row->total_mark }}</td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <th>{{ __('admin.quizzes.student_mark') }}</th>
+                                        <td> {{ $row->student_mark }}</td>
 
 
                                     </tr>
