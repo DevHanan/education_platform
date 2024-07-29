@@ -14,7 +14,7 @@ class ExamController extends Controller
 
     public function listresult(Request $request){
         
-        $title = 'عرض نتائج اختبارات الطلاب';
+        $title = 'عرض نتائج اختباراتى';
         $login_id = auth()->guard('students-login')->user()->id;
         $rows = StudentExam::where('student_id',$login_id)->latest()->paginate(20);
         return view('student.exams.listresult', compact('rows','title'));
@@ -23,7 +23,7 @@ class ExamController extends Controller
     }
 
     public function studentexam($id){
-        $title = 'عرض تفاصيل اختبار  الطلاب';
+        $title = 'عرض تفاصيل اختبار  ';
         $login_id = auth()->guard('students-login')->user()->id;
         $row = StudentExam::where('id',$id)->where('student_id',$login_id)->first();
         return view('student.exams.showresult', compact('row','title'));
