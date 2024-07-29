@@ -640,6 +640,7 @@ return [
         'edit' => 'تعديل سؤال',
     ],
     'quizzes'  => [
+        'show_student' => 'عرض تفاصيل الطالب',
         'student' => 'الطالب',
         'student_mark' => 'درجة الطالب',
         'join_date' => 'تاريخ الإلتحاق',
