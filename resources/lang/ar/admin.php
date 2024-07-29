@@ -840,7 +840,10 @@ return [
     'module_bulk_import_export' => 'استيراد االملفات',
     'select' => 'من فضلك اختر قيمة',
     'arabic' => 'العربية',
-    'english' => 'الإنجليزية'
+    'english' => 'الإنجليزية',
+    'bank_questions_larger_bank_question' => 'عدد أسئلة الاختبار أكبر من مجموع الاعداد قى بنوك الاسئلة',
+    'bank_questions_less_bank_question' => 'عدد أسئلة الاختبار أقل من مجموع الاعداد قى بنوك الاسئلة',
+
 
 
 
