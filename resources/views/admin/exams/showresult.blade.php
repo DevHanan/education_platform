@@ -51,7 +51,7 @@
                                     </tr>
                                     <tr>
                                         <th>{{ __('admin.quizzes.student_mark') }}</th>
-                                        <td> {{ $row->student_mark }}</td>
+                                        <td> {{ $row->studentmark }}</td>
 
 
                                     </tr>
@@ -68,24 +68,11 @@
 
 
                                     </tr>
-                                    <tr>
-                                        <th>{{ __('admin.quizzes.status') }}</th>
-                                        <td>
-                                            @if($row->active==1)
-                                            {{ __('admin.active')}}
-                                            @else
-                                            {{ __('admin.inactive')}}
-
-
-                                            @endif
-                                        </td>
-
-
-                                    </tr>
+                                   
                                     <tr>
                                         <th>{{ __('admin.quizzes.track') }}</th>
                                         <td>
-                                            {{ optional($row->track)->name}}
+                                            {{ optional(optional($row->quiz)->track)->name}}
                                         </td>
 
 
@@ -94,7 +81,7 @@
                                         <th>{{ __('admin.quizzes.course') }}</th>
                                         </td>
                                         <td>
-                                            {{ optional($row->course)->name}}
+                                            {{optional(optional($row->quiz)->course)->name}}
 
                                         </td>
 
@@ -102,7 +89,7 @@
                                     <tr>
                                         <th>{{ __('admin.quizzes.level') }}</th>
                                         <td>
-                                            {{ optional($row->level)->name}}
+                                            {{ optional(optional($row->quiz)->level)->name}}
 
                                         </td>
 
@@ -110,7 +97,7 @@
                                     <tr>
                                         <th> {{__('admin.quizzes.lecture')}}</th>
                                         <td>
-                                            {{ optional($row->lecture)->title}}
+                                            {{ optional(optional($row->quiz)->lecture)->title}}
 
                                         </td>
                                     </tr>
