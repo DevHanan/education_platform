@@ -73,8 +73,6 @@ class QuizController extends Controller
     public function store(Request $request)
     {
         
-        return $request->all();
-        //question_number array_sum(questionNumber)
         if( $request->question_number > array_sum($request->questionNumber)){
             Toastr::success(__('admin.bank_questions_larger_bank_question'), __('admin.msg_error'));
             return redirect()->back();
@@ -169,6 +167,15 @@ class QuizController extends Controller
     }
     public function update(Request $request)
     {
+        if( $request->question_number > array_sum($request->questionNumber)){
+            Toastr::success(__('admin.bank_questions_larger_bank_question'), __('admin.msg_error'));
+            return redirect()->back();
+        }
+
+        if( $request->question_number < array_sum($request->questionNumber)){
+            Toastr::success(__('admin.bank_questions_less_bank_question'), __('admin.msg_error'));
+            return redirect()->back();
+        }
         $quiz = Quiz::find($request->id);
         $active = $request->active ? '1' : '0';
         $has_levels = $request->has_levels ? '1' : '0';
