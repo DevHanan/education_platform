@@ -92,10 +92,10 @@
                   <td style="width: 270px;">
 
                     <a href="{{ url('admin/students/'.optional($row->student)->id)}}" title="{{__('admin.show')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" style="" class="btn btn-icon btn-primary btn-sm">
-                      <i class="far fa-eye"></i>
+                    <i class="fa-solid fa-user"></i>
                     </a>
                     <a href="{{ url('admin/student-exam/'.$row->id) }}" title="تفاصيل الاختبار" class="btn btn-icon btn-primary btn-sm">
-                      <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    <i class="far fa-eye"></i>
                     </a>
 
                   </td>
