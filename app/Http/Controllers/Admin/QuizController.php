@@ -101,7 +101,8 @@ class QuizController extends Controller
 
             // Random bank question if exist 
             for ($i = 0; $i < count($request->random); $i++) {
-                if ($request->random[$i] == 1) {
+                for($j=0;$j<count($request->random);$j++){
+                if ($request->random[$i][$j] == 1) {
                     $bank_id = $request->banks[$i];
                     if($bank_id){
                     $randomIds = BankQuestion::where('bank_group_id', $bank_id)->inRandomOrder()->limit($request->questionNumber[$i])->pluck('id');
@@ -109,6 +110,7 @@ class QuizController extends Controller
                         QuizQuestion::create(['section_id' => '', 'quiz_id' => $quiz->id, 'question_id' => $id]);
                 }
             }
+        }
             }
         }
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
