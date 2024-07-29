@@ -41,7 +41,7 @@
                     </svg>
                   </th>
                   <th> {{__('admin.quizzes.name')}}</th>
-                  <th>{{ __('admin.quizzes.date') }}</th>
+                  <th>{{ __('admin.quizzes.join_date') }}</th>
                   <th>{{ __('admin.quizzes.total_mark') }}</th>
                   <th>{{ __('admin.quizzes.pass_mark') }}</th>
                   <th>{{ __('admin.quizzes.track') }}</th>
