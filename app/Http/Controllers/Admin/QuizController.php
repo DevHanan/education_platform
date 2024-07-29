@@ -72,7 +72,7 @@ class QuizController extends Controller
 
     public function store(Request $request)
     {
-        
+        return $request->all();
         for ($i = 0; $i < count($request->random); $i++) {
             if ($request->random[$i] == 1) {
                 $question_num = $request->questionNumber[$i];
