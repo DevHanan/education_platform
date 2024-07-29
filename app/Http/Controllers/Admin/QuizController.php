@@ -104,7 +104,7 @@ class QuizController extends Controller
                 if ($request->random[$i] == 1) {
                     $bank_id = $request->banks[$i];
                     if($bank_id){
-                    $ids = BankQuestion::where('bank_group_id', $bank_id)->inRandomOrder()->pluck('id');
+                    $ids = BankQuestion::where('bank_group_id', $bank_id)->inRandomOrder()->pluck('id')->ToArray();
                     $randomIds = array_rand($ids, $request->questionNumber[$i]);
                     foreach ($randomIds as $id)
                         QuizQuestion::create(['section_id' => '', 'quiz_id' => $quiz->id, 'question_id' => $id]);
