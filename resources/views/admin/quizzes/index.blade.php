@@ -43,7 +43,7 @@
           </div>
 
           <div class="table-responsive">
-            <table id="quizzesTable" class="export-table table card-table table-vcenter text-nowrap">
+            <table id="quizzesTable" class=" table card-table table-vcenter text-nowrap">
               <thead>
                 <tr>
                   <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select all invoices"></th>
