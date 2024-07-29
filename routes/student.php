@@ -29,6 +29,7 @@ Route::group(
             Route::resource('certifications',CertificationController::class);
             Route::get('profile', [AuthController::class, 'getProfile'])->name('getProfile');
             Route::get('studentsexamresults', [ExamController::class, 'listresult'])->name('examresults');
+            Route::get('student-exam/{id}', [ExamController::class, 'studentexam'])->name('studentexam');
             Route::post('profile', [AuthController::class, 'profile'])->name('studentProfile');
 
             
