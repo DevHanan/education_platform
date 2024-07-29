@@ -72,6 +72,18 @@ class QuizController extends Controller
 
     public function store(Request $request)
     {
+
+        for ($i = 0; $i < count($request->banks); $i++) {
+            $var = 'random'.$request->banks[$i];
+            return $request->$var;
+            if ($var == 1) {
+               $question = 'questionNumber'.$request->banks[$id];
+                $randomIds = BankQuestion::where('bank_group_id', $request->banks[$i])->inRandomOrder()->limit($request->questionNumber[$i])->pluck('id');
+                foreach ($randomIds as $id)
+                    QuizQuestion::create(['section_id' => '', 'quiz_id' => $quiz->id, 'question_id' => $id]);
+           
+        }
+        }
       
         return $request->all();
         if( $request->question_number > array_sum($request->questionNumber)){
@@ -101,14 +113,15 @@ class QuizController extends Controller
             }
 
             // Random bank question if exist 
-            for ($i = 0; $i < count($request->random); $i++) {
-                if ($request->random[$i] == 1) {
-                    $bank_id = $request->banks[$i];
-                    if($bank_id){
-                    $randomIds = BankQuestion::where('bank_group_id', $bank_id)->inRandomOrder()->limit($request->questionNumber[$i])->pluck('id');
+            for ($i = 0; $i < count($request->banks); $i++) {
+                $var = 'random'.$request->banks[$id];
+
+                if ($var == 1) {
+                   $question = 'questionNumber'.$request->banks[$id];
+                    $randomIds = BankQuestion::where('bank_group_id', $request->banks[$i])->inRandomOrder()->limit($request->questionNumber[$i])->pluck('id');
                     foreach ($randomIds as $id)
                         QuizQuestion::create(['section_id' => '', 'quiz_id' => $quiz->id, 'question_id' => $id]);
-                }
+               
             }
             }
         }
