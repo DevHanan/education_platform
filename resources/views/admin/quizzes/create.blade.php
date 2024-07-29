@@ -231,7 +231,7 @@
 
                             <td>
                               <select class="select2 form-control randomlist" name="random[]" id="{{$bank->id}}">
-                                <option selected disabled value="0">{{ __('admin.select') }}</option>
+                                <option selected  value="0">{{ __('admin.select') }}</option>
                                 <option value="1">{{ __('admin.yes') }}</option>
                                 <option value="0">{{ __('admin.no') }}</option>
 
