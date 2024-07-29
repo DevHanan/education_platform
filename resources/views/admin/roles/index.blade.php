@@ -35,7 +35,8 @@
             <!-- [ Data table ] start -->
             <div class="table-responsive">
                 <table id="basic-table" class="display table nowrap table-striped table-hover" style="width:100%">
-                    <thead>
+  
+                <thead>
                         <tr>
                             <th>#</th>
                             <th>{{ __('admin.roles.field_title') }}</th>
@@ -48,20 +49,10 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $row->name }}</td>
                             <td>
-                                <!-- <a href="{{ route($route.'.show', $row->id) }}" class="btn btn-icon btn-success btn-sm">
-                                    <i class="fas fa-eye"></i>
-                                </a> -->
-
                                 <a href="{{ route($route.'.edit', $row->id) }}" class="btn btn-icon btn-primary btn-sm">
                                     <i class="far fa-edit"></i>
                                 </a>
-
-                                @php
-                                $roles_slug = array('super-admin', 'admin', 'accountant', 'librarian', 'receptionist', 'teacher');
-                                @endphp
-                                @if(in_array($row->slug, $roles_slug))
-                                @else
-                                @if($row->slug != 'super-admin')
+                                @if($row->type != 1)
                                 <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $row->id }}">
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
@@ -69,7 +60,7 @@
 
                                 @include('admin.layouts.inc.delete')
                                 @endif
-                                @endif
+
                             </td>
                         </tr>
 
