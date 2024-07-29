@@ -78,7 +78,11 @@
                 <div class="mb-3">
                   <label class="form-label" for="levels">{{ __('admin.quizzes.level') }} <span>*</span></label>
                   <select class="select2 form-control" name="level_id" id="levels">
-                    <option value="{{ $row->level_id }}"> {{ optional($row->level)->name }}</option>
+                    @if(count($levels))
+                    @foreach($levels as $level)
+                    <option value="{{ $level->id }}" @if($level->id == $row->level_id) selected @endif> {{ $level->name }}</option>
+                    @endforeach
+                    @endif
 
                   </select>
 
@@ -142,7 +146,7 @@
                     <option value="">{{ __('select') }}</option>
                     @if(count($courses))
                     @foreach($courses as $course)
-                    <option value="{{ $course->id }}"  @if($row->course_id == $course->id ) selected @endif> {{ $course->name }}</option>
+                    <option value="{{ $course->id }}" @if($row->course_id == $course->id ) selected @endif> {{ $course->name }}</option>
                     @endforeach
                     @endif
                   </select>
@@ -156,8 +160,11 @@
                 <div class="mb-3">
                   <label class="form-label" for="lectures">{{ __('admin.quizzes.lecture') }} <span>*</span></label>
                   <select class="select2 form-control" name="lecture_id" id="lectures">
-                    <option value="{{ $row->lecture_id }}"> {{ optional($row->lecture)->title }}</option>
-
+                    @if(count($lectures))
+                    @foreach($lectures as $lecture)
+                    <option value="{{ $lecture->id }}" @if($lecture->id == $row->lecture_id) selected @endif> {{ $lecture->title }}</option>
+                    @endforeach
+                    @endif
                   </select>
 
                   @error('lecture_id')
@@ -215,7 +222,7 @@
               <div class="card-body">
                 <div class="main">
                   <table class=" table data-table data-table-horizontal data-table-highlight">
-               
+
                     <tbody id="instructorstable">
                       <tr>
                         @foreach($bankgroups as $bank)
@@ -225,7 +232,7 @@
 
                         </td>
 
-                    
+
                       </tr>
                       <tr>
                         <td>
