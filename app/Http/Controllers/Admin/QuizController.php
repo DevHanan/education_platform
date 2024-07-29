@@ -143,7 +143,7 @@ class QuizController extends Controller
         $data['row'] = Quiz::find($id);
         $trackId = $data['row']->track_id;
         $data['courses'] = Course::whereHas('tracks', function ($q) use ($trackId) {
-            $q->where('id', $trackId);
+            $q->where('track_id', $trackId);
         })->get();
         $data['levels'] = Level::where('course_id',$data['row']->course_id)->get();
         $data['lectures'] = Lecture::where('level_id',$data['row']->level_id)->get();
