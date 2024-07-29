@@ -472,6 +472,18 @@ Breadcrumbs::for('update-student-profile', function (BreadcrumbTrail $trail) {
     $trail->push(trans('navbar.students_side.profile'), route('student.getProfile'));
 });
 
+
+Breadcrumbs::for('student-list-results', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.exams.exam_result'),route('admin.studentsexamresults'));
+});
+
+
+Breadcrumbs::for('student-show-result', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('student-list-results');
+    $trail->push(optional($row->student)->name, route('admin.studentexam', $row));
+});
+
 Breadcrumbs::for('studentexternalCertifications', function (BreadcrumbTrail $trail) {
     $trail->parent('student-home');
     $trail->push(trans('navbar.certifications.externel_certification'), route('student.externalCertifications'));

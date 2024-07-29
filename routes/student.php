@@ -6,6 +6,7 @@ use App\Http\Controllers\Student\DashboardController as StudentDashboardControll
 use App\Http\Controllers\Student\CourseController ;
 use App\Http\Controllers\Student\PaymentController ;
 use App\Http\Controllers\Student\CertificationController ;
+use App\Http\Controllers\Student\ExamController ;
 
 
 Route::get('student-login-by-id/{id}', [AuthController::class, 'login'])->name('student-login');
@@ -27,6 +28,7 @@ Route::group(
             Route::get('externel-certifications', [CertificationController::class, 'externalCertifications'])->name('externalCertifications');
             Route::resource('certifications',CertificationController::class);
             Route::get('profile', [AuthController::class, 'getProfile'])->name('getProfile');
+            Route::get('studentsexamresults', [ExamController::class, 'listresult'])->name('examresults');
             Route::post('profile', [AuthController::class, 'profile'])->name('studentProfile');
 
             
