@@ -180,4 +180,11 @@ class ExamController extends Controller
         $title = 'مراجعه نهائية';
         return view('front.quizfinalreview', compact('questions', 'title', 'quiz','studentexam'));
     }
+
+
+    public function questiondetails($id){
+        $student_id = auth()->guard('students-login')->user()->id;
+        $sudentquestion = StudentExamdetail::where(['question_id'=>$id,'student_id'=>$student_id])->first();
+        
+    }
 }
