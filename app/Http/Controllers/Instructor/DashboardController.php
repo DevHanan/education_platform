@@ -39,7 +39,7 @@ class DashboardController extends Controller
       $coursesIDS = Course::whereHas('instructors', function ($query)use($login_id) {
          $query->where('instructor_id', $login_id);
      })->pluck('id')->ToArray();
-     $data['student_count'] = Student::whereHas('susbscriptions',function($q)use($coursesIDS){
+     $data['student_count'] = Student::whereHas('subscriptions',function($q)use($coursesIDS){
                $q->whereIn('course_id',$coursesIDS);
      })->count();
       return view($this->view.'.index', $data);
