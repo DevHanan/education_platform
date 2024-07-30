@@ -348,7 +348,7 @@ return [
         'tickets_number'  => 'عدد التذاكر',
         'course_number'  => 'عدد الدورات',
         'instructor_number'  => 'عدد المدربين',
-        'subscriptions_count' => 'عدد الاشتراكات',
+        'subscriptions_count' => 'طلاب مشتركين',
         'subscriptions_total' => 'قيمة الاشتراكات',
         'today_subscriptions_total'  => 'إجمالى إشتراكات اليوم',
         'this_year_subscriptions_total' => 'إجمالى إشتراكات العام',
