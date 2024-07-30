@@ -99,13 +99,9 @@
                   <td style="width: 270px;">
 
 
-                    @if($row->has_levels == 1)
-                    <a href="{{ url('admin/quizzes/'.$row->id .'/sections') }}" class="btn btn-icon btn-primary btn-sm">
-                      <i class="fa fa-level-up" aria-hidden="true"></i>
-                    </a>
-                    @endif
+                    
 
-                    <a href="{{ url('admin/quizzes/'.$row->id) }}" class="btn btn-icon btn-primary btn-sm">
+                    <a href="{{ url('instructor/quizz/'.$row->id) }}" class="btn btn-icon btn-primary btn-sm">
                     <i class="far fa-eye" aria-hidden="true"></i>
                     </a>
 
