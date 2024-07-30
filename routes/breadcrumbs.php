@@ -501,6 +501,16 @@ Breadcrumbs::for('instrucor-home', function (BreadcrumbTrail $trail) {
     $trail->push(trans('navbar.Home'), route('instructor.dashboard.index'));
 });
 
+Breadcrumbs::for('instructor-quizzes', function (BreadcrumbTrail $trail) {
+    $trail->parent('instructor-home');
+    $trail->push(trans('navbar.quizzes.list'), route('instructor.quizzes'));
+});
+
+Breadcrumbs::for('show-instructor-quizz', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('instructor-quizzes');
+    $trail->push($row->name, route('instructor.quizz', $row));
+});
+
 Breadcrumbs::for('update-instructor-profile', function (BreadcrumbTrail $trail) {
     $trail->parent('instrucor-home');
     $trail->push(trans('navbar.instructors_side.profile'), route('instructor.getProfile'));

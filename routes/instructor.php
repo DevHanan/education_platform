@@ -6,6 +6,7 @@ use App\Http\Controllers\Instructor\DashboardController as InstructorDashboardCo
 use App\Http\Controllers\Instructor\StudentController;
 use App\Http\Controllers\Instructor\CourseController;
 use App\Http\Controllers\Instructor\ProfitController;
+use App\Http\Controllers\Instructor\QuizController;
 
 
 
@@ -28,6 +29,9 @@ Route::group(
             Route::post('store-request-profit', [ProfitController::class, 'storeRequest'])->name('storeRequest');
             Route::get('list-request-profit', [ProfitController::class, 'listRequest'])->name('listRequest');
             Route::get('list-paid-request-profit', [ProfitController::class, 'listPaidRequest'])->name('listPaidRequest');
+
+            Route::get('quizzes', [QuizController::class, 'list'])->name('quizzes');
+            Route::get('quizz/{id}', [QuizController::class, 'show'])->name('quizz');
 
             Route::get('profile', [AuthController::class, 'getProfile'])->name('getProfile');
             Route::post('profile', [AuthController::class, 'profile'])->name('instructorProfile');
