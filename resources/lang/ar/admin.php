@@ -231,6 +231,7 @@ return [
         'degree' => 'الدرجة العلمية'
     ],
     "instructors" => [
+        'student_count' => 'عدد الطلاب',
         'susbscriptions_total' => 'إجمالى قيمة اشتراكات الدورات',
         'susbscriptions_count' => 'إجمالي عدد اشتراكات الدورات',
         'field_cv' => 'ملف السيرة الذاتية',
