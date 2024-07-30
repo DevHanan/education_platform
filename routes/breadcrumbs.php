@@ -462,6 +462,11 @@ Breadcrumbs::for('update-payment-types', function (BreadcrumbTrail $trail,$row) 
 Breadcrumbs::for('student-home', function (BreadcrumbTrail $trail) {
     $trail->push(trans('navbar.Home'), route('student.dashboard.index'));
 });
+Breadcrumbs::for('add-student-externalCertifications', function (BreadcrumbTrail $trail) {
+    $trail->parent('studentexternalCertifications');
+    $trail->push(trans('navbar.certifications.add'), route('student.certifications.create'));
+});
+
 Breadcrumbs::for('student-payments', function (BreadcrumbTrail $trail) {
     $trail->parent('student-home');
     $trail->push(trans('navbar.payments.list'), route('student.payments.index'));
