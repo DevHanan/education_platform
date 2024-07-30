@@ -31,7 +31,7 @@ class QuizController extends Controller
       $data['ids'] = Course::whereHas('instructors', function ($query)use($login_id) {
          $query->where('instructor_id', $login_id);
      })->pluck('id')->ToArray();
-     $data['rows'] = Quiz::whereIn('course_id',$data['ids'])->latest()->get();
+     $data['rows'] = Quiz::whereIn('course_id',$data['ids'])->latest()->paginate(10);
 
       return view('instructor.quizzes', $data);
 
