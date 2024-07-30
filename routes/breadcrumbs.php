@@ -502,7 +502,7 @@ Breadcrumbs::for('instrucor-home', function (BreadcrumbTrail $trail) {
 });
 
 Breadcrumbs::for('instructor-quizzes', function (BreadcrumbTrail $trail) {
-    $trail->parent('instructor-home');
+    $trail->parent('instrucor-home');
     $trail->push(trans('navbar.quizzes.list'), route('instructor.quizzes'));
 });
 
