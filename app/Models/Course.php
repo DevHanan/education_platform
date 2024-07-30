@@ -161,7 +161,10 @@ class Course extends Model
     {
         return $this->hasMany(Comment::class);
     }
-
+    public function students()
+    {
+        return $this->belongsToMany(Student::class, 'subscriptions');
+    }
 
     public function levels()
     {
