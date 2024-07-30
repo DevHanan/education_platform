@@ -7,6 +7,7 @@ use App\Http\Controllers\Instructor\StudentController;
 use App\Http\Controllers\Instructor\CourseController;
 use App\Http\Controllers\Instructor\ProfitController;
 use App\Http\Controllers\Instructor\QuizController;
+use App\Http\Controllers\Instructor\ExamController;
 
 
 
@@ -32,6 +33,11 @@ Route::group(
 
             Route::get('quizzes', [QuizController::class, 'list'])->name('quizzes');
             Route::get('quizz/{id}', [QuizController::class, 'show'])->name('quizz');
+
+
+            Route::get('studentsexamresults', [ExamController::class, 'listresult'])->name('studentsexamresults');
+            Route::get('student-exam/{id}', [ExamController::class, 'studentexam'])->name('studentexam');
+
 
             Route::get('profile', [AuthController::class, 'getProfile'])->name('getProfile');
             Route::post('profile', [AuthController::class, 'profile'])->name('instructorProfile');
