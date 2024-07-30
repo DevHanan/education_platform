@@ -45,7 +45,7 @@ class QuizController extends Controller
      $data['title'] = $this->title;
       $data['route'] = $this->route;
      $data['row'] = Quiz::find($id);
-      return view('instructor.quizz', $data);
+      return view('instructor.quiz', $data);
 
    }
 }
