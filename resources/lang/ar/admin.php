@@ -577,6 +577,7 @@ return [
     'finances' => [
         'finances_management' => 'الماليات',
         'course_profit' => 'ايرادات الدورات',
+        'instructor_profit' => ' أرباحي من الدورات',
         'students_payment' => 'مدفوعات الطلاب',
         'instructors_profit' => 'أرباح المدربين',
         'instructors_request' => 'طلبات سحب المدربين',

@@ -18,7 +18,7 @@ class ProfitController extends Controller
 
     public function myProfit(Request $request)
     {
-        $data['title'] = trans('admin.finances.course_profit');
+        $data['title'] = trans('admin.finances.instructor_profit');
         $login_id = auth()->guard('instructors-login')->user()->id;
         $data['rows'] =Course::whereHas('instructors', function ($query) use ($login_id) {
             $query->where('instructor_id', $login_id);
