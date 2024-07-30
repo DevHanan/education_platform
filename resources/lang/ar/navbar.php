@@ -197,7 +197,7 @@ return [
         'profits_requests' => 'طلبات سحب الأرباح',
         'paid_profits' => 'مدفوعات الارباح',
         'add_profits_requests' => 'إضافة طلب سحب',
-        'paid_profits_requests' => 'مدفوعات المحاضرين',
+        'paid_profits_requests' => 'مدفوعات الأرباح',
         'profit_title' => 'أرباحي من الدورات'
 
     ],
