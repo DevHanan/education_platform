@@ -50,8 +50,8 @@
                                     <th>{{ __('admin.certifications.course_name') }}</th>
                                     <th>{{ __('admin.certifications.track_name') }}</th>
                                     <th>{{ __('admin.certifications.authority') }}</th>
-                                    <th>{{ __('admin.certifications.status') }}</th>
                                     <th>{{ __('admin.certifications.date') }}</th>
+                                    <th>{{ __('admin.certifications.status') }}</th>
                                     <th>{{ __('admin.certifications.file') }}</th>
                                     <th>{{ __('admin.tracks.actions') }}</th>
 
@@ -67,8 +67,9 @@
                                     <td>{{ optional($row->course)->name}}</td>
                                     <td>{{ optional($row->track)->name}}</td>
                                     <td>{{$row->authority}}</td>
-                                    <td> {{ __($row->statusLabel) }}</td>
                                     <td>{{$row->date}}</td>
+                                    <td> {{ __($row->statusLabel) }}</td>
+
                                     <td>
                                         @if(file_exists($row->fileFullPath))
                                         <a href="{{$row->fileFullPath}}" style="width:40px" class="btn btn-primary">
