@@ -184,8 +184,9 @@ class ExamController extends Controller
 
     public function questiondetails($id){
         $student_id = auth()->guard('students-login')->user()->id;
-        $question = StudentExamdetail::where('question_id',$id)->where('student_id',$student_id)->first();
-        return view('front.review_question_answer', compact('question'));
+        $student_answer = StudentExamdetail::where('question_id',$id)->where('student_id',$student_id)->first();
+        $question = BankQuestion::where('question_id',$id)->first();
+        return view('front.review_question_answer', compact('question','student_answer'));
 
     }
 }
