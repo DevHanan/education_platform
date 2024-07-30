@@ -7,7 +7,7 @@ use App\Models\Client;
 use App\Models\Sale;
 use App\Models\Order;
 use App\Models\Product;
-use App\Models\Visit;
+use App\Models\Student;
 use Auth;
 use Carbon\Carbon;
 use DB;
@@ -38,6 +38,10 @@ class DashboardController extends Controller
       $data['route'] = $this->route;
       $data['view'] = $this->view;
 
+      $instructor = auth()->guard('instructors-login')->user();
+     $data['student_count']  = $instructor->courses()->withCount('students')->sum('students_count');
+
+     return $data['student_count'];
       return view($this->view.'.index', $data);
 
    }
