@@ -122,9 +122,9 @@ class AuthController extends Controller
             }
 
 
-            Toastr::success(__('msg_updated_successfully'), __('msg_success'));
+            Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
         } else {
-            Toastr::error(__('msg_not_permitted'), __('msg_error'));
+            Toastr::error(__('admin.msg_not_permitted'), __('admin.msg_error'));
         }
 
         return redirect()->back();
