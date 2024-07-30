@@ -81,21 +81,21 @@
 
 
 
-                <div class="mb-3">
-                  <label class="form-label" for="salary">{{ __('admin.instructors.salary') }} <span>*</span></label>
-                  <input type="salary" class="form-control" name="salary" id="salary" value="{{ $row->salary }}" readonly>
+                  <div class="mb-3">
+                    <label class="form-label" for="salary">{{ __('admin.instructors.salary') }} <span>*</span></label>
+                    <input type="salary" class="form-control" name="salary" id="salary" value="{{ $row->salary }}" readonly>
 
+                  </div>
+
+
+
+                  @else
+                  <label class="form-label" for="type">{{ __('admin.instructors.no')}} </label>
+                  @endif
                 </div>
-              
-                  
-                  
-                 @else
-                 <label class="form-label" for="type">{{ __('admin.instructors.no')}} </label>
-                @endif
-                </div>
 
 
-               
+
 
 
                 <div class="mb-3">
@@ -138,7 +138,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="paypall_account_number">{{ __('admin.instructors.paypall_account_number') }} <span>*</span></label>
-                  <input type="text" class="form-control" name="paypall_account_number" id="paypall_account_number" value="{{ old('paypall_account_number',$row) }}" required>
+                  <input type="text" class="form-control" name="paypall_account_number" id="paypall_account_number" value="{{ old('paypall_account_number',$row) }}">
 
 
                   @error('paypall_account_number')
@@ -206,7 +206,7 @@
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="bank_account">{{ __('admin.instructors.bank_account') }} <span>*</span></label>
-                  <input type="text" class="form-control" name="bank_account" id="bank_account" value="{{ $row->bank_account }}" required>
+                  <input type="text" class="form-control" name="bank_account" id="bank_account" value="{{ $row->bank_account }}">
                   @error('bank_account')
                   <div class="invalid-feedback">
                     {{ $message }}
@@ -216,7 +216,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="cash_wallet_number">{{ __('admin.instructors.cash_wallet_number') }} <span>*</span></label>
-                  <input type="text" class="form-control" name="cash_wallet_number" id="cash_wallet_number" value="{{ old('cash_wallet_number',$row) }}" required>
+                  <input type="text" class="form-control" name="cash_wallet_number" id="cash_wallet_number" value="{{ old('cash_wallet_number',$row) }}">
 
 
                   @error('cash_wallet_number')
@@ -241,6 +241,19 @@
               </div>
 
               <div class="mb-3">
+
+
+                <label class="form-label" for="logo">{{ __('admin.instructors.field_cv') }}</label>
+                <input type="file" class="form-control" name="cv" id="cv">
+
+                @error('cv')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
+              </div>
+
+              <div class="mb-3">
                 <label class="form-label" for="logo">{{ __('admin.instructors.field_photo') }}</label>
                 <input type="file" class="form-control" name="image" id="logo">
 
@@ -255,18 +268,7 @@
                 @enderror
               </div>
 
-              <div class="mb-3">
 
-
-                <label class="form-label" for="logo">{{ __('admin.instructors.field_cv') }}</label>
-                <input type="file" class="form-control" name="cv" id="cv">
-
-                @error('cv')
-                <div class="invalid-feedback">
-                  {{ $message }}
-                </div>
-                @enderror
-              </div>
             </div>
           </div>
           <div class="card-footer text-end">
