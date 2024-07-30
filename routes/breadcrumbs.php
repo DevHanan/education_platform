@@ -508,6 +508,12 @@ Breadcrumbs::for('instructor-list-results', function (BreadcrumbTrail $trail) {
 });
 
 
+Breadcrumbs::for('instructor-paidrequests', function (BreadcrumbTrail $trail) {
+    $trail->parent('instrucor-home');
+    $trail->push(trans('navbar.instructors_side.paid_profits'),route('instructor.listPaidRequest'));
+});
+
+
 Breadcrumbs::for('instructor-show-result', function (BreadcrumbTrail $trail,$row) {
     $trail->parent('instructor-list-results');
     $trail->push(optional($row->student)->name, route('instructor.studentexam', $row));

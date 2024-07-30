@@ -13,7 +13,7 @@
     <div class="row g-2 align-items-center">
 
       <div class="col">
-        <!-- @include('admin.layouts.inc.breadcrumb') -->
+      {{ Breadcrumbs::render('instructor-paidrequests') }}
 
       </div>
 
@@ -45,7 +45,6 @@
 
                   <th>{{ __('admin.status') }}</th>
 
-                  <th>{{ __('admin.field_action') }}</th>
 
                 </tr>
               </thead>
@@ -61,7 +60,6 @@
 
                   <td>{{$row->value}} {{ $setting->currency }}</td>
                   <td>{{$row->statusLabel }} </td>
-<td></td>
 
 
 
