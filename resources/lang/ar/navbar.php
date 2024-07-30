@@ -193,7 +193,7 @@ return [
         'mycourses' => 'دوراتي',
         'tests' => 'الاختبارات',
         'studentTestResult' => 'نتائج اختبارات الطلاب',
-        'profits' => '',
+        'profits' => 'أرباحى',
         'profits_requests' => 'طلبات سحب الأرباح',
         'paid_profits' => 'مدفوعات الارباح',
         'add_profits_requests' => 'إضافة طلب سحب',
