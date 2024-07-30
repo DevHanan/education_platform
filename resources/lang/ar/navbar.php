@@ -53,7 +53,7 @@ return [
         'course_name' => 'إسم الدورة',
         'track_name' => 'إسم المسار',
         'platform_certification' => 'شهادات منصة دوافير ',
-        'externel_certification' => 'شهادات خارجية',
+        'externel_certification' => 'شهاداتي من جهات خارجية',
         'add' => 'إضافة نموذج شهادة',
         'granting'=> 'منح شهادة لطالب'
     ],
