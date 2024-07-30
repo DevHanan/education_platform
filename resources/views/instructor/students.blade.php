@@ -113,20 +113,7 @@ if (app()->getLocale() == 'ar') {
     }],
     layout: {
       topStart: {
-        buttons: [{
-            extend: 'colvis',
-            text: '<i class="fa fa-eye-slash text-primary" aria-hidden="true" style="font-size:large;"></i>',
-
-            columns: ":not(':first')"
-          },
-
-          {
-            extend: 'copyHtml5',
-            text: '<i class="fas fa-copy text-primary" style="font-size:large;"></i>',
-            exportOptions: {
-              columns: ':visible'
-            }
-          },
+        buttons: [
           {
             extend: 'excelHtml5',
             text: '<i class="fas fa-file-excel text-primary" style="font-size:large;"></i>',
