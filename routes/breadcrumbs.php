@@ -501,6 +501,19 @@ Breadcrumbs::for('instrucor-home', function (BreadcrumbTrail $trail) {
     $trail->push(trans('navbar.Home'), route('instructor.dashboard.index'));
 });
 
+
+Breadcrumbs::for('instructor-list-results', function (BreadcrumbTrail $trail) {
+    $trail->parent('instrucor-home');
+    $trail->push(trans('navbar.exams.exam_result'),route('instructor.studentsexamresults'));
+});
+
+
+Breadcrumbs::for('instructor-show-result', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('instructor-list-results');
+    $trail->push(optional($row->student)->name, route('instructor.studentexam', $row));
+});
+
+
 Breadcrumbs::for('instructor-quizzes', function (BreadcrumbTrail $trail) {
     $trail->parent('instrucor-home');
     $trail->push(trans('navbar.quizzes.list'), route('instructor.quizzes'));
