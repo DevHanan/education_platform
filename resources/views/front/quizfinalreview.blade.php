@@ -121,7 +121,7 @@
      </div> 
         <div class="row">
             @foreach ($questions  as $item )
-            <a href="{{ url('review-question/'.$item->id)}}" class="text-decoration-none text-dark col-md-4 border p-3 all uncompleted">
+            <a href="{{ url('review-question/'.$item->question_id)}}" class="text-decoration-none text-dark col-md-4 border p-3 all uncompleted">
                 <div class="d-flex justify-content-between">
                     <div>
                         <span><i class="fa-solid fa-flag text-secondary"></i></span>
