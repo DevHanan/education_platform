@@ -193,11 +193,12 @@ return [
         'mycourses' => 'دوراتي',
         'tests' => 'الاختبارات',
         'studentTestResult' => 'نتائج اختبارات الطلاب',
-        'profits' => 'أرباحي',
+        'profits' => '',
         'profits_requests' => 'طلبات سحب الأرباح',
         'paid_profits' => 'مدفوعات الارباح',
         'add_profits_requests' => 'إضافة طلب سحب',
-        'paid_profits_requests' => 'مدفوعات المحاضرين'
+        'paid_profits_requests' => 'مدفوعات المحاضرين',
+        'profit_title' => 'أرباحي من الدورات'
 
     ],
     'students_side'=>[

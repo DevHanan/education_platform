@@ -516,6 +516,11 @@ Breadcrumbs::for('instructor-courses', function (BreadcrumbTrail $trail) {
     $trail->push(trans('navbar.instructors_side.mycourses'), route('instructor.students'));
 });
 
+Breadcrumbs::for('instructor-profits', function (BreadcrumbTrail $trail) {
+    $trail->parent('instrucor-home');
+    $trail->push(trans('navbar.instructors_side.profit_title'), route('instructor.profits'));
+});
+
 
 
 // Quiz

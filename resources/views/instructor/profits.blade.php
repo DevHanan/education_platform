@@ -13,7 +13,7 @@
     <div class="row g-2 align-items-center">
 
       <div class="col">
-        <!-- @include('admin.layouts.inc.breadcrumb') -->
+      {{ Breadcrumbs::render('instructor-profits') }}
 
       </div>
 
