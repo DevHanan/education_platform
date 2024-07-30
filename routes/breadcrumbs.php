@@ -479,7 +479,7 @@ Breadcrumbs::for('update-student-profile', function (BreadcrumbTrail $trail) {
 
 
 Breadcrumbs::for('student-list-results', function (BreadcrumbTrail $trail) {
-    $trail->parent('student-home');
+    $trail->parent('home');
     $trail->push(trans('navbar.exams.exam_result'),route('admin.studentsexamresults'));
 });
 
