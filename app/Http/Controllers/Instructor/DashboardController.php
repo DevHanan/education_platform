@@ -3,10 +3,7 @@
 namespace App\Http\Controllers\Instructor;
 
 use App\Http\Controllers\Controller;
-use App\Models\Client;
-use App\Models\Sale;
-use App\Models\Order;
-use App\Models\Product;
+use App\Models\Course;
 use App\Models\Student;
 use Auth;
 use Carbon\Carbon;
@@ -38,10 +35,13 @@ class DashboardController extends Controller
       $data['route'] = $this->route;
       $data['view'] = $this->view;
 
-      $instructor = auth()->guard('instructors-login')->user();
-     $data['student_count']  = $instructor->courses()->withCount('students')->sum('student_id');
-
-     return $data['student_count'];
+      $login_id = auth()->guard('instructors-login')->user()->id;
+      $coursesIDS = Course::whereHas('instructors', function ($query)use($login_id) {
+         $query->where('instructor_id', $login_id);
+     })->pluck('id')->ToArray();
+     $data['student_count'] = Student::whereHas('susbscriptions',function($q)use($coursesIDS){
+               $q->whereIn('course_id',$coursesIDS);
+     })->count();
       return view($this->view.'.index', $data);
 
    }
