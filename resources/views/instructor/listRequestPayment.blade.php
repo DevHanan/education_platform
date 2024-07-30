@@ -30,7 +30,7 @@
           </div>
 
           <div class="table-responsive">
-            <table  id="listrequestpayment" class="table card-table table-vcenter text-nowrap datatable">
+            <table  id="listrequestpayments" class="table card-table table-vcenter text-nowrap datatable">
               <thead>
                 <tr>
                   <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select all invoices"></th>
