@@ -501,6 +501,18 @@ Breadcrumbs::for('studentplatformCertifications', function (BreadcrumbTrail $tra
 
 
 
+Breadcrumbs::for('studentboard-list-results', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.exams.exam_result'),route('admin.studentsexamresults'));
+});
+
+
+Breadcrumbs::for('studentboard-show-result', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('studentboard-list-results');
+    $trail->push(optional($row->student)->name, route('admin.studentexam', $row));
+});
+
+
 /**  */
 Breadcrumbs::for('instrucor-home', function (BreadcrumbTrail $trail) {
     $trail->push(trans('navbar.Home'), route('instructor.dashboard.index'));
