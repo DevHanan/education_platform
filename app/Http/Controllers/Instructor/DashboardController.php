@@ -39,7 +39,7 @@ class DashboardController extends Controller
       $data['view'] = $this->view;
 
       $instructor = auth()->guard('instructors-login')->user();
-     $data['student_count']  = $instructor->courses()->withCount('students')->sum('students_count');
+     $data['student_count']  = $instructor->courses()->withCount('students')->sum('student_id');
 
      return $data['student_count'];
       return view($this->view.'.index', $data);
