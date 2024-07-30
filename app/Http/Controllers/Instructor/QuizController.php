@@ -39,12 +39,12 @@ class QuizController extends Controller
 
 
    
-   public function show()
+   public function show($id)
    {
      
      $data['title'] = $this->title;
       $data['route'] = $this->route;
-     $data['row'] = Quiz::whereIn('course_id',$data['rows'])->latest()->get();
+     $data['row'] = Quiz::find($id);
       return view('instructor.quizz', $data);
 
    }
