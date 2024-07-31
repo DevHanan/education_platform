@@ -35,8 +35,8 @@ class Instructor extends Authenticatable implements MustVerifyEmail
         return $this->hasManyThrough(
             Subscription::class,
             CourseInstructor::class,
-            'instructor_id', // foreign key on CourseInstructor table
             'course_id', // foreign key on Subscription table
+            'instructor_id', // foreign key on CourseInstructor table
             'id', // primary key on Instructor table
             'id' // primary key on CourseInstructor table
         );
