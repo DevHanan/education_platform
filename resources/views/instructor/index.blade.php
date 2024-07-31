@@ -103,7 +103,7 @@
                   </div>
                   <div class="col">
                     <div class="font-weight-medium">
-                      {{ $student_count }}
+                      {{   auth()->guard('instructors-login')->user()->subscriptions()->count() }}
                      
                     </div>
                     <div class="text-secondary">
