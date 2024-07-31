@@ -221,7 +221,7 @@
 
               <div class="mb-3" id="provider_div">
                   <label class="form-label" for="question_provider">{{ __('admin.lectures.provider') }} <span>*</span></label>
-                  <select class="form-control" name="question_provider" id="provideSelect" required>
+                  <select class="form-control" name="question_provider" id="provideSelect" >
                     <option value="">{{ __('select') }}</option>
                     <option value="1" @if($row->question_provider== 1) selected @endif> {{ __('admin.lectures.viemo')}}</option>
                     <option value="2"  @if($row->question_provider== 2) selected @endif> {{ __('admin.lectures.Youtube')}}</option>
@@ -289,7 +289,7 @@
 
               <div class="mb-3" id="provider_div">
                   <label class="form-label" for="answer_provider">{{ __('admin.lectures.provider') }} <span>*</span></label>
-                  <select class="form-control" name="answer_provider" id="provideSelect" required>
+                  <select class="form-control" name="answer_provider" id="provideSelect" >
                     <option value="">{{ __('select') }}</option>
                     <option value="1" @if($row->answer_provider== 1) selected @endif> {{ __('admin.lectures.viemo')}}</option>
                     <option value="2"  @if($row->answer_provider== 2) selected @endif> {{ __('admin.lectures.Youtube')}}</option>
