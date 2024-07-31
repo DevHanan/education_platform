@@ -165,6 +165,7 @@ class HomeController extends Controller
         $course = Course::find($request->course_id);
 
         foreach ($course->instructors as $instructor) {
+            return $instructor->course_prectange;
             if($instructor->course_prectange){
             $prectange = ((int)$course->price / 100) * $instructor->course_prectange;
             return $prectange;
