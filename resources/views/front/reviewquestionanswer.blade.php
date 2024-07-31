@@ -84,6 +84,10 @@
       </div>
        <form method="post" action="{{url('finish-exam')}}">
       <input type="hidden" name="quiz_id" value="{{$quiz->id}}">
+      @if(isset($section))
+      <input type="hidden" name="section_id" value="{{$section}}">
+      @endif
+
       <div class="text-center pt-2">
         <button type="submit" class="btn border text-light" >نعم</button>
         <!-- <div class="btn border text-light" onclick="goToFinalReview()">نعم</div> -->
