@@ -40,7 +40,7 @@
                                                 <div class="row">
 
                                                     <div class="col-md-6">
-                                                        <input type="file" name="import" class="form-control" required >
+                                                        <input type="file" name="import" class="form-control" required accept=".Xlsx">
                                                     </div>
 
                                                     <div class="col-md-3">

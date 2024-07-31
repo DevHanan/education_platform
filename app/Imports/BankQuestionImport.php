@@ -23,13 +23,10 @@ class BankQuestionImport implements ToCollection, WithHeadingRow
     public function collection(Collection $rows)
     {
         Validator::make($rows->toArray(), [
-            '*.title' => 'required',
-            '*.bank' => 'required',
+            '*.question_title' => 'required',
+            '*.bank_name' => 'required',
             '*.mark' => 'required|integer',
             '*.active' => 'required|integer',
-            '*.answer_notes' => 'required',
-            '*.answer_video_link' => 'required',
-            '*.question_notes' => 'required',
             '*.answer1' => 'required',
             '*.answer2' => 'required',
             '*.answer3' => 'required',
@@ -39,18 +36,19 @@ class BankQuestionImport implements ToCollection, WithHeadingRow
 
 
         foreach ($rows as $row) {
-            $bank = BankGroup::where('name', 'LIKE', '%'.$row['bank'].'%')->first();
+            $bank = BankGroup::where('name', 'LIKE', '%'.$row['bank_name'].'%')->first();
            
             BankQuestion::updateOrCreate(
                 [
-                'title'     => $row['title'],
+                'title'     => $row['question_title'],
                 'bank_group_id' => $bank? $bank->id : '',
                 'mark'    => $row['mark'],
                 ],[
                 'active'     => $row['active'],
-                'answer_notes'    => $row['answer_notes'],
-                'answer_video_link'    => $row['answer_video_link'],
-                'question_notes'    => $row['question_notes'],
+                'answer_notes'    => $row['answer_description_text'] ?? '' ,
+                'answer_video_link'    => $row['answer_video_link'] ?? '',
+                'question_notes'    => $row['question_description_text'] ?? '',
+                'question_video_link'  => $row['question_desc_video_link'] ?? '',
                 'answer1'    => $row['answer1'],
                 'answer2'    => $row['answer2'],
                 'answer3'    => $row['answer3'],
