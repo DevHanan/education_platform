@@ -23,6 +23,7 @@ class Instructor extends Authenticatable implements MustVerifyEmail
         'cash_wallet_number', 'paypall_account_number'
     );
 
+    protected $with= ['subscriptions'];
 
     protected function getNameAttribute()
     {
@@ -35,8 +36,8 @@ class Instructor extends Authenticatable implements MustVerifyEmail
         return $this->hasManyThrough(
             Subscription::class,
             CourseInstructor::class,
+            'instructor_id', // foreign key on CourseInstructor table
             'course_id', // foreign key on Subscription table
-            'course_id', // foreign key on CourseInstructor table
             'id', // primary key on Instructor table
             'id' // primary key on CourseInstructor table
         );
