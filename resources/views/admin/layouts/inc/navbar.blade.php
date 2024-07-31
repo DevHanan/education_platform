@@ -63,14 +63,14 @@
         <a href="#" class="nav-link d-flex lh-1 text-reset p-0" href="#navbar-layout" data-bs-toggle="dropdown" aria-label="Open user menu">
 
 
-          <!-- @if(auth()->guard('web')->user())
+          @if(auth()->guard('web')->user())
           <span class="avatar avatar-sm" style="background-image: url({{auth()->guard('web')->user()->photo}})"></span>
           @elseif(auth()->guard('instructors-login')->user())
           <span class="avatar avatar-sm" style="background-image: url({{ auth()->guard('instructors-login')->user()->imageFullPath}})"></span>
           @else
           <span class="avatar avatar-sm" style="background-image: url({{auth()->guard('students-login')->user()->imageFullPath}})"></span>
-          @endif -->
-          <span>
+          @endif
+          <!-- <span>
             @if(auth()->guard('web')->user())
             {{ auth()->user()->name }}
             @elseif(auth()->guard('instructors-login')->user())
@@ -78,10 +78,7 @@
             @else
             {{ auth()->guard('students-login')->user()->name }}
             @endif
-          </span>
-
-
-
+          </span> -->
           <div class="d-none d-xl-block ps-2">
             <div>
               @if(auth()->guard('web')->user())
