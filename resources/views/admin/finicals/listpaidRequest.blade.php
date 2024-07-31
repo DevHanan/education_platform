@@ -106,6 +106,9 @@ let dir = '<?= $dir?>';
 console.log(url);
 
 new DataTable('#listpaidRequestTable', {
+  "createdRow": function(row, data, dataIndex) {
+      $('#listpaidRequestTable').removeClass('dataTable');
+    },
   language: {
 
     url: url
