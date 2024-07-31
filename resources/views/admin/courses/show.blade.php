@@ -216,7 +216,7 @@
                                                     <td><span class="text-secondary">{{$loop->iteration}}</span></td>
                                                     <td>{{$instructor->name}}</td>
                                                     <td>{{$instructor->pivot->course_price}} {{ $setting->currency }}</td>
-                                                    <td>{{$instructor->pivot->course_prectange}} {{ $setting->currency }}</td>
+                                                    <td>{{$instructor->pivot->course_prectange}}  % </td>
 
 
 
