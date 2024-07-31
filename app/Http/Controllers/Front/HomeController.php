@@ -68,8 +68,8 @@ class HomeController extends Controller
                 $q->where('recommened', $request->recommend);
             if ($request->name)
                 $q->Where('name', 'like', '%' . $request->name  . '%');
-        })->active()->latest()->get();   
-             
+        })->active()->latest()->get();
+
         return view('front.courses', compact('title', 'list_courses'));
     }
 
@@ -117,12 +117,12 @@ class HomeController extends Controller
 
         $course = Course::with(['levels', 'lectures', 'tracks', 'instructors', 'coupon', 'comments'])->find($id);
         $tracks_id = $course->tracks()->pluck('track_id')->ToArray();
-        $tests = Quiz::whereHas('questions')->where('course_id',$id)->whereNull(['lecture_id','level_id'])->get();
+        $tests = Quiz::whereHas('questions')->where('course_id', $id)->whereNull(['lecture_id', 'level_id'])->get();
         $related_courses = Course::whereHas('tracks', function ($query) use ($tracks_id) {
             $query->whereIn('track_id', $tracks_id);
         })->where('id', '!=', $course->id)->get();
         $title = $course->name;
-        return view('front.course', compact('course', 'related_courses', 'title','tests'));
+        return view('front.course', compact('course', 'related_courses', 'title', 'tests'));
     }
 
     public function lecture($id)
@@ -164,14 +164,7 @@ class HomeController extends Controller
     {
         $course = Course::find($request->course_id);
 
-        return $course->instructors;
-        foreach ($course->instructors as $instructor) {
-            
-            $sub = Subscription::where('course_id', $course->id)->where('student_id', $item->student_id)->first();
-            $instructor->current_balance = $instructor->current_balance + (($course->price / 100) * $sub->course_prectange);
-            $instructor->total_balance = $instructor->total_balance + (($course->price / 100) * $sub->course_prectange);
-            $instructor->save();
-        }
+        
 
         $request->merge([
             'student_id' => Auth::guard('students-login')->user()->id,
@@ -188,7 +181,14 @@ class HomeController extends Controller
         }
 
         /** add teacher prectanage  */
-     
+        foreach ($course->instructors as $instructor) {
+            if($instructor->course_prectange){
+            $prectange = ((int)$course->price / 100) * $instructor->course_prectange;
+            $instructor->current_balance = $instructor->current_balance + $prectange;
+            $instructor->total_balance = $instructor->total_balance + $prectange;
+            $instructor->save();
+            }
+        }
 
         toastr()->success(__('front.data_created_successfully'), __('front.msg_success'));
         return redirect('course/' . $request->course_id);
@@ -273,16 +273,18 @@ class HomeController extends Controller
         return $request->all();
     }
 
-    public function availablefacultities(Request $request){
-        $malefaculities = Faculty::where('min_accept_degree','<=',$request->result2)->where('gender','male')->get();
-        $femalefaculities = Faculty::where('min_accept_degree','<=',$request->result2)->where('gender','female')->get();
+    public function availablefacultities(Request $request)
+    {
+        $malefaculities = Faculty::where('min_accept_degree', '<=', $request->result2)->where('gender', 'male')->get();
+        $femalefaculities = Faculty::where('min_accept_degree', '<=', $request->result2)->where('gender', 'female')->get();
 
-        return view('front.availablefaculty',compact('malefaculities','femalefaculities'));
+        return view('front.availablefaculty', compact('malefaculities', 'femalefaculities'));
     }
 
 
-    public function tests(){
-        $tests = Quiz::whereHas('questions')->whereNull(['course_id','lecture_id','level_id'])->get();
-        return view('front.abilitytests',compact('tests'));
+    public function tests()
+    {
+        $tests = Quiz::whereHas('questions')->whereNull(['course_id', 'lecture_id', 'level_id'])->get();
+        return view('front.abilitytests', compact('tests'));
     }
 }
