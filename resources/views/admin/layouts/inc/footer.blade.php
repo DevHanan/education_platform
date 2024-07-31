@@ -6,7 +6,7 @@
                 <ul class="list-inline list-inline-dots mb-0">
                  
                   <li class="list-inline-item">
-                    <a href="https://wa.me/0201287848630" class=" text-decoration-none">
+                    <a href="https://wa.me/0201287848630" class=" text-decoration-none" >
                     Developed with ♥️ by Brain Soft Solutions
     
                   </a>

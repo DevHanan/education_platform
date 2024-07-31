@@ -85,7 +85,7 @@
                   <td>{{$row->price_with_discount}} {{ $setting->currency }}</td>
 
                   <td> {{ $row->SubscriptionCount }}</td>
-                  <td> {{ $row->SubscriptionCount  *  $row->price_with_discount }} {{ $setting->currency }}</td>
+                  <td> {{ $row->Totalsubscription }} {{ $setting->currency }}</td>
 
 
 
