@@ -160,6 +160,7 @@ class ExamController extends Controller
 
     public function approveexam(Request $request)
     {
+        return $request->all();
         StudentExamdetail::where(['quiz_id' => $request->quiz_id, 
         'student_id' => auth()->guard('students-login')->user()->id])->update(['approved' => '1']);
         $quiz = Quiz::find($request->quiz_id);
