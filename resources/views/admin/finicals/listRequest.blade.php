@@ -113,6 +113,9 @@ if (app()->getLocale() == 'ar') {
   console.log(url);
 
   new DataTable('#instructorPaymentReuest', {
+    "createdRow": function(row, data, dataIndex) {
+      $('#instructorPaymentReuest').removeClass('dataTable');
+    },
     language: {
 
       url: url
