@@ -36,7 +36,7 @@ class Instructor extends Authenticatable implements MustVerifyEmail
             Subscription::class,
             CourseInstructor::class,
             'course_id', // foreign key on Subscription table
-            'instructor_id', // foreign key on CourseInstructor table
+            'course_id', // foreign key on CourseInstructor table
             'id', // primary key on Instructor table
             'id' // primary key on CourseInstructor table
         );
