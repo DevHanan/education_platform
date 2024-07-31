@@ -37,7 +37,7 @@
                     <div class="card-body">
                         <!-- [ Data table ] start -->
                         <div class="table-responsive">
-                            <table id="copounTable" class=" export-table display table nowrap table-striped table-hover" style="width:100%">
+                            <table id="copounTable" class=" display table nowrap table-striped table-hover" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -142,6 +142,9 @@ let dir = '<?= $dir?>';
 console.log(url);
 
 new DataTable('#copounTable', {
+    "createdRow": function(row, data, dataIndex) {
+      $('#copounTable').removeClass('dataTable');
+    },
   language: {
 
     url: url
