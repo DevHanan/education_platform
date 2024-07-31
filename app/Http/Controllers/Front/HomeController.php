@@ -183,7 +183,7 @@ class HomeController extends Controller
         /** add teacher prectanage  */
         foreach ($course->instructors as $instructor) {
             if($instructor->pivot->course_prectange){
-            $prectange = ($course->price / 100) * $instructor->pivot->course_prectange;
+                $prectange = ($item->paid  * $instructor->pivot->course_prectange)/100;
             $instructor->current_balance = $instructor->current_balance + $prectange;
             $instructor->total_balance = $instructor->total_balance + $prectange;
             $instructor->save();
