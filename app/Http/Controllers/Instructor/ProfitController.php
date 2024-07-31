@@ -20,11 +20,11 @@ class ProfitController extends Controller
     {
         $data['title'] = trans('admin.finances.instructor_profit');
         $login_id = auth()->guard('instructors-login')->user()->id;
-        $data['rows'] =Course::whereHas('instructors', function ($query) use ($login_id) {
-            $query->where('instructor_id', $login_id);
-        })->with(['instructors' => function ($query) {
-            $query->select('instructor_id', 'course_prectange', 'course_price');
+        $data['rows'] =Course::with(['instructors' => function ($query)use($login_id) {
+
+            $query->where('instructor_id', $login_id)->select('instructor_id', 'course_prectange', 'course_price');
         }])->paginate(10);
+        
         return view('instructor.profits', $data);
     }
 
