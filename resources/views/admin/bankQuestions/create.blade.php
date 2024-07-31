@@ -213,7 +213,7 @@
 
               <div class="mb-3" id="provider_div">
                   <label class="form-label" for="question_provider">{{ __('admin.lectures.provider') }} <span>*</span></label>
-                  <select class="form-control" name="question_provider" id="provideSelect" required>
+                  <select class="form-control" name="question_provider" id="provideSelect" >
                     <option value="">{{ __('select') }}</option>
                     <option value="1"> {{ __('admin.lectures.viemo')}}</option>
                     <option value="2"> {{ __('admin.lectures.Youtube')}}</option>
@@ -282,7 +282,7 @@
 
               <div class="mb-3" id="provider_div">
                   <label class="form-label" for="answer_provider">{{ __('admin.lectures.provider') }} <span>*</span></label>
-                  <select class="form-control" name="answer_provider" id="provideSelect" required>
+                  <select class="form-control" name="answer_provider" id="provideSelect" >
                     <option value="">{{ __('select') }}</option>
                     <option value="1"> {{ __('admin.lectures.viemo')}}</option>
                     <option value="2"> {{ __('admin.lectures.Youtube')}}</option>
