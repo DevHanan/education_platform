@@ -163,6 +163,16 @@ class HomeController extends Controller
     public function subscribe(Request $request)
     {
         $course = Course::find($request->course_id);
+
+        return $course->instructors;
+        foreach ($course->instructors as $instructor) {
+            
+            $sub = Subscription::where('course_id', $course->id)->where('student_id', $item->student_id)->first();
+            $instructor->current_balance = $instructor->current_balance + (($course->price / 100) * $sub->course_prectange);
+            $instructor->total_balance = $instructor->total_balance + (($course->price / 100) * $sub->course_prectange);
+            $instructor->save();
+        }
+
         $request->merge([
             'student_id' => Auth::guard('students-login')->user()->id,
             'paid' => $request->paid
@@ -178,13 +188,7 @@ class HomeController extends Controller
         }
 
         /** add teacher prectanage  */
-        foreach ($course->instructors as $instructor) {
-            $sub = Subscription::where('course_id', $course->id)->where('student_id', $item->student_id)->first();
-            $instructor->current_balance = $instructor->current_balance + (($course->price / 100) * $sub->course_prectange);
-            $instructor->total_balance = $instructor->total_balance + (($course->price / 100) * $sub->course_prectange);
-            $instructor->save();
-        }
-
+     
 
         toastr()->success(__('front.data_created_successfully'), __('front.msg_success'));
         return redirect('course/' . $request->course_id);

@@ -44,7 +44,6 @@ class ProfitController extends Controller
 
 
 
-
     public function listRequest()
     {
         $data['title'] = trans('admin.finances.list_reuests');
