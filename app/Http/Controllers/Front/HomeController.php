@@ -164,16 +164,7 @@ class HomeController extends Controller
     {
         $course = Course::find($request->course_id);
 
-        foreach ($course->instructors as $instructor) {
-            return $course->instructors ;
-            if($instructor->course_prectange){
-            $prectange = ((int)$course->price / 100) * $instructor->course_prectange;
-            return $prectange;
-            $instructor->current_balance = $instructor->current_balance + $prectange;
-            $instructor->total_balance = $instructor->total_balance + $prectange;
-            $instructor->save();
-            }
-        }
+        
 
         $request->merge([
             'student_id' => Auth::guard('students-login')->user()->id,
@@ -190,7 +181,14 @@ class HomeController extends Controller
         }
 
         /** add teacher prectanage  */
-       
+        foreach ($course->instructors as $instructor) {
+            if($instructor->pivot->course_prectange){
+            $prectange = ((int)$course->price / 100) * $instructor->pivot->course_prectange;
+            $instructor->current_balance = $instructor->current_balance + $prectange;
+            $instructor->total_balance = $instructor->total_balance + $prectange;
+            $instructor->save();
+            }
+        }
 
         toastr()->success(__('front.data_created_successfully'), __('front.msg_success'));
         return redirect('course/' . $request->course_id);
