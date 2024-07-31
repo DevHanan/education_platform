@@ -41,16 +41,22 @@
 
                                                     <div class="col-md-6">
                                                         <input type="file" name="import" class="form-control" required="required" accept=".Xlsx">
+                                                        @error('import')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                        @enderror
+
                                                     </div>
 
                                                     <div class="col-md-3">
                                                         <button type="submit" class="btn btn-success">{{ __('admin.btn_import') }}</button>
-                                                        
+
                                                     </div>
                                                     <div class="col-md-3">
-                                                    <a href="{{asset('public/uploads/exports/testimportquestions.xslx')}}" style="padding:10px 5px 10px 5px;" target="_blank" class="btn btn-success primary-bg" download="{{asset('public/uploads/exports/testimportquestions.xslx')}}"> 
-                                                    تحميل مثال </a>
-                                                    
+                                                        <a href="{{asset('public/uploads/exports/testimportquestions.xslx')}}" style="padding:10px 5px 10px 5px;" target="_blank" class="btn btn-success primary-bg" download="{{asset('public/uploads/exports/testimportquestions.xslx')}}">
+                                                            تحميل مثال </a>
+
                                                     </div>
                                                 </div>
                                             </form>
