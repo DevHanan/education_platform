@@ -63,7 +63,7 @@ class ProfitController extends Controller
 
     public function instructorProfits(){
             $data['title'] = trans('admin.finances.instructors_profit');        
-            $data['rows']=Instructor::latest()->paginate(10);
+            $data['rows']=Instructor::with('subscriptions')->latest()->paginate(10);
             return $data['rows'];
             return view('admin.finicals.instructorProfits', $data);
     }
