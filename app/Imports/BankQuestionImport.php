@@ -53,7 +53,10 @@ class BankQuestionImport implements ToCollection, WithHeadingRow
                 'answer2'    => $row['answer2'],
                 'answer3'    => $row['answer3'],
                 'answer4'    => $row['answer4'],
-                'correct_answer'    => $row['correct_answer']
+                'correct_answer'    => $row['correct_answer'],
+                'answer_provider' => $row['answer_desc_video_hosting'] ?? '',
+                'question_provider' => $row['question_desc_video_hosting'] ?? '',
+
             ]);
         }
     }
