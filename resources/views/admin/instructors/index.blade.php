@@ -163,6 +163,10 @@ let dir = '<?= $dir?>';
 console.log(url);
 
 new DataTable('#instructorsTable', {
+    "createdRow": function(row, data, dataIndex) {
+      $('#instructorsTable').removeClass('dataTable');
+      $('#instructorsTable').removeClass('datatable');
+    },
   language: {
 
     url: url

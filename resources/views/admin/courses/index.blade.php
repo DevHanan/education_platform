@@ -293,6 +293,8 @@ if (app()->getLocale() == 'ar') {
   new DataTable('#courses', {
     "createdRow": function(row, data, dataIndex) {
       $('#courses').removeClass('dataTable');
+      $('#courses').removeClass('datatable');
+
     },
     language: {
 

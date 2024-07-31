@@ -160,7 +160,6 @@ class ExamController extends Controller
 
     public function approveexam(Request $request)
     {
-        return $request->all();
         StudentExamdetail::where(['quiz_id' => $request->quiz_id, 
         'student_id' => auth()->guard('students-login')->user()->id])->update(['approved' => '1']);
         $quiz = Quiz::find($request->quiz_id);
@@ -175,9 +174,8 @@ class ExamController extends Controller
         $studentMark += $question->mark;
         $studentexam = StudentExam::where(['quiz_id' => $request->quiz_id, 
         'student_id' => auth()->guard('students-login')->user()->id])->first();
-
         $studentexam->update(['studentmark' => $studentMark]);
-
+        
         $title = 'مراجعه نهائية';
         return view('front.quizfinalreview', compact('questions', 'title', 'quiz','studentexam'));
     }
