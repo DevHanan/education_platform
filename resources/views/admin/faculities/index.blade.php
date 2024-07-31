@@ -36,7 +36,7 @@
           </div>
 
           <div class="table-responsive">
-            <table id="facultyTable" class="export-table table card-table table-vcenter text-nowrap datatable">
+            <table id="facultyTable" class="table card-table table-vcenter text-nowrap">
               <thead>
                 <tr>
                   <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select all invoices"></th>
@@ -135,6 +135,10 @@ if (app()->getLocale() == 'ar') {
   console.log(url);
 
   new DataTable('#facultyTable', {
+    "createdRow": function(row, data, dataIndex) {
+      $('#facultyTable').removeClass('dataTable');
+
+    },
     language: {
 
       url: url

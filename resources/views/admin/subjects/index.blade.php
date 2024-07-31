@@ -36,7 +36,7 @@
           </div>
 
           <div class="table-responsive">
-            <table  id="subjectTable" class="export-table table card-table table-vcenter text-nowrap datatable">
+            <table  id="subjectTable" class="table card-table table-vcenter text-nowrap">
               <thead>
                 <tr>
                   <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select all invoices"></th>
@@ -126,6 +126,9 @@ let dir = '<?= $dir?>';
 console.log(url);
 
 new DataTable('#subjectTable', {
+  "createdRow": function(row, data, dataIndex) {
+      $('#subjectTable').removeClass('dataTable');
+    },
   language: {
 
     url: url
