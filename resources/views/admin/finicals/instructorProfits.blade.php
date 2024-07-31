@@ -57,8 +57,8 @@
                     <td><span class="text-secondary">{{$loop->iteration}}</span></td>
                     <td>{{$row->name}}</td>
                     <td>{{$row->courseNumber }}</td>
-                    <td> {{ $row->subscriptions()->count() }}</td>
-                    <td> {{ $row->subscriptions()->sum('paid') }} {{ $setting->currency }}</td>
+                    <td> {{ $row->subscriptionsrelation()->count() }}</td>
+                    <td> {{ $row->subscriptionsrelation()->sum('paid') }} {{ $setting->currency }}</td>
                     <td>{{$row->total_balance}} {{ $setting->currency }}</td>
                     <td>{{ $row->current_balance }} {{ $setting->currency }} </td>
 <td></td>

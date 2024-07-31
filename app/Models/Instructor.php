@@ -23,7 +23,7 @@ class Instructor extends Authenticatable implements MustVerifyEmail
         'cash_wallet_number', 'paypall_account_number'
     );
 
-    protected $with= ['subscriptions'];
+    protected $with= ['subscriptionsrelation'];
 
     protected function getNameAttribute()
     {
@@ -31,7 +31,7 @@ class Instructor extends Authenticatable implements MustVerifyEmail
     }
 
 
-    public function subscriptions()
+    public function subscriptionsrelation()
     {
         return $this->hasManyThrough(
             Subscription::class,
