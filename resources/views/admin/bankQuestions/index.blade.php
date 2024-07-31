@@ -221,13 +221,13 @@ new DataTable('#bankuestionTable', {
                         columns: ':visible'
                     }
                 },
-                {
-                    extend: 'pdfHtml5',
-                    text: '<i class="far fa-file-pdf fa-lg text-primary"></i>',
-                    exportOptions: {
-                      columns: ':visible'
-                    }
-                },
+                // {
+                //     extend: 'pdfHtml5',
+                //     text: '<i class="far fa-file-pdf fa-lg text-primary"></i>',
+                //     exportOptions: {
+                //       columns: ':visible'
+                //     }
+                // },
                 {
                         extend: 'csvHtml5',
 						title: 'CSV',
