@@ -55,7 +55,7 @@ class BulkImportExportController extends Controller
     */
     public function export($table)
     {
-        //
+        
         if($table == 'users'){
 
             return Excel::download(new UsersExport, 'staffs.csv');
@@ -81,7 +81,11 @@ class BulkImportExportController extends Controller
     */
     public function import(Request $request, $table)
     {
-        //
+
+        $request->validate([
+            'import'=> 'required|mimes:xlsx, csv, xls'
+         ]);
+        
         if($table == 'bank_questions'){
 
             Excel::import(new BankQuestionImport, $request->file('import'));
