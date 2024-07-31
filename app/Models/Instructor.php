@@ -39,7 +39,7 @@ class Instructor extends Authenticatable implements MustVerifyEmail
             'instructor_id', // foreign key on CourseInstructor table
             'course_id', // foreign key on Subscription table
             'id', // primary key on Instructor table
-            'id' // primary key on CourseInstructor table
+            'course_id' // primary key on CourseInstructor table
         );
     }
 
