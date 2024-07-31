@@ -56,7 +56,6 @@ class SubscriptionController extends Controller
     public function store(SubscriptionRequest $request)
     {
 
-
         $subscriptioncount = Subscription::where(['student_id' => $request->student_id, 'course_id' => $request->course_id])->count();
         if ($subscriptioncount > 0) {
             Toastr::error(__('admin.subscribtion_added_again'), __('admin.msg_error'));
@@ -88,7 +87,6 @@ class SubscriptionController extends Controller
             foreach ($course->instructors as $instructor) {
                 if($instructor->pivot->course_prectange){
                 $prectange = ($subscription->paid  * $instructor->pivot->course_prectange)/100;
-                return $prectange;
                 $instructor->current_balance = $instructor->current_balance + $prectange;
                 $instructor->total_balance = $instructor->total_balance + $prectange;
                 $instructor->save();
