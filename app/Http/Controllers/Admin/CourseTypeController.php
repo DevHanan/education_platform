@@ -65,6 +65,7 @@ class CourseTypeController extends Controller
      */
     public function store(CourseTypeRequest $request)
     {
+       
         $request->merge([
             'slug'=> $request->name
         ]);
@@ -110,6 +111,9 @@ class CourseTypeController extends Controller
      */
     public function update(Request $request)
     {
+        $this->validate(request(), [
+            'name' => 'required|string|max:255|unique:course_types,name,' . $request->id
+        ]);
         $couretype = CourseType::find($request->id);
         
          $request->merge([
