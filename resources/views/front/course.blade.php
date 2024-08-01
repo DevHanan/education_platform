@@ -382,6 +382,7 @@
                             <div id="paginationCard">
                                 @if($course->comments)
                                 @foreach($course->comments as $comment)
+                                @if($comment->active == 1)
                                 <div class="card_pagination shadow-sm my-4 p-4" style="border-radius: 24px;display:block;">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="person d-flex align-items-center">
@@ -406,6 +407,7 @@
                                         {{ $comment->comment }}
                                     </div>
                                 </div>
+                                @endif
                                 @endforeach
                                 @endif
 
