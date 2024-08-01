@@ -123,7 +123,7 @@
 
               <div class="mb-3">
                 <label class="form-label" for="promo_url"> {{ __('admin.courses.promo_url') }} <span>*</span></label>
-                <input type="text" class="form-control" name="promo_url" id="promo_url" value="{{ old('promo_url',$row) }}" required>
+                <input type="text" class="form-control" name="promo_url" id="promo_url" value="{{ old('promo_url',$row) }}" >
 
                 @error('promo_url')
                 <div class="invalid-feedback">
