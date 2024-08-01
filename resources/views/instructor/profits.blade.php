@@ -84,7 +84,7 @@
                    
                     <?php echo  $row->instructors->first()->course_price
                       +
-                      ($row->instructors->first()->course_prectange *( ($row->price_with_discount / 100) * $row->SubscriptionCount ))
+                      ($row->instructors->first()->course_prectange *( ($row->price_with_discount / 100) * $row->SubscriptionCount )) 
                     ?>
 
                   </td>

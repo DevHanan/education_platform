@@ -62,7 +62,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="period"> {{ __('admin.courses.period') }} <span>*</span></label>
-                  <input type="number"  min="0" class="form-control" name="period" id="period" value="{{ old('name') }}" required>
+                  <input type="number"  min="0" class="form-control" name="period" id="period" value="{{ old('period') }}" required>
 
                   @error('period')
                   <div class="invalid-feedback">
