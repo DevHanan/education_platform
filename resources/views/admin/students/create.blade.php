@@ -149,7 +149,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="country_id">{{ __('admin.students.country_id') }} <span>*</span></label>
-                                    <select class="form-control select2" name="country_id" id="country_id" required>
+                                    <select class="form-control select2" name="country_id" id="country_id">
                                         <option value="">{{ __('select') }}</option>
                                         @foreach($countries as $country)
                                         <option value="{{ $country->id }}"> {{ $country->name }}</option>
@@ -167,7 +167,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="about_student">{{ __('admin.students.degree') }} <span>*</span></label>
-                                    <select class="select2 form-control" name="about_student" id="about_student" required>
+                                    <select class="select2 form-control" name="about_student" id="about_student">
                                         <option value="">{{ __('select') }}</option>
                                         <option value="0">{{ __('admin.instructors.student') }}</option>
                                         <option value="1">{{ __('admin.instructors.Bachelor') }}</option>

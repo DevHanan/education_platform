@@ -50,7 +50,11 @@
                                         <td>{{ $loop->iteration }}</td>
 
                                         <td>{{ optional($row->student)->name }}</td>
-                                        <td>{{ optional($row->student)->created_at->format('l, F j, Y')  }}</td>
+                                        <td>
+                                        @if(isset(optional($row->student)->created_at))
+                                        {{ optional(optional($row->student)->created_at)->format('l, F j, Y')  }}
+                                        @endif
+                                        </td>
                                         <td>{{ optional($row->course)->name }}</td>
                                         <!-- <td>{{ optional($row->track)->name }}</td> -->
 

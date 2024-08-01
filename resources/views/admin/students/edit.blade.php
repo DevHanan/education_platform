@@ -167,7 +167,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="about_student">{{ __('admin.students.degree') }} <span>*</span></label>
-                                    <select class="select2 form-control" name="about_student" id="about_student" required>
+                                    <select class="select2 form-control" name="about_student" id="about_student">
                                         <option value="">{{ __('select') }}</option>
                                         <option value="0" @if($row->about_student == 0) selected="selected" @endif>{{ __('admin.instructors.student') }}</option>
                                         <option value="1" @if($row->about_student == 1) selected="selected" @endif>{{ __('admin.instructors.Bachelor') }}</option>
