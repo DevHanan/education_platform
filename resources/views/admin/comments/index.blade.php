@@ -36,6 +36,7 @@
                     </svg>
                   </th>
                   <th> {{__('admin.comments.student')}}</th>
+                  <th> {{__('admin.comments.course')}}</th>
                   <th> {{__('admin.comments.rate')}}</th>
                   <th> {{__('admin.comments.comment')}}</th>
                   <th> {{__('admin.comments.status')}}</th>
@@ -50,6 +51,7 @@
                   <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
                   <td><span class="text-secondary">{{$loop->iteration}}</span></td>
                   <td>{{ optional($row->student)->name}}</td>
+                  <td>{{ optional($row->course)->name}}</td>
                   <td>{{ $row->rate}}</td>
                   <td>{{ $row->comment}}</td>
                   <td>
