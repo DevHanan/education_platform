@@ -273,7 +273,6 @@
               <div class="mb-3 ">
 
 
-
                 <label for="logo">{{ __('admin.courses.image') }}</label>
                 <input type="file" class="form-control" name="image" id="logo">
 
