@@ -275,8 +275,8 @@ class HomeController extends Controller
 
     public function availablefacultities(Request $request)
     {
-        $malefaculities = Faculty::where('min_accept_degree', '<=', $request->result2)->where('gender', 'male')->get();
-        $femalefaculities = Faculty::where('min_accept_degree', '<=', $request->result2)->where('gender', 'female')->get();
+        $malefaculities = Faculty::active()->where('min_accept_degree', '<=', $request->result2)->where('gender', 'male')->get();
+        $femalefaculities = Faculty::active()->where('min_accept_degree', '<=', $request->result2)->where('gender', 'female')->get();
 
         return view('front.availablefaculty', compact('malefaculities', 'femalefaculities'));
     }
