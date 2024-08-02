@@ -49,6 +49,9 @@ class FacultyController extends Controller
     }
     public function store(Request $request)
     {
+        $this->validate(request(), [
+            'name' => 'required|string|max:255|unique:faculities,name'
+        ]);
         $faculty = Faculty::create($request->all());
       
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
@@ -75,6 +78,9 @@ class FacultyController extends Controller
 
     public function update(Request $request,Faculty $faculty)
     {
+        $this->validate(request(), [
+            'name' => 'required|string|max:255|unique:faculities,name,' . $request->id
+        ]);
         $faculty = Faculty::find($request->id);
         $faculty ->update($request->all());
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
