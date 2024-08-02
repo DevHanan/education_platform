@@ -90,6 +90,11 @@
                       <span class="form-check-label"> {{ __('admin.faculities.female' )}}</span>
                     </label>
 
+                    <label class="form-check form-check-inline">
+                      <input class="form-check-input" value="both" type="radio" name="gender" @if($row->gender=='both')checked="checked" @endif>
+                      <span class="form-check-label"> {{ __('admin.faculities.both' )}}</span>
+                    </label>
+
                   </div>
                 </div>
 
