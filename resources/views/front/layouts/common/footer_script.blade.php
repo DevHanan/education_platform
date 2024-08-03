@@ -113,13 +113,13 @@
                             </li>
                             @endif
 
-                            @if($setting->linkedin_url != null)
+                            <!-- @if($setting->linkedin_url != null)
                             <li>
                                 <a target="_blank" href="{{ $setting->linkedin_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-linkedin fa-lg primary-color"></i>
                                 </a>
                             </li>
-                            @endif
+                            @endif -->
 
                             @if($setting->tiktok_url != null)
                             <li>
