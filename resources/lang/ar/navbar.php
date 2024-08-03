@@ -54,7 +54,7 @@ return [
         'track_name' => 'إسم المسار',
         'platform_certification' => 'شهادتى من المنصة',
         'externel_certification' => 'شهاداتي من جهات خارجية',
-        'add' => 'إضافة نموذج شهادة',
+        'add' => 'منح شهادة لطالب',
         'granting'=> 'منح شهادة لطالب'
     ],
     'tickets' => [
