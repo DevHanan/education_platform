@@ -61,7 +61,7 @@
                                     <td>
                                     @if($row->file)    
                                     <a href="{{asset($row->FileFullPath)}}" style="width:40px" target="_blank">
-                                            عرض النموذج
+                                             {{ __('admin.show_certification')}}
                                         </a>
                                         @else
                                         لا يوجد
@@ -83,6 +83,12 @@
                                         </button>
                                         <!-- Include Delete modal -->
                                         @include('admin.layouts.inc.delete')
+
+                                        @if($row->file)  
+                                        <a href="{{asset($row->FileFullPath)}}"  target="_blank" class="btn btn-success primary-bg" download="{{asset($row->FileFullPath)}}"> <img src="{{asset('front/img/icons/material-symbols_download.png')}}" alt="">                                     <i class="far fa-download"></i>
+                                        </a>
+  
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach
