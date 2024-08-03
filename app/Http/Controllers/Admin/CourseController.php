@@ -108,10 +108,11 @@ class CourseController extends Controller
                 $q->where('course_type_id', $request->course_type);
         })->recentStart()->paginate(10);
 
+        return $data['rows'];
         return view($this->view . '.index', $data);
     }
 
-    
+
 
     public function recommendCourses(Request $request)
     {
