@@ -75,12 +75,14 @@
                   @enderror
                 </div>
                 <div class="mb-3">
-                  <label class="form-label" for="type">{{ __('admin.instructors.is_employee') }} <span>*</span></label>
+                  <label class="form-label" for="type">{{ __('admin.instructors.is_employee') }} <span>
                   @if($row->employee == 1)
                   <label class="form-label" for="type">{{ __('admin.instructors.yes')}} </label>
                   @else
                   <label class="form-label" for="type">{{ __('admin.instructors.no')}} </label>
                   @endif
+                  </span></label>
+                 
                 </div>
 
                 
