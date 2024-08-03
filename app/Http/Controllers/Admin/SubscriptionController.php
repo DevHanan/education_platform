@@ -135,7 +135,7 @@ class SubscriptionController extends Controller
         $subscription = Subscription::find($request->id);
         if ($subscription)
             $subscription->delete();
-        Toastr::success(__('msg_delete_successfully'), __('msg_success'));
+        Toastr::success(__('admin.msg_delete_successfully'), __('admin.msg_success'));
         return redirect()->route($this->route . '.index');
     }
 
