@@ -63,7 +63,7 @@ class AppServiceProvider extends ServiceProvider
         $recommened_courses = Course::recommened()->latest()->get();
         $subscriptions = Subscription::all();
         $landingSetting = LandingSetting::first();
-        $latest  = Course::whereDate('start_date', '>=', now()->addDays($landingSetting->start_soon_period))->latest()->take(6)->get();
+        $latest  = Course::recentStart()->latest()->take(6)->get();
         $bankgroup = BankGroup::whereHas('questions')->active()->latest()->get();
         $reviews = Review::active()->latest()->get();
         $policies = Policy::active()->get();
@@ -72,7 +72,9 @@ class AppServiceProvider extends ServiceProvider
        ->groupBy('courses.id')
        ->orderBy('avg', 'desc')
        ->take('5')->get();
+       $freecourses = Course::active()->where('price','0')->latest()->get();
         View::share([
+            'freecourses' => $freecourses,
             'toprated' => $toprated,
             'faculities' => $faculities,
             'externelPayment' => $externelPayment,

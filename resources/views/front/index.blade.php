@@ -253,6 +253,88 @@
 </div>
 
 @endif
+
+@if($landing_setting->free_courses == 1)
+
+<div class="popular-courses my-5">
+    <div class="container">
+        <h2 class="section_title fw-bold">دورات <span class="primary-color">المرشحة </span></h2>
+        <p class="fw-bold mt-3"> بين يديك الدورات المجانية  فى سوق العمل يسعى أغلب الطلاب للاشتراك بها فانضم اليهم </p>
+    </div>
+
+    <div class="card__container swiper mt-4">
+        <div class="container">
+
+            <div class="card__content">
+                <div class="swiper-wrapper">
+                    @foreach($freecourses as $course)
+                    <article class="card__article swiper-slide shadow">
+                        <a href="{{ url('course/'.$course->id)}}">
+                            <div class="card__image p-2">
+                                <img src="{{  $course->imageFullPath }}" alt="image" class="card__img img-fluid w-100">
+                                <div class="card_category position-absolute rounded text-dark px-2 py-1"> @if($course->tracks)
+                                    @foreach ($course->tracks as $item)
+                                    {{ $item->name  }}
+                                    @endforeach
+                                    @endif
+                                </div>
+                                <div class="card__shadow"></div>
+                            </div>
+                        </a>
+
+                        <div class="card__data p-3">
+                            <a href="{{ url('course/'.$course->id)}}" class="text-decoration-none">
+                                <p class="card__description mt-1 mb-1"> {{ $course->name }} </p>
+                            </a>
+                            <!-- <div class="name primary-color mb-3" style="font-size: 14px;"> 
+                            @if($course->instructors)
+                                            @foreach($course->instructors as $item)
+                                            {{ $item->name }} 
+                                            @endforeach
+
+                                            @endif
+                        </div> -->
+                            <div class="rating d-flex justify-content-end">
+                                <span class="mx-3">({{ $course->SubscriptionCount}})</span>
+                                <span class="fw-bold ms-2" style="color:#5a5a5a">{{ $course->avgrating }}</span>
+                                @if($course->avgrating )
+                                @for($i=0; $i<(int)$course->avgrating; $i++)
+                                    <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
+                                    @endfor
+                                    @for($i=0; $i<5-(int)$course->avgrating; $i++)
+                                        <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
+                                        @endfor
+                                        @endif
+
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="{{ url('course/'.$course->id)}}" class="link-arrow secondary-bg rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></a>
+                                <div class="price">
+                                    <span class="instead-price text-decoration-line-through mx-2 primary-color">$ 700</span>
+                                    <span class="fw-bold"> {{ $course->price }}  {{ $setting->currency }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    @endforeach
+
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper-button-next">
+            <i class="fa-solid fa-angle-right"></i>
+        </div>
+
+        <div class="swiper-button-prev">
+            <i class="fa-solid fa-angle-left"></i>
+        </div>
+
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+@endif
 @if($landing_setting->recommend_courses == 1)
 
 <div class="popular-courses my-5">
