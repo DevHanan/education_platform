@@ -77,9 +77,9 @@
                 <div class="mb-3">
                   <label class="form-label" for="type">{{ __('admin.instructors.is_employee') }} <span>
                   @if($row->employee == 1)
-                  <label class="form-label" for="type">{{ __('admin.instructors.yes')}} </label>
+                  {{ __('admin.instructors.yes')}} 
                   @else
-                  <label class="form-label" for="type">{{ __('admin.instructors.no')}} </label>
+                  {{ __('admin.instructors.no')}} 
                   @endif
                   </span></label>
                  
