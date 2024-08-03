@@ -110,8 +110,8 @@ class CourseController extends Controller
         })->paginate(10);
         $landingSetting = LandingSetting::first();
         $date = Carbon::now();
-        $newDate = $date->addDays($landingSetting->star_recently_courses);
-        return $date;
+        $newDate = Carbon::now()->addDays($landingSetting->star_recently_courses);
+        return $newDate;
 
         return view($this->view . '.index', $data);
     }
