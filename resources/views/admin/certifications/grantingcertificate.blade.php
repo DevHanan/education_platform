@@ -36,7 +36,7 @@
 
                         <div class="form-group col-md-6">
                             <label class="form-label" for="student_id">{{__('admin.certifications.student')}} <span>*</span></label>
-                            <select class="form-control select2" name="student_id" id="student_id">
+                            <select class="form-control select2" name="student_id" id="student_id" required>
                                 <option value="">{{ __('select') }}</option>
                                 @foreach( $students as $student )
                                 <option value="{{ $student->id }}" @if(old('student_id')==$student->id) selected @endif>{{ $student->name }}</option>
@@ -54,7 +54,7 @@
 
                         <div class="form-group col-md-6">
                             <label class="form-label" for="track_id">{{__('admin.certifications.track')}} <span>*</span></label>
-                            <select class="form-control select2" name="track_id" id="track_id">
+                            <select class="form-control select2" name="track_id" id="track_id" required>
                                 <option value="">{{ __('select') }}</option>
                                 @foreach( $tracks as $track )
                                 <option value="{{ $track->id }}" @if(old('track_id')==$track->id) selected @endif>{{ $track->name }}</option>
@@ -101,7 +101,7 @@
 
 
                             <label for="serial_number">{{__('admin.certifications.serial_number')}}</label>
-                            <input type="text" class="form-control" name="serial_number" id="serial_number">
+                            <input type="text" class="form-control" name="serial_number" id="serial_number" required>
 
                             @error('serial_number')
                             <div class="invalid-feedback">
@@ -114,7 +114,7 @@
 
 
                             <label for="logo">{{__('admin.certifications.certification_file')}}</label>
-                            <input type="file" class="form-control" name="file" id="logo">
+                            <input type="file" class="form-control" name="file" id="logo" required>
 
                             @error('file')
                             <div class="invalid-feedback">
