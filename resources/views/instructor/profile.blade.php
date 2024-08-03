@@ -82,8 +82,7 @@
 
 
                   <div class="mb-3">
-                    <label class="form-label" for="salary">{{ __('admin.instructors.salary') }} <span>*</span></label>
-                    <input type="salary" class="form-control" name="salary" id="salary" value="{{ $row->salary }}" readonly>
+                    <label class="form-label" for="salary">{{ __('admin.instructors.salary') }}  <span>{{ $row->salary }}</span></label>
 
                   </div>
 
