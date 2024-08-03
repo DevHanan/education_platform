@@ -59,7 +59,7 @@
                                     <td>{{$row->created_at }}</td>
                                    
                                     <td>
-                                    @if($row->file)    
+                                    @if($row->file && file_exists($row->FileFullPath))    
                                     <a href="{{asset($row->FileFullPath)}}" style="width:40px" target="_blank">
                                              {{ __('admin.show_certification')}}
                                         </a>
@@ -84,7 +84,7 @@
                                         <!-- Include Delete modal -->
                                         @include('admin.layouts.inc.delete')
 
-                                        @if($row->file)  
+                                        @if($row->file && file_exists($row->FileFullPath))  
                                         <a href="{{asset($row->FileFullPath)}}"  target="_blank" class="btn btn-success primary-bg" download="{{asset($row->FileFullPath)}}"> <img src="{{asset('front/img/icons/material-symbols_download.png')}}" alt="">                                     <i class="far fa-download"></i>
                                         </a>
   
