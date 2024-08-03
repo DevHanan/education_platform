@@ -18,6 +18,7 @@ use App\Models\Instructor;
 use App\Models\LandingSetting;
 use App\Models\Lecture;
 use App\Models\Level;
+use Illuminate\Support\Carbon;
 use Toastr;
 use Illuminate\Support\Facades\URL;
 
@@ -108,6 +109,7 @@ class CourseController extends Controller
                 $q->where('course_type_id', $request->course_type);
         })->recentStart()->toSql();
 
+        return Carbon::now();
         return $data['rows'];
         return view($this->view . '.index', $data);
     }
