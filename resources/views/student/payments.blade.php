@@ -10,7 +10,7 @@
         {{ Breadcrumbs::render('student-payments') }}
 
       </div>
-   
+
       <!-- Page title actions -->
     </div>
   </div>
@@ -66,10 +66,12 @@
                   <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
                   <td><span class="text-secondary">{{$row->id}}</span></td>
                   <td>{{$row->created_at}}</td>
-                  <td>{{ optional($row->course)->name}}</td>
+                  <td><a target="_blank" href="{{url('course/'.$row->course_id)}}" class="text-primary">
+                      {{ optional($row->course)->name}}
+                    </a></td>
                   <td>{{$row->paid }} {{$setting->currency}}</td>
-                
-                  <td><img  src="{{$row->billFullPath}}" style="width:40px"></td>
+
+                  <td><img src="{{$row->billFullPath}}" style="width:40px"></td>
 
                 </tr>
                 @endforeach
