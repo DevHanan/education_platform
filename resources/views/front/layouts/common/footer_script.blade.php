@@ -91,13 +91,13 @@
                                 </a>
                             </li>
                             @endif
-                            @if($setting->twitter_url != null)
+                            <!-- @if($setting->twitter_url != null)
                             <li>
                                 <a target="_blank" href="{{ $setting->twitter_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-x-twitter fa-lg primary-color"></i>
                                 </a>
                             </li>
-                            @endif
+                            @endif -->
                             @if($setting->snapchat_url != null)
                             <li>
                                 <a target="_blank" href="{{ $setting->snapchat_url }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
