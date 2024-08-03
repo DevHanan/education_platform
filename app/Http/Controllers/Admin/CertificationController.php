@@ -61,14 +61,14 @@ class CertificationController extends Controller
 
     public function create(Certificate $certificate)
     {
-        $data['title'] = 'Add certifications ';
+        $data['title'] = trans('admin.certifications.add');
         $data['route'] = $this->route;
         return view($this->view .'.create',$data);
     }
 
 
     public function grantingcertificate(){
-        $data['title'] = 'granting certificate ';
+        $data['title'] = trans('admin.certifications.granting');
         $data['route'] = $this->route;
         return view('admin.certifications.grantingcertificate',$data);
     }
