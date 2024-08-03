@@ -258,7 +258,7 @@
 
 <div class="popular-courses my-5">
     <div class="container">
-        <h2 class="section_title fw-bold">دورات <span class="primary-color">المرشحة </span></h2>
+        <h2 class="section_title fw-bold">دورات <span class="primary-color">المانية </span></h2>
         <p class="fw-bold mt-3"> بين يديك الدورات المجانية  فى سوق العمل يسعى أغلب الطلاب للاشتراك بها فانضم اليهم </p>
     </div>
 
