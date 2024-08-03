@@ -109,8 +109,8 @@ class CourseController extends Controller
                 $q->where('course_type_id', $request->course_type);
         })->paginate(10);
         $landingSetting = LandingSetting::first();
-        $date = Carbon::now();
-        $newDate = Carbon::now()->addDays($landingSetting->star_recently_courses);
+        $date = Carbon::now()->toDateString();
+        $newDate = Carbon::now()->addDays($landingSetting->star_recently_courses)->toDateString();
         return $newDate;
 
         return view($this->view . '.index', $data);
