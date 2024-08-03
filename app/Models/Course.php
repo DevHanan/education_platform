@@ -125,7 +125,7 @@ class Course extends Model
         $landingSetting = LandingSetting::first();
         $date = Carbon::now();
         $newDate = $date->addDays($landingSetting->star_recently_courses);
-        return $query->where('start_date', '<=', $date->format('Y-m-d'))->where('start_date', '<=', $newDate->format('Y-m-d'));
+        return $query->where('start_date', '=', $date->format('Y-m-d'))->where('start_date', '<=', $newDate->format('Y-m-d'));
     }
 
 
