@@ -61,6 +61,7 @@ class SubscriptionController extends Controller
             Toastr::error(__('admin.subscribtion_added_again'), __('admin.msg_error'));
             return redirect()->back();
         } else {
+            $request->merge(['active'=>'1']);
             $subscription = Subscription::create($request->except('bill'));
             if ($request->hasFile('bill')) {
                 $thumbnail = $request->bill;
