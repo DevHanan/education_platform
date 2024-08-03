@@ -55,7 +55,9 @@ return [
         'platform_certification' => 'شهادتى من المنصة',
         'externel_certification' => 'شهادات الطلاب من جهات خارجية',
         'add' => 'منح شهادة لطالب',
-        'granting'=> 'منح شهادة لطالب'
+        'granting'=> 'منح شهادة لطالب',
+        'student_externel_certification' => 'شهاداتي من جهات خارجية',
+        'add_student_certification' => 'إضافة شهادة'
     ],
     'tickets' => [
         "tickets_management"  => " الدعم",

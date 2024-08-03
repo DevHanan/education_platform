@@ -464,7 +464,7 @@ Breadcrumbs::for('student-home', function (BreadcrumbTrail $trail) {
 });
 Breadcrumbs::for('add-student-externalCertifications', function (BreadcrumbTrail $trail) {
     $trail->parent('studentexternalCertifications');
-    $trail->push(trans('navbar.certifications.add'), route('student.certifications.create'));
+    $trail->push(trans('navbar.certifications.add_student_certification'), route('student.certifications.create'));
 });
 
 Breadcrumbs::for('student-payments', function (BreadcrumbTrail $trail) {
@@ -491,7 +491,7 @@ Breadcrumbs::for('student-show-result', function (BreadcrumbTrail $trail,$row) {
 
 Breadcrumbs::for('studentexternalCertifications', function (BreadcrumbTrail $trail) {
     $trail->parent('student-home');
-    $trail->push(trans('navbar.certifications.externel_certification'), route('student.externalCertifications'));
+    $trail->push(trans('navbar.certifications.student_externel_certification'), route('student.externalCertifications'));
 });
 
 Breadcrumbs::for('studentplatformCertifications', function (BreadcrumbTrail $trail) {
