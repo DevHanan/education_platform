@@ -18,6 +18,7 @@ use App\Models\Instructor;
 use App\Models\LandingSetting;
 use App\Models\Lecture;
 use App\Models\Level;
+use Illuminate\Support\Carbon;
 use Toastr;
 use Illuminate\Support\Facades\URL;
 
@@ -107,6 +108,10 @@ class CourseController extends Controller
             if ($request->course_type)
                 $q->where('course_type_id', $request->course_type);
         })->paginate(10);
+        $landingSetting = LandingSetting::first();
+        $date = Carbon::now();
+        $newDate = $date->addDays($landingSetting->star_recently_courses);
+        return $newDate;
 
         return view($this->view . '.index', $data);
     }
