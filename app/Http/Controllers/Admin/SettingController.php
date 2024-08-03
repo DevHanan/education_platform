@@ -139,6 +139,7 @@ class SettingController extends Controller
 
         $data->most_required_courses = $request->most_required_courses ? 1 : 0;
         $data->recommend_courses = $request->recommend_courses ? 1 : 0;
+        $data->free_courses = $request->free_courses ? 1 : 0;
         $data->top_rated_courses = $request->top_rated_courses ? 1 : 0;
         $data->star_recently_courses = $request->star_recently_courses ? 1 : 0;
 

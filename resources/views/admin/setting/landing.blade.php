@@ -199,6 +199,18 @@
                                 <div class="col-md-12">
                                   <label class="form-control">
                                     <span class="col">
+                                      {{ __('admin.landing.free_courses')}}
+                                    </span>
+                                    <span class="col-auto">
+                                      <label class="form-check form-check-single form-switch">
+                                        <input class="form-check-input" type="checkbox" name="free_courses" @if($row->free_courses==1) checked="checked" @endif>
+                                      </label>
+                                    </span>
+                                  </label>
+                                </div>
+                                <div class="col-md-12">
+                                  <label class="form-control">
+                                    <span class="col">
                                       {{ __('admin.landing.recommend_courses')}}
 
                                     </span>

@@ -11,7 +11,8 @@ class LandingSetting extends Model
     protected $fillable=['header_title','header_description','footer_description','most_required_courses',
     'recommend_courses','top_rated_courses','star_recently_courses','tracks','instructors',
     'workteam','parteners','student_opinion','map_locations','achievements','start_soon_period',
-    'letter_news','book_shop_url','verification_expire_time_in_seconds','question_list','book_store_visiable'
+    'letter_news','book_shop_url','verification_expire_time_in_seconds','question_list','book_store_visiable',
+    'free_courses'
 ];
 
 protected $appends = ['headerImageFullPath','footerImageFullPath'];
