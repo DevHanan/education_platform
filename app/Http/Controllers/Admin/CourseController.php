@@ -111,7 +111,7 @@ class CourseController extends Controller
         $landingSetting = LandingSetting::first();
         $date = Carbon::now();
         $newDate = $date->addDays($landingSetting->star_recently_courses);
-        return $newDate;
+        return $date;
 
         return view($this->view . '.index', $data);
     }
