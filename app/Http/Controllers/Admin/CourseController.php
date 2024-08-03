@@ -111,6 +111,8 @@ class CourseController extends Controller
         return view($this->view . '.index', $data);
     }
 
+    
+
     public function recommendCourses(Request $request)
     {
         $data['title'] = 'دورات  مرشحة';
