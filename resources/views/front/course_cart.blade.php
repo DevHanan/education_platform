@@ -30,7 +30,7 @@
                             @elseif($record->type == 'cash')
                             <div class="d-flex">
                                 <input type="radio" name="pay_method" value="a" id="yandex" onclick="showForm('cashForm')">
-                                <label for="yandex" class="p-2 rounded shadow-sm py-2 px-4 me-2 text-center">
+                                <label for="yandex" class="p-2 rounded shadow-sm py-2 px-4 me-2 text-center" style="max-height:100px;">
                                     <img src="{{ asset($record->ImageFullPath) }}" alt="">
                                     <p style="font-size: 10px;" class="m-0 secondary-color">موبايل كاش</p>
                                 </label>
@@ -39,7 +39,7 @@
 
                             <div class="d-flex mb-1">
                                 <input type="radio" name="pay_method" value="a" id="external" onclick="showForm('externalForm')" checked>
-                                <label for="external" class="p-2 rounded shadow-sm py-2 px-4 me-2 text-center" style="cursor: pointer;">
+                                <label for="external" class="p-2 rounded shadow-sm py-2 px-4 me-2 text-center" style="cursor: pointer;max-height:100px;">
                                     <img src="{{ asset($record->ImageFullPath) }}" alt=""> <span class="primary-color" style="font-size: 12px;">تحويل خارجي</span>
                                 </label>
                             </div>
