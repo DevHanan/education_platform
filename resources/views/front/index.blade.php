@@ -254,7 +254,7 @@
 
 @endif
 
-@if($landing_setting->free_courses == 1 && count($freecourses)>0)
+@if($landing_setting->free_courses == 1 )
 
 <div class="popular-courses my-5">
     <div class="container">
