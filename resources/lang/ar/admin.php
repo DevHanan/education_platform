@@ -432,6 +432,7 @@ return [
         'field_whatsapp'  => 'رقم الواتساب'
     ],
     'landing' => [
+        'free_courses' => 'الدورات المجانية',
         'book_shop_url' => 'رابط متجر الكتب',
         'letter_news' => 'اشترك في نشرتنا الاخبارية',
         'start_soon_period' => 'عرض الدورات التي تبدأ قريبا خلال عدد أيام',
