@@ -52,7 +52,9 @@
                                     <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
                                     <td> {{ $loop->iteration }}</td>
                                     <td><span class="text-secondary">{{$row->name}}</span></td>
-                                    <td>{{ optional($row->course)->name}}</td>
+                                    <td><a target="_blank" href="{{url('course/'.$row->course_id)}}" class="text-primary">
+                                    {{ optional($row->course)->name}}
+                                </a></td>
                                     <td>{{ optional($row->track)->name}}</td>
                                     <td>{{$row->created_at}}</td>
                                     <td><a href="{{asset($row->FileFullPath)}}" style="width:40px">
