@@ -61,7 +61,7 @@
           @endif
           @if($setting->whatsapp != null)
           <li class="nav-item px-2">
-            <a class="nav-link primary-color" target="_blank" href="{{ $setting->whatsapp }}"><i class="fa-brands fa-whatsapp"></i></a>
+            <a class="nav-link primary-color" target="_blank" href="https://wa.me/{{ $setting->whatsapp }}"><i class="fa-brands fa-whatsapp"></i></a>
           </li>
           @endif
           @if($setting->instgram_url != null)

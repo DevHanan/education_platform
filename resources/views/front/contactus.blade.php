@@ -27,7 +27,7 @@
                         <div><img src="public/front/img/icons/phone-call.svg" class="p-2 rounded" alt=""></div>
                         <div class="info mx-3">
                             <p class="fw-bold m-0">تليفون ارضي :</p>
-                            <a href="tel:1234567" class="text-dark text-decoration-none mb-0">Call: {{ $setting->telephone }}</a>
+                            <a href="tel:{{ $setting->telephone }}" class="text-dark text-decoration-none mb-0">Call: {{ $setting->telephone }}</a>
                         </div>
                     </div>
 
@@ -35,7 +35,7 @@
                         <div><img src="public/front/img/icons/mobile.svg" width="48" class="p-2 rounded" alt=""></div>
                         <div class="info mx-3">
                             <p class="fw-bold m-0">هاتف محمول :</p>
-                            <a href="tel:1234567" class="text-dark text-decoration-none mb-0">Call: {{ $setting->whatsapp }}</a>
+                            <a href="https://wa.me/{{ $setting->whatsapp }}" class="text-dark text-decoration-none mb-0">Call: {{ $setting->whatsapp }}</a>
                         </div>
                     </div>
 
