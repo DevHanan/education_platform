@@ -254,11 +254,11 @@
 
 @endif
 
-@if($landing_setting->free_courses == 1)
+@if($landing_setting->free_courses == 1 && count($freecourses)>0)
 
 <div class="popular-courses my-5">
     <div class="container">
-        <h2 class="section_title fw-bold">دورات <span class="primary-color">المانية </span></h2>
+        <h2 class="section_title fw-bold">دورات <span class="primary-color">المجانية </span></h2>
         <p class="fw-bold mt-3"> بين يديك الدورات المجانية  فى سوق العمل يسعى أغلب الطلاب للاشتراك بها فانضم اليهم </p>
     </div>
 
