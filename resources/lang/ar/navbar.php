@@ -53,7 +53,7 @@ return [
         'course_name' => 'إسم الدورة',
         'track_name' => 'إسم المسار',
         'platform_certification' => 'شهادتى من المنصة',
-        'externel_certification' => 'شهاداتي من جهات خارجية',
+        'externel_certification' => 'شهادات الطلاب من جهات خارجية',
         'add' => 'منح شهادة لطالب',
         'granting'=> 'منح شهادة لطالب'
     ],
