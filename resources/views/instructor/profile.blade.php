@@ -78,20 +78,21 @@
                   <label class="form-label" for="type">{{ __('admin.instructors.is_employee') }} <span>*</span></label>
                   @if($row->employee == 1)
                   <label class="form-label" for="type">{{ __('admin.instructors.yes')}} </label>
-
-
-
-                  <div class="mb-3">
-                    <label class="form-label" for="salary">{{ __('admin.instructors.salary') }}  <span>{{ $row->salary }}</span></label>
-
-                  </div>
-
-
-
                   @else
                   <label class="form-label" for="type">{{ __('admin.instructors.no')}} </label>
                   @endif
                 </div>
+
+                
+                @if($row->employee == 1)
+
+                <div class="mb-3">
+                    <label class="form-label" for="salary">{{ __('admin.instructors.salary') }}  <span>{{ $row->salary }}</span></label>
+
+                  </div>
+                  @endif
+
+
 
 
 
