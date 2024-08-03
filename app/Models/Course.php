@@ -123,9 +123,9 @@ class Course extends Model
     public function scoperecentStart($query)
     {
         $landingSetting = LandingSetting::first();
-        $date = Carbon::now();
-        $newDate = $date->addDays($landingSetting->star_recently_courses);
-        return $query->where('start_date', '>=', $date->format('Y-m-d'))->where('start_date', '<=', $newDate->format('Y-m-d'));
+        $date = Carbon::now()->toDateString();
+        $newDate = Carbon::now()->addDays($landingSetting->start_soon_period)->toDateString();
+        return $query->where('start_date', '>=', $date)->where('start_date', '<=', $newDate);
     }
 
 
