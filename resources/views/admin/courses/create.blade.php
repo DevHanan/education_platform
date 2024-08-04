@@ -41,7 +41,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="name"> {{ __('admin.courses.name') }} <span>*</span></label>
-                  <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" required>
+                  <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}">
 
                   @error('name')
                   <div class="invalid-feedback">
