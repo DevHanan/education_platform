@@ -50,6 +50,9 @@ class LanguageController extends Controller
     }
     public function store(Request $request)
     {
+        $this->validate(request(), [
+            'name' => 'required|string|max:255|unique:languages,name'
+        ]);
         $language = Language::create($request->except('image'));
         if ($request->hasFile('image')) {
             $thumbnail = $request->image;
@@ -82,6 +85,9 @@ class LanguageController extends Controller
 
     public function update(Request $request)
     {
+        $this->validate(request(), [
+            'name' => 'required|string|max:255|unique:languages,name,' . $request->id
+        ]);
         $language = Language::find($request->id);
         $language->update($request->except('image'));
        

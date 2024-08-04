@@ -7,6 +7,10 @@
     margin-left: 0;
     padding-left: 0;
   }
+
+  i.fa.fa-star {
+    color: blue;
+  }
 </style>
 <div class="page-header d-print-none">
   <div class="container-xl">
@@ -134,6 +138,12 @@
                         </div>
                         <div class="card-footer text-end">
                           <button type="submit" class="btn btn-primary">{{ __('admin.search')}}</button>
+
+
+
+
+                          <a href="{{ url()->previous() }}" class="btn btn-rounded btn-primary"> <i class="fa fa-refresh"></i> {{ __('admin.btn_refresh') }}</a>
+
                         </div>
                       </form>
                     </div>
@@ -164,6 +174,7 @@
                   <th> {{__('admin.courses.name')}}</th>
                   <th>{{ __('admin.courses.track') }}</th>
                   <th>{{ __('admin.courses.instructor') }}</th>
+                  <th> {{__('admin.courses.general_rate')}}</th>
                   <th> {{__('admin.courses.type')}}</th>
                   <th>{{ __('admin.courses.period') }}</th>
                   <th>{{ __('admin.courses.price') }}</th>
@@ -201,6 +212,15 @@
                     @endif
 
                   </td>
+                  <td>
+                    @for ($i = 0; $i <5 ; $i++) @if ($i < $row->manual_review_val)
+                      <i class="fa fa-star"></i>
+                      @else
+                      <i class="fa-regular fa-star"></i>
+                      @endif
+                      @endfor
+                     ( {{ $row->manual_review_val}})
+                  </td>
                   <td>{{optional($row->coursetype)->name}}</td>
                   <th>{{$row->period }} {{ __($row->periodLabel) }}</th>
                   <td>{{$row->price}} {{ $setting->currency }}</td>
@@ -228,7 +248,7 @@
 
                   <td style="width: 270px;">
 
-                  @canany(['courses-view'])
+                    @canany(['courses-view'])
 
                     <a href="{{ url('admin/courses/'.$row->id) }}" title="{{__('admin.show')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" class="btn btn-icon btn-primary btn-sm">
                       <span class="far fa-eye "></span>
@@ -301,7 +321,7 @@ if (app()->getLocale() == 'ar') {
       url: url
     },
 
-    'direction': dir,    
+    'direction': dir,
     columnDefs: [{
       className: 'dt-center',
       targets: '_all',

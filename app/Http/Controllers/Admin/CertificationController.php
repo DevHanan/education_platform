@@ -15,7 +15,7 @@ class CertificationController extends Controller
 {
     public function __construct()
     {
-        $this->title = trans('admin.certifications.platform_certification');
+        $this->title = trans('admin.certifications.list_dwafer');
         $this->route = 'admin.certifications';
         $this->view = 'admin.certifications';
         $this->path = 'certifications';
@@ -32,7 +32,7 @@ class CertificationController extends Controller
         $data['rows'] = Certificate::where(function($q)use($request){
             if ($request->name)
             $q->Where('name', 'like', '%' . $request->name  . '%');
-        })->where('platform_certification','1')->paginate(10);
+        })->where('platform_certification','1')->where('student_id',null)->paginate(10);
         return view($this->view.'.index', $data);
     }
 
@@ -61,7 +61,7 @@ class CertificationController extends Controller
 
     public function create(Certificate $certificate)
     {
-        $data['title'] = trans('admin.certifications.add');
+        $data['title'] = trans('admin.certifications.add_certification');
         $data['route'] = $this->route;
         return view($this->view .'.create',$data);
     }
@@ -89,6 +89,10 @@ class CertificationController extends Controller
     }
     public function store(Request $request)
     {
+
+        $this->validate(request(), [
+            'name' => 'required|string|max:255|unique:certificates,name'
+        ]);
         $request->merge(['platform_certification'=>'1']);
         if($request->active)
         $request->merge (['active'=>'1']) ;
@@ -127,7 +131,7 @@ class CertificationController extends Controller
     {   
         $data['row'] = Certificate::find($id);
         $data['route'] = $this->route;
-        $data['title'] = 'edit Certification';
+        $data['title'] = trans('admin.certifications.edit_certification');
         return view($this->view.'.edit',$data);
     }
 
@@ -135,6 +139,9 @@ class CertificationController extends Controller
     
     public function update(Request $request)
     {
+        $this->validate(request(), [
+            'name' => 'required|string|max:255|unique:certificates,name,' . $request->id
+        ]);
         $certificate = Certificate::find($request->id);
         $certificate->update($request->except(['image','file']));
         if ($request->hasFile('file')) {

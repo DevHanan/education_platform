@@ -110,7 +110,7 @@
                             </div>
                             @enderror
                         </div>
-
+<!-- 
                         <div class="form-group col-md-6">
 
 
@@ -125,7 +125,7 @@
                                 {{ $message }}
                             </div>
                             @enderror
-                        </div>
+                        </div> -->
 
                         <!-- Form End -->
                     </div>

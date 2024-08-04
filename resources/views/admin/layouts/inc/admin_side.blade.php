@@ -487,7 +487,7 @@
 
                 </a>
                 <a class="dropdown-item @if(request()->routeIs(['admin.certifications.create'])) active @endif" href="{{url('admin/certifications/create')}}">
-                  {{ __('navbar.certifications.add') }}
+                  {{ __('navbar.certifications.add_certificate') }}
                 </a>
                 <a class="dropdown-item @if(request()->routeIs(['admin.studentscertifications.*'])) active @endif" href="{{url('admin/students-certifications')}}">
                   {{ __('navbar.certifications.student_certifications') }}
@@ -583,7 +583,7 @@
             </div>
           </div>
         </li>
-        @canany(['cv-create','cv-edit','cv-delete','cv-view'])
+        @canany(['cvs-create','cvs-edit','cvs-delete','cvs-view'])
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle @if(request()->routeIs(['admin.cvs.*'])) show @endif " href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
             <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -601,12 +601,12 @@
           <div class="dropdown-menu  @if(request()->routeIs(['admin.cvs.*']))  show @endif ">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
-                @canany(['cv-edit','cv-delete','cv-view'])
+                @canany(['cvs-create','cvs-edit','cvs-delete','cvs-view'])
                 <a class="dropdown-item @if(request()->routeIs(['admin.cvs.index','admin.cvs.edit']))   active @endif" href="{{url('admin/cvs')}}">
                   {{ __('navbar.cvmaker.cvmaker_template') }}
                 </a>
                 @endcanany
-                @canany(['cv-create'])
+                @canany(['cvs-create'])
                 <a class="dropdown-item @if(request()->routeIs('admin.cvs.create'))   active @endif" href="{{url('admin/cvs/create')}}">
                   {{ __('navbar.cvmaker.add_cvmaker_template') }}
                 </a>

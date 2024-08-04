@@ -83,7 +83,7 @@
                             <div class="col-md-6">
                                 <div class="col-md-12">
                                     <label class="form-label" class="form-label" for="discount"> {{__('admin.coupons.discount')}} <span>*</span></label>
-                                    <input type="text" class="form-control" name="discount" id="title" value="{{ old('discount') }}" required>
+                                    <input type="number" class="form-control" name="discount" id="title" value="0" required>
 
                                     @error('discount')
                                     <div class="invalid-feedback">

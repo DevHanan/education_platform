@@ -23,11 +23,11 @@ class CvController extends Controller
         $this->route = 'admin.cvs';
         $this->view = 'admin.cv';
         $this->path = 'cv';
-        $this->access = 'cv';
-        $this->middleware('permission:cv-create', ['only' => ['create','store']]);
-        $this->middleware('permission:cv-view',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:cv-edit',   ['only' => ['edit','update']]);
-        $this->middleware('permission:cv-delete',   ['only' => ['delete']]);
+        $this->access = 'cv';     
+        $this->middleware('permission:cvs-create', ['only' => ['create','store']]);
+        $this->middleware('permission:cvs-view',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:cvs-edit',   ['only' => ['edit','update']]);
+        $this->middleware('permission:cvs-delete',   ['only' => ['delete']]);
     }
     public function index(Request $request)
     {

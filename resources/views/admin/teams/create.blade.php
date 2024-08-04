@@ -52,7 +52,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="name"> {{ __('admin.teams.job') }} <span>*</span></label>
-                  <input type="text" class="form-control" name="job" id="job" value="{{ old('job') }}" required>
+                  <input type="text" class="form-control" name="job" id="job" value="{{ old('job') }}" >
 
                   @error('job')
                   <div class="invalid-feedback">

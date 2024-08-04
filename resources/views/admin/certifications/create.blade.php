@@ -103,7 +103,7 @@
                             @enderror
                         </div>
 
-                        <div class="form-group col-md-6">
+                        <!-- <div class="form-group col-md-6">
 
 
                             <label for="logo">{{__('admin.certifications.image')}}</label>
@@ -114,7 +114,7 @@
                                 {{ $message }}
                             </div>
                             @enderror
-                        </div>
+                        </div> -->
 
                         <!-- Form End -->
                     </div>

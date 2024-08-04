@@ -78,7 +78,7 @@
                   <td>
 
 
-                    {!!  $row->customComment !!}
+                    {!!   Illuminate\Support\Str::words($row->customComment , 7, '...') !!}
 
 
 

@@ -14,4 +14,12 @@ class Question extends Model
         return $query->where('active', '1');
     }
 
+    protected $appends = ['customAnswer'];
+
+    public function getcustomAnswerAttribute($value)
+    {
+
+        return  strip_tags(htmlspecialchars_decode($this->answer));
+    }
+
 }

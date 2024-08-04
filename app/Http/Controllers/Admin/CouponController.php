@@ -65,8 +65,14 @@ class CouponController extends Controller
         return view($this->view.'.edit',$data);
     }
 
-    public function update(CouponRequest $request)
+    public function update(Request $request)
     {
+        $this->validate(request(), [
+            'code' => 'required|string|unique:coupons,code,' . $request->id,
+            'discount' => 'required',
+            'track_id' => 'required|exists:tracks,id',
+            'course_id' => 'required|exists:courses,id'
+        ]);
         $coupon = Coupon::find($request->id);
         $coupon->update($request->all());
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));

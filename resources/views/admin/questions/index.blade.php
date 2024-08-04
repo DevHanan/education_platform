@@ -5,7 +5,7 @@
     <div class="container-xl">
         <div class="row g-2 align-items-center">
             <div class="col">
-            {{ Breadcrumbs::render('faq-questions') }}
+                {{ Breadcrumbs::render('faq-questions') }}
 
             </div>
             <!-- Page title actions -->
@@ -34,76 +34,77 @@
 
             <div class="col-sm-12">
                 <div class="card">
-                <div class="card-header">
+                    <div class="card-header">
                         <h3 class="card-title">{{ $title }}</h3>
                     </div>
                     <!-- [ Data table ] start -->
                     <div class="table-responsive">
                         <table id="basic-table" class="display table nowrap table-striped table-hover" style="width:100%">
                             <thead>
-                                    <tr>
-                                        <th>#</th>
+                                <tr>
+                                    <th>#</th>
 
-                                        <th>{{ __('admin.questions.question') }}</th>
-                                        <th>{{ __('admin.questions.answer') }}</th>
-                                        <th>{{ __('admin.questions.status') }}</th>
+                                    <th>{{ __('admin.questions.question') }}</th>
+                                    <th>{{ __('admin.questions.answer') }}</th>
+                                    <th>{{ __('admin.questions.status') }}</th>
 
-                                        <th>{{ __('admin.questions.action') }}</th>
-
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach( $rows as $key => $row )
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-
-                                        <td>{{ $row->question }}</td>
-                                        <td>{!! $row->answer !!}</td>
+                                    <th>{{ __('admin.questions.action') }}</th>
 
 
-                                        <td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach( $rows as $key => $row )
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
 
-
-                                            <div class="form-check form-switch md-3" style="margin:10px">
-
-                                                <input data-id="{{$row->id}}" data-type='App\Models\Question' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
-                                            </div>
+                                    <td>{{ $row->question }}</td>
+                                    <td>{!! Illuminate\Support\Str::words($row->customAnswer , 7, '...') !!}
                                         </td>
-                                        <td>
+
+
+                                    <td>
+
+
+                                        <div class="form-check form-switch md-3" style="margin:10px">
+
+                                            <input data-id="{{$row->id}}" data-type='App\Models\Question' class="form-check-input form-control toggole-class" type="checkbox" style="float: right;" role="switch" id="flexSwitchCheckDefault" @if($row->active==1) checked="checked" @endif name="active">
+                                        </div>
+                                    </td>
+                                    <td>
 
 
 
 
-                                            <!-- Include Password Change modal -->
+                                        <!-- Include Password Change modal -->
 
 
 
-                                            <a href="{{ route($route.'.edit', $row->id) }}" class="btn btn-icon btn-primary btn-sm">
-                                                <i class="far fa-edit"></i>
-                                            </a>
+                                        <a href="{{ route($route.'.edit', $row->id) }}" class="btn btn-icon btn-primary btn-sm">
+                                            <i class="far fa-edit"></i>
+                                        </a>
 
-                                            <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $row->id }}">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
-                                            <!-- Include Delete modal -->
-                                            @include('admin.layouts.inc.delete')
-
-
+                                        <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $row->id }}">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <!-- Include Delete modal -->
+                                        @include('admin.layouts.inc.delete')
 
 
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- [ Data table ] end -->
+
+
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
+                    <!-- [ Data table ] end -->
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 

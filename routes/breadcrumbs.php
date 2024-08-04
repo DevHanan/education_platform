@@ -118,6 +118,22 @@ Breadcrumbs::for('update-parteners', function (BreadcrumbTrail $trail,$row) {
 
 
 
+
+// Home > countries
+Breadcrumbs::for('countries', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(trans('navbar.list_countries'), route('admin.countries.index'));
+});
+
+Breadcrumbs::for('add-countries', function (BreadcrumbTrail $trail) {
+    $trail->parent('countries');
+    $trail->push(trans('navbar.add_countries'), route('admin.countries.create'));
+});
+Breadcrumbs::for('update-countries', function (BreadcrumbTrail $trail,$row) {
+    $trail->parent('countries');
+    $trail->push($row->name, route('admin.countries.edit', $row));
+});
+
 // Home > CV
 Breadcrumbs::for('cvs', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
@@ -322,7 +338,7 @@ Breadcrumbs::for('externalCertifications', function (BreadcrumbTrail $trail) {
 
 Breadcrumbs::for('platformCertifications', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push(trans('navbar.certifications.platform_certification'), route('admin.certifications.index'));
+    $trail->push(trans('navbar.certifications.list_dwafer'), route('admin.certifications.index'));
 });
 
 Breadcrumbs::for('student-platformCertifications', function (BreadcrumbTrail $trail) {
@@ -339,7 +355,7 @@ Breadcrumbs::for('grantingCertifications', function (BreadcrumbTrail $trail) {
 
 Breadcrumbs::for('add-externalCertifications', function (BreadcrumbTrail $trail) {
     $trail->parent('platformCertifications');
-    $trail->push(trans('navbar.certifications.add'), route('student.certifications.create'));
+    $trail->push(trans('navbar.certifications.add_certificate'), route('student.certifications.create'));
 });
 
 

@@ -81,6 +81,18 @@
                                     </tr>
 
                                     <tr>
+                                        <th> {{__('admin.courses.general_rate')}}</th>
+                                        <td>
+                                            @for ($i = 0; $i <5 ; $i++) @if ($i < $row->manual_review_val)
+                                                <i class="fa fa-star"></i>
+                                                @else
+                                                <i class="fa-regular fa-star"></i>
+                                                @endif
+                                                @endfor
+                                                ( {{ $row->manual_review_val}})
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <th>{{ __('admin.courses.track') }}</th>
                                         <td>
                                             @if($row->tracks)
@@ -216,7 +228,7 @@
                                                     <td><span class="text-secondary">{{$loop->iteration}}</span></td>
                                                     <td>{{$instructor->name}}</td>
                                                     <td>{{$instructor->pivot->course_price}} {{ $setting->currency }}</td>
-                                                    <td>{{$instructor->pivot->course_prectange}}  % </td>
+                                                    <td>{{$instructor->pivot->course_prectange}} % </td>
 
 
 

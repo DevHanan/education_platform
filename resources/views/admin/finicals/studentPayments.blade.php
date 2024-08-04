@@ -51,7 +51,7 @@
                                         <td>{{ $row->paid }} {{ $setting->currency }}</td>
                                         <td>{{ $row->created_at->format('l, F j, Y')  }}</td>
 
-                                        <td>{{ optional($row->payment)->name }}</td>
+                                        <td>{{ optional($row->paymentType)->name }}</td>
                                         <td>
                                             @if($row->bill)
                                             <a href="{{ asset($row->billFullPath)}}" target="_blank" class="btn btn-icon btn-primary btn-sm">

@@ -149,7 +149,8 @@ class CourseController extends Controller
 
         $active = $request->active ? '1' : '0';
         $recommend = $request->recommend ? '1' : '0';
-        $request->merge(['active' => $active, 'recommend' => $recommend]);
+        $manual_review = $request->manual_review ? '1' : '0';
+        $request->merge(['active' => $active, 'recommend' => $recommend,'manual_review'=>$manual_review]);
         if ($request->promo_url && $request->provider == 2) {
             $parsedUrl = parse_url($request->promo_url);
             if ($parsedUrl['host'] == 'www.youtube.com') {
@@ -248,6 +249,7 @@ class CourseController extends Controller
         $course = Course::find($request->id);
         $active = $request->active ? '1' : '0';
         $recommend = $request->recommend ? '1' : '0';
+        $manual_review = $request->manual_review ? '1' : '0';
         if ($request->promo_url && $request->provider == 2) {
             $parsedUrl = parse_url($request->promo_url);
             if ($parsedUrl['host'] == 'www.youtube.com') {
@@ -270,7 +272,7 @@ class CourseController extends Controller
             $request->merge(['videoId' => 'https://player.vimeo.com/video/' . $video_id]);
         }
 
-        $request->merge(['active' => $active, 'recommend' => $recommend]);
+        $request->merge(['active' => $active, 'recommend' => $recommend ,'manual_review'=>$manual_review]);
         $course->update($request->except(['image', 'background_image', 'thumbinal_image']));
 
         if ($request->track_ids) {

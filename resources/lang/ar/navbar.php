@@ -4,6 +4,8 @@ return [
     'user_managment' => " المستخدمين والصلاحيات",
     'add_user' => "إضافة مستخدم",
     "countries" => "الدول",
+    'list_countries' => 'عرض الدول',
+    'add_countries' => 'إضافة دولة',
     "paymenttypes" => "وسائل الدفع ",
     "master_data"  => "الإعدادت",
     'students' => [
@@ -52,12 +54,14 @@ return [
         'name' => 'إسم الشهادة',
         'course_name' => 'إسم الدورة',
         'track_name' => 'إسم المسار',
-        'platform_certification' => 'شهادتى من المنصة',
-        'externel_certification' => 'شهادات الطلاب من جهات خارجية',
+        'platform_certification' => 'شهادات منصة دوافير',
+        'student_platform_certification' => 'شهادتى من المنصة',     
+           'externel_certification' => 'شهادات الطلاب من جهات خارجية',
         'add' => 'منح شهادة لطالب',
         'granting'=> 'منح شهادة لطالب',
         'student_externel_certification' => 'شهاداتي من جهات خارجية',
-        'add_student_certification' => 'إضافة شهادة'
+        'add_student_certification' => 'إضافة شهادة',
+        'add_certificate'=>'إضافة نموذج شهادة'
     ],
     'tickets' => [
         "tickets_management"  => " الدعم",

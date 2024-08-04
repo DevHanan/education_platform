@@ -50,7 +50,7 @@
                                 <tr>
                                     <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
                                     <td> {{ $loop->iteration }}</td>
-                                    <td><span class="text-secondary">{{$row->name}}</span></td>
+                                    <td><span class="text-secondary">{{ optional($row->certification)->name}}</span></td>
                                     <td>{{ optional($row->course)->name}}</td>
                                     <td>{{ optional($row->track)->name}}</td>
                                     <td>{{$row->created_at}}</td>

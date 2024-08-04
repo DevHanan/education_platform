@@ -175,3 +175,13 @@ button.btn.btn-icon.btn-danger.btn-sm[data-title]:hover::after {
     }
 </style>
 @endif -->
+<style>
+  .form-control.is-invalid {
+    border-color: #dc3545; /* Red color */
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25); /* Red shadow */
+}
+
+.invalid-feedback {
+    color: #dc3545; /* Red color */
+}
+</style>

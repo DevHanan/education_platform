@@ -157,13 +157,14 @@ if (app()->getLocale() == 'ar') {
         buttons: [{
             extend: 'colvis',
             text: '<i class="fa fa-eye-slash text-primary" aria-hidden="true" style="font-size:large;"></i>',
-
+            title: '',
             columns: ":not(':first')"
           },
 
           {
             extend: 'copyHtml5',
             text: '<i class="fas fa-copy text-primary" style="font-size:large;"></i>',
+            title: '',
             exportOptions: {
               columns: ':visible'
             }
@@ -171,6 +172,7 @@ if (app()->getLocale() == 'ar') {
           {
             extend: 'excelHtml5',
             text: '<i class="fas fa-file-excel text-primary" style="font-size:large;"></i>',
+            title: '',
             exportOptions: {
               columns: ':visible'
             }
@@ -178,6 +180,7 @@ if (app()->getLocale() == 'ar') {
           {
             extend: 'pdfHtml5',
             text: '<i class="far fa-file-pdf fa-lg text-primary"></i>',
+            title: '',
             exportOptions: {
               columns: ':visible'
             }
@@ -186,6 +189,7 @@ if (app()->getLocale() == 'ar') {
             extend: 'csvHtml5',
             title: 'CSV',
             text: '<i class="fas fa-file text-primary" style="font-size:large;"></i>',
+            title: '',
             exportOptions: {
               columns: ':not(:last-child)',
               columns: ':visible'

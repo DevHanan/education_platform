@@ -51,7 +51,7 @@
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="price"> {{ __('admin.courses.price') }} <span>*</span></label>
-                  <input type="number"  min="0" class="form-control" name="price" id="price" value="{{ old('price') }}" required value="0">
+                  <input type="number"  min="0" class="form-control" name="price" id="price" value="0" required value="0">
 
                   @error('price')
                   <div class="invalid-feedback">
@@ -212,7 +212,7 @@
                     @endforeach
                   </select>
 
-                  @error('track_id')
+                  @error('track_ids')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
@@ -234,7 +234,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="provider">{{ __('admin.courses.provider') }} <span>*</span></label>
-                  <select class="form-control" name="provider" id="provideSelect" required>
+                  <select class="form-control" name="provider" id="provideSelect">
                     <option value="">{{ __('select') }}</option>
                     <option value="1"> {{ __('admin.courses.viemo')}}</option>
                     <option value="2"> {{ __('admin.courses.Youtube')}}</option>
@@ -243,6 +243,23 @@
                 </div>
 
 
+                <div class="col-md-6">
+                    <label class="form-label" for="title"> {{ __('admin.select_manual_review') }} <span>*</span></label>
+                    <div class="form-check form-switch md-3" style="margin:10px">
+
+                      <input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch"  name="manual_review">
+                    </div>
+                  </div>
+                <div class="mb-3">
+                  <label class="form-label" for="seat_number"> {{ __('admin.courses.manual_review') }} <span>*</span></label>
+                  <input type="number"  max="5" class="form-control" name="manual_review_val" id="manual_review_val" value="{{ old('manual_review_val') }}">
+
+                  @error('manual_review_val')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
 
 
 

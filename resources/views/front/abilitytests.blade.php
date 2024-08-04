@@ -47,7 +47,7 @@
                     @endif
                     @else
                     <!-- Show a placeholder for guests -->
-                    <a class="btn secondary-bg px-3 text-white" disabled>سجل الدخول للمتابعة</a>
+                    <a class="btn secondary-bg px-3 text-white" disabled>سجل الدخول لحساب طالب للمتابعة  </a>
                     @endauth
 
                 </div>

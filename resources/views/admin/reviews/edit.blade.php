@@ -52,7 +52,7 @@
 
                             <div class="md-3">
                                 <label class="form-label" for="job"> {{__('admin.reviews.field_job')}} <span>*</span></label>
-                                <input type="text" class="form-control" name="job" id="job" value="{{ old('job',$row) }}" required>
+                                <input type="text" class="form-control" name="job" id="job" value="{{ old('job',$row) }}">
 
                                 @error('job')
                                 <div class="invalid-feedback">

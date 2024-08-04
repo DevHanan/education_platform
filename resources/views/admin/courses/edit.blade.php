@@ -231,13 +231,33 @@
 
               <div class="mb-3">
                 <label class="form-label" for="provider">{{ __('admin.courses.provider') }} <span>*</span></label>
-                <select class="form-control" name="provider" id="provideSelect" required>
+                <select class="form-control" name="provider" id="provideSelect" >
                   <option value="">{{ __('select') }}</option>
                   <option value="1" @if($row->provider == 1) selected @endif> {{ __('admin.courses.viemo')}}</option>
                   <option value="2" @if($row->provider == 2) selected @endif> {{ __('admin.courses.Youtube')}}</option>
 
                 </select>
               </div>
+
+
+              <div class="col-md-6">
+                  <label class="form-label" for="title"> {{ __('admin.select_manual_review') }} <span>*</span></label>
+                  <div class="form-check form-switch md-3" style="margin:10px">
+
+                    <input class="form-check-input form-control" type="checkbox" style="float: right;" @if($row->manual_review ==1 ) checked @endif role="switch" name="manual_review">
+                  </div>
+                </div>
+
+              <div class="mb-3">
+                  <label class="form-label" for="seat_number"> {{ __('admin.courses.manual_review') }} <span>*</span></label>
+                  <input type="number"   class="form-control"  max="5" name="manual_review_val" id="manual_review_val" value="{{ old('manual_review_val',$row) }}" required>
+
+                  @error('manual_review_val')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
 
 
 

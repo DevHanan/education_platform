@@ -45,7 +45,7 @@
                                     <th> {{__('admin.certifications.create_date')}}</th>
                                     <th> {{__('admin.tracks.status')}}</th>
                                     <th> {{__('admin.certifications.file')}}</th>
-                                    <th> {{__('admin.certifications.image')}}</th>
+                                    <!-- <th> {{__('admin.certifications.image')}}</th> -->
                                     <th>{{ __('admin.certifications.actions') }}</th>
                                 </tr>
                             </thead>
@@ -75,7 +75,7 @@
                                         @endif
                                     </td>
 
-                                    <td>
+                                    <!-- <td>
                                     @if($row->image)    
                                     <a href="{{asset($row->ImageFullPath)}}" style="width:40px" target="_blank">
                                             عرض الصورة
@@ -83,7 +83,7 @@
                                         @else
                                         لا يوجد
                                         @endif
-                                    </td>
+                                    </td> -->
 
 
                                     <td style="width: 270px;">
@@ -93,6 +93,13 @@
                                         <a href="{{ route($route.'.edit',$row->id) }}" class="btn btn-icon btn-primary btn-sm">
                                             <span class="far fa-edit "></span>
                                         </a>
+
+                                      
+
+                                        <a href="{{asset($row->FileFullPath)}}" target="_blank" class="btn btn-icon btn-success btn-sm" download="{{asset($row->FileFullPath)}}"> 
+                                        <i class="fa-solid fa-cloud-arrow-down"></i>   
+                                    </a>
+
 
                                         <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$row->id }}">
                                             <i class="fas fa-trash-alt"></i>

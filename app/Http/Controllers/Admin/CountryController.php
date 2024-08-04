@@ -49,6 +49,9 @@ class CountryController extends Controller
     }
     public function store(CountryRequest $request)
     {
+        $this->validate(request(), [
+            'name' => 'required|string|max:255|unique:countries,name'
+        ]);   
         $country = Country::create($request->except('image'));
         if ($request->hasFile('image')) {
             $directory = 'countries';
@@ -80,6 +83,9 @@ class CountryController extends Controller
 
     public function update(CountryRequest $request)
     {
+        $this->validate(request(), [
+            'name' => 'required|string|max:255|unique:countries,name,' . $request->id
+        ]);
         $country = Country::find($request->id);
         $country->update($request->except('image'));
         if ($request->hasFile('image')) {

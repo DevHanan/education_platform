@@ -14,7 +14,7 @@ return [
     'login_failed' => 'خطأ أثاء محاولة تسجيل الدخول',
     'account_verified_successfully' => 'تم تفعيل الحساب بنجاح',
     'account_verified_failed' => 'فشل أثناء محاولة تفعيل الحساب',
-    'amount' => 'القيمة المطلوب سحيها',
+    'amount' => 'القيمة التي تم سحبها',
     'available_amount' => 'الرصيد لمتاح',
     'change_status_model_msg' => 'هل أنت متأكد من تغير الحالة للعنصر؟',
     'no_file' => 'لا يوجد ملف',
@@ -299,6 +299,8 @@ return [
 
     ],
     "courses" => [
+        'general_rate' => 'التقيم العام',
+        'manual_review' => 'التقيم اليدوى',
         'total_subscriptions' => 'قيمة الإشتراكات',
         'instructors' => 'مدربين الدورة',
         'create_date' => 'تاريخ الإنشاء',
@@ -520,13 +522,14 @@ return [
     ],
     'no_data_found'  => 'لا توجد بيانات للعرض',
     'certifications' => [
+        "list_dwafer" => "نماذج شهادات المنصة",
         'certificate' => 'إختر الشهادة',
         'serial_number' => 'الرقم التسلسلى',
         'certification_file' =>'ملف الشهادة',
         'name' => 'إسم الشهادة',
         'course_name' => 'إسم الدورة',
         'track_name' => 'إسم المسار',
-        'platform_certification' => 'شهادتى من المنصة',
+        'student_platform_certification' => 'شهادتى من المنصة',
         'externel_certification' => 'شهادات الطلاب من جهات خارجية ',
         'add' => 'إضافة شهادة',
         'date' => 'تاريخ الحصول على الشهادة ',
@@ -541,14 +544,19 @@ return [
         'track' => 'اسم المسار',
         'courses' => 'اسم الدورة',
         'file' => 'نموذج الشهادة',
-        // 'platform_certification' => 'شهادات منصة دوافير',
+         'platform_certification' => 'شهادات منصة دوافير',
         'student_certification' => 'شهادات الطلاب من المنصة',
         'accepted' => 'مقبولة',
         'pending' => 'معلقة',
         'refaused' => 'مرفوضة',
         'status' => 'الحالة',
         'student' => 'إسم الطالب',
-        'granting' => 'منح شهادة'
+        'granting' => 'منح شهادة',
+        'add_certificate' => 'إضافة ',
+        'add_certification'=>'إضافة نموذج شهادة',
+        'edit_certification'=>'تعديل نموذج شهادة'
+
+
     ],
     "cv" => [
         'title' => 'قوالب السيرة الذاتية',
@@ -857,7 +865,8 @@ return [
     'bank_questions_larger_bank_question' => 'عدد أسئلة الاختبار أكبر من مجموع الاعداد قى بنوك الاسئلة',
     'bank_questions_less_bank_question' => 'عدد أسئلة الاختبار أقل من مجموع الاعداد قى بنوك الاسئلة',
     'select_is_random' => 'هل الاختيار عشوائى؟',
-    'btn_add_new_certification' => 'إضافة شهادة'
+    'btn_add_new_certification' => 'إضافة شهادة',
+    'select_manual_review' =>'هل التقيم يدويا ؟'
 
 
 

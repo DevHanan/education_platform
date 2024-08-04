@@ -50,4 +50,9 @@ class Certificate extends Model
     {
         return $this->belongsTo(Course::class);
     }
+
+    public function certification()
+    {
+        return $this->belongsTo(Certificate::class,'certificate_id');
+    }
 }
