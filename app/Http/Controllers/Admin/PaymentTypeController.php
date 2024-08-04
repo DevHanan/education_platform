@@ -83,7 +83,6 @@ class PaymentTypeController extends Controller
 
     public function update(Request $request)
     {
-        return $request->all();
         $this->validate(request(), [
             'name' => 'required|string|max:255|unique:payment_types,name,' . $request->id
         ]);
