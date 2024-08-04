@@ -58,7 +58,7 @@
                                     <td>{{ optional($row->course)->name }}</td>
                                     <td>{{ optional($row->track)->name }}</td>
                                     <td>{{$row->questions()->count()}}</td>
-                                    <td> {{ $row->exams()->count()}}</td>
+                                    <td> {{ $row->bankGroups()->count()}}</td>
                                     <td>
 
 
