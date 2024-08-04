@@ -866,7 +866,8 @@ return [
     'bank_questions_less_bank_question' => 'عدد أسئلة الاختبار أقل من مجموع الاعداد قى بنوك الاسئلة',
     'select_is_random' => 'هل الاختيار عشوائى؟',
     'btn_add_new_certification' => 'إضافة شهادة',
-    'select_manual_review' =>'هل التقيم يدويا ؟'
+    'select_manual_review' =>'هل التقيم يدويا ؟',
+    'trainer_is_duplicated'  => 'من فضلك بيانات المدربين مكررة راجع البيانات مرة أخرى'
 
 
 

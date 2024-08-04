@@ -109,7 +109,7 @@ class CourseController extends Controller
             if ($request->course_type)
                 $q->where('course_type_id', $request->course_type);
         })->paginate(10);
-      
+
 
         return view($this->view . '.index', $data);
     }
@@ -147,11 +147,19 @@ class CourseController extends Controller
 
     public function store(CourseRequest $request)
     {
+        //validate unique of tranier if exist 
+        if (count($request->instructors)) {
+            if (count($$request->instructors) != count(array_unique($$request->instructors))) {
+                Toastr::error(__('admin.trainer_is_duplicated'), __('admin.msg_failed'));
+                return redirect('admin/courses/create');
+            }
+        }
+
 
         $active = $request->active ? '1' : '0';
         $recommend = $request->recommend ? '1' : '0';
         $manual_review = $request->manual_review ? '1' : '0';
-        $request->merge(['active' => $active, 'recommend' => $recommend,'manual_review'=>$manual_review]);
+        $request->merge(['active' => $active, 'recommend' => $recommend, 'manual_review' => $manual_review]);
         if ($request->promo_url && $request->provider == 2) {
             $parsedUrl = parse_url($request->promo_url);
             if ($parsedUrl['host'] == 'www.youtube.com') {
@@ -247,6 +255,12 @@ class CourseController extends Controller
     }
     public function update(UpdateCourseRequest $request)
     {
+        if (count($request->instructors)) {
+            if (count($$request->instructors) != count(array_unique($$request->instructors))) {
+                Toastr::error(__('admin.trainer_is_duplicated'), __('admin.msg_failed'));
+                return redirect('admin/courses/'.$request->id .'/edit');
+            }
+        }
         $course = Course::find($request->id);
         $active = $request->active ? '1' : '0';
         $recommend = $request->recommend ? '1' : '0';
@@ -273,7 +287,7 @@ class CourseController extends Controller
             $request->merge(['videoId' => 'https://player.vimeo.com/video/' . $video_id]);
         }
 
-        $request->merge(['active' => $active, 'recommend' => $recommend ,'manual_review'=>$manual_review]);
+        $request->merge(['active' => $active, 'recommend' => $recommend, 'manual_review' => $manual_review]);
         $course->update($request->except(['image', 'background_image', 'thumbinal_image']));
 
         if ($request->track_ids) {
