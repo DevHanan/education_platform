@@ -36,7 +36,7 @@
 
                         <div class="col-md-12">
                             <label class="form-label" for="title"> {{__('admin.blogs.title')}} <span>*</span></label>
-                            <input type="text" class="form-control" name="title" id="title" value="{{ old('name') }}" required>
+                            <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}" required>
 
                             @error('title')
                             <div class="invalid-feedback">
@@ -48,7 +48,7 @@
 
                         <div class="mb-3">
                             <label class="form-label">{{ __('admin.blogs.description') }} <span class="form-label-description"></span></label>
-                            <textarea dir="auto" class="form-control richtext" name="description" rows="4" placeholder="Content.." required></textarea>
+                            <textarea dir="auto" class="form-control richtext" name="description" rows="4" placeholder="Content.." ></textarea>
                         </div>
 
                         <div class="mb-3">
