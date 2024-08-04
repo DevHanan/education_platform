@@ -79,6 +79,7 @@ class CourseController extends Controller
                     $q->where('track_id', $request->track_id);
                 });
         })->latest()->paginate(10);
+        $data['queryStringData'] = $request->query();
 
 
 
