@@ -164,7 +164,7 @@ class HomeController extends Controller
     {
         $course = Course::find($request->course_id);
 
-        
+
 
         $request->merge([
             'student_id' => Auth::guard('students-login')->user()->id,
@@ -180,13 +180,16 @@ class HomeController extends Controller
             $item->save();
         }
 
-        /** add teacher prectanage  */
-        foreach ($course->instructors as $instructor) {
-            if($instructor->pivot->course_prectange){
-            $prectange = ($item->paid  * $instructor->pivot->course_prectange)/100;
-            $instructor->current_balance = $instructor->current_balance + $prectange;
-            $instructor->total_balance = $instructor->total_balance + $prectange;
-            $instructor->save();
+
+        if ($request->payment_type_id != 1) {
+            /** add teacher prectanage  */
+            foreach ($course->instructors as $instructor) {
+                if ($instructor->pivot->course_prectange) {
+                    $prectange = ($item->paid  * $instructor->pivot->course_prectange) / 100;
+                    $instructor->current_balance = $instructor->current_balance + $prectange;
+                    $instructor->total_balance = $instructor->total_balance + $prectange;
+                    $instructor->save();
+                }
             }
         }
 
