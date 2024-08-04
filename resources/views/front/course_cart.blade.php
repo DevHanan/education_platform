@@ -226,6 +226,7 @@
                     </div>
                     <button class="btn secondary-bg rounded-pill text-white w-100 my-3 py-3">احصل على الدورة الآن</button>
                 </form>
+                @if(isset($externelPayment))
                 <form action="{{url('subscribe')}}" class="externalForm " method="POST" enctype="multipart/form-data">
                     @csrf
                     <?php 
@@ -288,6 +289,7 @@
                     </div>
                     <button type="submit" class="btn secondary-bg rounded-pill text-white w-100 my-3 py-3">احصل على الدورة الآن</button>
                 </form>
+                @endif
                 <p class="text-center">من خلال إكمال عملية الشراء ، فإنك توافق على <a target="_blank" href="{{url('/policies')}}" class="text-decoration-none secondary-color">شروط الخدمة</a> هذه.</p>
             </div>
 
