@@ -27,4 +27,9 @@ class BankGroup extends Model
     {
         return $this->hasMany(BankQuestion::class, 'bank_group_id');
     }
+
+    public function exams()
+    {
+        return $this->hasMany(StudentExam::class,'quiz_id');
+    }
 }
