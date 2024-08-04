@@ -79,7 +79,7 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="logo">{{ __('admin.blogs.field_photo') }}</label>
-                <input type="file" class="form-control" name="image" id="logo" required>
+                <input type="file" class="form-control" name="image" id="logo" @if(!isset($row->main_image)) required @endif>
                 @if(isset($row->main_image))
                 <img src="{{ $row->imageFullPath }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
                 <div class="clearfix"></div>
