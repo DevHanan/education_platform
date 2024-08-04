@@ -70,7 +70,7 @@
 
               <div class="mb-3">
                 <label class="form-label">{{ __('admin.blogs.description') }} <span class="form-label-description"></span></label>
-                <textarea dir="auto" class="form-control richtext" name="description" rows="4"  required placeholder="Content.."> {!! $row->description !!}</textarea>
+                <textarea dir="auto" class="form-control richtext" name="description" rows="4"   placeholder="Content.."> {!! $row->description !!}</textarea>
               </div>
 
               <div class="mb-3">
