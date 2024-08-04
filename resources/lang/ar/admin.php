@@ -344,6 +344,7 @@ return [
         'Youtube' => 'يوتيوب',
     ],
     'dashboard' => [
+        'platform_profits' => 'أرباح المنصة',
         'student_number' => 'عدد الطلاب',
         'tickets_number'  => 'عدد التذاكر',
         'course_number'  => 'عدد الدورات',

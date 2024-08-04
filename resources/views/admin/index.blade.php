@@ -243,7 +243,7 @@
                       {{ $subscriptions->whereBetween('created_at', [now()->startOfYear(),now()->endOfYear()])->sum('paid') }} {{ $setting->currency }}
                     </div>
                     <div class="text-secondary">
-                      {{ __('admin.dashboard.this_year_subscriptions_total')}}
+                      {{ __('admin.dashboard.platform_profits')}}
                     </div>
                   </div>
                 </div>
