@@ -167,9 +167,14 @@
                                     <tr>
 
                                         <th>{{ __('admin.instructors.field_photo') }}</th>
-                                        <td><a href="{{ $row->imageFullPath }}" target="_blank">
+                                        <td>
+                                        @if(file_exist($row->imageFullPath ))
+    
+                                        <a href="{{ $row->imageFullPath }}" target="_blank">
                                                 <img src="{{ $row->imageFullPath }}" style="width:40px">
                                             </a>
+
+                                            @endif
                                         </td>
 
                                     </tr>
