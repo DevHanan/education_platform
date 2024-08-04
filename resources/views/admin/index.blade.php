@@ -240,7 +240,7 @@
                   </div>
                   <div class="col">
                     <div class="font-weight-medium">
-                      {{ $subscriptions->whereBetween('created_at', [now()->startOfYear(),now()->endOfYear()])->sum('paid') }} {{ $setting->currency }}
+                      {{ $platform_profit  }} {{ $setting->currency }}
                     </div>
                     <div class="text-secondary">
                       {{ __('admin.dashboard.platform_profits')}}

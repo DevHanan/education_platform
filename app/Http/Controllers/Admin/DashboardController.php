@@ -38,12 +38,15 @@ class DashboardController extends Controller
       $data['title'] = $this->title;
       $data['route'] = $this->route;
       $data['view'] = $this->view;
+      $instructors = Instructor::sum('total_balance');
+      $subscriptions = Subscription::sum('paid');
+      $data['platform_profit'] = $subscriptions - $instructors;
 
       /** Most selling courses  */
       $courses = Course::withCount('subscriptions')
          ->orderBy('subscriptions_count', 'desc')
          ->take(10)
-         ->get();;
+         ->get();
       $data['labels'] = $courses->pluck('name');
       $data['subscriptions_count'] = $courses->pluck('subscriptions_count');
 
