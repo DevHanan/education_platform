@@ -51,7 +51,7 @@
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="price"> {{ __('admin.courses.price') }} <span>*</span></label>
-                  <input type="number"  min="0" class="form-control" name="price" id="price" value="0" required value="0">
+                  <input type="number"  min="0" class="form-control" name="price" id="price" value="0"  >
 
                   @error('price')
                   <div class="invalid-feedback">
@@ -62,7 +62,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="period"> {{ __('admin.courses.period') }} <span>*</span></label>
-                  <input type="number"  min="0" class="form-control" name="period" id="period" value="{{ old('period') }}" required>
+                  <input type="number"  min="0" class="form-control" name="period" id="period" value="{{ old('period') }}" >
 
                   @error('period')
                   <div class="invalid-feedback">
@@ -74,7 +74,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="course_type_id">{{ __('admin.courses.course_type') }} <span>*</span></label>
-                  <select class="select2 form-control" name="course_type_id" id="course_type_id" required>
+                  <select class="select2 form-control" name="course_type_id" id="course_type_id" >
                     <option value="">{{ __('select') }}</option>
                     @foreach($courseTypes as $type)
                     <option value="{{ $type->id }}"> {{ $type->name }}</option>
@@ -93,7 +93,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="published_at">{{ __('admin.courses.field_published_at') }} <span>*</span></label>
-                  <input type="date" class="form-control" name="published_at" id="published_at" value="<?php echo date('Y-m-d');?>" required>
+                  <input type="date" class="form-control" name="published_at" id="published_at" value="<?php echo date('Y-m-d');?>" >
 
                   @error('published_at')
                   <div class="invalid-feedback">
@@ -115,7 +115,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="end_date">{{ __('admin.courses.end_date') }} <span>*</span></label>
-                  <input type="date" class="form-control" name="end_date" id="end_date" value="{{ old('end_date') }}" required>
+                  <input type="date" class="form-control" name="end_date" id="end_date" value="{{ old('end_date') }}" >
 
                   @error('end_date')
                   <div class="invalid-feedback">
@@ -160,7 +160,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="price_with_discount"> {{ __('admin.courses.price_with_discount') }} <span>*</span></label>
-                  <input type="number"  min="0" class="form-control" name="price_with_discount" id="price_with_discount" value="0" required>
+                  <input type="number"  min="0" class="form-control" name="price_with_discount" id="price_with_discount" value="0" >
 
                   @error('price_with_discount')
                   <div class="invalid-feedback">
@@ -172,7 +172,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="period_type">{{ __('admin.courses.period_type') }} <span>*</span></label>
-                  <select class="form-control" name="period_type" id="period_type" required>
+                  <select class="form-control" name="period_type" id="period_type" >
                     <option value="">{{ __('select') }}</option>
                     <option value="1"> {{ __('admin.levels.month') }}</option>
                     <option value="2"> {{ __('admin.levels.day') }}</option>
@@ -187,7 +187,7 @@
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="difficulty_level">{{ __('admin.courses.difficulty_level') }} <span>*</span></label>
-                  <select class="select2 form-control" name="difficulty_level" id="difficulty_level" required>
+                  <select class="select2 form-control" name="difficulty_level" id="difficulty_level" >
                     <option value="">{{ __('select') }}</option>
                     <option value="0">{{ __('admin.courses.beginner') }}</option>
                     <option value="1">{{ __('admin.courses.intermediate') }}</option>
@@ -204,7 +204,7 @@
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="track_id">{{ __('admin.courses.track') }} <span>*</span></label>
-                  <select class="select2 form-control" name="track_ids[]" id="track_id" required multiple>
+                  <select class="select2 form-control" name="track_ids[]" id="track_id"  multiple>
                     <option value=""  disabled hidden>{{ __('select') }}</option>
                     @foreach($tracks as $track)
                     <option value="{{ $track->id }}"> {{ $track->name }}</option>
@@ -220,7 +220,7 @@
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="seat_number"> {{ __('admin.courses.seat_number') }} <span>*</span></label>
-                  <input type="number"  min="0" class="form-control" name="seat_number" id="seat_number" value="{{ old('seat_number') }}" required>
+                  <input type="number"  min="0" class="form-control" name="seat_number" id="seat_number" value="{{ old('seat_number') }}" >
 
                   @error('seat_number')
                   <div class="invalid-feedback">
@@ -332,7 +332,7 @@
                       <tbody id="instructorstable">
                         <tr>
                           <td>
-                            <select class=" form-control" name="instructors[]" style="padding:3px;" required>
+                            <select class=" form-control" name="instructors[]" style="padding:3px;">
                               <option value="0"> {{ __('admin.select_instructor')}}</option>
                               @foreach($instructors as $instructor)
                               <option value="{{$instructor->id}}"> {{ $instructor->name }}</option>
