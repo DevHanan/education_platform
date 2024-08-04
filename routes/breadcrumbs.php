@@ -25,7 +25,7 @@ Breadcrumbs::for('add-instructors', function (BreadcrumbTrail $trail) {
 });
 Breadcrumbs::for('update-instructors', function (BreadcrumbTrail $trail,$row) {
     $trail->parent('instructors');
-    $trail->push($row->first_name, route('admin.instructors.edit', $row));
+    $trail->push($row->name, route('admin.instructors.edit', $row));
 });
 
 Breadcrumbs::for('show-instructors', function (BreadcrumbTrail $trail,$row) {
