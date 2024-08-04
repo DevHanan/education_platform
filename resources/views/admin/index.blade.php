@@ -6,38 +6,6 @@
 <!-- Page body -->
 <div class="page-body">
   <div class="container-xl">
-  <div class="row row-deck row-cards">
-
-<div class="col-12">
-  <div class="row row-cards">
-    <div class="col-sm-12 col-lg-12">
-      <div class="card card-sm">
-        <div class="card-body" style="min-height:90px;">
-          <div class="row align-items-center">
-            <div class="col-auto">
-              <span class="bg-primary text-white avatar"><!-- Download SVG icon from http://tabler-icons.io/i/currency-dollar -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-school">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M22 9l-10 -4l-10 4l10 4l10 -4v6" />
-                  <path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" />
-                </svg> </span>
-            </div>
-            <div class="col">
-              <div class="font-weight-medium">
-                {{ $students->count() }}
-              </div>
-              <div class="text-secondary">
-                {{ __('admin.dashboard.student_number')}}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-   
-  </div>
-</div>
-</div>
     <div class="row row-deck row-cards">
 
       <div class="col-12">
@@ -147,6 +115,33 @@
               </div>
             </div>
           </div>
+          <div class="col-sm-6 col-lg-3">
+            <div class="card card-sm">
+              <div class="card-body" style="min-height:90px;">
+                <div class="row align-items-center">
+                  <div class="col-auto">
+                    <span class="bg-green text-white avatar"><!-- Download SVG icon from http://tabler-icons.io/i/shopping-cart -->
+                      <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+                        <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+                        <path d="M17 17h-11v-14h-2"></path>
+                        <path d="M6 5l14 1l-1 7h-13"></path>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="col">
+                    <div class="font-weight-medium">
+                      {{ $subscriptions->count() }}
+                    </div>
+                    <div class="text-secondary">
+                      {{ __('admin.dashboard.subscriptions_count')}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -155,7 +150,7 @@
 
       <div class="col-12">
         <div class="row row-cards">
-
+         
           <div class="col-sm-6 col-lg-3">
             <div class="card card-sm">
               <div class="card-body" style="min-height:90px;">
@@ -261,20 +256,20 @@
     </div>
     <div class="row">
       <!-- In your view (chart.blade.php) -->
-      <div class="row">
-        <div class="col-md-6">
-          <canvas id="chart" style="height:250px"></canvas>
-        </div>
-        <div class="col-md-6">
-          <canvas id="susbscriotionchart" style="height:250px"></canvas>
-        </div>
-      </div>
+<div class="row">
+  <div class="col-md-6">
+  <canvas id="chart" style="height:250px"></canvas>
+  </div>
+  <div class="col-md-6">
+  <canvas id="susbscriotionchart" style="height:250px"></canvas>
+  </div>
+</div>
 
 
 
-      <div style="width: 80%; margin: auto;">
+<div style="width: 80%; margin: auto;">
         <canvas id="barChart"></canvas>
-      </div>
+    </div>
 
 
 
@@ -287,118 +282,119 @@
 
 @push('scripts')
 <script>
-  $(document).ready(function() {
+	  $(document).ready(function(){
     var ctx = document.getElementById('chart').getContext('2d');
     var chart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: <?php echo json_encode($labels); ?>,
-        datasets: [{
-          label: 'Most Selling Courses',
-          data: <?php echo json_encode($subscriptions_count); ?>,
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(22,160,133, 0.2)',
-            'rgba(255, 205, 86, 0.2)',
-            'rgba(51,105,232, 0.2)',
-            'rgba(244,67,54, 0.2)',
-            'rgba(34,198,246, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(233,30,99, 0.2)',
-            'rgba(205,220,57, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(22,160,133, 1)',
-            'rgba(255, 205, 86, 1)',
-            'rgba(51,105,232, 1)',
-            'rgba(244,67,54, 1)',
-            'rgba(34,198,246, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)',
-            'rgba(233,30,99, 1)',
-            'rgba(205,220,57, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
+        type: 'bar',
+        data: {
+            labels: <?php echo json_encode($labels); ?>,
+            datasets: [{
+                label: 'Most Selling Courses',
+                data: <?php echo json_encode($subscriptions_count); ?>,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(22,160,133, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(51,105,232, 0.2)',
+                    'rgba(244,67,54, 0.2)',
+                    'rgba(34,198,246, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(233,30,99, 0.2)',
+                    'rgba(205,220,57, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(22,160,133, 1)',
+                    'rgba(255, 205, 86, 1)',
+                    'rgba(51,105,232, 1)',
+                    'rgba(244,67,54, 1)',
+                    'rgba(34,198,246, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(233,30,99, 1)',
+                    'rgba(205,220,57, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
         }
-      }
     });
 
 
-    var ctx = document.getElementById('susbscriotionchart').getContext('2d');
+	var ctx = document.getElementById('susbscriotionchart').getContext('2d');
     var chart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: <?php echo json_encode($subscriptionslabels); ?>,
-        datasets: [{
-          label: 'Most subscription ',
-          data: <?php echo json_encode($subscriptionscount); ?>,
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(22,160,133, 0.2)',
-            'rgba(255, 205, 86, 0.2)',
-            'rgba(51,105,232, 0.2)',
-            'rgba(244,67,54, 0.2)',
-            'rgba(34,198,246, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(233,30,99, 0.2)',
-            'rgba(205,220,57, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(22,160,133, 1)',
-            'rgba(255, 205, 86, 1)',
-            'rgba(51,105,232, 1)',
-            'rgba(244,67,54, 1)',
-            'rgba(34,198,246, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)',
-            'rgba(233,30,99, 1)',
-            'rgba(205,220,57, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
+        type: 'bar',
+        data: {
+            labels: <?php echo json_encode($subscriptionslabels); ?>,
+            datasets: [{
+                label: 'Most subscription ',
+                data: <?php echo json_encode($subscriptionscount); ?>,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(22,160,133, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(51,105,232, 0.2)',
+                    'rgba(244,67,54, 0.2)',
+                    'rgba(34,198,246, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(233,30,99, 0.2)',
+                    'rgba(205,220,57, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(22,160,133, 1)',
+                    'rgba(255, 205, 86, 1)',
+                    'rgba(51,105,232, 1)',
+                    'rgba(244,67,54, 1)',
+                    'rgba(34,198,246, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(233,30,99, 1)',
+                    'rgba(205,220,57, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
         }
-      }
     });
 
 
-    var ctx = document.getElementById('barChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: <?php echo json_encode($studentname) ?>,
-        datasets: [{
-          label: 'most subscribrd student',
-          data: <?php echo json_encode($studentSubscriptionCount) ?>,
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
-          borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
-  });
+        var ctx = document.getElementById('barChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: <?php echo json_encode($studentname) ?>,
+                datasets: [{
+                    label: 'most subscribrd student',
+                    data: <?php echo json_encode($studentSubscriptionCount) ?>,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+	});
+  
 </script>
 @endpush
