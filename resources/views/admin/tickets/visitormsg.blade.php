@@ -71,18 +71,24 @@
 
 
 
+
+
                   <td>
 
-
+                    @if($row->read ==1 )
                     <span class="badge bg-info text-info-fg">
-                      {{ __($row->statusLabel) }}
 
-                    </span>
+                      @else
+                      <span class="badge bg-red text-red-fg">
+                        @endif
+                        {{ __($row->statusLabel) }}
+
+                      </span>
                   </td>
 
 
                   <td style="width: 270px;">
-                    <a href="{{ url('admin/tickets/'.$row->id)}}"  class="btn btn-icon btn-primary btn-sm">
+                    <a href="{{ url('admin/tickets/'.$row->id)}}" class="btn btn-icon btn-primary btn-sm">
                       <i class="far fa-eye"></i>
                     </a>
                     <button type="button" class="btn btn-icon btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#changeStatusModal-{{$row->id }}">
