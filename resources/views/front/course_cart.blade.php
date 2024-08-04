@@ -289,8 +289,8 @@
                     </div>
                     <button type="submit" class="btn secondary-bg rounded-pill text-white w-100 my-3 py-3">احصل على الدورة الآن</button>
                 </form>
-                @endif
                 <p class="text-center">من خلال إكمال عملية الشراء ، فإنك توافق على <a target="_blank" href="{{url('/policies')}}" class="text-decoration-none secondary-color">شروط الخدمة</a> هذه.</p>
+                @endif
             </div>
 
             <div class="col-lg-4 left-class">
