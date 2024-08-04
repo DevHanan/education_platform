@@ -83,6 +83,9 @@ class PaymentTypeController extends Controller
 
     public function update(Request $request)
     {
+        $this->validate(request(), [
+            'name' => 'required|string|max:255|unique:payment_types,name,' . $request->id
+        ]);
         $paymentType = PaymentType::find($request->id);
         $paymentType->update($request->except('image'));
         if ($request->hasFile('image')) {
