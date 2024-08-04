@@ -102,7 +102,7 @@
                                 <select class="form-control form-select" name="course_type_id" id="course_type_id">
                                   <option value="">{{ __('select') }}</option>
                                   @foreach($courseTypes as $type)
-                                  <option value="{{ $type->id }}" @if($type->id ==  $queryStringData['course_type_id']) Selected @endif > {{ $type->name }}</option>
+                                  <option value="{{ $type->id }}" @if(isset($queryStringData['course_type_id']) &&  $type->id ==  $queryStringData['course_type_id']) Selected @endif > {{ $type->name }}</option>
 
                                   @endforeach
                                 </select>
@@ -116,7 +116,7 @@
                                 <select class="form-control form-select" name="track_id">
                                   <option value="">{{ __('select') }}</option>
                                   @foreach($tracks as $track)
-                                  <option value="{{ $track->id }}"  @if($track->id ==  $queryStringData['track_id']) Selected @endif> {{ $track->name }}</option>
+                                  <option value="{{ $track->id }}"  @if($queryStringData['track_id']&&$track->id ==  $queryStringData['track_id']) Selected @endif> {{ $track->name }}</option>
 
                                   @endforeach
                                 </select>
@@ -128,7 +128,7 @@
                                 <select class="form-control form-select" name="instructor_id">
                                   <option value="">{{ __('select') }}</option>
                                   @foreach($instructors as $instructor)
-                                  <option value="{{$instructor->id}}"  @if($instructor->id ==  $queryStringData['instructor_id']) Selected @endif> {{ $instructor->name }}</option>
+                                  <option value="{{$instructor->id}}"  @if( $queryStringData['instructor_id'] && $instructor->id ==  $queryStringData['instructor_id']) Selected @endif> {{ $instructor->name }}</option>
                                   @endforeach
                                 </select>
                               </div>
