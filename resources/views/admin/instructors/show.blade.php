@@ -173,7 +173,8 @@
                                         <a href="{{ $row->imageFullPath }}" target="_blank">
                                                 <img src="{{ $row->imageFullPath }}" style="width:40px">
                                             </a>
-
+@else
+لا توجد صورة
                                             @endif
                                         </td>
 
