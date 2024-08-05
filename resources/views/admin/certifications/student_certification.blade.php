@@ -59,7 +59,7 @@
                                     <td>{{$row->created_at }}</td>
                                    
                                     <td>
-                                    @if($row->file && file_exists($row->FileFullPath))    
+                                    @if($row->file )    
                                     <a href="{{asset($row->FileFullPath)}}" style="width:40px" target="_blank">
                                              {{ __('admin.show_certification')}}
                                         </a>
