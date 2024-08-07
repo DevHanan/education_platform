@@ -56,8 +56,9 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="phone">{{ __('admin.instructors.phone_number') }} <span>*</span></label>
-                  <input type="text" class="form-control" name="phone" id="phone" value="{{ $row->phone }}">
-                  <P class="text-info"> 098-329-0745 </P>           
+                  <!-- <input type="text" class="form-control" name="phone" id="phone" value="{{ $row->phone }}"> -->
+                  <input id="inst_edit_phone_number" name="phone" required type="tel" value="" class="form-control w-100" value="{{ $row->phone }}">
+         
 
                   @error('phone')
                   <div class="invalid-feedback">
@@ -292,3 +293,12 @@
 
 
 @endsection
+
+@push('scripts')
+<script>
+    const InstructorEditphoneInputField = document.querySelector("#inst_edit_phone_number");
+    const instructorEditphoneInput = window.intlTelInput(InstructorEditphoneInputField, {
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+</script>
+@endpush

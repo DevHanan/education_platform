@@ -33,7 +33,7 @@ class UpdateInstructorRequest extends FormRequest
             ],
             'password' => 'confirmed',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'phone' => 'regex:/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/',
+            'phone' => 'required',
 
 
 

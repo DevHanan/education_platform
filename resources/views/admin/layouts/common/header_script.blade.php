@@ -192,3 +192,9 @@ button.btn.btn-icon.btn-danger.btn-sm[data-title]:hover::after {
     /* Red color */
   }
 </style>
+
+<style>
+  .iti.iti--allow-dropdown{
+    width: 100% !important;
+  }
+</style>
