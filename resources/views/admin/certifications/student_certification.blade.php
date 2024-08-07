@@ -57,7 +57,6 @@
                                     <td>{{ optional($row->course)->name }}</td>
                                     <td>{{ optional($row->track)->name }}</td>
                                     <td>{{$row->created_at }}</td>
-                                   
                                     <td>
                                     @if($row->file )    
                                     <a href="{{asset($row->FileFullPath)}}" style="width:40px" target="_blank">
@@ -67,10 +66,6 @@
                                         لا يوجد
                                         @endif
                                     </td>
-
-                                  
-
-
                                     <td style="width: 270px;">
                                         @if($row->student)
                                     <a href="{{ url('admin/students/'.optional($row->student)->id)}}" title="{{__('admin.show_student')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" style="" class="btn btn-icon btn-primary btn-sm">
