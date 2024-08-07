@@ -31,7 +31,7 @@
         <div class="row row-cards">
             <div class="col-md-12">
 
-                <form autocomplete="off" class="card" action="{{ route($route.'.store') }}" method="post" enctype="multipart/form-data">
+                <form  id="add_instructor_form" autocomplete="off" class="card" action="{{ route($route.'.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
 
 
@@ -55,6 +55,7 @@
                                     <label class="form-label" for="phone">{{ __('admin.instructors.phone_number') }} <span>*</span></label>
                                     <!-- <input type="text" class="form-control" name="phone" id="phone" value="{{ old('phone') }}" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"> -->
                                     <input id="inst_phone_number" name="phone" required type="tel" value="" class="form-control w-100" placeholder="">
+                                    <input type="hidden" name="country_code" id="country_code" />
 
                                     @error('phone')
                                     <div class="invalid-feedback">
@@ -294,5 +295,15 @@
     const instructorphoneInput = window.intlTelInput(InstructorphoneInputField, {
         utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
     });
+    document.querySelector("#add_instructor_form").addEventListener("submit", (event) => {
+            // Get phone number in E.164 format
+            const phoneNumber = instructorEditphoneInput.getNumber(intlTelInputUtils.numberFormat.E164);
+            // Get country code
+            const countryCode = instructorEditphoneInput.getSelectedCountryData().dialCode;
+
+            // Set the phone number and country code to hidden inputs
+            document.querySelector("#inst_edit_phone_number").value = phoneNumber;
+            document.querySelector("#country_code").value = countryCode;
+        });
 </script>
 @endpush

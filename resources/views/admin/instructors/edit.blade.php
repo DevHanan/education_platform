@@ -33,7 +33,7 @@
       <div class="col-md-12">
 
 
-        <form  id="instructor_form" class="card" action="{{ route($route.'.update', [$row->id]) }}" method="post" enctype="multipart/form-data">
+        <form id="instructor_form" class="card" action="{{ route($route.'.update', [$row->id]) }}" method="post" enctype="multipart/form-data">
           @csrf
           @method('PUT')
           <input type="hidden" name="id" value="{{$row->id}}">
@@ -69,14 +69,14 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="password">{{ __('admin.instructors.field_password') }} <span>*</span></label>
-                  <input type="password" class="form-control" name="password" id="password" >
+                  <input type="password" class="form-control" name="password" id="password">
                   <span class="fa password-toggle-icon eye-icon ">
-                  <i class="fa password-icon" aria-hidden="true"></i>
-                  @error('password')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                  @enderror
+                    <i class="fa password-icon" aria-hidden="true"></i>
+                    @error('password')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
@@ -114,11 +114,11 @@
                   @enderror
                 </div>
 
-            
+
 
                 <div class="mb-3">
                   <label class="form-label" for="country_id">{{ __('admin.students.country_id') }} <span>*</span></label>
-                  <select class="form-control select2" name="country_id" id="country_id" >
+                  <select class="form-control select2" name="country_id" id="country_id">
                     <option value="">{{ __('select') }}</option>
                     @foreach($countries as $country)
                     <option value="{{ $country->id }}" @if($row->country_id == $country->id) selected @endif> {{ $country->name }}</option>
@@ -135,7 +135,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="paypall_account_number">{{ __('admin.instructors.paypall_account_number') }} <span>*</span></label>
-                  <input type="text" class="form-control" name="paypall_account_number" id="paypall_account_number" value="{{ old('paypall_account_number',$row) }}" >
+                  <input type="text" class="form-control" name="paypall_account_number" id="paypall_account_number" value="{{ old('paypall_account_number',$row) }}">
 
 
                   @error('paypall_account_number')
@@ -178,17 +178,17 @@
                   <label class="form-label" for="password">{{ __('admin.instructors.field_password_confirmation') }} <span>*</span></label>
                   <input type="password" class="form-control" name="password_confirmation" id="password_confirmation">
                   <span class="fa password-toggle-icon eye-icon ">
-                  <i class="fa password-icon" aria-hidden="true"></i>
-                  @error('password')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                  @enderror
+                    <i class="fa password-icon" aria-hidden="true"></i>
+                    @error('password')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="salary">{{ __('admin.instructors.salary') }} <span>*</span></label>
-                  
-                  <input type="salary"   class="form-control" name="salary" id="empsalary" value="{{ $row->salary }}" @if($row->is_employee == 0) readonly @endif >
+
+                  <input type="salary" class="form-control" name="salary" id="empsalary" value="{{ $row->salary }}" @if($row->is_employee == 0) readonly @endif >
 
                   @error('salary')
                   <div class="invalid-feedback">
@@ -199,8 +199,8 @@
                 <div class="mb-3">
                   <label class="form-label" for="track_id">{{ __('admin.instructors.track') }} <span>*</span></label>
                   <select class="form-control select2" name="track_ids[]" id="track_id" multiple>
-                  <option value="" disabled hidden>Please select an Track</option>
-                  @foreach($tracks as $track)
+                    <option value="" disabled hidden>Please select an Track</option>
+                    @foreach($tracks as $track)
                     <option value="{{ $track->id }}" @if(in_array($track->id,$row->tracks()->pluck('track_id')->ToArray())) selected @endif> {{ $track->name }}</option>
 
                     @endforeach
@@ -214,7 +214,7 @@
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="bank_account">{{ __('admin.instructors.bank_account') }} <span>*</span></label>
-                  <input type="text" class="form-control" name="bank_account" id="bank_account" value="{{ $row->bank_account }}" >
+                  <input type="text" class="form-control" name="bank_account" id="bank_account" value="{{ $row->bank_account }}">
                   @error('bank_account')
                   <div class="invalid-feedback">
                     {{ $message }}
@@ -224,7 +224,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="cash_wallet_number">{{ __('admin.instructors.cash_wallet_number') }} <span>*</span></label>
-                  <input type="text" class="form-control" name="cash_wallet_number" id="cash_wallet_number" value="{{ old('cash_wallet_number',$row) }}" >
+                  <input type="text" class="form-control" name="cash_wallet_number" id="cash_wallet_number" value="{{ old('cash_wallet_number',$row) }}">
 
 
                   @error('cash_wallet_number')
@@ -234,39 +234,39 @@
                   @enderror
                 </div>
 
-             
+
 
 
 
               </div>
 
               <div class="mb-3">
-                  <label class="form-label" for="logo">{{ __('admin.instructors.field_photo') }}</label>
-                  <input type="file" class="form-control" name="image" id="logo">
+                <label class="form-label" for="logo">{{ __('admin.instructors.field_photo') }}</label>
+                <input type="file" class="form-control" name="image" id="logo">
 
-                  @if(isset($row->image))
-                  <img src="{{ $row->imageFullPath }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
-                  <div class="clearfix"></div>
-                  @endif
-                  @error('image')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                  @enderror
+                @if(isset($row->image))
+                <img src="{{ $row->imageFullPath }}" class="img-fluid setting-image" alt="{{ __('field_site_logo') }}">
+                <div class="clearfix"></div>
+                @endif
+                @error('image')
+                <div class="invalid-feedback">
+                  {{ $message }}
                 </div>
+                @enderror
+              </div>
 
-                <div class="mb-3">
+              <div class="mb-3">
 
 
-                  <label class="form-label" for="logo">{{ __('admin.instructors.field_cv') }}</label>
-                  <input type="file" class="form-control" name="cv" id="cv">
+                <label class="form-label" for="logo">{{ __('admin.instructors.field_cv') }}</label>
+                <input type="file" class="form-control" name="cv" id="cv">
 
-                  @error('cv')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                  @enderror
+                @error('cv')
+                <div class="invalid-feedback">
+                  {{ $message }}
                 </div>
+                @enderror
+              </div>
 
               <!-- <div class="col-md-12">
                 <label class="form-label">{{ __('admin.instructors.about') }} <span class="form-label-description"></span></label>
@@ -296,20 +296,33 @@
 
 @push('scripts')
 <script>
-    const InstructorEditphoneInputField = document.querySelector("#inst_edit_phone_number");
-    const instructorEditphoneInput = window.intlTelInput(InstructorEditphoneInputField, {
-        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-    });
+  const InstructorEditphoneInputField = document.querySelector("#inst_edit_phone_number");
+  const instructorEditphoneInput = window.intlTelInput(InstructorEditphoneInputField, {
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+  });
 
-    document.querySelector("#instructor_form").addEventListener("submit", (event) => {
-            // Get phone number in E.164 format
-            const phoneNumber = instructorEditphoneInput.getNumber(intlTelInputUtils.numberFormat.E164);
-            // Get country code
-            const countryCode = instructorEditphoneInput.getSelectedCountryData().dialCode;
+  document.querySelector("#instructor_form").addEventListener("submit", (event) => {
+    // Get phone number in E.164 format
+    const phoneNumber = instructorEditphoneInput.getNumber(intlTelInputUtils.numberFormat.E164);
+    // Get country code
+    const countryCode = instructorEditphoneInput.getSelectedCountryData().dialCode;
 
-            // Set the phone number and country code to hidden inputs
-            document.querySelector("#inst_edit_phone_number").value = phoneNumber;
-            document.querySelector("#country_code").value = countryCode;
-        });
+    // Set the phone number and country code to hidden inputs
+    document.querySelector("#inst_edit_phone_number").value = phoneNumber;
+    document.querySelector("#country_code").value = countryCode;
+  });
+
+
+  //set old value 
+  const phoneNumber = "{{ $row->phone }}";
+  const countryCode = "{{ $row->country_code }}";
+
+  if (phoneNumber) {
+    phoneInput.setNumber(phoneNumber);
+  }
+
+  if (countryCode) {
+    phoneInput.setCountry(countryCode);
+  }
 </script>
 @endpush

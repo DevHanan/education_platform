@@ -20,7 +20,7 @@ class Instructor extends Authenticatable implements MustVerifyEmail
     protected $fillable = array(
         'first_name', 'last_name', 'email', 'userName', 'phone', 'active', 'track_id', 'qualifications', 'about_teacher', 'bank_account',
         'salary', 'is_employee', 'current_balance', 'total_balance', 'country_id',
-        'cash_wallet_number', 'paypall_account_number'
+        'cash_wallet_number', 'paypall_account_number','country_code'
     );
 
     protected $with= ['subscriptions'];
