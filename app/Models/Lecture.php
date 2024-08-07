@@ -13,7 +13,7 @@ class Lecture extends Model
 
     protected $fillable = array(
         'title', 'level_id', 'course_id', 'type', 'active',
-        'description', 'short_description', 'type', 'goals', 
+        'description', 'short_description', 'goals', 
         'conclusion', 'appointment', 'link', 'provider', 'period', 'free','metting_link'
     );
 
@@ -23,11 +23,9 @@ class Lecture extends Model
     public function getTypeLabelAttribute()
     {
         if ($this->type == 1)
-            return  trans('admin.lectures.viedo');
-        elseif ($this->type == 2)
-            trans('admin.lectures.metting');
-        else
-            return ('admin.lectures.offline');
+            return  trans('admin.lectures.synchronous');
+      else
+            return ('admin.lectures.asynchronous');
     }
 
     public function getFreeLabelAttribute()
