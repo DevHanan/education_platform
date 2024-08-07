@@ -213,13 +213,13 @@
 
                   </td>
                   <td>
-                    @for ($i = 0; $i <5 ; $i++) @if ($i < $row->manual_review_val)
+                    @for ($i = 0; $i <5 ; $i++) @if ($i < $row->avgrating)
                       <i class="fa fa-star"></i>
                       @else
                       <i class="fa-regular fa-star"></i>
                       @endif
                       @endfor
-                     ( {{ $row->manual_review_val}})
+                     ( {{ $row->avgrating }})
                   </td>
                   <td>{{optional($row->coursetype)->name}}</td>
                   <th>{{$row->period }} {{ __($row->periodLabel) }}</th>
