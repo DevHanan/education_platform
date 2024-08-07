@@ -318,11 +318,11 @@
   const countryCode = "{{ $row->country_code }}";
 
   if (phoneNumber) {
-    phoneInput.setNumber(phoneNumber);
+    instructorEditphoneInput.setNumber(phoneNumber);
   }
 
   if (countryCode) {
-    phoneInput.setCountry(countryCode);
+    instructorEditphoneInput.setCountry(countryCode);
   }
 </script>
 @endpush
