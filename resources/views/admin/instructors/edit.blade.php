@@ -306,8 +306,8 @@
 
 
 // Function to get the alpha-2 code from the numeric code
-function getAlpha2FromNumeric(numericCode) {
-                const countryData = phoneInput.getCountryData();
+          function getAlpha2FromNumeric(numericCode) {
+                const countryData = instructorEditphoneInput.getCountryData();
                 let alpha2Code = null;
                 countryData.forEach(country => {
                     if (country.dialCode == numericCode) {
