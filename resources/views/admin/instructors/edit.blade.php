@@ -58,6 +58,9 @@
                   <label class="form-label" for="phone">{{ __('admin.instructors.phone_number') }} <span>*</span></label>
                   <input id="inst_edit_phone_number" name="phone" required type="text" value="" class="form-control w-100" value="{{$row->phone}}">
                   <input type="hidden" name="country_code" id="country_code" />
+                  <input type="hidden" name="country_alpha" id="country_alpha" />
+
+                  
 
 
                   @error('phone')
@@ -301,6 +304,22 @@
     utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
   });
 
+
+// Function to get the alpha-2 code from the numeric code
+function getAlpha2FromNumeric(numericCode) {
+                const countryData = phoneInput.getCountryData();
+                let alpha2Code = null;
+                countryData.forEach(country => {
+                    if (country.dialCode == numericCode) {
+                        alpha2Code = country.iso2;
+                    }
+                });
+                return alpha2Code;
+            }
+
+         
+
+
   document.querySelector("#instructor_form").addEventListener("submit", (event) => {
     // Get phone number in E.164 format
     const phoneNumber = instructorEditphoneInput.getNumber(intlTelInputUtils.numberFormat.E164);
@@ -310,7 +329,18 @@
     // Set the phone number and country code to hidden inputs
     document.querySelector("#inst_edit_phone_number").value = phoneNumber;
     document.querySelector("#country_code").value = countryCode;
+    const alpha2CountryCode = getAlpha2FromNumeric(countryCode);
+    document.querySelector("#country_alpha").value = alpha2CountryCode;
+
+
+
   });
+
+
+
+
+
+
 
 
   //set old value 
