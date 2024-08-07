@@ -225,7 +225,9 @@ class CourseController extends Controller
         }
 
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
-        return redirect('admin/courses/' . $course->id . '/levels');
+        return redirect()->route('admin.courses.levels',[$course->id]);
+
+        // return redirect('admin/courses/' . $course->id . '/levels');
     }
 
 
