@@ -290,8 +290,8 @@
 @endsection
 @push('scripts')
 <script>
-    const phoneInputField = document.querySelector("#inst_phone_number");
-    const phoneInput = window.intlTelInput(phoneInputField, {
+    const InstructorphoneInputField = document.querySelector("#inst_phone_number");
+    const instructorphoneInput = window.intlTelInput(InstructorphoneInputField, {
         utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
     });
 </script>
