@@ -58,6 +58,7 @@
                                     <td>{{ optional($row->track)->name }}</td>
                                     <td>{{$row->created_at }}</td>
                                     <td>
+                                        
                                     @if($row->file )    
                                     <a href="{{asset($row->FileFullPath)}}" style="width:40px" target="_blank">
                                              {{ __('admin.show_certification')}}
