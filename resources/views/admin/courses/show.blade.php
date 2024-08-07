@@ -118,12 +118,11 @@
                                     <tr>
                                         <th>{{ __('admin.courses.track') }}</th>
                                         <td>
+                                           
                                             @if($row->tracks)
-                                            <ul class="list-unstyled">
-                                                @foreach($row->tracks as $item)
-                                                <li> {{ $item->name  }}</li>
-                                                @endforeach
-                                            </ul>
+                                            @foreach ($row->tracks as $item)
+                                            <span class="badge bg-blue text-blue-fg"> {{ $item->name  }} </span>
+                                            @endforeach
                                             @endif
                                         </td>
 
