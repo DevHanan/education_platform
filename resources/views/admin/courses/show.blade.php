@@ -83,6 +83,18 @@
                                     <tr>
                                         <th> {{__('admin.courses.general_rate')}}</th>
                                         <td>
+                                            @for ($i = 0; $i <5 ; $i++) @if ($i < $row->avgrating)
+                                                <i class="fa fa-star"></i>
+                                                @else
+                                                <i class="fa-regular fa-star"></i>
+                                                @endif
+                                                @endfor
+                                                ( {{ $row->avgrating}})
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th> {{__('admin.courses.manual_rate')}}</th>
+                                        <td>
                                             @for ($i = 0; $i <5 ; $i++) @if ($i < $row->manual_review_val)
                                                 <i class="fa fa-star"></i>
                                                 @else

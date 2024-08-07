@@ -299,6 +299,7 @@ return [
 
     ],
     "courses" => [
+        'manual_rate' => 'التقيم اليدوى',
         'general_rate' => 'التقيم العام',
         'manual_review' => 'التقيم اليدوى',
         'total_subscriptions' => 'قيمة الإشتراكات',
