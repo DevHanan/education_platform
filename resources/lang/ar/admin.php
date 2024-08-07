@@ -145,6 +145,7 @@ return [
         'hour' => 'ساعه'
     ],
     "lectures" => [
+        'metting_link' => 'رابط ميتنج',
         'published_at' => 'تاريخ النشر',
         'field_period' => 'مدة المحاضرة(بالساعة)',
         'goals' => 'اهداف المحاضرة',
