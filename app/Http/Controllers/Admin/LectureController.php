@@ -121,7 +121,9 @@ class LectureController extends Controller
             $lecture->save();
         }
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
-        return redirect("admin/levels/$level_id/lectures");
+        // return redirect("admin/levels/$level_id/lectures");
+        return redirect()->route('admin.levels.lectures.index',[$level_id]);
+
     }
 
     public function edit($level_id, $id)
