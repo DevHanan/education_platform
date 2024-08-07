@@ -330,6 +330,7 @@ function getAlpha2FromNumeric(numericCode) {
     document.querySelector("#inst_edit_phone_number").value = phoneNumber;
     document.querySelector("#country_code").value = countryCode;
     const alpha2CountryCode = getAlpha2FromNumeric(countryCode);
+    alert(alpha2CountryCode);
     document.querySelector("#country_alpha").value = alpha2CountryCode;
 
 
