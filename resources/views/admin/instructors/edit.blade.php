@@ -57,7 +57,7 @@
                 <div class="mb-3">
                   <label class="form-label" for="phone">{{ __('admin.instructors.phone_number') }} <span>*</span></label>
                   <!-- <input type="text" class="form-control" name="phone" id="phone" value="{{ $row->phone }}"> -->
-                  <input id="inst_edit_phone_number" name="phone" required type="tel" value="" class="form-control w-100" value="{{ $row->phone }}">
+                  <input id="inst_edit_phone_number" name="phone" required type="text" value="" class="form-control w-100" value="{{$row->phone}}">
          
 
                   @error('phone')
