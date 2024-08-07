@@ -53,7 +53,11 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="phone">{{ __('admin.instructors.phone_number') }} <span>*</span></label>
+                                    <input type="text" class="form-control" name="phone" id="phone" value="{{ old('phone') }}" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
                                     <input id="inst_phone_number" name="phone" required type="tel" name="phone" value="" class="form-control w-100 mb-3 p-3 ps-5" placeholder="">
+
+                                    <P class="text-info"> 098-329-0745 </P>
+
                                     @error('phone')
                                     <div class="invalid-feedback">
                                         {{ $message }}
