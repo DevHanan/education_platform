@@ -149,7 +149,7 @@ class CourseController extends Controller
     {
         //validate unique of tranier if exist 
         if (count($request->instructors)) {
-            if (count($$request->instructors) != count(array_unique($$request->instructors))) {
+            if (count($request->instructors) != count(array_unique($request->instructors))) {
                 Toastr::error(__('admin.trainer_is_duplicated'), __('admin.msg_failed'));
                 return redirect('admin/courses/create');
             }
@@ -258,7 +258,7 @@ class CourseController extends Controller
     public function update(UpdateCourseRequest $request)
     {
         if (count($request->instructors)) {
-            if (count($$request->instructors) != count(array_unique($$request->instructors))) {
+            if (count($request->instructors) != count(array_unique($request->instructors))) {
                 Toastr::error(__('admin.trainer_is_duplicated'), __('admin.msg_failed'));
                 return redirect('admin/courses/'.$request->id .'/edit');
             }
