@@ -101,9 +101,8 @@
                   <label class="form-label" for="type">{{ __('admin.lectures.type') }} <span>*</span></label>
                   <select class="form-control" name="type" id="typeSelect" required>
                     <option value="">{{ __('select') }}</option>
-                    <option value="1"> {{ __('admin.lectures.viedo')}}</option>
-                    <option value="2"> {{ __('admin.lectures.metting')}}</option>
-                    <option value="3"> {{ __('admin.lectures.offline')}}</option>
+                    <option value="1"> {{ __('admin.lectures.synchronous')}}</option>
+                    <option value="2"> {{ __('admin.lectures.asynchronous')}}</option>
 
                   </select>
 

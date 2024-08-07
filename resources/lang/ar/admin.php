@@ -145,6 +145,8 @@ return [
         'hour' => 'ساعه'
     ],
     "lectures" => [
+        'synchronous' => 'متزامن',
+        'asynchronous' => 'غير متزامن',
         'metting_link' => 'رابط ميتنج',
         'published_at' => 'تاريخ النشر',
         'field_period' => 'مدة المحاضرة(بالساعة)',
