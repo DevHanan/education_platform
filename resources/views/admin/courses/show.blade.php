@@ -2,15 +2,15 @@
 @section('title', $title)
 @section('content')
 <style>
-  .list-unstyled {
-    list-style: none;
-    margin-left: 0;
-    padding-left: 0;
-  }
+    .list-unstyled {
+        list-style: none;
+        margin-left: 0;
+        padding-left: 0;
+    }
 
-  i.fa.fa-star {
-    color: blue;
-  }
+    i.fa.fa-star {
+        color: blue;
+    }
 </style>
 <div class="page-header d-print-none">
     <div class="container-xl">
@@ -50,8 +50,12 @@
                                     </tr>
                                     <tr>
                                         <th> {{__('admin.courses.image')}}</th>
-                                        <td> <img src="{{ $row->imageFullPath }}" style="width:40px"></td>
+                                        <td> <a href="{{asset($row->imageFullPath)}}" target="_blank">
+                                                <img src="{{ $row->imageFullPath }}" style="width:40px">
+                                            </a>
+                                        </td>
                                     </tr>
+
                                     <tr>
                                         <th>{{ __('admin.courses.price') }}</th>
                                         <td>{{$row->price}} {{ $setting->currency }}</td>
@@ -118,7 +122,7 @@
                                     <tr>
                                         <th>{{ __('admin.courses.track') }}</th>
                                         <td>
-                                           
+
                                             @if($row->tracks)
                                             @foreach ($row->tracks as $item)
                                             <span class="badge bg-blue text-blue-fg"> {{ $item->name  }} </span>
