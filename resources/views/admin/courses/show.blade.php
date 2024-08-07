@@ -260,7 +260,11 @@
 
                                                 <tr>
                                                     <td><span class="text-secondary">{{$loop->iteration}}</span></td>
-                                                    <td>{{$instructor->name}}</td>
+                                                    <td>
+                                                        <a href="{{url('admin/instructor/'.$instructor->id)}}" target="_blank">
+                                                        {{$instructor->name}}
+                                                        </a>
+                                                    </td>
                                                     <td>{{$instructor->pivot->course_price}} {{ $setting->currency }}</td>
                                                     <td>{{$instructor->pivot->course_prectange}} % </td>
 
