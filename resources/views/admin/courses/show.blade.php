@@ -261,7 +261,7 @@
                                                 <tr>
                                                     <td><span class="text-secondary">{{$loop->iteration}}</span></td>
                                                     <td>
-                                                        <a href="{{url('admin/instructor/'.$instructor->id)}}" target="_blank">
+                                                        <a href="{{url('admin/instructors/'.$instructor->id)}}" target="_blank">
                                                         {{$instructor->name}}
                                                         </a>
                                                     </td>
