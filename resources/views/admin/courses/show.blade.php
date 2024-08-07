@@ -57,6 +57,14 @@
                                     </tr>
 
                                     <tr>
+                                        <th> {{__('admin.courses.background_image')}}</th>
+                                        <td> <a href="{{asset($row->backgroundImageFullPath)}}" target="_blank">
+                                                <img src="{{ $row->backgroundImageFullPath }}" style="width:40px">
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
                                         <th>{{ __('admin.courses.price') }}</th>
                                         <td>{{$row->price}} {{ $setting->currency }}</td>
 

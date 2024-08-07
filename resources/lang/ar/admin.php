@@ -299,6 +299,7 @@ return [
 
     ],
     "courses" => [
+        'background_image' => 'صورة الخلفية للدورة',
         'manual_rate' => 'التقيم اليدوى',
         'general_rate' => 'التقيم العام',
         'manual_review' => 'التقيم اليدوى',
