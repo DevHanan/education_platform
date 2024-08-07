@@ -1,6 +1,17 @@
 @extends('admin.layouts.master')
 @section('title', $title)
 @section('content')
+<style>
+  .list-unstyled {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  i.fa.fa-star {
+    color: blue;
+  }
+</style>
 <div class="page-header d-print-none">
     <div class="container-xl">
         <div class="row g-2 align-items-center">
