@@ -60,7 +60,7 @@
                   <input type="hidden" name="country_code" id="country_code" />
                   <input type="hidden" name="country_alpha" id="country_alpha" />
 
-                  
+
 
 
                   @error('phone')
@@ -299,60 +299,63 @@
 
 @push('scripts')
 <script>
-  const InstructorEditphoneInputField = document.querySelector("#inst_edit_phone_number");
-  const instructorEditphoneInput = window.intlTelInput(InstructorEditphoneInputField, {
-    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-  });
+  document.addEventListener('DOMContentLoaded', function() {
+
+        const InstructorEditphoneInputField = document.querySelector("#inst_edit_phone_number");
+        const instructorEditphoneInput = window.intlTelInput(InstructorEditphoneInputField, {
+          utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        });
 
 
-// Function to get the alpha-2 code from the numeric code
-          function getAlpha2FromNumeric(numericCode) {
-                const countryData = instructorEditphoneInput.getCountryData();
-                let alpha2Code = null;
-                countryData.forEach(country => {
-                    if (country.dialCode == numericCode) {
-                        alpha2Code = country.iso2;
-                    }
-                });
-                return alpha2Code;
+        // Function to get the alpha-2 code from the numeric code
+        function getAlpha2FromNumeric(numericCode) {
+          const countryData = InstructorEditphoneInputField.getCountryData();
+          let alpha2Code = null;
+          countryData.forEach(country => {
+            if (country.dialCode == numericCode) {
+              alpha2Code = country.iso2;
             }
-
-         
-
-
-  document.querySelector("#instructor_form").addEventListener("submit", (event) => {
-    // Get phone number in E.164 format
-    const phoneNumber = instructorEditphoneInput.getNumber(intlTelInputUtils.numberFormat.E164);
-    // Get country code
-    const countryCode = instructorEditphoneInput.getSelectedCountryData().dialCode;
-
-    // Set the phone number and country code to hidden inputs
-    document.querySelector("#inst_edit_phone_number").value = phoneNumber;
-    document.querySelector("#country_code").value = countryCode;
-    const alpha2CountryCode = getAlpha2FromNumeric(countryCode);
-    document.querySelector("#country_alpha").value = alpha2CountryCode;
-
-
-
-  });
+          });
+          return alpha2Code;
+        }
 
 
 
 
+        document.querySelector("#instructor_form").addEventListener("submit", (event) => {
+          // Get phone number in E.164 format
+          const phoneNumber = instructorEditphoneInput.getNumber(intlTelInputUtils.numberFormat.E164);
+          // Get country code
+          const countryCode = instructorEditphoneInput.getSelectedCountryData().dialCode;
+
+          // Set the phone number and country code to hidden inputs
+          document.querySelector("#inst_edit_phone_number").value = phoneNumber;
+          document.querySelector("#country_code").value = countryCode;
+          const alpha2CountryCode = getAlpha2FromNumeric(countryCode);
+          document.querySelector("#country_alpha").value = alpha2CountryCode;
+
+
+
+        });
 
 
 
 
-  //set old value 
-  const phoneNumber = "{{ $row->phone }}";
-  const countryalpha = "{{ $row->country_alpha }}";
 
-  if (phoneNumber) {
-    instructorEditphoneInput.setNumber(phoneNumber);
-  }
 
-  if (countryalpha) {
-    instructorEditphoneInput.setCountry(countryalpha);
-  }
+
+
+        //set old value 
+        const phoneNumber = "{{ $row->phone }}";
+        const countryalpha = "{{ $row->country_alpha }}";
+
+        if (phoneNumber) {
+          instructorEditphoneInput.setNumber(phoneNumber);
+        }
+
+        if (countryalpha) {
+          instructorEditphoneInput.setCountry(countryalpha);
+        }
+      });
 </script>
 @endpush
