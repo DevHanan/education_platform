@@ -113,7 +113,7 @@
                   </div>
                   @enderror
                 </div>
-                <div class="mb-3 hidden" id="provider_div">
+                <div class="mb-3" id="provider_div">
                   <label class="form-label" for="provider">{{ __('admin.lectures.provider') }} <span>*</span></label>
                   <select class="form-control" name="provider" id="provideSelect" required>
                     <option value="">{{ __('select') }}</option>
@@ -130,7 +130,7 @@
                   @enderror
                 </div>
 
-                <div class="mb-3 hidden" id="appointment_div" >
+                <div class="mb-3" id="appointment_div" >
                   <label class="form-label" for="appointment"> {{ __('admin.lectures.appointment') }} <span>*</span></label>
                   <!-- <input type="text" class="form-control" name="appointment" id="appointment" value="{{ old('appointment') }}" required> -->
                   <input type="text" name="appointment" id="appointment" class="form-control" data-mask="00/00/0000 00:00:00" data-mask-visible="true" placeholder="00/00/0000 00:00:00" autocomplete="off">
@@ -168,7 +168,7 @@
 
 
 
-                <div class="mb-3 hidden" id="link_div" style="padding-top: 18px;">
+                <div class="mb-3 " id="link_div" style="padding-top: 18px;">
                   <label class="form-label" for="link"> {{ __('admin.lectures.link') }} <span>*</span></label>
                   <input type="text" class="form-control" name="link" id="link" value="{{ old('link') }}" required>
 
@@ -278,7 +278,7 @@
 
 
   @push('scripts')
-  <script>
+  <!-- <script>
     document.getElementById("typeSelect").addEventListener("change", function() {
       var selectedValue = this.value;
       var option1Div = document.getElementById("appointment_div");
@@ -307,7 +307,7 @@
           option3Div.classList.add("hidden");
       }
     });
-  </script>
+  </script> -->
   <script>
     function addRow(tableID) {
       var table = document.getElementById(tableID);
