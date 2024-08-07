@@ -107,6 +107,7 @@ class InstructorController extends Controller
 
     public function update(UpdateInstructorRequest $request)
     {
+        return $request->all();
         $instructor = Instructor::find($request->id);
         $instructor->update($request->except(['image','cv']));
         InstructorTrack::where('instructor_id',$instructor->id)->delete();
