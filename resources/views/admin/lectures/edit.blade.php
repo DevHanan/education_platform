@@ -111,7 +111,7 @@
                   </div>
                   @enderror
                 </div>
-                <div class="mb-3 @if($row->type != 1) hidden @endif" id="provider_div">
+                <div class="mb-3" id="provider_div">
                   <label class="form-label" for="provider">{{ __('admin.lectures.provider') }} <span>*</span></label>
                   <select class="form-control" name="provider" id="provideSelect" required>
                     <option value="">{{ __('select') }}</option>
@@ -128,7 +128,7 @@
                   @enderror
                 </div>
 
-                <div class="mb-3  @if($row->type!=2 )hidden @endif" id="appointment_div" style="padding-top: 18px;">
+                <div class="mb-3"   id="appointment_div" style="padding-top: 18px;">
                   <label class="form-label" for="appointment"> {{ __('admin.lectures.appointment') }} <span>*</span></label>
                   <!-- <input type="text" class="form-control" name="appointment" id="appointment" value="{{ old('appointment',$row) }}"> -->
                   <input type="text" name="appointment" id="appointment" class="form-control"  value="{{ old('appointment',$row) }}" data-mask="00/00/0000 00:00:00" data-mask-visible="true" placeholder="00/00/0000 00:00:00" autocomplete="off">
@@ -168,7 +168,7 @@
 
 
 
-                <div class="mb-3 @if($row->type ==3 )hidden @endif" id="link_div" style="padding-top: 18px;">
+                <div class="mb-3" id="link_div" style="padding-top: 18px;">
                   <label class="form-label" for="link"> {{ __('admin.lectures.link') }} <span>*</span></label>
                   <input type="text" class="form-control" name="link" id="link" value="{{ old('link',$row) }}" required>
 
@@ -296,7 +296,7 @@
 @endsection
 @push('scripts')
 
-<script>
+<!-- <script>
   
   document.getElementById("typeSelect").addEventListener("change", function() {
     var selectedValue = this.value;
@@ -327,7 +327,7 @@
 
     }
   });
-</script>
+</script> -->
 <script>
   function addRow(tableID) {
     var table = document.getElementById(tableID);
