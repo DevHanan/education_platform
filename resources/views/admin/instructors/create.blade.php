@@ -31,7 +31,7 @@
         <div class="row row-cards">
             <div class="col-md-12">
 
-                <form autocomplete="off" class="card"  action="{{ route($route.'.store') }}" method="post" enctype="multipart/form-data">
+                <form autocomplete="off" class="card" action="{{ route($route.'.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
 
 
@@ -54,7 +54,9 @@
                                 <div class="mb-3">
                                     <label class="form-label" for="phone">{{ __('admin.instructors.phone_number') }} <span>*</span></label>
                                     <input type="text" class="form-control" name="phone" id="phone" value="{{ old('phone') }}" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
-                                    <P class="text-info"> 098-329-0745 </P>           
+                                    <input id="inst_phone_number" name="phone" required type="tel" name="phone" value="" class="form-control w-100 mb-3 p-3 ps-5" placeholder="">
+
+                                    <P class="text-info"> 098-329-0745 </P>
 
                                     @error('phone')
                                     <div class="invalid-feedback">
@@ -66,14 +68,14 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="password">{{ __('admin.instructors.field_password') }} <span>*</span></label>
-                                    <input type="password" class="form-control" name="password" id="password"  required>
+                                    <input type="password" class="form-control" name="password" id="password" required>
                                     <span class="fa password-toggle-icon eye-icon ">
-                                    <i class="fa password-icon" aria-hidden="true"></i>
-                                    @error('password')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
+                                        <i class="fa password-icon" aria-hidden="true"></i>
+                                        @error('password')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                 </div>
 
                                 <div class="mb-3">
@@ -94,8 +96,8 @@
                                 <div class="mb-3">
                                     <label class="form-label" for="track_id">{{ __('admin.instructors.track') }} <span>*</span></label>
                                     <select class="form-control select2" name="track_ids[]" id="track_id" multiple>
-                                    <option value=""  disabled hidden>Please select an Track</option>
-                                    @foreach($tracks as $track)
+                                        <option value="" disabled hidden>Please select an Track</option>
+                                        @foreach($tracks as $track)
                                         <option value="{{ $track->id }}"> {{ $track->name }}</option>
 
                                         @endforeach
@@ -110,7 +112,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="country_id">{{ __('admin.students.country_id') }} <span>*</span></label>
-                                    <select class="form-control select2" name="country_id" id="country_id" >
+                                    <select class="form-control select2" name="country_id" id="country_id">
                                         <option value="">{{ __('select') }}</option>
                                         @foreach($countries as $country)
                                         <option value="{{ $country->id }}"> {{ $country->name }}</option>
@@ -191,18 +193,18 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="password">{{ __('admin.instructors.field_password_confirmation') }} <span>*</span></label>
-                                    <input type="password" class="form-control" name="password_confirmation" id="password_confirmation"  required>
+                                    <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" required>
                                     <span class="fa password-toggle-icon eye-icon ">
-                                    <i class="fa password-icon" aria-hidden="true"></i>
-                                    @error('password')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
+                                        <i class="fa password-icon" aria-hidden="true"></i>
+                                        @error('password')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" for="salary">{{ __('admin.instructors.salary') }} <span>*</span></label>
-                                    <input type="salary" value="0"  readonly class="form-control" name="salary" id="empsalary" value="{{ old('salary') }}" >
+                                    <input type="salary" value="0" readonly class="form-control" name="salary" id="empsalary" value="{{ old('salary') }}">
 
                                     @error('salary')
                                     <div class="invalid-feedback">
@@ -213,7 +215,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="about_teacher">{{ __('admin.instructors.about') }} <span>*</span></label>
-                                    <select class="select2 form-control" name="about_teacher" id="about_teacher" >
+                                    <select class="select2 form-control" name="about_teacher" id="about_teacher">
                                         <option value="">{{ __('select') }}</option>
                                         <option value="0">{{ __('admin.instructors.student') }}</option>
                                         <option value="1">{{ __('admin.instructors.Bachelor') }}</option>
@@ -231,7 +233,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="bank_account">{{ __('admin.instructors.bank_account') }} <span>*</span></label>
-                                    <input type="text" class="form-control" name="bank_account" id="bank_account" value="{{ old('bank_account') }}" >
+                                    <input type="text" class="form-control" name="bank_account" id="bank_account" value="{{ old('bank_account') }}">
 
 
                                     @error('bank_account')
@@ -243,7 +245,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="cash_wallet_number">{{ __('admin.instructors.cash_wallet_number') }} <span>*</span></label>
-                                    <input type="text" class="form-control" name="cash_wallet_number" id="cash_wallet_number" value="{{ old('cash_wallet_number') }}" >
+                                    <input type="text" class="form-control" name="cash_wallet_number" id="cash_wallet_number" value="{{ old('cash_wallet_number') }}">
 
 
                                     @error('cash_wallet_number')
@@ -288,4 +290,11 @@
 
 
 @endsection
-
+@push('scripts')
+<script>
+    const phoneInputField = document.querySelector("#inst_phone_number");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+</script>
+@endpush

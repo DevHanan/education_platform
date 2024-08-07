@@ -14,6 +14,8 @@
 <link href="{{asset('dist/css/tabler-payments.min.css?1692870487')}}" rel="stylesheet" />
 <link href="{{asset('dist/css/tabler-vendors.min.css?1692870487')}}" rel="stylesheet" />
 <link href="{{asset('dist/css/demo.min.css?1692870487')}}" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 <!-- fontawesome icon -->
 
 <link rel="stylesheet" href="{{ asset('dashboard/fonts/fontawesome/css/fontawesome-all.min.css') }}">
@@ -41,33 +43,35 @@
   body {
     font-feature-settings: "cv03", "cv04", "cv11";
   }
-  .invalid-feedback{
+
+  .invalid-feedback {
     display: block;
     padding: 10px;
   }
-
 </style>
 @if(App::getLocale() == 'ar')
 <style>
-  .page{
+  .page {
     direction: rtl !important;
   }
+
   .navbar-vertical.navbar-expand-lg .navbar-collapse .dropdown-menu .dropdown-item {
     min-width: 0;
     display: flex;
     width: auto;
     padding-right: calc(calc(calc(var(--tblr-page-padding) * 2)/ 2) + 1.75rem);
     color: inherit;
-}
+  }
 </style>
 @endif
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <style>
-  div#DataTables_Table_0_filter{
+  div#DataTables_Table_0_filter {
     margin: 25px;
   }
-  .table-responsive{
-    padding:15px 5px 5px 5px;
+
+  .table-responsive {
+    padding: 15px 5px 5px 5px;
   }
 </style>
 
@@ -114,10 +118,10 @@ button.btn.btn-icon.btn-danger.btn-sm[data-title]:hover::after {
 <!-- -->
 @if(app()->getLocale() == 'ar')
 <style>
-  .dropdown-menu-end[data-bs-popper]{
-  left: 0;
-  right: auto;
-}
+  .dropdown-menu-end[data-bs-popper] {
+    left: 0;
+    right: auto;
+  }
 </style>
 
 @endif
@@ -177,11 +181,14 @@ button.btn.btn-icon.btn-danger.btn-sm[data-title]:hover::after {
 @endif -->
 <style>
   .form-control.is-invalid {
-    border-color: #dc3545; /* Red color */
-    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25); /* Red shadow */
-}
+    border-color: #dc3545;
+    /* Red color */
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+    /* Red shadow */
+  }
 
-.invalid-feedback {
-    color: #dc3545; /* Red color */
-}
+  .invalid-feedback {
+    color: #dc3545;
+    /* Red color */
+  }
 </style>
