@@ -330,7 +330,6 @@
     document.querySelector("#inst_edit_phone_number").value = phoneNumber;
     document.querySelector("#country_code").value = countryCode;
     const alpha2CountryCode = getAlpha2FromNumeric(countryCode);
-    alert(alpha2CountryCode);
     document.querySelector("#country_alpha").value = alpha2CountryCode;
 
 
@@ -346,14 +345,14 @@
 
   //set old value 
   const phoneNumber = "{{ $row->phone }}";
-  const countryCode = "{{ $row->country_code }}";
+  const countryalpha = "{{ $row->country_alpha }}";
 
   if (phoneNumber) {
     instructorEditphoneInput.setNumber(phoneNumber);
   }
 
-  if (countryCode) {
-    instructorEditphoneInput.setCountry(countryCode);
+  if (countryalpha) {
+    instructorEditphoneInput.setCountry(countryalpha);
   }
 </script>
 @endpush
