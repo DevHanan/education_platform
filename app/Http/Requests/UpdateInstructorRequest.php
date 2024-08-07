@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use App\Rules\NoArabicCharacters;
 
 class UpdateInstructorRequest extends FormRequest
 {
@@ -29,7 +30,9 @@ class UpdateInstructorRequest extends FormRequest
             'email' => [
                 'required',
                 'email',
-                Rule::unique('instructors', 'email')->ignore($this->id)
+                
+                Rule::unique('instructors', 'email')->ignore($this->id),
+                new NoArabicCharacters
             ],
             'password' => 'confirmed',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',

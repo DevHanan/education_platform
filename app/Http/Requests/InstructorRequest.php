@@ -4,6 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use App\Rules\NoArabicCharacters;
+
 
 class InstructorRequest extends FormRequest
 {
@@ -25,7 +27,9 @@ class InstructorRequest extends FormRequest
         return [
             'first_name' => 'required',
             'last_name' => 'required',
-            'email'        => 'required|unique:instructors,email',
+            // 'email'        => 'required|unique:instructors,email',
+            'email' => ['required','unique:instructors,email', new NoArabicCharacters],
+
             'password' => 'required|confirmed',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'phone' => 'required',
