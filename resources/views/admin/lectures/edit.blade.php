@@ -179,6 +179,17 @@
                   @enderror
                 </div>
 
+                <div class="mb-3" id="metting_link" style="padding-top: 18px;">
+                  <label class="form-label" for="metting_link"> {{ __('admin.lectures.metting_link') }} <span>*</span></label>
+                  <input type="text" class="form-control" name="metting_link" id="metting_link" value="{{ old('metting_link',$row) }}" required>
+
+                  @error('metting_link')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
+
 
               </div>
 
