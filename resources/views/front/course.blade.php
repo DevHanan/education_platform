@@ -54,11 +54,11 @@
 
                         </div>
                         <div class="ratings d-flex justify-content-center my-4">
-                            <span class="text-white mx-4 fw-bold"> ({{ $course->SubscriptionCount}}) 
+                            <span class="text-white mx-4 fw-bold"> 
                             @if($course->manual_review)
                             {{ $course->manual_review_val}}
                             @else
-                            {{ $course->avgrating}}
+                            ({{ $course->comments()->count() }})  {{ $course->avgrating}}
                             @endif
                         </span>
                             <div class="stars">
