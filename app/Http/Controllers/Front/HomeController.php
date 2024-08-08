@@ -27,7 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         $title = 'الصفحة الرئيسية';
-        $topratedcourses = Course::selectRaw('*, AVG(comments.rate) as avg')
+        $topratedcourses = Course::selectRaw('courses.*, AVG(comments.rate) as avg')
         ->leftJoin('comments', 'courses.id', '=', 'comments.course_id')
         ->groupBy('courses.id')
         ->where('courses.active','1')
