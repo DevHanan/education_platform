@@ -339,6 +339,35 @@
                                 </div>
                             </div>
 
+                            <div class="row">
+                            @if($course->prerequisite_file)
+                                <div class="col-lg-6">
+                                    <div class="d-flex justify-content-between align-items-center bg-white rounded policy-card mb-4">
+                                        <div>
+                                            <h3> {{ __('admin.course.prerequisite_file') }}</h2>
+                                        </div>
+                                        <div>
+                                            <a href="{{ asset($course->prerequisite_file )}}" class="btn btn-success primary-bg" target="_blank" download="{{ asset($course->prerequisite_file )}}">
+                                                تنزيل </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
+                                @if($course->plan_file)
+                                <div class="col-lg-6">
+                                    <div class="d-flex justify-content-between align-items-center bg-white rounded policy-card mb-4">
+                                        <div>
+                                            <h3> {{ __('admin.course.plan_file') }}</h2>
+                                        </div>
+                                        <div>
+                                            <a href="{{ asset($course->planfileFullPath )}}" class="btn btn-success primary-bg" target="_blank" download="{{ asset($course->planfileFullPath )}}">
+                                                تنزيل </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
+                            </div>
+
                         </div>
 
                         <div class="tab-pane fade" id="navs-justified-trainsers" role="tabpanel">
