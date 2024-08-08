@@ -561,13 +561,13 @@
                             <div class="d-flex justify-content-center align-items-center">
                                 @if($course->whatsApp_group_link)
                                 <a target="_blank" href="{{ $course->whatsApp_group_link }}" class="bg-white rounded-circle text-decoration-none mx-2">
-                                    <i class="fa-brands fa-whatsapp fa-lg"></i>
+                                    <i class="fa-brands fa-whatsapp fa-lg" style="font-size:2em;"></i>
                                 </a>
                                 @endif
 
                                 @if($course->telegram_channel_link)
                                 <a target="_blank" href="{{ $course->telegram_channel_link }}" class="bg-white rounded-circle text-decoration-none mx-2">
-                                    <i class="fa-brands fa-telegram fa-lg"></i>
+                                    <i class="fa-brands fa-telegram fa-lg" style="font-size:2em;"></i>
                                 </a>
                                 @endif
                             </div>
