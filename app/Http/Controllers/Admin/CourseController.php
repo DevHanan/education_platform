@@ -224,6 +224,22 @@ class CourseController extends Controller
             $course->save();
         }
 
+        if ($request->hasFile('plan_file')) {
+            $thumbnail = $request->plan_file;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/courses/plansFile/'), $filename);
+            $course->plan_file = 'uploads/courses/plansFile/' . $filename;
+            $course->save();
+        }
+
+        if ($request->hasFile('prerequisite_file')) {
+            $thumbnail = $request->prerequisite_file;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/courses/prerequisite_file/'), $filename);
+            $course->prerequisite_file = 'uploads/courses/prerequisite_file/' . $filename;
+            $course->save();
+        }
+
         Toastr::success(__('admin.msg_created_successfully'), __('admin.msg_success'));
         return redirect()->route('admin.courses.levels.index',[$course->id]);
 
@@ -324,6 +340,22 @@ class CourseController extends Controller
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/courses/background_image/'), $filename);
             $course->background_image = 'uploads/courses/background_image/' . $filename;
+            $course->save();
+        }
+
+        if ($request->hasFile('plan_file')) {
+            $thumbnail = $request->plan_file;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/courses/plansFile/'), $filename);
+            $course->plan_file = 'uploads/courses/plansFile/' . $filename;
+            $course->save();
+        }
+
+        if ($request->hasFile('prerequisite_file')) {
+            $thumbnail = $request->prerequisite_file;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/courses/prerequisite_file/'), $filename);
+            $course->prerequisite_file = 'uploads/courses/prerequisite_file/' . $filename;
             $course->save();
         }
 
