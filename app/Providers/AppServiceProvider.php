@@ -67,12 +67,12 @@ class AppServiceProvider extends ServiceProvider
         $bankgroup = BankGroup::whereHas('questions')->active()->latest()->get();
         $reviews = Review::active()->latest()->get();
         $policies = Policy::active()->get();
-       $toprated = Course::selectRaw('*, AVG(comments.rate) as avg')
-       ->leftJoin('comments', 'courses.id', '=', 'comments.course_id')
-       ->groupBy('courses.id')
-       ->where('courses.active','1')
-       ->orderBy('avg', 'desc')
-       ->take('5')->get();
+        $topratedcourses = Course::selectRaw('courses.*, AVG(comments.rate) as avg')
+        ->leftJoin('comments', 'courses.id', '=', 'comments.course_id')
+        ->groupBy('courses.id')
+        ->where('courses.active','1')
+        ->orderBy('avg', 'desc')
+        ->take('5')->get();
        $freecourses = Course::active()->where('price','0')->latest()->get();
         View::share([
             'freecourses' => $freecourses,

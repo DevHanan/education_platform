@@ -185,9 +185,9 @@
 
             <div class="card__content">
                 <div class="swiper-wrapper">
-                    @foreach($topratedcourses as $course)
+                    @foreach($toprated as $course)
                     <article class="card__article swiper-slide shadow">
-                        <a href="{{ url('course/'.$course->course_id)}}">
+                        <a href="{{ url('course/'.$course->id)}}">
                             <div class="card__image p-2">
                                 <img src="{{  $course->imageFullPath }}" alt="image" class="card__img img-fluid w-100">
                                 <div class="card_category position-absolute rounded text-dark px-2 py-1"> @if($course->tracks)
@@ -201,7 +201,7 @@
                         </a>
 
                         <div class="card__data p-3">
-                            <a href="{{ url('course/'.$course->course_id)}}" class="text-decoration-none">
+                            <a href="{{ url('course/'.$course->id)}}" class="text-decoration-none">
                                 <p class="card__description mt-1 mb-1"> {{ $course->name }} </p>
                             </a>
                             <!-- <div class="name primary-color mb-3" style="font-size: 14px;"> 
@@ -226,7 +226,7 @@
                             </div>
                             <hr>
                             <div class="d-flex justify-content-between align-items-center">
-                                <a href="{{ url('course/'.$course->course_id)}}" class="link-arrow secondary-bg rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></a>
+                                <a href="{{ url('course/'.$course->id)}}" class="link-arrow secondary-bg rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></a>
                                 <div class="price">
                                     <span class="instead-price text-decoration-line-through mx-2 primary-color">$ 700</span>
                                     <span class="fw-bold"> {{ $course->price }}  {{ $setting->currency }}</span>
