@@ -178,6 +178,16 @@ class SettingController extends Controller
             $data->footer_image = 'uploads/settings/' . $filename;
             $data->save();
         }
+
+
+        if ($request->hasFile('guide_file')) {
+
+            $thumbnail = $request->guide_file;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/settings/'), $filename);
+            $data->guide_file = 'uploads/settings/' . $filename;
+            $data->save();
+        }
         Toastr::success(__('msg_updated_successfully'), __('msg_success'));
         return redirect()->back();
     }
