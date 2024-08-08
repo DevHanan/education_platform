@@ -42,7 +42,7 @@
                         <li class="py-2"><a href="{{ url('/contactus') }}" class="text-white text-decoration-none">تواصل معنا</a></li>
                         @if($landing_setting->guideFileFullPath)
                         <li class="py-2">
-                        <a href="{{asset($landing_setting->guideFileFullPath)}}" target="_blank" class="text-white text-decoration-none" download="{{asset($row->guideFileFullPath)}}"> 
+                        <a href="{{asset($landing_setting->guideFileFullPath)}}" target="_blank" class="text-white text-decoration-none" download="{{asset($landing_setting->guideFileFullPath)}}"> 
     
                         دليل المستخدم</a></li>
                         @endif
