@@ -340,11 +340,11 @@
                             </div>
 
                             <div class="row">
-                            @if($course->prerequisite_file)
+                                @if($course->prerequisite_file)
                                 <div class="col-lg-6">
                                     <div class="d-flex justify-content-between align-items-center bg-white rounded policy-card mb-4">
                                         <div>
-                                        <h6> ملف متطلبات مسبقة </h6>
+                                            <h6> ملف متطلبات مسبقة </h6>
                                         </div>
                                         <div>
                                             <a href="{{ asset($course->PrerequestFileFullPath )}}" class="btn btn-success primary-bg" target="_blank" download="متطلبات_الدورة.pdf">
@@ -483,9 +483,10 @@
                                                 <img src="{{ asset('public/front/img/emptyStar.png')}}" alt="">
                                             </div>
                                         </div> -->
-                                        <button @if(!auth()->guard('students-login')->user()) disabled="disabled" @endif class="btn secondary-bg text-white mt-3" type="submit"> إرسال التقييم  <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></button>
-                                        <button disabled="disabled" class="btn secondary-bg text-white mt-3" type="submit">  قياس رضا المستفيد <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></button>
-
+                                        <button @if(!auth()->guard('students-login')->user()) disabled="disabled" @endif class="btn secondary-bg text-white mt-3" type="submit"> إرسال التقييم <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></button>
+                                        @if($course->google_link_measure_satisfaction != null)
+                                        <a  href="{{url($course->google_link_measure_satisfaction)}}" target="_blank" class="btn secondary-bg text-white mt-3" type="submit"> قياس رضا المستفيد <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></a>
+                                        @endif
                                     </form>
                             </div>
                         </div>

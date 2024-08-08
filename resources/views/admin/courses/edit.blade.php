@@ -132,6 +132,17 @@
                   @enderror
                 </div>
 
+                <div class="mb-3">
+                  <label class="form-label" for="google_link_measure_satisfaction"> {{ __('admin.courses.google_link_measure_satisfaction') }} <span>*</span></label>
+                  <input type="text" class="form-control" name="google_link_measure_satisfaction" id="google_link_measure_satisfaction" value="{{ old('google_link_measure_satisfaction',$row) }}">
+
+                  @error('google_link_measure_satisfaction')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
+
               </div>
               <div class="col-md-6">
 

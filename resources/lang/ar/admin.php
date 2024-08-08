@@ -301,6 +301,7 @@ return [
 
     ],
     "courses" => [
+        'google_link_measure_satisfaction' => 'رابط استبيان قياس رضا المستفيدين',
         'whatsApp_group_link' => 'رابط جروب واتساب',
         'telegram_channel_link' => 'رابط قناة تليجرام',
         'course_forum' => 'منتدى الدورة',
