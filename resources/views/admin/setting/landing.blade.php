@@ -169,7 +169,7 @@
                                   <input type="file" class="form-control" name="guide_file" id="guide_file">
                                   @if(isset($row->guide_file))
                                   <a href="{{asset($row->guideFileFullPath)}}" target="_blank" class="btn btn-icon btn-success btn-sm" download="{{asset($row->guideFileFullPath)}}"> 
-                                        <i class="fa-solid fa-cloud-arrow-down"></i>  
+                                        <i class="fa-solid fa-cloud-arrow-down"></i>  </a>
                                   <div class="clearfix"></div>
                                   @endif
                                   @error('guide_file')
