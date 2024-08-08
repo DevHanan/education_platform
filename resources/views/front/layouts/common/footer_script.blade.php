@@ -40,7 +40,7 @@
                         @endif
                         <li class="py-2"><a href=" {{ url('/blogs') }}" class="text-white text-decoration-none">المدونة</a></li>
                         <li class="py-2"><a href="{{ url('/contactus') }}" class="text-white text-decoration-none">تواصل معنا</a></li>
-                        @if($landing_setting->guideFileFullPath)
+                        @if($landing_setting->guide_file)
                         <li class="py-2">
                         <a href="{{asset($landing_setting->guideFileFullPath)}}" target="_blank" class="text-white text-decoration-none" download="{{asset($landing_setting->guideFileFullPath)}}"> 
     
