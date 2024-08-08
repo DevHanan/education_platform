@@ -67,7 +67,7 @@ class AppServiceProvider extends ServiceProvider
         $bankgroup = BankGroup::whereHas('questions')->active()->latest()->get();
         $reviews = Review::active()->latest()->get();
         $policies = Policy::active()->get();
-        $topratedcourses = Course::selectRaw('courses.*, AVG(comments.rate) as avg')
+        $toprated = Course::selectRaw('courses.*, AVG(comments.rate) as avg')
         ->leftJoin('comments', 'courses.id', '=', 'comments.course_id')
         ->groupBy('courses.id')
         ->where('courses.active','1')
