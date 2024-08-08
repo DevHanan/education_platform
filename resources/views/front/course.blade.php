@@ -534,6 +534,8 @@
                                 <a href="https://wa.me/{{ $course->whatsApp_group_link }}" class="text-white text-decoration-none"><i class="fa-solid fa-mobile-screen ms-2"></i> {{ $course->whatsApp_group_link }} </a>
 
                                 </li>
+
+                                
                               <li>
 
                               <a target="_blank" href="tel: {{ $course->telegram_channel_link }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
