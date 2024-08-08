@@ -445,7 +445,7 @@ return [
     ],
     'landing' => [
         'instructor_guide_file' => 'ملف دليل المدرب',
-        'student_guide_file' => 'ملف دليل المستخدم',
+        'student_guide_file' => 'ملف دليل الطالب',
         'free_courses' => 'الدورات المجانية',
         'book_shop_url' => 'رابط متجر الكتب',
         'letter_news' => 'اشترك في نشرتنا الاخبارية',
