@@ -323,16 +323,36 @@
                                             </div>
 
                                             <div class="rating d-flex justify-content-end">
-                                                <span class="mx-3">({{ $course->SubscriptionCount}})</span>
-                                                <span class="fw-bold ms-2" style="color:#5a5a5a">{{ $course->avgrating }}</span>
-                                                @if($course->avgrating )
-                                                @for($i=0; $i<(int)$course->avgrating; $i++)
+
+                                                @if($course->manual_review)
+                                                <span class="fw-bold ms-2" style="color:#5a5a5a">
+                                                    {{ $course->manual_review_val}} </span>
+                                                @else
+                                                <span class="mx-3">({{ $course->comments()->count()}})</span>
+                                                <span class="fw-bold ms-2" style="color:#5a5a5a">
+                                                    {{ $course->avgrating }}</span>
+                                                @endif
+
+
+
+                                                @if($course->manual_review)
+                                                @for($i=0; $i<(int)$course->manual_review_val; $i++)
                                                     <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
                                                     @endfor
-                                                    @for($i=0; $i<5-(int)$course->avgrating; $i++)
+                                                    @for($i=0; $i<5-(int)$course->manual_review_val; $i++)
                                                         <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
                                                         @endfor
-                                                        @endif
+
+                                                        @else
+                                                        @if($course->avgrating )
+                                                        @for($i=0; $i<(int)$course->avgrating; $i++)
+                                                            <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
+                                                            @endfor
+                                                            @for($i=0; $i<5-(int)$course->avgrating; $i++)
+                                                                <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
+                                                                @endfor
+                                                                @endif
+                                                                @endif
 
                                             </div>
                                             <hr>
@@ -421,13 +441,37 @@
                                             @endif
                                  </div> -->
                                 <div class="rating d-flex justify-content-end">
-                                    <span class="mx-3">({{ $course->SubscriptionCount}})</span>
-                                    <span class="fw-bold ms-2" style="color:#5a5a5a">4</span>
-                                    <img src="{{asset('front/img/grayStar.svg')}}" alt="">
-                                    <img src="{{asset('front/img/Star.svg')}}" alt="">
-                                    <img src="{{asset('front/img/Star.svg')}}" alt="">
-                                    <img src="{{asset('front/img/Star.svg')}}" alt="">
-                                    <img src="{{asset('front/img/Star.svg')}}" alt="">
+
+                                    @if($course->manual_review)
+                                    <span class="fw-bold ms-2" style="color:#5a5a5a">
+                                        {{ $course->manual_review_val}} </span>
+                                    @else
+                                    <span class="mx-3">({{ $course->comments()->count()}})</span>
+                                    <span class="fw-bold ms-2" style="color:#5a5a5a">
+                                        {{ $course->avgrating }}</span>
+                                    @endif
+
+
+
+                                    @if($course->manual_review)
+                                    @for($i=0; $i<(int)$course->manual_review_val; $i++)
+                                        <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
+                                        @endfor
+                                        @for($i=0; $i<5-(int)$course->manual_review_val; $i++)
+                                            <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
+                                            @endfor
+
+                                            @else
+                                            @if($course->avgrating )
+                                            @for($i=0; $i<(int)$course->avgrating; $i++)
+                                                <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
+                                                @endfor
+                                                @for($i=0; $i<5-(int)$course->avgrating; $i++)
+                                                    <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
+                                                    @endfor
+                                                    @endif
+                                                    @endif
+
                                 </div>
                                 <hr>
                                 <div class="d-flex justify-content-between align-items-center">
