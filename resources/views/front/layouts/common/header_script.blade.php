@@ -16,5 +16,8 @@
     <link rel="stylesheet" href="{{asset('public/front/css/select2-bootstrap4.min.css')}}">
     <link rel="stylesheet" href="{{asset('public/front/css/custom.css')}}">
     <link rel="stylesheet" href="{{asset('public/front/css/media.css')}}">
+    <!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 

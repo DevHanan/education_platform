@@ -340,11 +340,11 @@
                             </div>
 
                             <div class="row">
-                            @if($course->prerequisite_file)
+                                @if($course->prerequisite_file)
                                 <div class="col-lg-6">
                                     <div class="d-flex justify-content-between align-items-center bg-white rounded policy-card mb-4">
                                         <div>
-                                        <h6> ملف متطلبات مسبقة </h6>
+                                            <h6> ملف متطلبات مسبقة </h6>
                                         </div>
                                         <div>
                                             <a href="{{ asset($course->prerequisite_file )}}" class="btn btn-success primary-bg" target="_blank" download="{{ asset($course->prerequisite_file )}}">
@@ -458,7 +458,7 @@
                             </nav>  -->
 
                             <div class="comment mt-5">
-                                <h3 class="primary-color">اضف تعليقك</h2>
+                                <!-- <h3 class="primary-color">اضف تعليقك</h2>
                                     <form action="{{url('course-comment')}}" method="POST">
                                         @csrf
                                         <textarea name="comment" class="form-control w-100" id="" cols="30" rows="5"></textarea>
@@ -473,20 +473,15 @@
                                                 <img src="{{ asset('public/front/img/emptyStar.png')}}" alt="">
                                             </div>
                                         </div>
-                                        <!-- <div class="d-flex flex-wrap my-3">
-                                            <p class="fw-bold ms-3">ما تقييمك للمدرب؟</p>
-                                            <div class="rating-stars" data-question="trainer">
-                                                <img src="{{ asset('public/front/img/emptyStar.png')}}" alt="">
-                                                <img src="{{ asset('public/front/img/emptyStar.png')}}" alt="">
-                                                <img src="{{ asset('public/front/img/emptyStar.png')}}" alt="">
-                                                <img src="{{ asset('public/front/img/emptyStar.png')}}" alt="">
-                                                <img src="{{ asset('public/front/img/emptyStar.png')}}" alt="">
-                                            </div>
-                                        </div> -->
+
                                         <button @if(!auth()->guard('students-login')->user()) disabled="disabled" @endif class="btn secondary-bg text-white mt-3" type="submit"> انشر التعليق <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></button>
                                         <button disabled="disabled" class="btn secondary-bg text-white mt-3" type="submit"> تقييم الدورة وقياس رضا المستفيد <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></button>
 
-                                    </form>
+                                    </form> -->
+
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#courseCommentModal">
+                                        تقيم الدورة وقياس رضا المستفيد
+                                    </button>
                             </div>
                         </div>
                     </div>

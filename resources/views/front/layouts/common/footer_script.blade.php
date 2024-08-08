@@ -175,6 +175,8 @@
 <script src="{{asset('public/front/js/price_filter.js')}}"></script>
 <script src="{{asset('public/front/js/pagination.js')}}"></script>
 <script src="{{asset('public/front/js/main.js')}}"></script>
+<!-- Bootstrap JS Bundle (includes Popper) -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 <script>
     $(document).ready(function() {
         $('.select2').select2();
