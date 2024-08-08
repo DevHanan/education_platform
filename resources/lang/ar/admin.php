@@ -21,7 +21,6 @@ return [
     // 'show' => 'عرض الملف',
     'select_instructor' => 'إختر المدرب',
     'download' => 'تنزيل الملف',
-    'no_file' => 'لا يوجد ملف',
     "btn_add_new" => "إضافة جديد",
     "active" => "مفعل",
     "inactive" => "غير مفعل",

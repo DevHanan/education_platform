@@ -207,6 +207,35 @@
                                         <td>{!! $row->prerequisites !!} </td>
 
                                     </tr>
+                                    <tr>
+                                        <th> {{__('admin.courses.prerequisite_file')}}</th>
+                                        <td> 
+                                            @if($row->prerequisite_file)
+                                        <a href="{{asset($row->PrerequestFileFullPath)}}" target="_blank" class="btn btn-icon btn-success btn-sm" download="{{asset($row->PrerequestFileFullPath)}}"> 
+                                        <i class="fa-solid fa-cloud-arrow-down"></i>  </a>
+                                          <div class="clearfix"></div>    
+                                          <a href="{{asset($row->PrerequestFileFullPath)}}" target="_blank" class="btn btn-icon btn-success btn-sm"> 
+                                          <i class="far fa-eye"></i>  </a>
+                                          @else
+                                          {{ __('admin.no_file')}}
+                                          @endif
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th> {{__('admin.courses.plan_file')}}</th>
+                                        <td> 
+                                        @if($row->plan_file)
+                                        <a href="{{asset($row->planFileFullPath)}}" target="_blank" class="btn btn-icon btn-success btn-sm" download="{{asset($row->planFileFullPath)}}"> 
+                                        <i class="fa-solid fa-cloud-arrow-down"></i>  </a>
+                                          <div class="clearfix"></div>    
+                                          <a href="{{asset($row->planFileFullPath)}}" target="_blank" class="btn btn-icon btn-success btn-sm"> 
+                                          <i class="far fa-eye"></i>  </a>
+                                          @else
+                                                {{ __('admin.no_file')}}
+                                          @endif
+                                        </td>
+                                    </tr>
 
                                     <tr>
                                         <th>{{ __('admin.courses.descriptions') }}</th>

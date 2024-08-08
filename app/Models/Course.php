@@ -19,12 +19,15 @@ class Course extends Model
     protected $fillable = array(
         'name', 'recommened', 'price', 'course_type_id', 'published_at', 'track_id', 'active',
         'instructor_id', 'promo_url', 'start_date', 'end_date', 'level_id', 'description', 'goals', 'directedTo', 'period_type',
-        'period', 'seat_number', 'price_with_discount', 'difficulty_level', 'prerequisites', 'provider', 'videoId','manual_review',
-        'manual_review_val','telegram_channel_link','whatsApp_group_link'
+        'period', 'seat_number', 'price_with_discount', 'difficulty_level', 'prerequisites', 'provider', 'videoId', 'manual_review',
+        'manual_review_val', 'telegram_channel_link', 'whatsApp_group_link'
     );
     protected $dates = ['deleted_at'];
 
-    protected $appends = ['avgrating', 'backgroundImageFullPath', 'imageFullPath', 'DifficultyLevelLabel', 'SubscriptionCount', 'Totalsubscription', 'TotalDiscount', 'isSubscribed', 'periodLabel'];
+    protected $appends = [
+        'avgrating', 'backgroundImageFullPath', 'imageFullPath', 'DifficultyLevelLabel',
+        'SubscriptionCount', 'Totalsubscription', 'TotalDiscount', 'isSubscribed', 'periodLabel', 'PrerequestFileFullPath', 'PlanFileFullPath'
+    ];
 
     public function getperiodLabelAttribute()
     {
@@ -75,6 +78,21 @@ class Course extends Model
     }
 
 
+    public function getPlanFileFullPathAttribute($value)
+    {
+
+        if ($this->plan_file)
+            return asset('public/' . $this->plan_file);
+    }
+
+    public function getPrerequestFileFullPathAttribute($value)
+    {
+
+        if ($this->prerequisite_file)
+            return asset('public/' . $this->prerequisite_file);
+    }
+
+
     public function getIsSubscribedAttribute()
     {
         if (auth()->guard('students-login')->user()) {
@@ -92,7 +110,7 @@ class Course extends Model
     public function getTotalsubscriptionAttribute()
     {
         // $total = $this->subscriptions()->count() * $this->price_with_discount;
-         $total = $this->subscriptions()->sum('paid');
+        $total = $this->subscriptions()->sum('paid');
 
         if ($total > 0)
             return $total;
