@@ -455,7 +455,7 @@
                                             </div>
                                         </div> -->
                                         <button @if(!auth()->guard('students-login')->user()) disabled="disabled" @endif class="btn secondary-bg text-white mt-3" type="submit"> انشر التعليق <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></button>
-                                        <button  disabled="disabled"  class="btn secondary-bg text-white mt-3" type="submit">  قياس رضا المستفيد <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></button>
+                                        <button disabled="disabled" class="btn secondary-bg text-white mt-3" type="submit"> قياس رضا المستفيد <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></button>
 
                                     </form>
                             </div>
@@ -529,19 +529,24 @@
                         <div class="shadow-sm border my-4 p-4 py-5 d-flex flex-column align-items-center" style="border-radius: 24px;">
                             <p class="fw-bold" style="font-size: 18px;">منتدى الدورة</p>
                             <ul class="">
-                               
+
+
+                                @if($course->whatsApp_group_link )
                                 <li class="py-1">
-                                <a href="https://wa.me/{{ $course->whatsApp_group_link }}" class="text-white text-decoration-none"><i class="fa-solid fa-mobile-screen ms-2"></i> {{ $course->whatsApp_group_link }} </a>
+                                    <a href="https://wa.me/{{ $course->whatsApp_group_link }}" class="text-white text-decoration-none"><i class="fa-solid fa-mobile-screen ms-2"></i> {{ $course->whatsApp_group_link }} </a>
 
                                 </li>
+                                @endif
 
-                                
-                              <li>
+                                @if($course->telegram_channel_link )
 
-                              <a target="_blank" href="tel: {{ $course->telegram_channel_link }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
-                                    <i class="fa-brands fa-telegram fa-lg primary-color"></i>
-                                </a>
-                              </li>
+                                <li class="py-1">
+
+                                    <a target="_blank" href="tel: {{ $course->telegram_channel_link }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
+                                        <i class="fa-brands fa-telegram fa-lg primary-color"></i>
+                                    </a>
+                                </li>
+                                @endif
                             </ul>
                         </div>
                     </div>
