@@ -27,7 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         $title = 'الصفحة الرئيسية';
-                return view('front.index', compact(['title','topratedcourses']));
+                return view('front.index', compact(['title']));
     }
 
     public function about()
