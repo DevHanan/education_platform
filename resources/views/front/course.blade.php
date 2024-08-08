@@ -529,24 +529,21 @@
                         <div class="shadow-sm border my-4 p-4 py-5 d-flex flex-column align-items-center" style="border-radius: 24px;">
                             <p class="fw-bold" style="font-size: 18px;">منتدى الدورة</p>
 
-                                @if($course->whatsApp_group_link )
-
-                                    <a target="_blank" href="{{ $course->whatsApp_group_link }}" class=" justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
-                                    <i class="fa-brands fa-whatsapp fa-lg "></i>
-                                    </a>
+                            <div class="d-flex justify-content-center align-items-center">
+                                @if($course->whatsApp_group_link)
+                                <a target="_blank" href="{{ $course->whatsApp_group_link }}" class="bg-white rounded-circle text-decoration-none mx-2">
+                                    <i class="fa-brands fa-whatsapp fa-lg"></i>
+                                </a>
                                 @endif
 
-                                @if($course->telegram_channel_link )
-
-                               
-
-                                    <a target="_blank" href="{{ $course->telegram_channel_link }}" class=" justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
-                                    <i class="fa-brands fa-telegram fa-lg "></i>
-                                    </a>
-
-                               
+                                @if($course->telegram_channel_link)
+                                <a target="_blank" href="{{ $course->telegram_channel_link }}" class="bg-white rounded-circle text-decoration-none mx-2">
+                                    <i class="fa-brands fa-telegram fa-lg"></i>
+                                </a>
                                 @endif
-                            
+                            </div>
+
+
                         </div>
                     </div>
 
