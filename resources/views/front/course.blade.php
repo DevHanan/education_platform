@@ -344,7 +344,7 @@
                                 <div class="col-lg-6">
                                     <div class="d-flex justify-content-between align-items-center bg-white rounded policy-card mb-4">
                                         <div>
-                                        <h5> ملف متطلبات مسبقة </h5>
+                                        <h6> ملف متطلبات مسبقة </h6>
                                         </div>
                                         <div>
                                             <a href="{{ asset($course->prerequisite_file )}}" class="btn btn-success primary-bg" target="_blank" download="{{ asset($course->prerequisite_file )}}">
@@ -357,7 +357,7 @@
                                 <div class="col-lg-6">
                                     <div class="d-flex justify-content-between align-items-center bg-white rounded policy-card mb-4">
                                         <div>
-                                            <h5> ملف دليل الدورة والخطة الزمنية</h5>
+                                            <h6> ملف دليل الدورة والخطة الزمنية</h6>
                                         </div>
                                         <div>
                                             <a href="{{ asset($course->planfileFullPath )}}" class="btn btn-success primary-bg" target="_blank" download="{{ asset($course->planfileFullPath )}}">
