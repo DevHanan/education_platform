@@ -117,6 +117,7 @@ class HomeController extends Controller
     {
 
         $course = Course::with(['levels', 'lectures', 'tracks', 'instructors', 'coupon', 'comments'])->find($id);
+        if($course){
         $tracks_id = $course->tracks()->pluck('track_id')->ToArray();
         $tests = Quiz::whereHas('questions')->where('course_id', $id)->whereNull(['lecture_id', 'level_id'])->get();
         $related_courses = Course::whereHas('tracks', function ($query) use ($tracks_id) {
@@ -125,6 +126,9 @@ class HomeController extends Controller
         $title = $course->name;
         return view('front.course', compact('course', 'related_courses', 'title', 'tests'));
     }
+    else
+    return redirect()->route('courses');
+}
 
     public function lecture($id)
     {
