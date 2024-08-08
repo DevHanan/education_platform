@@ -532,20 +532,18 @@
 
 
                                 @if($course->whatsApp_group_link )
-                                <li class="py-1">
-                                    <a href="https://wa.me/{{ $course->whatsApp_group_link }}" class="text-white text-decoration-none"><i class="fa-solid fa-mobile-screen ms-2"></i> {{ $course->whatsApp_group_link }} </a>
+                                    <a href="{{ $course->whatsApp_group_link }}" class="text-white text-decoration-none"><i class="fa-brands fa-whatsapp"></i> {{ $course->whatsApp_group_link }} </a>
 
-                                </li>
                                 @endif
 
                                 @if($course->telegram_channel_link )
 
-                                <li class="py-1">
+                               
 
                                     <a target="_blank" href="tel: {{ $course->telegram_channel_link }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
-                                        <i class="fa-brands fa-telegram fa-lg primary-color"></i>
+                                    <i class="fa-brands fa-telegram fa-lg "></i>
                                     </a>
-                                </li>
+                               
                                 @endif
                             </ul>
                         </div>
