@@ -12,10 +12,10 @@ class LandingSetting extends Model
     'recommend_courses','top_rated_courses','star_recently_courses','tracks','instructors',
     'workteam','parteners','student_opinion','map_locations','achievements','start_soon_period',
     'letter_news','book_shop_url','verification_expire_time_in_seconds','question_list','book_store_visiable',
-    'free_courses','guide_file'
+    'free_courses','instructor_guide_file','student_guide_file'
 ];
 
-protected $appends = ['headerImageFullPath','footerImageFullPath','guideFileFullPath'];
+protected $appends = ['headerImageFullPath','footerImageFullPath','InstructorguideFileFullPath','StudentguideFileFullPath'];
 
 public function getheaderImageFullPathAttribute($value)
 {
@@ -24,12 +24,18 @@ public function getheaderImageFullPathAttribute($value)
 }
 
 
-public function getguideFileFullPathAttribute($value)
+public function getInstructorguideFileFullPathAttribute($value)
 {
 
-    return asset('public/' . $this->guide_file);
+    return asset('public/' . $this->instructor_guide_file);
 }
 
+
+public function getStudentguideFileFullPathAttribute($value)
+{
+
+    return asset('public/' . $this->student_guide_file);
+}
 public function getfooterImageFullPathAttribute($value)
 {
 

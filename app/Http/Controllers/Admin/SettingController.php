@@ -180,12 +180,22 @@ class SettingController extends Controller
         }
 
 
-        if ($request->hasFile('guide_file')) {
+        if ($request->hasFile('instructor_guide_file')) {
 
-            $thumbnail = $request->guide_file;
+            $thumbnail = $request->instructor_guide_file;
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move(public_path('/uploads/settings/'), $filename);
-            $data->guide_file = 'uploads/settings/' . $filename;
+            $data->instructor_guide_file = 'uploads/settings/' . $filename;
+            $data->save();
+        }
+
+
+        if ($request->hasFile('student_guide_file')) {
+
+            $thumbnail = $request->student_guide_file;
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move(public_path('/uploads/settings/'), $filename);
+            $data->student_guide_file = 'uploads/settings/' . $filename;
             $data->save();
         }
         Toastr::success(__('msg_updated_successfully'), __('msg_success'));

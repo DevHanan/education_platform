@@ -165,14 +165,32 @@
 
 
 
-                                  <label for="guide_file form-label">{{ __('admin.landing.guide_file') }}</label>
-                                  <input type="file" class="form-control" name="guide_file" id="guide_file">
-                                  @if(isset($row->guide_file))
-                                  <a href="{{asset($row->guideFileFullPath)}}" target="_blank" class="btn btn-icon btn-success btn-sm" download="{{asset($row->guideFileFullPath)}}"> 
+                                  <label for="instructor_guide_file form-label">{{ __('admin.landing.instructor_guide_file') }}</label>
+                                  <input type="file" class="form-control" name="instructor_guide_file" id="instructor_guide_file">
+                                  @if(isset($row->instructor_guide_file))
+                                  <a href="{{asset($row->InstructorGuideFileFullPath)}}" target="_blank" class="btn btn-icon btn-success btn-sm" download="{{asset($row->InstructorGuideFileFullPath)}}"> 
                                         <i class="fa-solid fa-cloud-arrow-down"></i>  </a>
                                   <div class="clearfix"></div>
                                   @endif
-                                  @error('guide_file')
+                                  @error('instructor_guide_file')
+                                  <div class="invalid-feedback">
+                                    {{ $message }}
+                                  </div>
+                                  @enderror
+                                </div>
+
+                                <div class="mb-3 ">
+
+
+
+                                  <label for="student_guide_file form-label">{{ __('admin.landing.student_guide_file') }}</label>
+                                  <input type="file" class="form-control" name="student_guide_file" id="student_guide_file">
+                                  @if(isset($row->student_guide_file))
+                                  <a href="{{asset($row->studentGuideFileFullPath)}}" target="_blank" class="btn btn-icon btn-success btn-sm" download="{{asset($row->studentGuideFileFullPath)}}"> 
+                                        <i class="fa-solid fa-cloud-arrow-down"></i>  </a>
+                                  <div class="clearfix"></div>
+                                  @endif
+                                  @error('student_guide_file')
                                   <div class="invalid-feedback">
                                     {{ $message }}
                                   </div>

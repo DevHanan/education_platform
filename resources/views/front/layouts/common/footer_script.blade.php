@@ -40,11 +40,17 @@
                         @endif
                         <li class="py-2"><a href=" {{ url('/blogs') }}" class="text-white text-decoration-none">المدونة</a></li>
                         <li class="py-2"><a href="{{ url('/contactus') }}" class="text-white text-decoration-none">تواصل معنا</a></li>
-                        @if($landing_setting->guide_file)
+                        @if($landing_setting->student_guide_file)
                         <li class="py-2">
-                        <a href="{{asset($landing_setting->guideFileFullPath)}}" target="_blank" class="text-white text-decoration-none" download="{{asset($landing_setting->guideFileFullPath)}}"> 
+                        <a href="{{asset($landing_setting->StudentGuideFileFullPath)}}" target="_blank" class="text-white text-decoration-none" download="{{asset($landing_setting->StudentGuideFileFullPath)}}"> 
     
-                        دليل المستخدم</a></li>
+                        دليل الطالب</a></li>
+                        @endif
+                        @if($landing_setting->instructor_guide_file)
+                        <li class="py-2">
+                        <a href="{{asset($landing_setting->InstructorGuideFileFullPath)}}" target="_blank" class="text-white text-decoration-none" download="{{asset($landing_setting->InstructorGuideFileFullPath)}}"> 
+    
+                        دليل المدرب</a></li>
                         @endif
 
                     </ul>
