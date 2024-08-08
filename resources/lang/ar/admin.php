@@ -302,6 +302,9 @@ return [
 
     ],
     "courses" => [
+        'course_forum' => 'منتدى الدورة',
+        'plan_file' => 'ملف دليل الدورة والخطة الزمنية',
+        'prerequisite_file' => 'ملف متطلبات مسبقة للدورة ',
         'background_image' => 'صورة الخلفية للدورة',
         'manual_rate' => 'التقيم اليدوى',
         'general_rate' => 'التقيم العام',

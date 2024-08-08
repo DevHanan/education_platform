@@ -60,14 +60,14 @@ class AppServiceProvider extends ServiceProvider
         $about = AboutSetting::first();
         $questions = Question::active()->get();
         $most_required = Course::active()->latest()->get();
-        $recommened_courses = Course::recommened()->latest()->get();
+        $recommened_courses = Course::active()->recommened()->latest()->get();
         $subscriptions = Subscription::all();
         $landingSetting = LandingSetting::first();
-        $latest  = Course::recentStart()->latest()->take(6)->get();
+        $latest  = Course::active()->recentStart()->latest()->take(6)->get();
         $bankgroup = BankGroup::whereHas('questions')->active()->latest()->get();
         $reviews = Review::active()->latest()->get();
         $policies = Policy::active()->get();
-       $toprated = Course::selectRaw('*, AVG(comments.rate) as avg')
+       $toprated = Course::active()->selectRaw('*, AVG(comments.rate) as avg')
        ->leftJoin('comments', 'courses.id', '=', 'comments.course_id')
        ->groupBy('courses.id')
        ->orderBy('avg', 'desc')

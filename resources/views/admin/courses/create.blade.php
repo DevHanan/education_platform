@@ -31,7 +31,7 @@
     <div class="row row-cards">
       <div class="col-md-12">
 
-        <form autocomplete="off" class="card"  action="{{ route($route.'.store') }}" method="post" enctype="multipart/form-data">
+        <form autocomplete="off" class="card" action="{{ route($route.'.store') }}" method="post" enctype="multipart/form-data">
           @csrf
 
 
@@ -51,7 +51,7 @@
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="price"> {{ __('admin.courses.price') }} <span>*</span></label>
-                  <input type="number"  min="0" class="form-control" name="price" id="price" value="0"  >
+                  <input type="number" min="0" class="form-control" name="price" id="price" value="0">
 
                   @error('price')
                   <div class="invalid-feedback">
@@ -62,7 +62,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="period"> {{ __('admin.courses.period') }} <span>*</span></label>
-                  <input type="number"  min="0" class="form-control" name="period" id="period" value="{{ old('period') }}" >
+                  <input type="number" min="0" class="form-control" name="period" id="period" value="{{ old('period') }}">
 
                   @error('period')
                   <div class="invalid-feedback">
@@ -74,7 +74,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="course_type_id">{{ __('admin.courses.course_type') }} <span>*</span></label>
-                  <select class="select2 form-control" name="course_type_id" id="course_type_id" >
+                  <select class="select2 form-control" name="course_type_id" id="course_type_id">
                     <option value="">{{ __('select') }}</option>
                     @foreach($courseTypes as $type)
                     <option value="{{ $type->id }}"> {{ $type->name }}</option>
@@ -93,7 +93,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="published_at">{{ __('admin.courses.field_published_at') }} <span>*</span></label>
-                  <input type="date" class="form-control" name="published_at" id="published_at" value="<?php echo date('Y-m-d');?>" >
+                  <input type="date" class="form-control" name="published_at" id="published_at" value="<?php echo date('Y-m-d'); ?>">
 
                   @error('published_at')
                   <div class="invalid-feedback">
@@ -115,7 +115,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="end_date">{{ __('admin.courses.end_date') }} <span>*</span></label>
-                  <input type="date" class="form-control" name="end_date" id="end_date" value="{{ old('end_date') }}" >
+                  <input type="date" class="form-control" name="end_date" id="end_date" value="{{ old('end_date') }}">
 
                   @error('end_date')
                   <div class="invalid-feedback">
@@ -126,7 +126,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="promo_url"> {{ __('admin.courses.promo_url') }} <span>*</span></label>
-                  <input type="text" class="form-control" name="promo_url" id="promo_url" value="{{ old('promo_url') }}" >
+                  <input type="text" class="form-control" name="promo_url" id="promo_url" value="{{ old('promo_url') }}">
 
                   @error('promo_url')
                   <div class="invalid-feedback">
@@ -160,7 +160,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="price_with_discount"> {{ __('admin.courses.price_with_discount') }} <span>*</span></label>
-                  <input type="number"  min="0" class="form-control" name="price_with_discount" id="price_with_discount" value="0" >
+                  <input type="number" min="0" class="form-control" name="price_with_discount" id="price_with_discount" value="0">
 
                   @error('price_with_discount')
                   <div class="invalid-feedback">
@@ -172,7 +172,7 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="period_type">{{ __('admin.courses.period_type') }} <span>*</span></label>
-                  <select class="form-control" name="period_type" id="period_type" >
+                  <select class="form-control" name="period_type" id="period_type">
                     <option value="">{{ __('select') }}</option>
                     <option value="1"> {{ __('admin.levels.month') }}</option>
                     <option value="2"> {{ __('admin.levels.day') }}</option>
@@ -187,7 +187,7 @@
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="difficulty_level">{{ __('admin.courses.difficulty_level') }} <span>*</span></label>
-                  <select class="select2 form-control" name="difficulty_level" id="difficulty_level" >
+                  <select class="select2 form-control" name="difficulty_level" id="difficulty_level">
                     <option value="">{{ __('select') }}</option>
                     <option value="0">{{ __('admin.courses.beginner') }}</option>
                     <option value="1">{{ __('admin.courses.intermediate') }}</option>
@@ -204,8 +204,8 @@
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="track_id">{{ __('admin.courses.track') }} <span>*</span></label>
-                  <select class="select2 form-control" name="track_ids[]" id="track_id"  multiple>
-                    <option value=""  disabled hidden>{{ __('select') }}</option>
+                  <select class="select2 form-control" name="track_ids[]" id="track_id" multiple>
+                    <option value="" disabled hidden>{{ __('select') }}</option>
                     @foreach($tracks as $track)
                     <option value="{{ $track->id }}"> {{ $track->name }}</option>
 
@@ -220,7 +220,7 @@
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="seat_number"> {{ __('admin.courses.seat_number') }} <span>*</span></label>
-                  <input type="number"  min="0" class="form-control" name="seat_number" id="seat_number" value="{{ old('seat_number') }}" >
+                  <input type="number" min="0" class="form-control" name="seat_number" id="seat_number" value="{{ old('seat_number') }}">
 
                   @error('seat_number')
                   <div class="invalid-feedback">
@@ -244,15 +244,15 @@
 
 
                 <div class="col-md-6">
-                    <label class="form-label" for="title"> {{ __('admin.select_manual_review') }} <span>*</span></label>
-                    <div class="form-check form-switch md-3" style="margin:10px">
+                  <label class="form-label" for="title"> {{ __('admin.select_manual_review') }} <span>*</span></label>
+                  <div class="form-check form-switch md-3" style="margin:10px">
 
-                      <input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch"  name="manual_review">
-                    </div>
+                    <input class="form-check-input form-control" type="checkbox" style="float: right;" role="switch" name="manual_review">
                   </div>
+                </div>
                 <div class="mb-3">
                   <label class="form-label" for="seat_number"> {{ __('admin.courses.manual_review') }} <span>*</span></label>
-                  <input type="number"  max="5" class="form-control" name="manual_review_val" id="manual_review_val" value="{{ old('manual_review_val') }}">
+                  <input type="number" max="5" class="form-control" name="manual_review_val" id="manual_review_val" value="{{ old('manual_review_val') }}">
 
                   @error('manual_review_val')
                   <div class="invalid-feedback">
@@ -314,17 +314,76 @@
                 @enderror
               </div>
 
+
+              <div class="mb-3 ">
+
+
+                <label for="plan_file">{{ __('admin.courses.plan_file') }}</label>
+                <input type="file" class="form-control" name="plan_file" id="plan_file">
+
+                @error('plan_file')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
+              </div>
+
+              <div class="mb-3 ">
+
+
+                <label for="plan_file">{{ __('admin.courses.prerequisite_file') }}</label>
+                <input type="file" class="form-control" name="prerequisite_file" id="prerequisite_file">
+
+                @error('prerequisite_file')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
+              </div>
+
+
+              <div class="card" style="margin-top: 20px;">
+                <div class="card-header">
+                  <h3> {{ __('admin.courses.course_forum') }} </h3>
+                </div>
+                <div class="card-body">
+                  <div class="main">
+                    <div class="mb-3">
+                      <label class="form-label" for="whatsApp_group_link"> {{ __('admin.courses.whatsApp_group_link') }} <span>*</span></label>
+                      <input type="text" class="form-control" name="whatsApp_group_link" id="whatsApp_group_link" value="{{ old('whatsApp_group_link') }}">
+
+                      @error('whatsApp_group_link')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                      @enderror
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label" for="telegram_channel_link"> {{ __('admin.courses.telegram_channel_link') }} <span>*</span></label>
+                      <input type="text" class="form-control" name="telegram_channel_link" id="telegram_channel_link" value="{{ old('telegram_channel_link') }}">
+
+                      @error('telegram_channel_link')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                      @enderror
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
               <div class="card" style="margin-top: 20px;">
                 <div class="card-header">
                   <h3> {{ __('admin.courses.add_instructors') }} </h3>
                 </div>
                 <div class="card-body">
                   <div class="main">
-                    <table  class=" table data-table data-table-horizontal data-table-highlight">
+                    <table class=" table data-table data-table-horizontal data-table-highlight">
                       <thead>
                         <tr>
                           <td> {{ __('admin.courses.instructor') }} </td>
-                          <td>   {{ __('admin.courses.buy_course_instructor') }}</td>
+                          <td> {{ __('admin.courses.buy_course_instructor') }}</td>
                           <td> {{ __('admin.courses.instructor_prectange') }}</td>
                           <td></td>
                         </tr>
@@ -340,7 +399,7 @@
                             </select>
                           </td>
                           <td><input type="number" min="0" name="instructorsprice[]" value="0" placeholder="قيمة شراء الدورة من المدرب" /></td>
-                          <td><input type="number"  min="0" name="instructorsprecentage[]" value="0" placeholder="ربح المدرب من كل اشتراك" /></td>
+                          <td><input type="number" min="0" name="instructorsprecentage[]" value="0" placeholder="ربح المدرب من كل اشتراك" /></td>
                           <td><a type="button" value="Delete" onclick="deleteRow(this)">
                               <i class="fas fa-trash-alt"></i>
                             </a></td>

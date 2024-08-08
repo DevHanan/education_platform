@@ -320,6 +320,32 @@
               </div>
               @enderror
             </div>
+
+            <div class="mb-3 ">
+
+
+                <label for="plan_file">{{ __('admin.courses.plan_file') }}</label>
+                <input type="file" class="form-control" name="plan_file" id="plan_file">
+
+                @error('plan_file')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
+              </div>
+
+              <div class="mb-3 ">
+
+
+                <label for="plan_file">{{ __('admin.courses.prerequisite_file') }}</label>
+                <input type="file" class="form-control" name="prerequisite_file" id="prerequisite_file">
+
+                @error('prerequisite_file')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
+              </div>
             <input type="hidden" name="id" value="{{$row->id}}">
 
             <div class="card" style="margin-top: 20px;">
