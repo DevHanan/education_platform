@@ -70,6 +70,7 @@ class AppServiceProvider extends ServiceProvider
        $toprated = Course::selectRaw('*, AVG(comments.rate) as avg')
        ->leftJoin('comments', 'courses.id', '=', 'comments.course_id')
        ->groupBy('courses.id')
+       ->where('courses.active','1')
        ->orderBy('avg', 'desc')
        ->take('5')->get();
        $freecourses = Course::active()->where('price','0')->latest()->get();
