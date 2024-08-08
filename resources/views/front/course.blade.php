@@ -347,7 +347,7 @@
                                         <h6> ملف متطلبات مسبقة </h6>
                                         </div>
                                         <div>
-                                            <a href="{{ asset($course->prerequisite_file )}}" class="btn btn-success primary-bg" target="_blank" download="{{ asset($course->prerequisite_file )}}">
+                                            <a href="{{ asset($course->PrerequestFileFullPath )}}" class="btn btn-success primary-bg" target="_blank" download="{{ asset($course->PrerequestFileFullPath )}}">
                                                 تنزيل </a>
                                         </div>
                                     </div>
