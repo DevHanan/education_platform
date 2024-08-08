@@ -480,7 +480,8 @@
 
                                     </form> -->
 
-                                <button type="button" class="btn secondary-bg text-white mt-3" data-bs-toggle="modal" data-bs-target="#courseCommentModal">
+                                <button type="button"  @if(!auth()->guard('students-login')->user()) disabled="disabled" @endif
+                                 class="btn secondary-bg text-white mt-3" data-bs-toggle="modal" data-bs-target="#courseCommentModal">
                                     <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt="">
                                     تقيم الدورة وقياس رضا المستفيد
                                 </button>
@@ -599,7 +600,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="courseCommentModalLabel">Course Feedback</h5>
+                <h5 class="modal-title" id="courseCommentModalLabel"> أضف تقييمك للدورة</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -607,7 +608,7 @@
                     @csrf
                     <div class="mb-3">
                         <label for="comment" class="form-label">Your Comment</label>
-                        <textarea name="comment" class="form-control" id="comment" cols="30" rows="5"></textarea>
+                        <textarea name="comment" class="form-control" id="comment" cols="30" rows="5" required></textarea>
                         <input type="hidden" name="course_id" value="{{ $course->id }}">
                     </div>
                     <div class="d-flex flex-wrap my-3">
