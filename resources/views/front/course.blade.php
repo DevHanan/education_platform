@@ -543,6 +543,7 @@
                                     <a target="_blank" href="tel: {{ $course->telegram_channel_link }}" class="d-flex justify-content-center align-items-center bg-white rounded-circle text-decoration-none mx-2">
                                     <i class="fa-brands fa-telegram fa-lg "></i>
                                     </a>
+                                    
                                
                                 @endif
                             </ul>
