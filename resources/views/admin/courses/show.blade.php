@@ -49,6 +49,15 @@
 
                                     </tr>
                                     <tr>
+                                        <th>{{__('admin.courses.whatsApp_group_link')}}</th>
+                                        <td>{{ $row->whatsApp_group_link }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>{{__('admin.courses.telegram_channel_link')}}</th>
+                                        <td>{{ $row->telegram_channel_link }}</td>
+                                    </tr>
+                                    <tr>
                                         <th> {{__('admin.courses.image')}}</th>
                                         <td> <a href="{{asset($row->imageFullPath)}}" target="_blank">
                                                 <img src="{{ $row->imageFullPath }}" style="width:40px">
