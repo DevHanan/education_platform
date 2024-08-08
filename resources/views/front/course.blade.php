@@ -528,8 +528,6 @@
                     <div class="col-lg-12 col-md-6">
                         <div class="shadow-sm border my-4 p-4 py-5 d-flex flex-column align-items-center" style="border-radius: 24px;">
                             <p class="fw-bold" style="font-size: 18px;">منتدى الدورة</p>
-                            <ul class="">
-
 
                                 @if($course->whatsApp_group_link )
 
@@ -548,7 +546,7 @@
 
                                
                                 @endif
-                            </ul>
+                            
                         </div>
                     </div>
 
