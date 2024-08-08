@@ -27,7 +27,14 @@ class HomeController extends Controller
     public function index()
     {
         $title = 'الصفحة الرئيسية';
-        return view('front.index', compact(['title']));
+        $topratedcourses = Course::selectRaw('*, AVG(comments.rate) as avg')
+        ->leftJoin('comments', 'courses.id', '=', 'comments.course_id')
+        ->groupBy('courses.id')
+        ->where('courses.active','1')
+        ->orderBy('avg', 'desc')
+        ->take('5')->get();
+        return $topratedcourses;
+        return view('front.index', compact(['title','topratedcourses']));
     }
 
     public function about()
