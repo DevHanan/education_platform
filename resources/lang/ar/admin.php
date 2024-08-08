@@ -445,6 +445,7 @@ return [
         'field_whatsapp'  => 'رقم الواتساب'
     ],
     'landing' => [
+        'guide_file' => 'ملف دليل المستخدم',
         'free_courses' => 'الدورات المجانية',
         'book_shop_url' => 'رابط متجر الكتب',
         'letter_news' => 'اشترك في نشرتنا الاخبارية',
