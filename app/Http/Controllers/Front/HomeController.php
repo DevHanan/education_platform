@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Middleware\Cors;
 use App\Models\AboutSetting;
 use App\Models\Blog;
+use App\Models\Comment;
 use App\Models\Coupon;
 use App\Models\Course;
 use App\Models\Faculty;
@@ -273,7 +274,12 @@ class HomeController extends Controller
 
     public function comment(Request $request)
     {
-        return $request->all();
+        $request->merge([
+            'student_id' => auth()->guard('students-login')->user()->id
+        ]);
+        Comment::create($request->all());
+        toastr()->success('تم إضافة التعليق بنجاح', __('front.msg_success'));
+        return redirect()->back();
     }
 
     public function availablefacultities(Request $request)
