@@ -273,6 +273,7 @@ class CourseController extends Controller
     }
     public function update(UpdateCourseRequest $request)
     {
+        return $request->all();
         if (count($request->instructors)) {
             if (count($request->instructors) != count(array_unique($request->instructors))) {
                 Toastr::error(__('admin.trainer_is_duplicated'), __('admin.msg_failed'));
@@ -360,7 +361,7 @@ class CourseController extends Controller
         }
 
         Toastr::success(__('admin.msg_updated_successfully'), __('admin.msg_success'));
-        return redirect()->back();
+        return redirect()->route('admin.courses.index');
 
     }
 
