@@ -40,6 +40,8 @@
                         @endif
                         <li class="py-2"><a href=" {{ url('/blogs') }}" class="text-white text-decoration-none">المدونة</a></li>
                         <li class="py-2"><a href="{{ url('/contactus') }}" class="text-white text-decoration-none">تواصل معنا</a></li>
+                        <li class="py-2"><a href="#" class="text-white text-decoration-none">دليل المستخدم</a></li>
+
                     </ul>
                 </div>
             </div>
