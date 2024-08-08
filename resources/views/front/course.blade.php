@@ -390,16 +390,16 @@
                                 <div class="opinion my-3">
                                     {!! $instructor->qualifications !!}
                                 </div>
-                                <div class="rating d-flex justify-content-end align-items-center">
+                                <!-- <div class="rating d-flex justify-content-end align-items-center">
                                     <div class="mx-2 fw-bold">{{ $course->avgrating}} </div>
-                                    <!-- <div class="img">
+                                    <div class="img">
                                         <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
                                         <img src="{{ asset('public/front/img/icons/yellow-star.png')}}" alt="">
                                         <img src="{{ asset('public/front/img/icons/yellow-star.png')}}" alt="">
                                         <img src="{{ asset('public/front/img/icons/yellow-star.png')}}" alt="">
                                         <img src="{{ asset('public/front/img/icons/yellow-star.png')}}" alt="">
-                                    </div> -->
-                                </div>
+                                    </div>
+                                </div> -->
                             </div>
                             @endforeach
                             @else
