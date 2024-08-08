@@ -347,7 +347,7 @@
                                         <h6> ملف متطلبات مسبقة </h6>
                                         </div>
                                         <div>
-                                            <a href="{{ asset($course->PrerequestFileFullPath )}}" class="btn btn-success primary-bg" target="_blank" download="ملف الدورة">
+                                            <a href="{{ asset($course->PrerequestFileFullPath )}}" class="btn btn-success primary-bg" target="_blank" download="متطلبات_الدورة.pdf">
                                                 تنزيل </a>
                                         </div>
                                     </div>
@@ -360,7 +360,7 @@
                                             <h6> ملف دليل الدورة والخطة الزمنية</h6>
                                         </div>
                                         <div>
-                                            <a href="{{ asset($course->planfileFullPath )}}" class="btn btn-success primary-bg" target="_blank" download="{{ asset($course->planfileFullPath )}}">
+                                            <a href="{{ asset($course->planfileFullPath )}}" class="btn btn-success primary-bg" target="_blank" download="خطة_زمنيه.pdf">
                                                 تنزيل </a>
                                         </div>
                                     </div>
