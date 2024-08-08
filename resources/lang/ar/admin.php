@@ -302,6 +302,8 @@ return [
 
     ],
     "courses" => [
+        'whatsApp_group_link' => 'رابط جروب واتساب',
+        'telegram_channel_link' => 'رابط قناة تليجرام',
         'course_forum' => 'منتدى الدورة',
         'plan_file' => 'ملف دليل الدورة والخطة الزمنية',
         'prerequisite_file' => 'ملف متطلبات مسبقة للدورة ',

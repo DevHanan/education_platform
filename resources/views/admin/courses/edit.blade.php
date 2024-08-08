@@ -349,6 +349,35 @@
             <input type="hidden" name="id" value="{{$row->id}}">
 
             <div class="card" style="margin-top: 20px;">
+                <div class="card-header">
+                  <h3> {{ __('admin.courses.course_forum') }} </h3>
+                </div>
+                <div class="card-body">
+                  <div class="main">
+                    <div class="mb-3">
+                      <label class="form-label" for="whatsApp_group_link"> {{ __('admin.courses.whatsApp_group_link') }} <span>*</span></label>
+                      <input type="text" class="form-control" name="whatsApp_group_link" id="whatsApp_group_link" value="{{ old('whatsApp_group_link',$row) }}">
+
+                      @error('whatsApp_group_link')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                      @enderror
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label" for="telegram_channel_link"> {{ __('admin.courses.telegram_channel_link') }} <span>*</span></label>
+                      <input type="text" class="form-control" name="telegram_channel_link" id="telegram_channel_link" value="{{ old('telegram_channel_link',$row) }}">
+
+                      @error('telegram_channel_link')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                      @enderror
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="card" style="margin-top: 20px;">
               <div class="card-header">
                 <h3> إضافة المدربين </h3>
               </div>
