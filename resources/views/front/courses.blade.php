@@ -357,8 +357,8 @@
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <a href="{{ url('course/'.$course->id)}}" class="link-arrow rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></a>
                                                 <div class="price">
-                                                    <span class="instead-price text-danger text-decoration-line-through mx-2">{{ $course->price }} {{ $setting->currency }}</span>
-                                                    <span class="fw-bold"> {{ $course->TotalDiscount }} {{ $setting->currency }}</span>
+                                                    <span class="instead-price text-danger text-decoration-line-through mx-2">{{ $setting->currency }}{{ $course->price }}</span>
+                                                    <span class="fw-bold">{{ $setting->currency }} {{ $course->TotalDiscount }}</span>
 
                                                 </div>
 
