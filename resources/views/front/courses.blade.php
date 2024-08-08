@@ -324,10 +324,8 @@
 
                                             <div class="rating d-flex justify-content-end">
 
-                                                @if($course->manual_review)
-                                                <span class="fw-bold ms-2" style="color:#5a5a5a">
-                                                    {{ $course->manual_review_val}} </span>
-                                                @else
+                                                @if($course->manual_review == 0)
+                                                
                                                 <span class="mx-3">({{ $course->comments()->count()}})</span>
                                                 <span class="fw-bold ms-2" style="color:#5a5a5a">
                                                     {{ $course->avgrating }}</span>
@@ -442,10 +440,8 @@
                                  </div> -->
                                 <div class="rating d-flex justify-content-end">
 
-                                    @if($course->manual_review)
-                                    <span class="fw-bold ms-2" style="color:#5a5a5a">
-                                        {{ $course->manual_review_val}} </span>
-                                    @else
+                                    @if($course->manual_review == 0)
+                                    
                                     <span class="mx-3">({{ $course->comments()->count()}})</span>
                                     <span class="fw-bold ms-2" style="color:#5a5a5a">
                                         {{ $course->avgrating }}</span>
