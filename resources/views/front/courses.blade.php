@@ -324,9 +324,10 @@
 
                                             <div class="rating d-flex justify-content-end">
 
-                                                @if($course->manual_review == 0)
-
-                                                <span class="mx-3">({{ $course->comments()->count()}})</span>
+                                                @if($course->manual_review)
+                                                {{ $course->manual_review_val}}
+                                                @else
+                                                <span class="mx-3">({{ $course->comments()->count}})</span>
                                                 <span class="fw-bold ms-2" style="color:#5a5a5a">
                                                     {{ $course->avgrating }}</span>
                                                 @endif
@@ -438,44 +439,45 @@
 
                                             @endif
                                  </div> -->
-                                <div class="rating d-flex justify-content-end">
+                                 <div class="rating d-flex justify-content-end">
 
-                                    @if($course->manual_review == 0)
+                                                @if($course->manual_review)
+                                                {{ $course->manual_review_val}}
+                                                @else
+                                                <span class="mx-3">({{ $course->comments()->count}})</span>
+                                                <span class="fw-bold ms-2" style="color:#5a5a5a">
+                                                    {{ $course->avgrating }}</span>
+                                                @endif
 
-                                    <span class="mx-3">({{ $course->comments()->count()}})</span>
-                                    <span class="fw-bold ms-2" style="color:#5a5a5a">
-                                        {{ $course->avgrating }}</span>
-                                    @endif
 
 
-
-                                    @if($course->manual_review)
-                                    @for($i=0; $i<(int)$course->manual_review_val; $i++)
-                                        <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
-                                        @endfor
-                                        @for($i=0; $i<5-(int)$course->manual_review_val; $i++)
-                                            <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
-                                            @endfor
-
-                                            @else
-                                            @if($course->avgrating )
-                                            @for($i=0; $i<(int)$course->avgrating; $i++)
-                                                <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
-                                                @endfor
-                                                @for($i=0; $i<5-(int)$course->avgrating; $i++)
-                                                    <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
+                                                @if($course->manual_review)
+                                                @for($i=0; $i<(int)$course->manual_review_val; $i++)
+                                                    <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
                                                     @endfor
-                                                    @endif
-                                                    @endif
+                                                    @for($i=0; $i<5-(int)$course->manual_review_val; $i++)
+                                                        <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
+                                                        @endfor
 
-                                </div>
+                                                        @else
+                                                        @if($course->avgrating )
+                                                        @for($i=0; $i<(int)$course->avgrating; $i++)
+                                                            <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
+                                                            @endfor
+                                                            @for($i=0; $i<5-(int)$course->avgrating; $i++)
+                                                                <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
+                                                                @endfor
+                                                                @endif
+                                                                @endif
+
+                                            </div>
                                 <hr>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <a href="{{ url('course/'.$course->id)}}" class="link-arrow secondary-bg rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></a>
                                     <div class="price">
-                                      
                                         <span class="instead-price text-decoration-line-through mx-2 primary-color">{{ $setting->currency }} {{ $course->price }}</span>
                                         <span class="fw-bold"> {{ $course->TotalDiscount }} {{ $setting->currency }}</span>
+
                                     </div>
                                 </div>
                             </div>

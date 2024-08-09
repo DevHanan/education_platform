@@ -127,16 +127,35 @@
 
                                             @endif                        </div> -->
                             <div class="rating d-flex justify-content-end">
-                                <span class="mx-3">({{ $course->SubscriptionCount}})</span>
-                                <span class="fw-bold ms-2" style="color:#5a5a5a">{{ $course->avgrating }}</span>
-                                @if($course->avgrating )
-                                @for($i=0; $i<(int)$course->avgrating; $i++)
+
+                                @if($course->manual_review)
+                                {{ $course->manual_review_val}}
+                                @else
+                                <span class="mx-3">({{ $course->comments()->count}})</span>
+                                <span class="fw-bold ms-2" style="color:#5a5a5a">
+                                    {{ $course->avgrating }}</span>
+                                @endif
+
+
+
+                                @if($course->manual_review)
+                                @for($i=0; $i<(int)$course->manual_review_val; $i++)
                                     <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
                                     @endfor
-                                    @for($i=0; $i<5-(int)$course->avgrating; $i++)
+                                    @for($i=0; $i<5-(int)$course->manual_review_val; $i++)
                                         <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
                                         @endfor
-                                        @endif
+
+                                        @else
+                                        @if($course->avgrating )
+                                        @for($i=0; $i<(int)$course->avgrating; $i++)
+                                            <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
+                                            @endfor
+                                            @for($i=0; $i<5-(int)$course->avgrating; $i++)
+                                                <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
+                                                @endfor
+                                                @endif
+                                                @endif
 
                             </div>
                             <hr>
@@ -144,7 +163,7 @@
                                 <a href="{{ url('course/'.$course->id)}}" class="link-arrow secondary-bg rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></a>
                                 <div class="price">
                                     <span class="instead-price text-decoration-line-through mx-2 primary-color">$ 700</span>
-                                    <span class="fw-bold"> {{ $course->price }}  {{ $setting->currency }}</span>
+                                    <span class="fw-bold"> {{ $course->price }} {{ $setting->currency }}</span>
                                 </div>
                             </div>
                         </div>
@@ -212,16 +231,35 @@
 
                                             @endif                        </div> -->
                             <div class="rating d-flex justify-content-end">
-                                <span class="mx-3">({{ $course->SubscriptionCount}})</span>
-                                <span class="fw-bold ms-2" style="color:#5a5a5a">{{ $course->avg }}</span>
-                                @if($course->avg )
-                                @for($i=0; $i<(int)$course->avg; $i++)
+
+                                @if($course->manual_review)
+                                {{ $course->manual_review_val}}
+                                @else
+                                <span class="mx-3">({{ $course->comments()->count}})</span>
+                                <span class="fw-bold ms-2" style="color:#5a5a5a">
+                                    {{ $course->avgrating }}</span>
+                                @endif
+
+
+
+                                @if($course->manual_review)
+                                @for($i=0; $i<(int)$course->manual_review_val; $i++)
                                     <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
                                     @endfor
-                                    @for($i=0; $i<5-(int)$course->avg; $i++)
+                                    @for($i=0; $i<5-(int)$course->manual_review_val; $i++)
                                         <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
                                         @endfor
-                                        @endif
+
+                                        @else
+                                        @if($course->avgrating )
+                                        @for($i=0; $i<(int)$course->avgrating; $i++)
+                                            <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
+                                            @endfor
+                                            @for($i=0; $i<5-(int)$course->avgrating; $i++)
+                                                <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
+                                                @endfor
+                                                @endif
+                                                @endif
 
                             </div>
                             <hr>
@@ -229,7 +267,7 @@
                                 <a href="{{ url('course/'.$course->id)}}" class="link-arrow secondary-bg rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></a>
                                 <div class="price">
                                     <span class="instead-price text-decoration-line-through mx-2 primary-color">$ 700</span>
-                                    <span class="fw-bold"> {{ $course->price }}  {{ $setting->currency }}</span>
+                                    <span class="fw-bold"> {{ $course->price }} {{ $setting->currency }}</span>
                                 </div>
                             </div>
                         </div>
@@ -259,7 +297,7 @@
 <div class="popular-courses my-5">
     <div class="container">
         <h2 class="section_title fw-bold">دورات <span class="primary-color">المجانية </span></h2>
-        <p class="fw-bold mt-3"> بين يديك الدورات المجانية  فى سوق العمل يسعى أغلب الطلاب للاشتراك بها فانضم اليهم </p>
+        <p class="fw-bold mt-3"> بين يديك الدورات المجانية فى سوق العمل يسعى أغلب الطلاب للاشتراك بها فانضم اليهم </p>
     </div>
 
     <div class="card__container swiper mt-4">
@@ -295,16 +333,35 @@
                                             @endif
                         </div> -->
                             <div class="rating d-flex justify-content-end">
-                                <span class="mx-3">({{ $course->SubscriptionCount}})</span>
-                                <span class="fw-bold ms-2" style="color:#5a5a5a">{{ $course->avgrating }}</span>
-                                @if($course->avgrating )
-                                @for($i=0; $i<(int)$course->avgrating; $i++)
+
+                                @if($course->manual_review)
+                                {{ $course->manual_review_val}}
+                                @else
+                                <span class="mx-3">({{ $course->comments()->count}})</span>
+                                <span class="fw-bold ms-2" style="color:#5a5a5a">
+                                    {{ $course->avgrating }}</span>
+                                @endif
+
+
+
+                                @if($course->manual_review)
+                                @for($i=0; $i<(int)$course->manual_review_val; $i++)
                                     <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
                                     @endfor
-                                    @for($i=0; $i<5-(int)$course->avgrating; $i++)
+                                    @for($i=0; $i<5-(int)$course->manual_review_val; $i++)
                                         <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
                                         @endfor
-                                        @endif
+
+                                        @else
+                                        @if($course->avgrating )
+                                        @for($i=0; $i<(int)$course->avgrating; $i++)
+                                            <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
+                                            @endfor
+                                            @for($i=0; $i<5-(int)$course->avgrating; $i++)
+                                                <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
+                                                @endfor
+                                                @endif
+                                                @endif
 
                             </div>
                             <hr>
@@ -312,7 +369,7 @@
                                 <a href="{{ url('course/'.$course->id)}}" class="link-arrow secondary-bg rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></a>
                                 <div class="price">
                                     <span class="instead-price text-decoration-line-through mx-2 primary-color">$ 700</span>
-                                    <span class="fw-bold"> {{ $course->price }}  {{ $setting->currency }}</span>
+                                    <span class="fw-bold"> {{ $course->price }} {{ $setting->currency }}</span>
                                 </div>
                             </div>
                         </div>
@@ -376,16 +433,35 @@
                                             @endif
                         </div> -->
                             <div class="rating d-flex justify-content-end">
-                                <span class="mx-3">({{ $course->SubscriptionCount}})</span>
-                                <span class="fw-bold ms-2" style="color:#5a5a5a">{{ $course->avgrating }}</span>
-                                @if($course->avgrating )
-                                @for($i=0; $i<(int)$course->avgrating; $i++)
+
+                                @if($course->manual_review)
+                                {{ $course->manual_review_val}}
+                                @else
+                                <span class="mx-3">({{ $course->comments()->count}})</span>
+                                <span class="fw-bold ms-2" style="color:#5a5a5a">
+                                    {{ $course->avgrating }}</span>
+                                @endif
+
+
+
+                                @if($course->manual_review)
+                                @for($i=0; $i<(int)$course->manual_review_val; $i++)
                                     <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
                                     @endfor
-                                    @for($i=0; $i<5-(int)$course->avgrating; $i++)
+                                    @for($i=0; $i<5-(int)$course->manual_review_val; $i++)
                                         <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
                                         @endfor
-                                        @endif
+
+                                        @else
+                                        @if($course->avgrating )
+                                        @for($i=0; $i<(int)$course->avgrating; $i++)
+                                            <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
+                                            @endfor
+                                            @for($i=0; $i<5-(int)$course->avgrating; $i++)
+                                                <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
+                                                @endfor
+                                                @endif
+                                                @endif
 
                             </div>
                             <hr>
@@ -393,7 +469,7 @@
                                 <a href="{{ url('course/'.$course->id)}}" class="link-arrow secondary-bg rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></a>
                                 <div class="price">
                                     <span class="instead-price text-decoration-line-through mx-2 primary-color">$ 700</span>
-                                    <span class="fw-bold"> {{ $course->price }}  {{ $setting->currency }}</span>
+                                    <span class="fw-bold"> {{ $course->price }} {{ $setting->currency }}</span>
                                 </div>
                             </div>
                         </div>
@@ -529,16 +605,35 @@
                                             @endif
                         </div> -->
                             <div class="rating d-flex justify-content-end">
-                                <span class="mx-3">({{ $course->SubscriptionCount}})</span>
-                                <span class="fw-bold ms-2" style="color:#5a5a5a">{{ $course->avgrating }}</span>
-                                @if($course->avgrating )
-                                @for($i=0; $i<(int)$course->avgrating; $i++)
+
+                                @if($course->manual_review)
+                                {{ $course->manual_review_val}}
+                                @else
+                                <span class="mx-3">({{ $course->comments()->count}})</span>
+                                <span class="fw-bold ms-2" style="color:#5a5a5a">
+                                    {{ $course->avgrating }}</span>
+                                @endif
+
+
+
+                                @if($course->manual_review)
+                                @for($i=0; $i<(int)$course->manual_review_val; $i++)
                                     <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
                                     @endfor
-                                    @for($i=0; $i<5-(int)$course->avgrating; $i++)
+                                    @for($i=0; $i<5-(int)$course->manual_review_val; $i++)
                                         <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
                                         @endfor
-                                        @endif
+
+                                        @else
+                                        @if($course->avgrating )
+                                        @for($i=0; $i<(int)$course->avgrating; $i++)
+                                            <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
+                                            @endfor
+                                            @for($i=0; $i<5-(int)$course->avgrating; $i++)
+                                                <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
+                                                @endfor
+                                                @endif
+                                                @endif
 
                             </div>
                             <hr>
@@ -546,7 +641,7 @@
                                 <a href="{{ url('course/'.$course->id)}}" class="link-arrow secondary-bg rounded-circle"><i class="fa-solid fa-arrow-up-long"></i></a>
                                 <div class="price">
                                     <span class="instead-price text-decoration-line-through mx-2 primary-color">$ 700</span>
-                                    <span class="fw-bold"> {{ $course->price }}  {{ $setting->currency }}</span>
+                                    <span class="fw-bold"> {{ $course->price }} {{ $setting->currency }}</span>
                                 </div>
                             </div>
                         </div>
