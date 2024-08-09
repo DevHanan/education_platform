@@ -54,33 +54,33 @@
 
                         </div>
                         <div class="ratings d-flex justify-content-center my-4">
-                            <span class="text-white mx-4 fw-bold"> 
-                            @if($course->manual_review)
-                            {{ $course->manual_review_val}}
-                            @else
-                            ({{ $course->comments()->count() }})  {{ $course->avgrating}}
-                            @endif
-                        </span>
+                            <span class="text-white mx-4 fw-bold">
+                                @if($course->manual_review)
+                                {{ $course->manual_review_val}}
+                                @else
+                                ({{ $course->comments()->count() }}) {{ $course->avgrating}}
+                                @endif
+                            </span>
                             <div class="stars">
 
-                            @if($course->manual_review)
-                            @for($i=0; $i<(int)$course->manual_review_val; $i++)
+                                @if($course->manual_review)
+                                @for($i=0; $i<(int)$course->manual_review_val; $i++)
                                     <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
                                     @endfor
                                     @for($i=0; $i<5-(int)$course->manual_review_val; $i++)
                                         <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
                                         @endfor
 
-                            @else
-                                @if($course->avgrating )
-                                @for($i=0; $i<(int)$course->avgrating; $i++)
-                                    <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
-                                    @endfor
-                                    @for($i=0; $i<5-(int)$course->avgrating; $i++)
-                                        <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
-                                        @endfor
-                                        @endif
-                            @endif            
+                                        @else
+                                        @if($course->avgrating )
+                                        @for($i=0; $i<(int)$course->avgrating; $i++)
+                                            <img src="{{ asset('public/front/img/icons/yellow-star.png') }}">
+                                            @endfor
+                                            @for($i=0; $i<5-(int)$course->avgrating; $i++)
+                                                <img src="{{ asset('public/front/img/icons/empty-yellow-star.png')}}" alt="">
+                                                @endfor
+                                                @endif
+                                                @endif
                             </div>
                         </div>
                         <div class="date text-center">
@@ -499,17 +499,17 @@
                                             </div>
                                         </div> -->
                                         <button @if(!auth()->guard('students-login')->user()) disabled="disabled" @endif class="btn secondary-bg text-white mt-3" type="submit"> إرسال التقييم <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></button>
-                                        @if($course->google_link_measure_satisfaction != null )
-                                        @if( auth()->guard('students-login')->user() && $course->isSubscribed == 1)
-                                        <a    href="{{url($course->google_link_measure_satisfaction)}}" target="_blank" 
-                                        class="btn secondary-bg text-white mt-3"> قياس رضا المستفيد <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></a>
 
-                                        @else
-                                        <button 
-                                          class="btn secondary-bg text-white mt-3">   قياس رضا المستفيد <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></button>
-                                        @endif
-                                        @endif
                                     </form>
+
+                                    @if($course->google_link_measure_satisfaction != null )
+                                    @if( auth()->guard('students-login')->user() && $course->isSubscribed == 1)
+                                    <a href="{{url($course->google_link_measure_satisfaction)}}" target="_blank" class="btn secondary-bg text-white mt-3"> قياس رضا المستفيد <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></a>
+
+                                    @else
+                                    <button class="btn secondary-bg text-white mt-3"> قياس رضا المستفي <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></button>
+                                    @endif
+                                    @endif
                             </div>
                         </div>
                     </div>
