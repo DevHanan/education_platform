@@ -505,9 +505,8 @@
                                         class="btn secondary-bg text-white mt-3"> قياس رضا المستفيد <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></a>
 
                                         @else
-                                        <a   disabled
-                                         href="#" target="_blank"
-                                          class="btn secondary-bg text-white mt-3"> يمكنك القيام بعمل تقييم واجراء استبيان لقياس رضا المستفيد بعد تسجيل الدخول والاشتراك بالدورة <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></a>
+                                        <button 
+                                          class="btn secondary-bg text-white mt-3">   قياس رضا المستفيد <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></button>
                                         @endif
                                         @endif
                                     </form>
