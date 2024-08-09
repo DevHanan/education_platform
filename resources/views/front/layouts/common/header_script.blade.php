@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="{{asset('public/front/css/media.css')}}">
     <!-- Bootstrap CSS -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-
+<style>
+  span.instead-price.text-decoration-line-through.mx-2.primary-color {
+    display: block;
+}
+</style>
 </head>
 
