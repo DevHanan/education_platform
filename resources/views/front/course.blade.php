@@ -507,9 +507,13 @@
                                     <a href="{{url($course->google_link_measure_satisfaction)}}" target="_blank" class="btn secondary-bg text-white mt-3"> قياس رضا المستفيد <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></a>
 
                                     @else
-                                    <button class="btn secondary-bg text-white mt-3"> قياس رضا المستفي <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></button>
+                                    <button class="btn secondary-bg text-white mt-3" id="clarificationButton"> قياس رضا المستفيد <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></button>
                                     @endif
                                     @endif
+
+                                    <div id="clarificationText" class="clarification-text hidden">
+                                        يمكنك القيام بعمل تقييم واجراء استبيان لقياس رضا المستفيد بعد تسجيل الدخول والاشتراك بالدورة
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -647,5 +651,15 @@
     });
 </script>
 
-
+<script>
+    document.getElementById('clarificationButton').addEventListener('click', function() {
+        var clarificationText = document.getElementById('clarificationText');
+        // Toggle visibility
+        if (clarificationText.classList.contains('hidden')) {
+            clarificationText.classList.remove('hidden');
+        } else {
+            clarificationText.classList.add('hidden');
+        }
+    });
+</script>
 @endpush
