@@ -511,8 +511,12 @@
                                                 <img src="{{ asset('public/front/img/emptyStar.png')}}" alt="">
                                             </div>
                                         </div> -->
-                                        <button @if(!auth()->guard('students-login')->user()) disabled="disabled" @endif class="btn secondary-bg text-white mt-3" type="submit"> إرسال التقييم <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></button>
+                                        @if( auth()->guard('students-login')->user() && $course->isSubscribed == 1)
+                                        <button class="btn secondary-bg text-white mt-3" type="submit"> إرسال التقييم <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></button>
+                                          @else
+                                          <button class="btn secondary-bg text-white mt-3" id="commentButton">  إرسال التقييم <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></button>
 
+                                          @endif
                                     </form>
 
                                     @if($course->google_link_measure_satisfaction != null )
@@ -525,6 +529,10 @@
                                     @endif
 
                                     <div id="clarificationText" class="clarification-text hidden">
+                                        يمكنك القيام بعمل تقييم واجراء استبيان لقياس رضا المستفيد بعد تسجيل الدخول والاشتراك بالدورة
+                                    </div>
+
+                                    <div id="commentText" class="clarification-text hidden">
                                         يمكنك القيام بعمل تقييم واجراء استبيان لقياس رضا المستفيد بعد تسجيل الدخول والاشتراك بالدورة
                                     </div>
                             </div>
@@ -674,5 +682,17 @@
             clarificationText.classList.add('hidden');
         }
     });
+
+    document.getElementById('commentButton').addEventListener('click', function() {
+        var clarificationText = document.getElementById('commentText');
+        // Toggle visibility
+        if (clarificationText.classList.contains('hidden')) {
+            clarificationText.classList.remove('hidden');
+        } else {
+            clarificationText.classList.add('hidden');
+        }
+    });
+
+    
 </script>
 @endpush
