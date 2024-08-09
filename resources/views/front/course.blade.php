@@ -1,6 +1,19 @@
 @extends('front.layouts.master')
 @section('title', $title)
 @section('content')
+<style>
+    .hidden {
+        display: none;
+    }
+
+    .clarification-text {
+        margin-top: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+    }
+</style>
 @include('front.layouts.common.navbar')
 <div class="course-content-page">
 
