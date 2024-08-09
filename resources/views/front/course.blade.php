@@ -499,8 +499,10 @@
                                             </div>
                                         </div> -->
                                         <button @if(!auth()->guard('students-login')->user()) disabled="disabled" @endif class="btn secondary-bg text-white mt-3" type="submit"> إرسال التقييم <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></button>
-                                        @if($course->google_link_measure_satisfaction != null)
-                                        <a  href="{{url($course->google_link_measure_satisfaction)}}" target="_blank" class="btn secondary-bg text-white mt-3" type="submit"> قياس رضا المستفيد <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></a>
+                                        @if($course->google_link_measure_satisfaction != null )
+                                        $course->isSubscribed == 1
+                                        <a   @if(!auth()->guard('students-login')->user() && $course->isSubscribed != 1) disabled="disabled" @endif href="{{url($course->google_link_measure_satisfaction)}}" target="_blank" class="btn secondary-bg text-white mt-3" type="submit"> قياس رضا المستفيد <img src="{{ asset('public/front/img/icons/fi-rr-comment-alt.png')}}" width="20" class="mx-3" alt=""></a>
+                                        
                                         @endif
                                     </form>
                             </div>
