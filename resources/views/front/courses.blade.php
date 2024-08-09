@@ -327,7 +327,7 @@
                                                 @if($course->manual_review)
                                                 {{ $course->manual_review_val}}
                                                 @else
-                                                <span class="mx-3">({{ $course->comments()->count}})</span>
+                                                <span class="mx-3">({{ $course->comments()->count()}})</span>
                                                 <span class="fw-bold ms-2" style="color:#5a5a5a">
                                                     {{ $course->avgrating }}</span>
                                                 @endif
@@ -444,7 +444,7 @@
                                                 @if($course->manual_review)
                                                 {{ $course->manual_review_val}}
                                                 @else
-                                                <span class="mx-3">({{ $course->comments()->count}})</span>
+                                                <span class="mx-3">({{ $course->comments()->count()}})</span>
                                                 <span class="fw-bold ms-2" style="color:#5a5a5a">
                                                     {{ $course->avgrating }}</span>
                                                 @endif
